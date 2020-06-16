@@ -14,12 +14,12 @@
           <?php include 'menu.php'; ?>
 
           <form class="inline-form" action="<?php echo site_url('home/search'); ?>" method="get" style="width: 100%;">
-            <div class="input-group search-box mobile-search">
+            <!--<div class="input-group search-box mobile-search">
               <input type="text" name = 'query' class="form-control" placeholder="<?php echo get_phrase('search_for_courses'); ?>">
               <div class="input-group-append">
                 <button class="btn" type="submit"><i class="fas fa-search"></i></button>
               </div>
-            </div>
+            </div>-->
           </form>
 
           <?php if ($this->session->userdata('admin_login')): ?>
@@ -30,16 +30,16 @@
             </div>
           <?php endif; ?>
 
-          <div class="cart-box menu-icon-box" id = "cart_items">
-            <?php include 'cart_items.php'; ?>
-          </div>
+          <!--<div class="cart-box menu-icon-box" id = "cart_items">
+            <?php //include 'cart_items.php'; ?>
+          </div>-->
 
           <span class="signin-box-move-desktop-helper"></span>
           <div class="sign-in-box btn-group">
 
             <a href="<?php echo site_url('home/login'); ?>" class="btn btn-sign-in"><?php echo get_phrase('log_in'); ?></a>
 
-            <a href="<?php echo site_url('home/sign_up'); ?>" class="btn btn-sign-up"><?php echo get_phrase('sign_up'); ?></a>
+            <!--<a href="<?php echo site_url('home/sign_up'); ?>" class="btn btn-sign-up"><?php //echo get_phrase('sign_up'); ?></a>-->
 
           </div> <!--  sign-in-box end -->
         </nav>
