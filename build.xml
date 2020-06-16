@@ -52,47 +52,53 @@
  
 <!-- PHPLoc (Lines Of Code) report -->  
  <target name="phploc" description="Measure project size using PHPLOC">
-  <exec executable="phploc">
-   <arg value="--log-csv" />
-   <arg value="${basedir}/logs/phploc.csv" />
-   <arg path="${basedir}/application" />
-  </exec>
+  <exec executable="cmd">
+        <arg line="/c phploc
+            --log-csv '${basedir}/build/logs/phploc.csv'
+            application " />
+    </exec>
  </target>
 
 <!-- PHP Mess Detector -->
 <target name="phpmd" description="Perform project mess detection using PHPMD creating a log file for the continuous integration server">
-  <exec executable="phpmd">
-   <arg path="${basedir}/application" />
-   <arg value="xml" />
-   <arg value="codesize,unusedcode,naming" />
-   <arg value="--reportfile" />
-   <arg value="${basedir}/build/logs/pmd.xml" />
-  </exec>
+  
+  <exec executable="cmd">
+        <arg line="/c phpmd application
+         codesize,design,naming,unusedcode
+          --reportfile '${basedir}/build/logs/pmd.xml'
+          " />
+    </exec>
  </target>
  
 <!-- PHP Copy Paste Detector -->
 <target name="phpcpd" description="Find duplicate code using PHPCPD">
-  <exec executable="phpcpd">
-   <arg value="--log-pmd" />
-   <arg value="${basedir}/build/logs/pmd-cpd.xml" />
-   <arg path="${basedir}/application" />
-  </exec>
+  <exec executable="cmd">
+        <arg line="/c phpcpd
+            --log-pmd '${basedir}/build/logs/pmd-cpd.xml'
+            application" />
+    </exec>
  </target>
 
 <!-- PHP Code Sniffer - tokenises PHP, JS and CSS files and detects violations of defined coding standards --> 
  <target name="phpcs" description="Check code with PHP Code Sniffer">
- <exec executable="phpcs">
-  <arg value="-n" />
-  <arg path="${basedir}/application" />
- </exec>
+ 
+ <exec executable="cmd">
+        <arg line="/c phpcs -i 
+            --report=checkstyle
+            --report-file='${basedir}/build/logs/checkstyle.xml'
+            --standard='${basedir}/docs/coding-standard/ruleset.xml'
+            -p
+            application" />
+    </exec>
 </target> 
 
 <!-- Kick off phpunit - this requires 3.4.1 because of assertType(), deprecated in 3.5.x and removed from 3.6.x. --> 
  <target name="phpunit">
-  <exec dir="${basedir}/tests" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
-  <env key="APPLICATION_ENV" value="production"/>
-  <arg line="--verbose --stderr" />   
-  </exec>
+ 
+ <exec executable="cmd">
+        <arg line="/c phpunit '${basedir}/tests/tests.php' production
+		--verbose --stderr" />
+    </exec>
  </target>
  
 </project>
