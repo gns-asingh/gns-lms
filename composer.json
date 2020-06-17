@@ -1,5 +1,5 @@
 {
-	"description": "The CodeIgniter framework",
+	"description": "GNS LMS",
 	"name": "codeigniter/framework",
 	"type": "project",
 	"homepage": "https://codeigniter.com",
@@ -18,6 +18,13 @@
 	},
 	"require-dev": {
 		"mikey179/vfsStream": "1.1.*",
-		"phpunit/phpunit": "4.* || 5.*"
+		"phpunit/phpunit": "4.* || 5.*",
+		"pdepend/pdepend": "2.2.4",
+        "phing/phing": "2.15.0",
+        "phploc/phploc": "3.0.1",
+        "phpmd/phpmd": "2.4.3",
+        "sebastian/phpcpd": "2.0.4",
+        "squizlabs/php_codesniffer": "2.7.0",
+        "theseer/phpdox": "0.9.0"
 	}
 }

@@ -978,12 +978,13 @@ select + .select2-container{
 */
 
 .home-banner-area{
-    background-image: url('../../../../uploads/system/home-banner.jpg');
+    /*background-image: url('../../../../uploads/system/home-banner.jpg');*/
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     padding: 170px 0 130px;
-    color: #fff;
+    /*color: #fff;*/
+	background-color: #ADD8E6
 }
 .home-banner-wrap{
     max-width: 500px;

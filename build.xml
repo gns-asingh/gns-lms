@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Set some basic project information and targets -->
+<project name="My ZF Project" default="build">
+
+<target name="build"
+   depends="prepare, lint, phploc, phpmd, phpcpd, phpcs, phpunit"/>  
+   
+<target name="build-parallel"
+   depends="prepare,lint, tools-parallel, phpcpd, phpunit"/>
+
+<property environment="env"/>
+
+<target name="tools-parallel" description="Run tools in parallel">
+  <parallel threadCount="2">
+   <sequential>
+    <antcall target="phpmd"/>
+   </sequential>
+   <antcall target="phpcpd"/>
+   <antcall target="phpcs"/>
+   <antcall target="phploc"/>
+   <antcall target="phpdox"/>
+  </parallel>
+ </target>
+  
+<!-- Clean up from previous builds -->
+ <target name="clean" description="Cleanup build artifacts">
+  <delete dir="${basedir}/build/coverage"/>
+  <delete dir="${basedir}/build/logs"/>
+  <delete dir="${basedir}/build/api"/>
+  <delete dir="${basedir}/application/cache"/>
+ </target>
+
+<!-- Prepare for the new build --> 
+ <target name="prepare" depends="clean" description="Prepare for build">
+  <mkdir dir="${basedir}/build/coverage"/>
+  <mkdir dir="${basedir}/build/logs"/>
+  <mkdir dir="${basedir}/build/api"/>
+   <mkdir dir="${basedir}/application/cache"/>
+ </target>
+
+<!-- Lint the PHP files in application dir. Linting the whole ZF framework library takes forever -->
+ <target name="lint" description="Perform syntax check of sourcecode files">
+  <apply executable="php" failonerror="true">
+   <arg value="-l" />
+   
+   	<fileset dir="${basedir}/application">
+    	<include name="**/*.php" />
+    <modified />
+   </fileset>
+  </apply>
+ </target>
+ 
+<!-- PHPLoc (Lines Of Code) report -->  
+ <target name="phploc" description="Measure project size using PHPLOC">
+  <exec executable="cmd">
+        <arg line="/c phploc
+            --log-csv '${basedir}/build/logs/phploc.csv'
+            application " />
+    </exec>
+ </target>
+
+<!-- PHP Mess Detector -->
+<target name="phpmd" description="Perform project mess detection using PHPMD creating a log file for the continuous integration server">
+  
+  <exec executable="cmd">
+        <arg line="/c phpmd application
+         codesize,design,naming,unusedcode
+          --reportfile '${basedir}/build/logs/pmd.xml'
+          " />
+    </exec>
+ </target>
+ 
+<!-- PHP Copy Paste Detector -->
+<target name="phpcpd" description="Find duplicate code using PHPCPD">
+  <exec executable="cmd">
+        <arg line="/c phpcpd
+            --log-pmd '${basedir}/build/logs/pmd-cpd.xml'
+            application" />
+    </exec>
+ </target>
+
+<!-- PHP Code Sniffer - tokenises PHP, JS and CSS files and detects violations of defined coding standards --> 
+ <target name="phpcs" description="Check code with PHP Code Sniffer">
+ 
+ <exec executable="cmd">
+        <arg line="/c phpcs -i 
+            --report=checkstyle
+            --report-file='${basedir}/build/logs/checkstyle.xml'
+            --standard='${basedir}/docs/coding-standard/ruleset.xml'
+            -p
+            application" />
+    </exec>
+</target> 
+
+<!-- Kick off phpunit - this requires 3.4.1 because of assertType(), deprecated in 3.5.x and removed from 3.6.x. --> 
+ <target name="phpunit">
+ 
+ <exec executable="cmd">
+        <arg line="/c phpunit '${basedir}/tests/tests.php' production
+		--verbose --stderr" />
+    </exec>
+ </target>
+ 
+</project>
