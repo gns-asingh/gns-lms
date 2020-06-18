@@ -1,4 +1,4 @@
-<section class="menu-area bg-dark">
+<section class="menu-area bg-dark" style="background-color:#0e0e0e!important;">
   <div class="container-xl">
     <div class="row">
       <div class="col">
@@ -10,7 +10,7 @@
           </ul>
 
           <a href="<?php echo site_url(''); ?>" class="navbar-brand" href="#" style="padding:0;">
-            <img src="<?php echo base_url().'uploads/system/logo-dark.png'; ?>" alt="" style="height:75px;"></<img>
+            <img src="<?php echo base_url().'uploads/system/logo-dark.png'; ?>" alt="" style="width:126px;height:75px;"></<img>
           </a>
 
           <?php include 'menu.php'; ?>

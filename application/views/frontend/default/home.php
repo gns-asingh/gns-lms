@@ -1,4 +1,69 @@
-<section class="home-banner-area">
+<section>
+<div id="demo" class="carousel slide" data-ride="carousel" data-interval="false">
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+    <li data-target="#demo" data-slide-to="3"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+		<div class="bannerHeight">
+			<div class="banner1"></div>
+		</div>
+      
+		  <div class="carousel-caption carouselTitle">
+			  <div class="carouselInfo">
+				<h3><?php echo get_frontend_settings('banner_title'); ?></h3>
+				<p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
+			  </div>
+		  </div>   
+    </div>
+    <div class="carousel-item">
+		<div class="bannerHeight">
+			<div class="banner2"></div>
+		</div>
+		  <div class="carousel-caption carouselTitle">
+			<div class="carouselInfo">
+					<h3><?php echo get_frontend_settings('banner_title'); ?></h3>
+					<p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
+			</div>
+		  </div>   
+    </div>
+	<div class="carousel-item">
+		<div class="bannerHeight">
+			<div class="banner3"></div>
+		</div>
+		  <div class="carousel-caption carouselTitle">
+			<div class="carouselInfo">
+					<h3><?php echo get_frontend_settings('banner_title'); ?></h3>
+					<p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
+			</div>
+		  </div>   
+    </div>
+    <div class="carousel-item">
+    <div class="bannerHeight">
+        <div class="banner4"></div>
+    </div>
+    <div class="carousel-caption carouselTitle">
+        <div class="carouselInfo">
+                <h3><?php echo get_frontend_settings('banner_title'); ?></h3>
+                <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
+        </div>
+      </div>  
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+</section>
+
+
+<section class="home-banner-area" style="display:none;">
     <div class="container-lg">
         <div class="row">
             <div class="col">
