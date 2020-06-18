@@ -636,25 +636,8 @@ select + .select2-container{
     background: #f7f8fa;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .sign-in-box > .btn{
-    padding: 11px 12px;
+    padding: 8px 20px;
     font-size: 15px;
     border-radius: 2px;
     line-height: 1.35135;
@@ -663,13 +646,14 @@ select + .select2-container{
     border-radius: 2px !important;
 }
 .sign-in-box .btn-sign-in{
-    color: #686f7a;
-    background-color: #fff;
-    border: 1px solid #505763;
+    color: #fff;
+    background-color: #679adc;
+    border: 1px solid #679adc;
 }
 .sign-in-box .btn-sign-in:hover,
 .sign-in-box .btn-sign-in:focus{
-    background-color: #f2f3f5;
+    background-color: #43476d;
+    border: 1px solid #43476d;
 }
 .sign-in-box .btn-sign-up{
     color: #fff;
@@ -3362,7 +3346,7 @@ section.user-dashboard-area {
 }
 
 .user-dashboard-content {
-    width: 82%;
+    width: 100%;
 }
 section.user-dashboard-area {
     padding: 40px 0;
@@ -3415,7 +3399,7 @@ section.user-dashboard-area {
 }
 
 .user-dashboard-content .content-title-box .title {
-    color: #29303b;
+    color: #fff;
     font-size: 22px;
     font-weight: 700;
 }
@@ -3424,7 +3408,7 @@ section.user-dashboard-area {
     font-size: 15px;
     line-height: 25px;
     font-weight: 300;
-    color: #29303b;
+    color: #fff;
 }
 
 .user-dashboard-content .content-update-box {
@@ -3435,16 +3419,18 @@ section.user-dashboard-area {
 
 .user-dashboard-content .content-update-box button {
     color: #fff;
-    background-color: #ec5252;
-    border-color: #ec5252;
-    padding: 11px 12px;
+    /* background-color: #ec5252; */
+    background-color: #679adc;
+    border-color: #679adc;
+    padding: 8px 23px;
     font-size: 15px;
     border-radius: 2px;
     line-height: 1.35135;
     font-weight: 600;
 }
 .user-dashboard-content .content-box .form-group {
-    padding: 10px 142px;
+    /* padding: 10px 142px; */
+    padding:20px 20px;
     margin-bottom: 0;
 }
 .user-dashboard-content .content-box .form-group .input-group-text{
@@ -3926,9 +3912,9 @@ section.purchase-history-list-area {
 
 .footer-area{
     background-color: #fff;
-    padding: 30px 0;
-    border-bottom: 6px solid #ec5252;
-    border-top: 1px solid #e8e9eb;
+    /*padding: 30px 0;*/
+    border-top: 6px solid #ec5252;
+    border-bottom: 1px solid #e8e9eb;
 }
 .copyright-text{
     color: #686f7a;
@@ -4116,7 +4102,7 @@ div.tagsinput span.tag a {
     padding: 13px;
 }
 .login-form, .register-form, .forgot-password-form {
-    background-color: #fff;
+    /* background-color: #fff; */
     padding-bottom: 30px;
 }
 
@@ -4126,4 +4112,82 @@ div.tagsinput span.tag a {
 
 .quiz-options label {
   color: #3a3a3a;
+}
+.bannerHeight{
+    height:500px;
+    width:100%;
+}
+.banner1{
+     background-image: url('../../../../uploads/system/banner1.jpg');
+     background-position: center center;
+     background-size: cover;
+     background-repeat: no-repeat;
+     height:100%;
+     width:100%;
+}
+.banner2{
+    background-image: url('../../../../uploads/system/banner2.jpg');
+     background-position: center center;
+     background-size: cover;
+     background-repeat: no-repeat;
+     height:100%;
+     width:100%;
+}
+.banner3{
+    background-image: url('../../../../uploads/system/banner3.jpg');
+     background-position: center center;
+     background-size: cover;
+     background-repeat: no-repeat;
+     height:100%;
+     width:100%;
+}
+.banner4{
+    background-image: url('../../../../uploads/system/banner4.jpg');
+     background-position: center center;
+     background-size: cover;
+     background-repeat: no-repeat;
+     height:100%;
+     width:100%;
+}
+.carouselTitle{
+    left: 10%;
+    top: 70%;
+    transform: translate(0px, -50%);
+    width: auto;
+    bottom: auto;
+    right: auto;
+}
+.carouselInfo{
+    background: rgba(0, 0, 0, 0.7215686274509804);
+    /* max-width: 600px; */
+    padding: 30px 20px;
+    text-align: left;
+    width: auto;
+}
+.carousel-indicators li{
+    background-color: #e95152;
+}
+.carousel-indicators .active {
+    background-color: #63b327;
+}
+.login_bg{
+    background: url(https://images.assetsdelivery.com/compings_v2/sergein/sergein1012/sergein101200034.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    opacity: 0.4;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+.user_dash_bg{
+    width: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.7803921568627451)!important;    
+    box-shadow: 2px 3px 4px #333;
+    border:none;
+
 }

@@ -8,7 +8,7 @@
                         </p>
                     </div>
                     <div class="col-md-6">
-                        <ul class="nav justify-content-md-end footer-menu">
+                        <ul class="nav justify-content-md-end footer-menu" style="padding:30px 0">
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo site_url('home/about_us'); ?>"><?php echo get_phrase('about'); ?></a>
                             </li>

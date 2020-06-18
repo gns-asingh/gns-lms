@@ -1,4 +1,4 @@
-<section class="category-header-area">
+<section class="category-header-area" style="display:none;">
     <div class="container-lg">
         <div class="row">
             <div class="col">
@@ -20,11 +20,12 @@
     </div>
 </section>
 
-<section class="category-course-list-area">
+<section class="category-course-list-area" style="position:relative;">
+    <div class="login_bg"></div>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-9">
-              <div class="user-dashboard-box mt-3">
+        <div class="row">
+            <div class="col-lg-12">
+              <div class="user-dashboard-box mt-3 user_dash_bg">
                   <div class="user-dashboard-content w-100 login-form">
                       <div class="content-title-box">
                           <div class="title"><?php echo get_phrase('login'); ?></div>
@@ -46,11 +47,11 @@
                           <div class="content-update-box">
                               <button type="submit" class="btn"><?php echo get_phrase('login'); ?></button>
                           </div>
-                          <div class="forgot-pass text-center">
+                          <div class="forgot-pass text-center" style="color:#fff;">
                               <span>or</span>
                               <a href="javascript::" onclick="toggoleForm('forgot_password')"><?php echo get_phrase('forgot_password'); ?></a>
                           </div>
-                          <div class="account-have text-center">
+                          <div class="account-have text-center" style="color:#fff">
                               <?php echo get_phrase('do_not_have_an_account'); ?>? <a href="javascript::" onclick="toggoleForm('registration')"><?php echo get_phrase('sign_up'); ?></a>
                           </div>
                       </form>
