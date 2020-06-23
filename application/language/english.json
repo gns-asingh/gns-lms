@@ -651,5 +651,8 @@
     "disable": "Disable",
     "user_added_successfully": "User added successfully",
     "welcom": "Welcom",
-    "no_records_found": "No records found"
+    "no_records_found": "No records found",
+    "trainee": "Trainee",
+    "enrol_a_trainee": "Enrol a trainee",
+    "number_of_trainee": "Number of trainee"
 }
