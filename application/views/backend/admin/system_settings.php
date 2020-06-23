@@ -105,7 +105,7 @@
         </div> <!-- end card -->
     </div><!-- end col-->
     <div class="col-xl-5">
-        <div class="card">
+      <!--  <div class="card">
             <div class="card-body">
                 <div class="col-lg-12">
                     <h4 class="mb-3 header-title"><?php echo get_phrase('update_product');?></h4>
@@ -124,7 +124,8 @@
                         <button type="submit" class="btn btn-primary"><?php echo get_phrase('update'); ?></button>
                     </form>
                 </div>
-            </div> <!-- end card body-->
+            </div>  end card body-->
+            
         </div>
     </div>
 </div>

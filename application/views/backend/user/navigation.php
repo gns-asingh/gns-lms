@@ -24,12 +24,12 @@
 					<span><?php echo get_phrase('courses'); ?></span>
 				</a>
 			</li>
-			<li class="side-nav-item">
+		<!--	<li class="side-nav-item">
 				<a href="<?php echo site_url('user/instructor_revenue'); ?>" class="side-nav-link <?php if ($page_name == 'report' || $page_name == 'invoice')echo 'active';?>">
 					<i class="dripicons-media-shuffle"></i>
 					<span><?php echo get_phrase('instructor_revenue'); ?></span>
 				</a>
-			</li>
+			</li> 
 
 			<li class="side-nav-item">
 			<a href="javascript: void(0);" class="side-nav-link <?php if ($page_name == 'system_settings' || $page_name == 'frontend_settings' || $page_name == 'payment_settings' || $page_name == 'instructor_settings' || $page_name == 'smtp_settings' || $page_name == 'manage_language' ): ?> active <?php endif; ?>">
@@ -40,7 +40,7 @@
 			<ul class="side-nav-second-level" aria-expanded="false">
 				<li class = "<?php if($page_name == 'payment_settings') echo 'active'; ?>">
 					<a href="<?php echo site_url('user/payment_settings'); ?>"><?php echo get_phrase('payment_settings'); ?></a>
-				</li>
+				</li> -->
 			</ul>
 		</li>
 	    </ul>

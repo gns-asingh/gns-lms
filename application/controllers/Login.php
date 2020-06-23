@@ -46,6 +46,11 @@ class Login extends CI_Controller {
             }else if($row->role_id == 2){
                 $this->session->set_userdata('user_login', '1');
                 redirect(site_url('home'), 'refresh');
+            }else if($row->role_id == 3){
+                //$this->session->set_userdata('trainee_login', '1');
+                //redirect(site_url('home'), 'refresh');
+                $this->session->set_userdata('instructor_login', '1');
+                redirect(site_url('instructor/dashboard'), 'refresh');
             }
         }else {
             $this->session->set_flashdata('error_message',get_phrase('invalid_login_credentials'));
@@ -130,8 +135,10 @@ class Login extends CI_Controller {
         $this->session->unset_userdata('name');
         if ($this->session->userdata('admin_login') == 1) {
             $this->session->unset_userdata('admin_login');
+            $this->session->unset_userdata('instructor_login');
         }else {
             $this->session->unset_userdata('user_login');
+            $this->session->unset_userdata('trainee_login');
         }
     }
 
