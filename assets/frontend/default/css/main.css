@@ -15,7 +15,7 @@ html {
     text-shadow: none;
 }
 body{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     padding-right: 0 !important;
     color: #29303b;
     font-size: 15px;
@@ -4190,4 +4190,56 @@ div.tagsinput span.tag a {
     box-shadow: 2px 3px 4px #333;
     border:none;
 
+}
+.about_header{
+    background:#fff!important;
+    color:#333!important;
+    padding:20px 20px!important;
+    box-shadow: 1px 2px 3px #a7a7a7;
+}
+.who_we_title{
+   color:#679adc;
+}
+.who_we_matter{
+    line-height:25px;
+}
+.who_we_img{
+    max-width:100%;
+    height: auto;;
+}
+.why_us_bg{
+    background:url('../../../../uploads/system/why-choose-us.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+.section_padding_40 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.why_us_icon{
+    max-width:100%;
+    width:126px;
+    height:auto;
+}
+.choose_us_title{
+    color:#679adc;
+    margin-bottom:20px;
+}
+.mr-20{
+    margin-right:20px;
+}
+.vision_mission_title{
+    color:#679adc;
+    margin-bottom:12px;
+    font-weight:600;
+}
+.text-center{
+    text-align: center;;
+}
+.vision_mission_icon{
+    max-width: 100%;
+    height: auto;
+    width: 339px;
 }

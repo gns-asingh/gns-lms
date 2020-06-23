@@ -1,14 +1,14 @@
 <!-- Topbar Start -->
-<div class="navbar-custom topnav-navbar topnav-navbar-dark">
+<div class="navbar-custom topnav-navbar topnav-navbar-dark" style="background-color:#0e0e0e!important;">
     <div class="container-fluid">
 
         <!-- LOGO -->
         <a href="<?php echo site_url($this->session->userdata('role')); ?>" class="topnav-logo" style = "min-width: unset;">
             <span class="topnav-logo-lg">
-                <img src="<?php echo base_url('uploads/system/logo-light.png');?>" alt="" height="40">
+                <img src="<?php echo base_url('uploads/system/logo-light.png');?>" alt="" style="width:126px;height:75px;">
             </span>
             <span class="topnav-logo-sm">
-                <img src="<?php echo base_url('uploads/system/logo-light-sm.png');?>" alt="" height="40">
+                <img src="<?php echo base_url('uploads/system/logo-light-sm.png');?>" alt="" style="width:126px;height:75px;">
             </span>
         </a>
 

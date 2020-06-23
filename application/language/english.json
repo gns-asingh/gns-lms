@@ -651,5 +651,11 @@
     "disable": "Disable",
     "user_added_successfully": "User added successfully",
     "welcom": "Welcom",
-    "no_records_found": "No records found"
+    "no_records_found": "No records found",
+    "explore_the_variety_of_courses": "Explore the variety of courses",
+    "enrolled_trainees": "Enrolled trainees",
+    "trainees_currently_enrolled_for_various_courses": "Trainees currently enrolled for various courses",
+    "scheduled_courses": "Scheduled courses",
+    "attend_courses_scheduled_for_today": "Attend courses scheduled for today",
+    "attend_scheduled_courses_for_today": "Attend scheduled courses for today"
 }
