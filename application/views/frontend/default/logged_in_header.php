@@ -16,25 +16,19 @@ $user_details = $this->user_model->get_user($this->session->userdata('user_id'))
                         <img src="<?php echo base_url().'uploads/system/logo-dark.png'; ?>" alt="" height="35">
                     </a>
 
-                    <?php include 'menu.php'; ?>
+                    <?php //include 'menu.php'; ?>
 
 
                     <form class="inline-form" action="<?php echo site_url('home/search'); ?>" method="get" style="width: 100%;">
-                        <div class="input-group search-box mobile-search">
+                    <!--    <div class="input-group search-box mobile-search">
                             <input type="text" name = 'query' class="form-control" placeholder="<?php echo get_phrase('search_for_courses'); ?>">
                             <div class="input-group-append">
                                 <button class="btn" type="submit"><i class="fas fa-search"></i></button>
                             </div>
-                        </div>
-                    </form>
+                        </div> -->
+                    </form> 
 
-                    <?php if (get_settings('allow_instructor') == 1): ?>
-                        <div class="instructor-box menu-icon-box">
-                            <div class="icon">
-                                <a href="<?php echo site_url('user'); ?>" style="border: 1px solid transparent; margin: 10px 10px; font-size: 14px; width: 100%; border-radius: 0;"><?php echo get_phrase('instructor'); ?></a>
-                            </div>
-                        </div>
-                    <?php endif; ?>
+                    
 
                     <div class="instructor-box menu-icon-box">
                         <div class="icon">
@@ -43,11 +37,11 @@ $user_details = $this->user_model->get_user($this->session->userdata('user_id'))
                     </div>
 
                     <div class="wishlist-box menu-icon-box" id = "wishlist_items">
-                        <?php include 'wishlist_items.php'; ?>
+                        <?php //include 'wishlist_items.php'; ?>
                     </div>
 
                     <div class="cart-box menu-icon-box" id = "cart_items">
-                        <?php include 'cart_items.php'; ?>
+                        <?php //include 'cart_items.php'; ?>
                     </div>
 
                     <?php //include 'notifications.php'; ?>
@@ -92,9 +86,9 @@ $user_details = $this->user_model->get_user($this->session->userdata('user_id'))
                             </li>
 
                             <li class="user-dropdown-menu-item"><a href="<?php echo site_url('home/my_courses'); ?>"><i class="far fa-gem"></i><?php echo get_phrase('my_courses'); ?></a></li>
-                            <li class="user-dropdown-menu-item"><a href="<?php echo site_url('home/my_wishlist'); ?>"><i class="far fa-heart"></i><?php echo get_phrase('my_wishlist'); ?></a></li>
+                           <!-- <li class="user-dropdown-menu-item"><a href="<?php echo site_url('home/my_wishlist'); ?>"><i class="far fa-heart"></i><?php echo get_phrase('my_wishlist'); ?></a></li> -->
                             <li class="user-dropdown-menu-item"><a href="<?php echo site_url('home/my_messages'); ?>"><i class="far fa-envelope"></i><?php echo get_phrase('my_messages'); ?></a></li>
-                            <li class="user-dropdown-menu-item"><a href="<?php echo site_url('home/purchase_history'); ?>"><i class="fas fa-shopping-cart"></i><?php echo get_phrase('purchase_history'); ?></a></li>
+                           <!-- <li class="user-dropdown-menu-item"><a href="<?php echo site_url('home/purchase_history'); ?>"><i class="fas fa-shopping-cart"></i><?php echo get_phrase('purchase_history'); ?></a></li> -->
                             <li class="user-dropdown-menu-item"><a href="<?php echo site_url('home/profile/user_profile'); ?>"><i class="fas fa-user"></i><?php echo get_phrase('user_profile'); ?></a></li>
                             <li class="dropdown-user-logout user-dropdown-menu-item"><a href="<?php echo site_url('login/logout/user'); ?>"><?php echo get_phrase('log_out'); ?></a></li>
                         </ul>

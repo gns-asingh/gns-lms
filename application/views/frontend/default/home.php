@@ -125,7 +125,7 @@
 
 <section class="course-carousel-area" style="display:none;">
     <div class="container-lg">
-        <div class="row">
+     <!--   <div class="row">
             <div class="col">
                 <h2 class="course-carousel-title"><?php echo get_phrase('top_courses'); ?></h2>
                 <div class="course-carousel">
@@ -135,7 +135,7 @@
                     <div class="course-box-wrap">
                         <a href="<?php echo site_url('home/course/'.slugify($top_course['title']).'/'.$top_course['id']); ?>" class="has-popover">
                             <div class="course-box">
-                                <!-- <div class="course-badge position best-seller">Best seller</div> -->
+                               
                                 <div class="course-image">
                                     <img src="<?php echo $this->crud_model->get_course_thumbnail_url($top_course['id']); ?>" alt="" class="img-fluid">
                                 </div>
@@ -248,7 +248,7 @@
                 </div>
             </div>
         <?php endforeach; ?>
-    </div>
+    </div> -->
 </div>
 </div>
 </div>
@@ -256,7 +256,7 @@
 
 <section class="course-carousel-area" style="display:none;">
     <div class="container-lg">
-        <div class="row">
+      <!--  <div class="row">
             <div class="col">
                 <h2 class="course-carousel-title"><?php echo get_phrase('top').' 10 '.get_phrase('latest_courses'); ?></h2>
                 <div class="course-carousel">
@@ -309,7 +309,7 @@
                     </a>
                 </div>
             <?php endforeach; ?>
-        </div>
+        </div> -->
     </div>
 </div>
 </div>

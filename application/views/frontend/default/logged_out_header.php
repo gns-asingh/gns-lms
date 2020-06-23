@@ -13,7 +13,7 @@
             <img src="<?php echo base_url().'uploads/system/logo-dark.png'; ?>" alt="" style="width:126px;height:75px;"></<img>
           </a>
 
-          <?php include 'menu.php'; ?>
+          <?php //include 'menu.php'; ?>
 
           <form class="inline-form" action="<?php echo site_url('home/search'); ?>" method="get" style="width: 100%;">
             <!--<div class="input-group search-box mobile-search">

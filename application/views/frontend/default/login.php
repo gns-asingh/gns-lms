@@ -51,9 +51,9 @@
                               <span>or</span>
                               <a href="javascript::" onclick="toggoleForm('forgot_password')"><?php echo get_phrase('forgot_password'); ?></a>
                           </div>
-                          <div class="account-have text-center" style="color:#fff">
+                         <!-- <div class="account-have text-center" style="color:#fff">
                               <?php echo get_phrase('do_not_have_an_account'); ?>? <a href="javascript::" onclick="toggoleForm('registration')"><?php echo get_phrase('sign_up'); ?></a>
-                          </div>
+                          </div> -->
                       </form>
                   </div>
                   <div class="user-dashboard-content w-100 register-form hidden">

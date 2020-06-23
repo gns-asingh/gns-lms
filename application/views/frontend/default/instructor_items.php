@@ -7,8 +7,8 @@
             <ul>
                 <li style="padding:15px 20px;"><a href="<?php echo site_url('home/dashboard'); ?>" style="color: #000000;"><?php echo get_phrase('dashboard'); ?></a></li>
                 <li style="padding:15px 20px;"><a href="<?php echo site_url('home/create_course'); ?>" style="color: #000000;"><?php echo get_phrase('create_course'); ?></a></li>
-                <li style="padding:15px 20px;"><a href="<?php echo site_url('home/dashboard/payment_report'); ?>" style="color: #000000;"><?php echo get_phrase('payment_report'); ?></a></li>
-                <li style="padding:15px 20px;"><a href="<?php echo site_url('home/dashboard/payment_settings'); ?>" style="color: #000000;"><?php echo get_phrase('payment_settings'); ?></a></li>
+               <!-- <li style="padding:15px 20px;"><a href="<?php echo site_url('home/dashboard/payment_report'); ?>" style="color: #000000;"><?php echo get_phrase('payment_report'); ?></a></li>
+                <li style="padding:15px 20px;"><a href="<?php echo site_url('home/dashboard/payment_settings'); ?>" style="color: #000000;"><?php echo get_phrase('payment_settings'); ?></a></li> -->
             </ul>
         </div>
     </div>
