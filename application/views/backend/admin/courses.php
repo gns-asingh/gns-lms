@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="col-sm-6 col-xl-3">
-                        <a href="<?php echo site_url('admin/courses'); ?>" class="text-secondary">
+                    <!--    <a href="<?php echo site_url('admin/courses'); ?>" class="text-secondary">
                             <div class="card shadow-none m-0 border-left">
                                 <div class="card-body text-center">
                                     <i class="dripicons-star text-muted" style="font-size: 24px;"></i>
@@ -47,11 +47,11 @@
                                     <p class="text-muted font-15 mb-0"><?php echo get_phrase('free_courses'); ?></p>
                                 </div>
                             </div>
-                        </a>
+                        </a> -->
                     </div>
 
                     <div class="col-sm-6 col-xl-3">
-                        <a href="<?php echo site_url('admin/courses'); ?>" class="text-secondary">
+                    <!--    <a href="<?php echo site_url('admin/courses'); ?>" class="text-secondary">
                             <div class="card shadow-none m-0 border-left">
                                 <div class="card-body text-center">
                                     <i class="dripicons-tags text-muted" style="font-size: 24px;"></i>
@@ -59,9 +59,9 @@
                                     <p class="text-muted font-15 mb-0"><?php echo get_phrase('paid_courses'); ?></p>
                                 </div>
                             </div>
-                        </a>
+                        </a> -->
                     </div>
-
+                    
                 </div> <!-- end row -->
             </div>
         </div> <!-- end card-box-->
@@ -117,16 +117,16 @@
                 </div>
 
                 <!-- Course Price -->
-                <div class="col-xl-2">
-                    <div class="form-group">
+                <!-- <div class="col-xl-2">
+                   <div class="form-group">
                         <label for="price"><?php echo get_phrase('price'); ?></label>
                         <select class="form-control select2" data-toggle="select2" name="price" id = 'price'>
                             <option value="all"  <?php if($selected_price == 'all' ) echo 'selected'; ?>><?php echo get_phrase('all'); ?></option>
                             <option value="free" <?php if($selected_price == 'free') echo 'selected'; ?>><?php echo get_phrase('free'); ?></option>
                             <option value="paid" <?php if($selected_price == 'paid') echo 'selected'; ?>><?php echo get_phrase('paid'); ?></option>
                         </select>
-                    </div>
-                </div>
+                    </div> 
+                </div>-->
 
                 <div class="col-xl-2">
                     <label for=".." class="text-white"><?php echo get_phrase('..'); ?></label>
@@ -143,9 +143,9 @@
                                 <th><?php echo get_phrase('title'); ?></th>
                                 <th><?php echo get_phrase('category'); ?></th>
                                 <th><?php echo get_phrase('lesson_&_section'); ?></th>
-                                <th><?php echo get_phrase('enrolled_student'); ?></th>
+                                <th><?php echo get_phrase('enrolled_trainee'); ?></th>
                                 <th><?php echo get_phrase('status'); ?></th>
-                                <th><?php echo get_phrase('price'); ?></th>
+                                <!--<th><?php echo get_phrase('price'); ?></th> -->
                                 <th><?php echo get_phrase('actions'); ?></th>
                             </tr>
                         </thead>
@@ -183,7 +183,7 @@
                                             <i class="mdi mdi-circle" style="color: #4CAF50; font-size: 19px;" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo get_phrase($course['status']); ?>"></i>
                                         <?php endif; ?>
                                     </td>
-                                    <td>
+                                  <!--  <td>
                                         <?php if ($course['is_free_course'] == null): ?>
                                             <?php if ($course['discount_flag'] == 1): ?>
                                                 <span class="badge badge-dark-lighten"><?php echo currency($course['discounted_price']); ?></span>
@@ -193,7 +193,7 @@
                                         <?php elseif ($course['is_free_course'] == 1):?>
                                             <span class="badge badge-success-lighten"><?php echo get_phrase('free'); ?></span>
                                         <?php endif; ?>
-                                    </td>
+                                    </td> -->
                                     <td>
                                         <div class="dropright dropright">
                                           <button type="button" class="btn btn-sm btn-outline-primary btn-rounded btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

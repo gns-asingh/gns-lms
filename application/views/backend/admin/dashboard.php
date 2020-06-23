@@ -16,7 +16,7 @@
 </div>
 
 <div class="row">
-    <div class="col-xl-12">
+   <!-- <div class="col-xl-12">
         <div class="card">
             <div class="card-body">
 
@@ -25,9 +25,11 @@
                 <div class="mt-3 chartjs-chart" style="height: 320px;">
                     <canvas id="task-area-chart"></canvas>
                 </div>
-            </div> <!-- end card body-->
-        </div> <!-- end card -->
-    </div><!-- end col-->
+            </div> 
+            
+        </div> 
+      
+    </div> -->
 </div>
 
 <div class="row">
@@ -77,7 +79,7 @@
                                 <div class="card-body text-center">
                                     <i class="dripicons-user-group text-muted" style="font-size: 24px;"></i>
                                     <h3><span><?php echo $number_of_students; ?></span></h3>
-                                    <p class="text-muted font-15 mb-0"><?php echo get_phrase('number_of_student'); ?></p>
+                                    <p class="text-muted font-15 mb-0"><?php echo get_phrase('number_of_trainee'); ?></p>
                                 </div>
                             </div>
                         </a>
@@ -115,7 +117,7 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-8">
+  <!--  <div class="col-xl-8">
         <div class="card" id = 'unpaid-instructor-revenue'>
             <div class="card-body">
                 <h4 class="header-title mb-3"><?php echo get_phrase('unpaid_instructor_revenues'); ?>
@@ -154,7 +156,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 <script type="text/javascript">
