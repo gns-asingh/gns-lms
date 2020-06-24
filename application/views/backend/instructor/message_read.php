@@ -38,7 +38,7 @@
 		                    </li>
 	                    <?php endforeach;?>
 	                </ul>
-	                <form method="post" action="<?php echo site_url('admin/message/send_reply/'.$current_message_thread_code); ?>" class="needs-validation" novalidate name="chat-form" id="chat-form">
+	                <form method="post" action="<?php echo site_url('instructor/message/send_reply/'.$current_message_thread_code); ?>" class="needs-validation" novalidate name="chat-form" id="chat-form">
 	                    <div class="row">
 	                        <div class="col">
 	                            <input type="text" name="message" class="form-control chat-input" placeholder="Enter your text" required>

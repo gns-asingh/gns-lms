@@ -81,7 +81,7 @@
                 </div>
 
                 <!-- Course Instructors -->
-                <div class="col-xl-3">
+                <!--<div class="col-xl-3">
                     <div class="form-group">
                         <label for="instructor_id"><?php echo get_phrase('instructor'); ?></label>
                         <select class="form-control select2" data-toggle="select2" name="instructor_id" id = 'instructor_id'>
@@ -90,8 +90,8 @@
                                 <option value="<?php echo $instructor['id']; ?>" <?php if($selected_instructor_id == $instructor['id']) echo 'selected'; ?>><?php echo $instructor['first_name'].' '.$instructor['last_name']; ?></option>
                             <?php endforeach; ?>
                         </select>
-                    </div>
-                </div>
+                    </div> 
+                </div> -->
 
                
                 <div class="col-xl-2">

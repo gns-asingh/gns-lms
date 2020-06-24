@@ -395,7 +395,8 @@ class Instructor extends CI_Controller {
 
 
     $page_data['selected_category_id']   = isset($_GET['category_id']) ? $_GET['category_id'] : "all";
-    $page_data['selected_instructor_id'] = isset($_GET['instructor_id']) ? $_GET['instructor_id'] : "all";
+    //$page_data['selected_instructor_id'] = isset($_GET['instructor_id']) ? $_GET['instructor_id'] : $this->session->userdata('user_id');
+    $page_data['selected_instructor_id'] = $this->session->userdata('user_id');
     $page_data['selected_price']         = isset($_GET['price']) ? $_GET['price'] : "all";
     $page_data['selected_status']        = isset($_GET['status']) ? $_GET['status'] : "all";
     $page_data['courses']                = $this->crud_model->filter_course_for_backend($page_data['selected_category_id'], $page_data['selected_instructor_id'], $page_data['selected_price'], $page_data['selected_status']);
@@ -419,6 +420,7 @@ class Instructor extends CI_Controller {
   }
 
   public function course_actions($param1 = "", $param2 = "") {
+    
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
     }

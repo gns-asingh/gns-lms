@@ -1,5 +1,5 @@
 <?php
-    $status_wise_courses = $this->crud_model->get_status_wise_courses();
+    $status_wise_courses = $this->crud_model->get_status_wise_courses_for_instructor();
     $number_of_courses = $status_wise_courses['pending']->num_rows() + $status_wise_courses['active']->num_rows();
     $number_of_lessons = $this->crud_model->get_lessons()->num_rows();
     $number_of_enrolment = $this->crud_model->enrol_history()->num_rows();
