@@ -1,4 +1,4 @@
-<section class="category-header-area about_header">
+<section class="category-header-area page_header">
     <div class="container-lg">
         <div class="row">
             <div class="col">
@@ -52,8 +52,7 @@
 <section class="why_us_bg section_padding_40">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-8">
+            <div class="col-sm-12">
                 <div>
                     <h3 class="choose_us_title">Why Choose Us?</h3>
                 </div>
@@ -134,6 +133,139 @@
             <div class="col-sm-6">
                 <div class="text-center">
                     <img src="<?php echo base_url().'uploads/system/mission-and-vision.png'; ?>" class="vision_mission_icon">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section_padding_40">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div>
+                    <h3 class="offshore_title">Offshore Development Store</h3>
+                </div>
+                <div>
+                    <p>If you share the global opinion that India is the best destination to opt for Outsourcing and Offshore we will prove it to you. Ours becomes an extension to your office via all the communication channels like internet, email, video conferencing etc. Your offshore project would seem to be happening right outside of your cabin.</p>
+                    <p>GNS focuses on highly qualitative, timely delivered and cost-effective offshore software development.
+                        With a rich and varied experience in providing offshore software development and project management
+                        capabilities and stringent quality standards ensure us to develop solutions that give your business an
+                        edge over your competitors. Our global software outsourcing model makes sure we deliver maximum
+                        targeted result to you with maximum ROI.</p>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="gnsOffersMargin">
+                            <div class="gnsOfferHead">
+                                <h5>GNS has a lot to offer:</h5>
+                            </div>
+                            <div class="gnsoffermatter">
+                                <p>
+                                    <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                    <span>Leader in IBM technologies with a focus on:</span>
+                                </p>                                
+                                <p>
+                                    <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                    <span>IBM i-Series development and support, ranging from S/36 to the current ILE</span>
+                                </p>
+                                <div class="ml-30">
+                                    <p>
+                                        <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                        <span>IBM i-Series modernization</span>
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                        <span>HTML, PHP and Zend for frontend development</span>
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                        <span>RPGLE (free format) and DB2 for backend operation</span>
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                        <span>iOS and Android frontend development for IBM i-Series</span>
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                        <span>Diverse platform expertise including Microsoft .NET, SharePoint, JAVA, PHP.</span>
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                        <span>Diverse domain expertise including WebFOCUS Business Intelligence, Microsoft 365 COMMAND, GeneXus, iOS
+                                                Mobile Apps</span>
+                                    </p>                                    
+                                </div>
+
+                                <p>
+                                    Our Pune, India corporate office can boast:
+                                </p>
+                                <p>
+                                    <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                    <span>Full-fledged data center with state-of-the-art infrastructure</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                    <span>Industry-best IT security practices for ensuring safety of the client data and network.</span>
+                                </p>
+                                <p>
+                                <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                    <span>11,000 square feet of office space with a 24x7 power backup and gated security</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="gnsOffersMargin">
+                            <div class="gnsOfferHead">
+                                <h5>Salient features of our infrastructure</h5>
+                            </div>
+                            <div class="gnsoffermatter">
+                                <p>
+                                    <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                    <span>The off-shore development center for GNS is well equipped with state of the art software and hardware facilities.</span>
+                                </p> 
+                                <p>
+                                    <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                    <span>Installed UPS and generators capable of providing 100% backup for 24X7 operations.</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                    <span>Extremely qualified and professional technical team for system support</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                    <span>Disaster recovery plans in place.</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                    <span>Multiple dedicated 1:1 leased lines between Pune and the international clients.These leased lines are from
+                                            different leading providers in India.</span>
+                                </p> 
+                                <p>
+                                    <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                    <span>Transportation, food &amp; general administration facility for odd shifts.</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                    <span>Enterprise level Anti-virus, Anti-Spyware &amp; Anti-SPAM deployed on all machines.</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                    <span>Secured process for access to data recording devices such as CD writers and other media.</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                    <span>Secured physical 24x7 security control and biometric access control to enter into the GNS offices.</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-chevron-circle-right gnsofferIcon" aria-hidden="true" ></i>
+                                    <span>The India office is fully equipped with phone lines that make it easy for the international customers to get in
+                                        touch with the GNS team.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
