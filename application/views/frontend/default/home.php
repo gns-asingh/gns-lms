@@ -1,88 +1,67 @@
 <section>
-<div id="demo" class="carousel slide" data-ride="carousel">
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-    <li data-target="#demo" data-slide-to="3"></li>
-  </ul>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-		<div class="bannerHeight">
-			<div class="banner1"></div>
-		</div>
-      
-		  <div class="carousel-caption carouselTitle">
-			  <div class="carouselInfo">
-				<h3><?php echo get_frontend_settings('banner_title'); ?></h3>
-				<p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
-			  </div>
-		  </div>   
-    </div>
-    <div class="carousel-item">
-		<div class="bannerHeight">
-			<div class="banner2"></div>
-		</div>
-		  <div class="carousel-caption carouselTitle">
-			<div class="carouselInfo">
-					<h3><?php echo get_frontend_settings('banner_title'); ?></h3>
-					<p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
-			</div>
-		  </div>   
-    </div>
-	<div class="carousel-item">
-		<div class="bannerHeight">
-			<div class="banner3"></div>
-		</div>
-		  <div class="carousel-caption carouselTitle">
-			<div class="carouselInfo">
-					<h3><?php echo get_frontend_settings('banner_title'); ?></h3>
-					<p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
-			</div>
-		  </div>   
-    </div>
-    <div class="carousel-item">
-    <div class="bannerHeight">
-        <div class="banner4"></div>
-    </div>
-    <div class="carousel-caption carouselTitle">
-        <div class="carouselInfo">
-                <h3><?php echo get_frontend_settings('banner_title'); ?></h3>
-                <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
-        </div>
-      </div>  
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-</div>
-</section>
-
-
-<section class="home-banner-area" style="display:none;">
-    <div class="container-lg">
-        <div class="row">
-            <div class="col">
-                <div class="home-banner-wrap">
-                    <h2><?php echo get_frontend_settings('banner_title'); ?></h2>
-                    <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
-                    <!--<form class="" action="<?php echo site_url('home/search'); ?>" method="get">
-                        <div class="input-group">
-                            <input type="text" class="form-control" name = "query" placeholder="<?php echo get_phrase('what_do_you_want_to_learn'); ?>?">
-                            <div class="input-group-append">
-                                <button class="btn" type="submit"><i class="fas fa-search"></i></button>
-                            </div>
-                        </div>
-                    </form>-->
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+            <li data-target="#demo" data-slide-to="3"></li>
+        </ul>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="bannerHeight">
+                    <div class="banner1"></div>
                 </div>
+            
+                <div class="carousel-caption carouselTitle">
+                    <div class="carouselInfo">
+                        <h3><?php echo get_frontend_settings('banner_title'); ?></h3>
+                        <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
+                    </div>
+                </div>   
+            </div>
+            <div class="carousel-item">
+                <div class="bannerHeight">
+                    <div class="banner2"></div>
+                </div>
+                <div class="carousel-caption carouselTitle">
+                    <div class="carouselInfo">
+                            <h3><?php echo get_frontend_settings('banner_title'); ?></h3>
+                            <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
+                    </div>
+                </div>   
+            </div>
+            <div class="carousel-item">
+                <div class="bannerHeight">
+                    <div class="banner3"></div>
+                </div>
+                <div class="carousel-caption carouselTitle">
+                    <div class="carouselInfo">
+                            <h3><?php echo get_frontend_settings('banner_title'); ?></h3>
+                            <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
+                    </div>
+                </div>   
+            </div>
+            <div class="carousel-item">
+            <div class="bannerHeight">
+                <div class="banner4"></div>
+            </div>
+            <div class="carousel-caption carouselTitle">
+                <div class="carouselInfo">
+                        <h3><?php echo get_frontend_settings('banner_title'); ?></h3>
+                        <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
+                </div>
+            </div>  
             </div>
         </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
     </div>
 </section>
+
 <section class="home-fact-area">
     <div class="container-lg">
         <div class="row">
@@ -123,6 +102,53 @@
     </div>
 </section>
 
+<section style="margin-bottom:20px; display:none;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div>
+                            <div>
+                                <h6>Learning Management System</h6>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-4">skdfsdkfhsd</div>
+                    <div class="col-sm-4">skdfsdkfhsd</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<section class="home-banner-area" style="display:none;">
+    <div class="container-lg">
+        <div class="row">
+            <div class="col">
+                <div class="home-banner-wrap">
+                    <h2><?php echo get_frontend_settings('banner_title'); ?></h2>
+                    <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
+                    <!--<form class="" action="<?php echo site_url('home/search'); ?>" method="get">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name = "query" placeholder="<?php echo get_phrase('what_do_you_want_to_learn'); ?>?">
+                            <div class="input-group-append">
+                                <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="course-carousel-area" style="display:none;">
     <div class="container-lg">
      <!--   <div class="row">
