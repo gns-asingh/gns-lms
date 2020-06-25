@@ -612,10 +612,10 @@ class Crud_model extends CI_Model {
             $courses['draft'] = $this->db->get('course');
 
             $this->db->where('user_id', $this->session->userdata('user_id'));
-            $this->db->where('status', 'draft');
+            $this->db->where('status', 'pending');
             $courses['pending'] = $this->db->get('course');
 
-            $this->db->where('status', 'draft');
+            $this->db->where('status', 'active');
             $this->db->where('user_id', $this->session->userdata('user_id'));
             $courses['active'] = $this->db->get_where('course');
         }

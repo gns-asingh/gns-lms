@@ -66,7 +66,7 @@
                                 <div class="card-body text-center">
                                     <i class="dripicons-user-group text-muted" style="font-size: 24px;"></i>
                                     <h3><span><?php echo $number_of_students; ?></span></h3>
-                                    <p class="text-muted font-15 mb-0"><?php echo get_phrase('number_of_student'); ?></p>
+                                    <p class="text-muted font-15 mb-0"><?php echo get_phrase('number_of_trainee'); ?></p>
                                 </div>
                             </div>
                         </a>

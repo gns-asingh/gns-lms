@@ -151,66 +151,7 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
 
     <div class="compare-box view-more-parent">
       <div class="view-more" onclick="viewMore(this)">+ <?php echo get_phrase('view_more'); ?></div>
-      <div class="compare-title"><?php echo get_phrase('other_related_courses'); ?></div>
-      <div class="compare-courses-wrap">
-        <?php
-        $other_realted_courses = $this->crud_model->get_courses($course_details['category_id'], $course_details['sub_category_id'])->result_array();
-        foreach ($other_realted_courses as $other_realted_course):
-          if($other_realted_course['id'] != $course_details['id'] && $other_realted_course['status'] == 'active'): ?>
-          <div class="course-comparism-item-container this-course">
-            <div class="course-comparism-item clearfix">
-              <div class="item-image float-left">
-                <a href="<?php echo site_url('home/course/'.slugify($other_realted_course['title']).'/'.$other_realted_course['id']); ?>"><img src="<?php $this->crud_model->get_course_thumbnail_url($other_realted_course['id']); ?>" alt="" class="img-fluid"></a>
-                <div class="item-duration"><b><?php echo $this->crud_model->get_total_duration_of_lesson_by_course_id($other_realted_course['id']); ?></b></div>
-              </div>
-              <div class="item-title float-left">
-                <div class="title"><a href="<?php echo site_url('home/course/'.slugify($other_realted_course['title']).'/'.$other_realted_course['id']); ?>"><?php echo $other_realted_course['title']; ?></a></div>
-                <?php if ($other_realted_course['last_modified'] > 0): ?>
-                  <div class="updated-time"><?php echo get_phrase('updated').' '.date('D, d-M-Y', $other_realted_course['last_modified']); ?></div>
-                <?php else: ?>
-                  <div class="updated-time"><?php echo get_phrase('updated').' '.date('D, d-M-Y', $other_realted_course['date_added']); ?></div>
-                <?php endif; ?>
-              </div>
-              <div class="item-details float-left">
-                <span class="item-rating">
-                  <i class="fas fa-star"></i>
-                  <?php
-                  $total_rating =  $this->crud_model->get_ratings('course', $other_realted_course['id'], true)->row()->rating;
-                  $number_of_ratings = $this->crud_model->get_ratings('course', $other_realted_course['id'])->num_rows();
-                  if ($number_of_ratings > 0) {
-                    $average_ceil_rating = ceil($total_rating / $number_of_ratings);
-                  }else {
-                    $average_ceil_rating = 0;
-                  }
-                  ?>
-                  <span class="d-inline-block average-rating"><?php echo $average_ceil_rating; ?></span>
-                </span>
-                <span class="enrolled-student">
-                  <i class="far fa-user"></i>
-                  <?php echo $this->crud_model->enrol_history($other_realted_course['id'])->num_rows(); ?>
-                </span>
-                <?php if ($other_realted_course['is_free_course'] == 1): ?>
-                  <span class="item-price">
-                    <span class="current-price"><?php echo get_phrase('free'); ?></span>
-                  </span>
-                <?php else: ?>
-                  <?php if ($other_realted_course['discount_flag'] == 1): ?>
-                    <span class="item-price">
-                      <span class="original-price"><?php echo currency($other_realted_course['price']); ?></span>
-                      <span class="current-price"><?php echo currency($other_realted_course['discounted_price']); ?></span>
-                    </span>
-                  <?php else: ?>
-                    <span class="item-price">
-                      <span class="current-price"><?php echo currency($other_realted_course['price']); ?></span>
-                    </span>
-                  <?php endif; ?>
-                <?php endif; ?>
-              </div>
-            </div>
-          </div>
-        <?php endif; ?>
-      <?php endforeach; ?>
-    </div>
+     
   </div>
 
   <div class="about-instructor-box">
@@ -381,14 +322,14 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
     <div class="course-sidebar-text-box">
       <div class="price">
         <?php if ($course_details['is_free_course'] == 1): ?>
-          <span class = "current-price"><span class="current-price"><?php echo get_phrase('free'); ?></span></span>
+        <!--  <span class = "current-price"><span class="current-price"><?php echo get_phrase('free'); ?></span></span>-->
         <?php else: ?>
           <?php if ($course_details['discount_flag'] == 1): ?>
-            <span class = "current-price"><span class="current-price"><?php echo currency($course_details['discounted_price']); ?></span></span>
+           <!--  <span class = "current-price"><span class="current-price"><?php echo currency($course_details['discounted_price']); ?></span></span> -->
             <span class="original-price"><?php echo currency($course_details['price']) ?></span>
             <input type="hidden" id = "total_price_of_checking_out" value="<?php echo currency($course_details['discounted_price']); ?>">
           <?php else: ?>
-            <span class = "current-price"><span class="current-price"><?php echo currency($course_details['price']); ?></span></span>
+          <!--  <span class = "current-price"><span class="current-price"><?php echo currency($course_details['price']); ?></span></span> -->
             <input type="hidden" id = "total_price_of_checking_out" value="<?php echo currency($course_details['price']); ?>">
           <?php endif; ?>
         <?php endif; ?>
@@ -402,7 +343,7 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
         <?php if ($course_details['is_free_course'] == 1): ?>
           <div class="buy-btns">
             <?php if ($this->session->userdata('user_login') != 1): ?>
-              <a href = "#" class="btn btn-buy-now" onclick="handleEnrolledButton()"><?php echo get_phrase('get_enrolled'); ?></a>
+            <!--  <a href = "#" class="btn btn-buy-now" onclick="handleEnrolledButton()"><?php echo get_phrase('get_enrolled'); ?></a> -->
             <?php else: ?>
               <a href = "<?php echo site_url('home/get_enrolled_to_free_course/'.$course_details['id']); ?>" class="btn btn-buy-now"><?php echo get_phrase('get_enrolled'); ?></a>
             <?php endif; ?>
