@@ -41,12 +41,12 @@
                                             <span class="d-none d-sm-inline"><?php echo get_phrase('outcomes'); ?></span>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
+                                    <!--<li class="nav-item">
                                         <a href="#pricing" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
                                             <i class="mdi mdi-currency-cny mr-1"></i>
-                                            <span class="d-none d-sm-inline"><?php echo get_phrase('pricing'); ?></span>
+                                            <span class="d-none d-sm-inline"><?php //echo get_phrase('pricing'); ?></span>
                                         </a>
-                                    </li>
+                                    </li>-->
                                     <li class="nav-item">
                                         <a href="#media" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
                                             <i class="mdi mdi-library-video mr-1"></i>
@@ -247,6 +247,7 @@
                                         </div> <!-- end col -->
                                     </div> <!-- end row -->
                                 </div> <!-- end tab-pane -->
+								
                                 <div class="tab-pane" id="media">
                                     <div class="row justify-content-center">
 

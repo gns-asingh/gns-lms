@@ -51,7 +51,7 @@
 			<li class="side-nav-item">
 				<a href="<?php echo site_url('instructor/users'); ?>" class="side-nav-link <?php if ($page_name == 'users' || $page_name == 'user_add' || $page_name == 'user_edit')echo 'active';?>">
 					<i class="dripicons-user-group"></i>
-					<span><?php echo get_phrase('students'); ?></span>
+					<span><?php echo get_phrase('trainees'); ?></span>
 				</a>
 			</li>
 
