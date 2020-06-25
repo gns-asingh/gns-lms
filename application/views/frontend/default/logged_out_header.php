@@ -27,7 +27,7 @@
           <?php if ($this->session->userdata('admin_login')): ?>
             <div class="instructor-box menu-icon-box">
               <div class="icon">
-                <a href="<?php echo site_url('admin'); ?>" style="border: 1px solid transparent; margin: 10px 10px; font-size: 14px; width: 100%; border-radius: 0;"><?php echo get_phrase('administrator'); ?></a>
+                <a href="<?php echo site_url('admin'); ?>" style="color:#fff;border: 1px solid transparent; margin: 10px 10px; font-size: 14px; width: 100%; border-radius: 0;"><?php echo get_phrase('administrator'); ?></a>
               </div>
             </div>
           <?php endif; ?>

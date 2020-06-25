@@ -4,7 +4,7 @@
 
 <ol class="breadcrumb bc-3">
     <li>
-        <a href="<?php echo site_url('admin/dashboard'); ?>">
+        <a href="<?php echo site_url('instructor/dashboard'); ?>">
             <i class="entypo-folder"></i>
             <?php echo get_phrase('dashboard'); ?>
         </a>
@@ -20,7 +20,7 @@
             <div class="panel-body">
               <div class="row">
                   <div class="col-md-4 col-md-offset-4">
-                      <a href = "<?php echo site_url('admin/course_form/add_course'); ?>" class="btn btn-block btn-info btn-lg" type="button"><i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('add_course'); ?></a>
+                      <a href = "<?php echo site_url('instructor/course_form/add_course'); ?>" class="btn btn-block btn-info btn-lg" type="button"><i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('add_course'); ?></a>
                   </div>
               </div>
               <hr>
@@ -76,7 +76,7 @@
                                       <?php
                                       $lessons = $this->crud_model->get_lessons('course', $course['id'])->result_array();
                                       foreach ($lessons as $lesson):?>
-                                      <a href="<?php echo site_url('admin/watch_video/'.slugify($lesson['title']).'/'.$lesson['id']); ?>"><li><?php echo $lesson['title']; ?></li></a>
+                                      <a href="<?php echo site_url('instructor/watch_video/'.slugify($lesson['title']).'/'.$lesson['id']); ?>"><li><?php echo $lesson['title']; ?></li></a>
                                   <?php endforeach; ?>
                               </ul>
                           </td>
@@ -109,13 +109,13 @@
                                       </li>
 
                                       <li>
-                                          <a href="<?php echo site_url('admin/sections/'.$course['id']); ?>">
+                                          <a href="<?php echo site_url('instructor/sections/'.$course['id']); ?>">
                                               <?php echo get_phrase('manage_section');?>
                                           </a>
                                       </li>
 
                                       <li>
-                                          <a href="<?php echo site_url('admin/lessons/'.$course['id']); ?>">
+                                          <a href="<?php echo site_url('instructor/lessons/'.$course['id']); ?>">
                                               <?php echo get_phrase('manage_lesson');?>
                                           </a>
                                       </li>
@@ -133,14 +133,14 @@
                                       </li>
 
                                       <li>
-                                          <a href="<?php echo site_url('admin/course_form/course_edit/'.$course['id']) ?>">
+                                          <a href="<?php echo site_url('instructor/course_form/course_edit/'.$course['id']) ?>">
                                               <?php echo get_phrase('edit');?>
                                           </a>
                                       </li>
 
                                       <li class="divider"></li>
                                       <li>
-                                          <a href="#" onclick="confirm_modal('<?php echo site_url('admin/course_actions/delete/'.$course['id']); ?>');">
+                                          <a href="#" onclick="confirm_modal('<?php echo site_url('instructor/course_actions/delete/'.$course['id']); ?>');">
                                               <?php echo get_phrase('delete');?>
                                           </a>
                                       </li>
@@ -164,7 +164,7 @@
 <script type="text/javascript">
     function ajax_get_sub_category(category_id) {
         $.ajax({
-            url: '<?php echo site_url('admin/ajax_get_sub_category/');?>' + category_id ,
+            url: '<?php echo site_url('instructor/ajax_get_sub_category/');?>' + category_id ,
             success: function(response)
             {
                 jQuery('#sub_category_id').html(response);

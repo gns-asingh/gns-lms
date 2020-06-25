@@ -18,7 +18,7 @@ $category_details = $this->crud_model->get_category_details_by_id($category_id)-
         <div class="col-lg-12">
           <h4 class="mb-3 header-title"><?php echo get_phrase('update_category_form'); ?></h4>
 
-          <form class="required-form" action="<?php echo site_url('admin/categories/edit/'.$category_id); ?>" method="post" enctype="multipart/form-data">
+          <form class="required-form" action="<?php echo site_url('instructor/categories/edit/'.$category_id); ?>" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <label for="code"><?php echo get_phrase('category_title'); ?></label>
               <input type="text" class="form-control" id="code" name = "code" value="<?php echo $category_details['code']; ?>" readonly>

@@ -1,4 +1,4 @@
-<form action="<?php echo site_url('admin/quiz_questions/'.$param2.'/add'); ?>" method="post" id = 'mcq_form'>
+<form action="<?php echo site_url('instructor/quiz_questions/'.$param2.'/add'); ?>" method="post" id = 'mcq_form'>
     <input type="hidden" name="question_type" value="mcq">
     <div class="form-group">
         <label for="title"><?php echo get_phrase('question_title'); ?></label>
@@ -19,7 +19,7 @@
 function showOptions(number_of_options){
     $.ajax({
         type: "POST",
-        url: "<?php echo site_url('admin/manage_multiple_choices_options'); ?>",
+        url: "<?php echo site_url('instructor/manage_multiple_choices_options'); ?>",
         data: {number_of_options : number_of_options},
         success: function(response){
             jQuery('.options').remove();
@@ -30,7 +30,7 @@ function showOptions(number_of_options){
 
 $('#submitButton').click( function(event) {
     $.ajax({
-        url: '<?php echo site_url('admin/quiz_questions/'.$param2.'/add'); ?>',
+        url: '<?php echo site_url('instructor/quiz_questions/'.$param2.'/add'); ?>',
         type: 'post',
         data: $('form#mcq_form').serialize(),
         success: function(response) {

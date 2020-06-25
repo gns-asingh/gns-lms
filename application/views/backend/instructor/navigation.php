@@ -1,5 +1,5 @@
 <?php
-	$status_wise_courses = $this->crud_model->get_status_wise_courses();
+	$status_wise_courses = $this->crud_model->get_status_wise_courses_for_instructor();
  ?>
 <!-- ========== Left Sidebar Start ========== -->
 <div class="left-side-menu left-side-menu-detached">
@@ -51,7 +51,7 @@
 			<li class="side-nav-item">
 				<a href="<?php echo site_url('instructor/users'); ?>" class="side-nav-link <?php if ($page_name == 'users' || $page_name == 'user_add' || $page_name == 'user_edit')echo 'active';?>">
 					<i class="dripicons-user-group"></i>
-					<span><?php echo get_phrase('trainee'); ?></span>
+					<span><?php echo get_phrase('trainees'); ?></span>
 				</a>
 			</li>
 
@@ -67,7 +67,7 @@
 					</li>
 
 					<li class = "<?php if($page_name == 'enrol_student') echo 'active'; ?>">
-						<a href="<?php echo site_url('instructor/enrol_student'); ?>"><?php echo get_phrase('enrol_a_trainee'); ?></a>
+						<a href="<?php echo site_url('instructor/enrol_student'); ?>"><?php echo get_phrase('enrol_a_student'); ?></a>
 					</li>
 				</ul>
 			</li>

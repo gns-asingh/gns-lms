@@ -1,88 +1,67 @@
 <section>
-<div id="demo" class="carousel slide" data-ride="carousel">
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-    <li data-target="#demo" data-slide-to="3"></li>
-  </ul>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-		<div class="bannerHeight">
-			<div class="banner1"></div>
-		</div>
-      
-		  <div class="carousel-caption carouselTitle">
-			  <div class="carouselInfo">
-				<h3><?php echo get_frontend_settings('banner_title'); ?></h3>
-				<p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
-			  </div>
-		  </div>   
-    </div>
-    <div class="carousel-item">
-		<div class="bannerHeight">
-			<div class="banner2"></div>
-		</div>
-		  <div class="carousel-caption carouselTitle">
-			<div class="carouselInfo">
-					<h3><?php echo get_frontend_settings('banner_title'); ?></h3>
-					<p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
-			</div>
-		  </div>   
-    </div>
-	<div class="carousel-item">
-		<div class="bannerHeight">
-			<div class="banner3"></div>
-		</div>
-		  <div class="carousel-caption carouselTitle">
-			<div class="carouselInfo">
-					<h3><?php echo get_frontend_settings('banner_title'); ?></h3>
-					<p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
-			</div>
-		  </div>   
-    </div>
-    <div class="carousel-item">
-    <div class="bannerHeight">
-        <div class="banner4"></div>
-    </div>
-    <div class="carousel-caption carouselTitle">
-        <div class="carouselInfo">
-                <h3><?php echo get_frontend_settings('banner_title'); ?></h3>
-                <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
-        </div>
-      </div>  
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-</div>
-</section>
-
-
-<section class="home-banner-area" style="display:none;">
-    <div class="container-lg">
-        <div class="row">
-            <div class="col">
-                <div class="home-banner-wrap">
-                    <h2><?php echo get_frontend_settings('banner_title'); ?></h2>
-                    <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
-                    <!--<form class="" action="<?php echo site_url('home/search'); ?>" method="get">
-                        <div class="input-group">
-                            <input type="text" class="form-control" name = "query" placeholder="<?php echo get_phrase('what_do_you_want_to_learn'); ?>?">
-                            <div class="input-group-append">
-                                <button class="btn" type="submit"><i class="fas fa-search"></i></button>
-                            </div>
-                        </div>
-                    </form>-->
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+            <li data-target="#demo" data-slide-to="3"></li>
+        </ul>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="bannerHeight">
+                    <div class="banner1"></div>
                 </div>
+            
+                <div class="carousel-caption carouselTitle">
+                    <div class="carouselInfo">
+                        <h3><?php echo get_frontend_settings('banner_title'); ?></h3>
+                        <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
+                    </div>
+                </div>   
+            </div>
+            <div class="carousel-item">
+                <div class="bannerHeight">
+                    <div class="banner2"></div>
+                </div>
+                <div class="carousel-caption carouselTitle">
+                    <div class="carouselInfo">
+                            <h3><?php echo get_frontend_settings('banner_title'); ?></h3>
+                            <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
+                    </div>
+                </div>   
+            </div>
+            <div class="carousel-item">
+                <div class="bannerHeight">
+                    <div class="banner3"></div>
+                </div>
+                <div class="carousel-caption carouselTitle">
+                    <div class="carouselInfo">
+                            <h3><?php echo get_frontend_settings('banner_title'); ?></h3>
+                            <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
+                    </div>
+                </div>   
+            </div>
+            <div class="carousel-item">
+            <div class="bannerHeight">
+                <div class="banner4"></div>
+            </div>
+            <div class="carousel-caption carouselTitle">
+                <div class="carouselInfo">
+                        <h3><?php echo get_frontend_settings('banner_title'); ?></h3>
+                        <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
+                </div>
+            </div>  
             </div>
         </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
     </div>
 </section>
+
 <section class="home-fact-area">
     <div class="container-lg">
         <div class="row">
@@ -123,6 +102,104 @@
     </div>
 </section>
 
+<section style="margin-bottom:20px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="home_page_info">
+                    <h6>Learning Management System</h6>
+                    <p>
+                        LMS (learning management system), an application that enables various sectors, companies, and
+                        educational institutions to create, manage &amp; schedule courses, assignments, quizzes, group discussions
+                        and reporting. A learning management system also assist the organization deliver training materials and
+                        lessons to employees, students, or partners, which results in growth of company or institutions.
+                    </p>
+                </div>
+
+                <div class="home_page_info">
+                    <h6>Daily Online Learning</h6>
+                    <p>
+                        Build courses, assignments or quizzes from scratch and use it whenever required. This one-time activity
+                        can reduce the rework and efforts. Share and schedule the courses and assignments on daily basis and
+                        appear for it online. Whether on desktop or mobile, morning or night, your teams can easily access
+                        training on their schedule. No matter the device, operating system, or connection stability.
+                    </p>
+                </div>
+                <div class="home_page_info">
+                    <h6>Better choice is LMS platform</h6>
+                    <p>
+                        GNS-LMS will make learning easy, interesting and progressive that every user choose an LMS will reach
+                        the heights of success.
+                    </p>
+                </div>
+                
+                
+            </div>
+            <div class="col-sm-4">
+                <div>
+                    <img src="<?php echo base_url().'uploads/system/home_image.jpg'; ?>" style="max-width:100%;">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="home_page_info">
+                    <h6>Administration is so easy.</h6>
+                    <p>
+                        Why to put more efforts on managing manually?
+                        GNS-LMS is great role-based solution for administrating the learning system. Admin user with ownership
+                        of providing access can allow instructor user to create courses, assignments and uploading documents.
+                        Instructor user has provided with option to keep watch on progress of courses for which trainee users
+                        are enrolled.
+                    </p>
+                </div>
+                <div class="home_page_info">
+                    <h6>Judge progress by referring reports</h6>
+                    <p>
+                        Decision making is so simple that every user can see how online training works for them. Its path for
+                        development and progress to reach the goals. Generate reports about everything that happens inside
+                        your eLearning and have complete control over your training.
+                    </p>
+                </div>
+                <div class="home_page_info">
+                    <h6>Create &amp; schedule courses in a few clicks</h6>
+                    <p>
+                        No need to do any paperwork, just create online courses, assignments, or quizzes in few clicks. Add your
+                        videos as a part of courses, just play and learn. Are you worried about conducting exams? Its very easy
+                        to setup the assignments online using GNS-LMS. No more need to remember dates and time, just
+                        schedule courses, assignments, quizzes and check progress online with ease.
+                    </p>
+                </div>
+                
+            </div>
+		</div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<section class="home-banner-area" style="display:none;">
+    <div class="container-lg">
+        <div class="row">
+            <div class="col">
+                <div class="home-banner-wrap">
+                    <h2><?php echo get_frontend_settings('banner_title'); ?></h2>
+                    <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
+                    <!--<form class="" action="<?php echo site_url('home/search'); ?>" method="get">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name = "query" placeholder="<?php echo get_phrase('what_do_you_want_to_learn'); ?>?">
+                            <div class="input-group-append">
+                                <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="course-carousel-area" style="display:none;">
     <div class="container-lg">
      <!--   <div class="row">

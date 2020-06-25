@@ -17,7 +17,7 @@ html {
 body{
     font-family: 'Roboto', sans-serif;
     padding-right: 0 !important;
-    color: #29303b;
+    color: #333;
     font-size: 15px;
 }
 body.white-bg{
@@ -4191,10 +4191,10 @@ div.tagsinput span.tag a {
     border:none;
 
 }
-.about_header{
+.page_header{
     background:#fff!important;
     color:#333!important;
-    padding:20px 20px!important;
+    padding:7px 20px!important;
     box-shadow: 1px 2px 3px #a7a7a7;
 }
 .who_we_title{
@@ -4232,8 +4232,7 @@ div.tagsinput span.tag a {
 }
 .vision_mission_title{
     color:#679adc;
-    margin-bottom:12px;
-    font-weight:600;
+    margin-bottom:12px;   
 }
 .text-center{
     text-align: center;;
@@ -4242,4 +4241,44 @@ div.tagsinput span.tag a {
     max-width: 100%;
     height: auto;
     width: 339px;
+}
+.offshore_title{
+    color:#679adc;
+    margin-bottom:12px;   
+}
+.gnsOffersMargin{
+    margin-top: 15px;
+    border: 1px solid #ddd;
+}
+.gnsOfferHead{
+    background: #2196F3;
+    padding: 7px 11px;
+    color: #fff;
+}
+.gnsOfferHead h5{
+    margin-bottom:0;
+}
+.gnsofferIcon{
+    font-size: 15px;
+    color: #2196f3;
+    padding-right: 7px;
+}
+.gnsoffermatter{
+    padding:10px 10px;
+}
+.ml-30{
+    margin-left: 30px;
+}
+.privacyTitle{
+    color:#679adc;
+ }
+ .mt-20{
+     margin-top:20px;
+ }
+.home_page_info h6{
+    color:#679adc;
+    font-weight: 600;
+}
+.home_page_info p{
+    font-size:13px;
 }

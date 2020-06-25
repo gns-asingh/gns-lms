@@ -14,12 +14,12 @@
             <div class="card-body">
 
                 <h4 class="header-title mb-3"><?php echo get_phrase('course_adding_form'); ?>
-                    <a href="<?php echo site_url('admin/courses'); ?>" class="alignToTitle btn btn-outline-secondary btn-rounded btn-sm"> <i class=" mdi mdi-keyboard-backspace"></i> <?php echo get_phrase('back_to_course_list'); ?></a>
+                    <a href="<?php echo site_url('instructor/courses'); ?>" class="alignToTitle btn btn-outline-secondary btn-rounded btn-sm"> <i class=" mdi mdi-keyboard-backspace"></i> <?php echo get_phrase('back_to_course_list'); ?></a>
                 </h4>
 
                 <div class="row">
                     <div class="col-xl-12">
-                        <form class="required-form" action="<?php echo site_url('admin/course_actions/add'); ?>" method="post" enctype="multipart/form-data">
+                        <form class="required-form" action="<?php echo site_url('instructor/course_actions/add'); ?>" method="post" enctype="multipart/form-data">
                             <div id="basicwizard">
 
                                 <ul class="nav nav-pills nav-justified form-wizard-header mb-3">
@@ -41,12 +41,12 @@
                                             <span class="d-none d-sm-inline"><?php echo get_phrase('outcomes'); ?></span>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
+                                    <!--<li class="nav-item">
                                         <a href="#pricing" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
                                             <i class="mdi mdi-currency-cny mr-1"></i>
-                                            <span class="d-none d-sm-inline"><?php echo get_phrase('pricing'); ?></span>
+                                            <span class="d-none d-sm-inline"><?php //echo get_phrase('pricing'); ?></span>
                                         </a>
-                                    </li>
+                                    </li>-->
                                     <li class="nav-item">
                                         <a href="#media" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
                                             <i class="mdi mdi-library-video mr-1"></i>
@@ -115,6 +115,7 @@
                                                     </select>
                                                 </div>
                                             </div>
+                                            
                                             <div class="form-group row mb-3">
                                                 <label class="col-md-2 col-form-label" for="language_made_in"><?php echo get_phrase('language_made_in'); ?></label>
                                                 <div class="col-md-10">
@@ -247,6 +248,7 @@
                                         </div> <!-- end col -->
                                     </div> <!-- end row -->
                                 </div> <!-- end tab-pane -->
+								
                                 <div class="tab-pane" id="media">
                                     <div class="row justify-content-center">
 

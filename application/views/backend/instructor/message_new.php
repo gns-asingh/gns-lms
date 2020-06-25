@@ -7,7 +7,7 @@
 		<span class="p-3"><?php echo get_phrase('write_new_messages');?></span>
 	</h3>
 	<div class="card-body">
-		<form method="post" class="mt-2" action="<?php echo site_url('admin/message/send_new'); ?>" enctype="multipart/form-data">
+		<form method="post" class="mt-2" action="<?php echo site_url('instructor/message/send_new'); ?>" enctype="multipart/form-data">
 
 			<div class="form-group">
 		        <div class="row">

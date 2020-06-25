@@ -88,7 +88,7 @@ $('.on-hover-action').mouseleave(function() {
 });
 
 function deleteQuizQuestionAndReloadModal(quizID, questionID) {
-    var deletionURL = '<?php echo site_url(); ?>'+'admin/quiz_questions/'+quizID+'/delete/'+questionID;
+    var deletionURL = '<?php echo site_url(); ?>'+'instructor/quiz_questions/'+quizID+'/delete/'+questionID;
     var reloadURL = '<?php echo site_url(); ?>'+'modal/popup/quiz_questions/'+quizID;
     confirm_modal(deletionURL);
 }
@@ -108,7 +108,7 @@ function sort() {
 
     itemJSON = JSON.stringify(itemArray);
     $.ajax({
-        url: '<?php echo site_url('admin/ajax_sort_question/');?>',
+        url: '<?php echo site_url('instructor/ajax_sort_question/');?>',
         type : 'POST',
         data : {itemJSON : itemJSON},
         success: function(response)
