@@ -17,7 +17,7 @@ html {
 body{
     font-family: 'Roboto', sans-serif;
     padding-right: 0 !important;
-    color: #29303b;
+    color: #333;
     font-size: 15px;
 }
 body.white-bg{
@@ -4275,3 +4275,10 @@ div.tagsinput span.tag a {
  .mt-20{
      margin-top:20px;
  }
+.home_page_info h6{
+    color:#679adc;
+    font-weight: 600;
+}
+.home_page_info p{
+    font-size:13px;
+}
