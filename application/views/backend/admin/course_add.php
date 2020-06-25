@@ -41,12 +41,12 @@
                                             <span class="d-none d-sm-inline"><?php echo get_phrase('outcomes'); ?></span>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
+                                    <!--<li class="nav-item">
                                         <a href="#pricing" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
                                             <i class="mdi mdi-currency-cny mr-1"></i>
                                             <span class="d-none d-sm-inline"><?php echo get_phrase('pricing'); ?></span>
                                         </a>
-                                    </li>
+                                    </li>-->
                                     <li class="nav-item">
                                         <a href="#media" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
                                             <i class="mdi mdi-library-video mr-1"></i>
@@ -112,6 +112,17 @@
                                                         <option value="beginner"><?php echo get_phrase('beginner'); ?></option>
                                                         <option value="advanced"><?php echo get_phrase('advanced'); ?></option>
                                                         <option value="intermediate"><?php echo get_phrase('intermediate'); ?></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="level"><?php echo get_phrase('Instructor'); ?><span class="required">*</span></label>
+                                                <div class="col-md-10">
+                                            <select class="form-control select2" data-toggle="select2" name="instructor_id" id="instructor_id" required>
+                                                    <option value=""><?php echo get_phrase('select_a_instructor'); ?></option>
+                                                            <?php foreach ($instructors->result_array() as $instructors): ?>
+                                                              <option value="<?php echo $instructors['id']; ?>"><?php echo $instructors['first_name'].' '.$instructors['last_name']; ?></option>
+                                                        <?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
