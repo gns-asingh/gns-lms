@@ -394,7 +394,12 @@ class Crud_model extends CI_Model {
         $data['date_added'] = strtotime(date('D, d-M-Y'));
         $data['section'] = json_encode(array());
         $data['is_top_course'] = $this->input->post('is_top_course');
-        $data['user_id'] = $this->session->userdata('user_id');
+        if($this->session->userdata('role_id')==1){ //  admin role 
+            $data['user_id'] =  $this->input->post('instructor_id');
+        }else{
+            $data['user_id'] = $this->session->userdata('user_id'); 
+        }
+        
         $data['meta_description'] = $this->input->post('meta_description');
         $data['meta_keywords'] = $this->input->post('meta_keywords');
         $admin_details = $this->user_model->get_admin_details()->row_array();
@@ -474,6 +479,11 @@ class Crud_model extends CI_Model {
             $data['is_top_course'] = 1;
         }
 
+        if($this->session->userdata('role_id')==1){ //  admin role 
+            $data['user_id'] =  $this->input->post('instructor_id');
+        }else{
+            $data['user_id'] = $this->session->userdata('user_id'); 
+        }
 
         if ($type == "save_to_draft") {
             $data['status'] = 'draft';
