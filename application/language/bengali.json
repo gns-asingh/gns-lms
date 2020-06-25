@@ -443,5 +443,11 @@
     "lesson": "Lesson",
     "manage_quiz_questions": "Manage quiz questions",
     "update_quiz_information": "Update quiz information",
-    "quiz": "Quiz"
+    "quiz": "Quiz",
+    "invalid_login_credentials": "Invalid login credentials",
+    "trainees": "Trainees",
+    "a": "A",
+    "b": "B",
+    "c": "C",
+    "select_a_instructor": "Select a instructor"
 }

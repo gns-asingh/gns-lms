@@ -400,7 +400,7 @@ class Admin extends CI_Controller {
     $page_data['selected_status']        = isset($_GET['status']) ? $_GET['status'] : "all";
     $page_data['courses']                = $this->crud_model->filter_course_for_backend($page_data['selected_category_id'], $page_data['selected_instructor_id'], $page_data['selected_price'], $page_data['selected_status']);
     $page_data['status_wise_courses']    = $this->crud_model->get_status_wise_courses();
-    $page_data['instructors']            = $this->user_model->get_instructor();
+    $page_data['instructors']            = $this->user_model->get_instructor_details()->result_array();
     $page_data['page_name']              = 'courses';
     $page_data['categories']             = $this->crud_model->get_categories();
     $page_data['page_title']             = get_phrase('active_courses');
@@ -450,6 +450,7 @@ class Admin extends CI_Controller {
     if ($param1 == 'add_course') {
       $page_data['languages']	= $this->get_all_languages();
       $page_data['categories'] = $this->crud_model->get_categories();
+      $page_data['instructors'] = $this->user_model->get_instructor_details();
       $page_data['page_name'] = 'course_add';
       $page_data['page_title'] = get_phrase('add_course');
       $this->load->view('backend/index', $page_data);
@@ -461,6 +462,7 @@ class Admin extends CI_Controller {
       $page_data['page_title'] = get_phrase('edit_course');
       $page_data['languages']	= $this->get_all_languages();
       $page_data['categories'] = $this->crud_model->get_categories();
+      $page_data['instructors'] = $this->user_model->get_instructor_details();
       $this->load->view('backend/index', $page_data);
     }
   }

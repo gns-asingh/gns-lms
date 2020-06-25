@@ -116,6 +116,17 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="level"><?php echo get_phrase('Instructor'); ?><span class="required">*</span></label>
+                                                <div class="col-md-10">
+                                            <select class="form-control select2" data-toggle="select2" name="instructor_id" id="instructor_id" required>
+                                                    <option value=""><?php echo get_phrase('select_a_instructor'); ?></option>
+                                                            <?php foreach ($instructors->result_array() as $instructors): ?>
+                                                              <option value="<?php echo $instructors['id']; ?>"><?php echo $instructors['first_name'].' '.$instructors['last_name']; ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
                                                 <label class="col-md-2 col-form-label" for="language_made_in"><?php echo get_phrase('language_made_in'); ?></label>
                                                 <div class="col-md-10">
                                                     <select class="form-control select2" data-toggle="select2" name="language_made_in" id="language_made_in">
