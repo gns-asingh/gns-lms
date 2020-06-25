@@ -102,24 +102,75 @@
     </div>
 </section>
 
-<section style="margin-bottom:20px; display:none;">
+<section style="margin-bottom:20px;">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div>
-                            <div>
-                                <h6>Learning Management System</h6>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="col-sm-4">skdfsdkfhsd</div>
-                    <div class="col-sm-4">skdfsdkfhsd</div>
+            <div class="col-sm-4">
+                <div class="home_page_info">
+                    <h6>Learning Management System</h6>
+                    <p>
+                        LMS (learning management system), an application that enables various sectors, companies, and
+                        educational institutions to create, manage &amp; schedule courses, assignments, quizzes, group discussions
+                        and reporting. A learning management system also assist the organization deliver training materials and
+                        lessons to employees, students, or partners, which results in growth of company or institutions.
+                    </p>
+                </div>
+
+                <div class="home_page_info">
+                    <h6>Daily Online Learning</h6>
+                    <p>
+                        Build courses, assignments or quizzes from scratch and use it whenever required. This one-time activity
+                        can reduce the rework and efforts. Share and schedule the courses and assignments on daily basis and
+                        appear for it online. Whether on desktop or mobile, morning or night, your teams can easily access
+                        training on their schedule. No matter the device, operating system, or connection stability.
+                    </p>
+                </div>
+                <div class="home_page_info">
+                    <h6>Better choice is LMS platform</h6>
+                    <p>
+                        GNS-LMS will make learning easy, interesting and progressive that every user choose an LMS will reach
+                        the heights of success.
+                    </p>
+                </div>
+                
+                
+            </div>
+            <div class="col-sm-4">
+                <div>
+                    <img src="<?php echo base_url().'uploads/system/home_image.jpg'; ?>" style="max-width:100%;">
                 </div>
             </div>
-        </div>
+            <div class="col-sm-4">
+                <div class="home_page_info">
+                    <h6>Administration is so easy.</h6>
+                    <p>
+                        Why to put more efforts on managing manually?
+                        GNS-LMS is great role-based solution for administrating the learning system. Admin user with ownership
+                        of providing access can allow instructor user to create courses, assignments and uploading documents.
+                        Instructor user has provided with option to keep watch on progress of courses for which trainee users
+                        are enrolled.
+                    </p>
+                </div>
+                <div class="home_page_info">
+                    <h6>Judge progress by referring reports</h6>
+                    <p>
+                        Decision making is so simple that every user can see how online training works for them. Its path for
+                        development and progress to reach the goals. Generate reports about everything that happens inside
+                        your eLearning and have complete control over your training.
+                    </p>
+                </div>
+                <div class="home_page_info">
+                    <h6>Create &amp; schedule courses in a few clicks</h6>
+                    <p>
+                        No need to do any paperwork, just create online courses, assignments, or quizzes in few clicks. Add your
+                        videos as a part of courses, just play and learn. Are you worried about conducting exams? Its very easy
+                        to setup the assignments online using GNS-LMS. No more need to remember dates and time, just
+                        schedule courses, assignments, quizzes and check progress online with ease.
+                    </p>
+                </div>
+                
+            </div>
+		</div>
     </div>
 </section>
 
