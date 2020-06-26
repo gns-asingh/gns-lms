@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1 class="page-title"><?php echo get_phrase('my_courses'); ?></h1>
+                <h1 class="page-title"><?php echo get_phrase('my_messages'); ?></h1>
                 <ul>
                   <li><a href="<?php echo site_url('home/my_courses'); ?>"><?php echo get_phrase('all_courses'); ?></a></li>
                <!--   <li><a href="<?php echo site_url('home/my_wishlist'); ?>"><?php echo get_phrase('wishlists'); ?></a></li> -->
