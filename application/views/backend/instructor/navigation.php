@@ -67,7 +67,7 @@
 					</li>
 
 					<li class = "<?php if($page_name == 'enrol_student') echo 'active'; ?>">
-						<a href="<?php echo site_url('instructor/enrol_student'); ?>"><?php echo get_phrase('enrol_a_student'); ?></a>
+						<a href="<?php echo site_url('instructor/enrol_student'); ?>"><?php echo get_phrase('enrol_a_trainee'); ?></a>
 					</li>
 				</ul>
 			</li>

@@ -127,16 +127,16 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group row mb-3">
-                                                <label class="col-md-2 col-form-label" for="language_made_in"><?php echo get_phrase('language_made_in'); ?></label>
+                                            <!--<div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="language_made_in"><?php //echo get_phrase('language_made_in'); ?></label>
                                                 <div class="col-md-10">
                                                     <select class="form-control select2" data-toggle="select2" name="language_made_in" id="language_made_in">
-                                                        <?php foreach ($languages as $language): ?>
-                                                            <option value="<?php echo $language; ?>" <?php if ($course_details['language'] == $language)echo 'selected';?>><?php echo ucfirst($language); ?></option>
-                                                        <?php endforeach; ?>
+                                                        <?php //foreach ($languages as $language): ?>
+                                                            <option value="<?php //echo $language; ?>" <?php //if ($course_details['language'] == $language)echo 'selected';?>><?php //echo ucfirst($language); ?></option>
+                                                        <?php //endforeach; ?>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <div class="form-group row mb-3">
                                                 <div class="offset-md-2 col-md-10">
                                                     <div class="custom-control custom-checkbox">

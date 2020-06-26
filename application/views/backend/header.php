@@ -24,8 +24,8 @@
                     <?php
                     $logged_in_user_details = $this->user_model->get_all_user($this->session->userdata('user_id'))->row_array();;
                     ?>
-                    <span class="account-user-name"><?php echo $logged_in_user_details['first_name'].' '.$logged_in_user_details['last_name'];?></span>
-                    <span class="account-position"><?php echo strtolower($this->session->userdata('role'));?></span>
+                    <span class="account-user-name"><?php echo ucwords($logged_in_user_details['first_name'].' '.$logged_in_user_details['last_name']);?></span>
+                    <span class="account-position"><?php echo ucwords($this->session->userdata('role'));?></span>
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu profile-dropdown"
