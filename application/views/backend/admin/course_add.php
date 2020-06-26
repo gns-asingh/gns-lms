@@ -126,16 +126,16 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group row mb-3">
-                                                <label class="col-md-2 col-form-label" for="language_made_in"><?php echo get_phrase('language_made_in'); ?></label>
+                                            <!--<div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="language_made_in"><?php //echo get_phrase('language_made_in'); ?></label>
                                                 <div class="col-md-10">
                                                     <select class="form-control select2" data-toggle="select2" name="language_made_in" id="language_made_in">
-                                                        <?php foreach ($languages as $language): ?>
-                                                            <option value="<?php echo $language; ?>"><?php echo ucfirst($language); ?></option>
-                                                        <?php endforeach; ?>
+                                                        <?php //foreach ($languages as $language): ?>
+                                                            <option value="<?php //echo $language; ?>"><?php //echo ucfirst($language); ?></option>
+                                                        <?php //endforeach; ?>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <div class="form-group row mb-3">
                                                 <div class="offset-md-2 col-md-10">
                                                     <div class="custom-control custom-checkbox">
