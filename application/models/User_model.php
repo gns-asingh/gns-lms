@@ -19,6 +19,14 @@ class User_model extends CI_Model {
         return $this->db->get_where('users', array('role_id' => 3));
     }
 
+	public function get_instructors($user_id = 0) {
+        if ($user_id > 0) {
+            $this->db->where('id', $user_id);
+        }
+        $this->db->where('role_id', 3);
+        return $this->db->get('users');
+    }
+	
     public function get_user($user_id = 0) {
         if ($user_id > 0) {
             $this->db->where('id', $user_id);
@@ -32,6 +40,46 @@ class User_model extends CI_Model {
             $this->db->where('id', $user_id);
         }
         return $this->db->get('users');
+    }
+	
+	public function add_instructor() {
+        $validity = $this->check_duplication('on_create', $this->input->post('email'));
+        if ($validity == false) {
+            $this->session->set_flashdata('error_message', get_phrase('email_duplication'));
+        }else {
+            $data['first_name'] = html_escape($this->input->post('first_name'));
+            $data['last_name'] = html_escape($this->input->post('last_name'));
+            $data['email'] = html_escape($this->input->post('email'));
+            $data['password'] = sha1(html_escape($this->input->post('password')));
+            $social_link['facebook'] = html_escape($this->input->post('facebook_link'));
+            $social_link['twitter'] = html_escape($this->input->post('twitter_link'));
+            $social_link['linkedin'] = html_escape($this->input->post('linkedin_link'));
+            $data['social_links'] = json_encode($social_link);
+            $data['biography'] = $this->input->post('biography');
+            $data['role_id'] = 3;
+            $data['date_added'] = strtotime(date("Y-m-d H:i:s"));
+            $data['wishlist'] = json_encode(array());
+            $data['watch_history'] = json_encode(array());
+            $data['status'] = 1;
+            // Add paypal keys
+            $paypal_info = array();
+            $paypal['production_client_id'] = html_escape($this->input->post('paypal_client_id'));
+            array_push($paypal_info, $paypal);
+            $data['paypal_keys'] = json_encode($paypal_info);
+            // Add Stripe keys
+            $stripe_info = array();
+            $stripe_keys = array(
+                'public_live_key' => html_escape($this->input->post('stripe_public_key')),
+                'secret_live_key' => html_escape($this->input->post('stripe_secret_key'))
+            );
+            array_push($stripe_info, $stripe_keys);
+            $data['stripe_keys'] = json_encode($stripe_info);
+
+            $this->db->insert('users', $data);
+            $user_id = $this->db->insert_id();
+            $this->upload_user_image($user_id);
+            $this->session->set_flashdata('flash_message', get_phrase('instructor_added_successfully'));
+        }
     }
 
     public function add_user() {
@@ -95,6 +143,48 @@ class User_model extends CI_Model {
             }
         }
     }
+	
+	public function edit_instructors($user_id = "") { // Admin does this editing
+        $validity = $this->check_duplication('on_update', $this->input->post('email'), $user_id);
+        if ($validity) {
+            $data['first_name'] = html_escape($this->input->post('first_name'));
+            $data['last_name'] = html_escape($this->input->post('last_name'));
+
+            if (isset($_POST['email'])) {
+                $data['email'] = html_escape($this->input->post('email'));
+            }
+            $social_link['facebook'] = html_escape($this->input->post('facebook_link'));
+            $social_link['twitter'] = html_escape($this->input->post('twitter_link'));
+            $social_link['linkedin'] = html_escape($this->input->post('linkedin_link'));
+            $data['social_links'] = json_encode($social_link);
+            $data['biography'] = $this->input->post('biography');
+            $data['title'] = html_escape($this->input->post('title'));
+            $data['last_modified'] = strtotime(date("Y-m-d H:i:s"));
+
+            // Update paypal keys
+            $paypal_info = array();
+            $paypal['production_client_id'] = html_escape($this->input->post('paypal_client_id'));
+            array_push($paypal_info, $paypal);
+            $data['paypal_keys'] = json_encode($paypal_info);
+            // Update Stripe keys
+            $stripe_info = array();
+            $stripe_keys = array(
+                'public_live_key' => html_escape($this->input->post('stripe_public_key')),
+                'secret_live_key' => html_escape($this->input->post('stripe_secret_key'))
+            );
+            array_push($stripe_info, $stripe_keys);
+            $data['stripe_keys'] = json_encode($stripe_info);
+
+            $this->db->where('id', $user_id);
+            $this->db->update('users', $data);
+            $this->upload_user_image($user_id);
+            $this->session->set_flashdata('flash_message', get_phrase('user_update_successfully'));
+        }else {
+            $this->session->set_flashdata('error_message', get_phrase('email_duplication'));
+        }
+
+        $this->upload_user_image($user_id);
+    }
 
     public function edit_user($user_id = "") { // Admin does this editing
         $validity = $this->check_duplication('on_update', $this->input->post('email'), $user_id);
@@ -136,6 +226,12 @@ class User_model extends CI_Model {
         }
 
         $this->upload_user_image($user_id);
+    }
+	
+	public function delete_instructors($user_id = "") {
+        $this->db->where('id', $user_id);
+        $this->db->delete('users');
+        $this->session->set_flashdata('flash_message', get_phrase('instructor_deleted_successfully'));
     }
     public function delete_user($user_id = "") {
         $this->db->where('id', $user_id);
