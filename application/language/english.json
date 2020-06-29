@@ -660,6 +660,16 @@
     "trainees_currently_enrolled_for_various_courses": "Trainees currently enrolled for various courses",
     "scheduled_courses": "Scheduled courses",
     "attend_courses_scheduled_for_today": "Attend courses scheduled for today",
-    "attend_scheduled_courses_for_today": "Attend scheduled courses for today"
+    "attend_scheduled_courses_for_today": "Attend scheduled courses for today",
+    "trainee": "Trainee",
+    "enrol_a_trainee": "Enrol a trainee",
+    "number_of_trainee": "Number of trainee",
+    "add_trainee": "Add trainee",
+    "enrolled_trainee": "Enrolled trainee",
+    "navigationxx": "Navigationxx",
+    "trainees": "Trainees",
+    "select_a_instructor": "Select a instructor",
+    "instructor_page": "Instructor page",
+    "show_full_biography": "Show full biography"
 
 }

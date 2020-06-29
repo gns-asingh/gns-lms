@@ -167,15 +167,15 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
             <li><i class="fas fa-comment"></i><b>
               <?php echo $this->crud_model->get_instructor_wise_course_ratings($instructor_details['id'], 'course')->num_rows(); ?>
             </b> <?php echo get_phrase('reviews'); ?></li>
-            <li><i class="fas fa-user"></i><b>
+            <!--<li><i class="fas fa-user"></i><b>
               <?php
-              $course_ids = $this->crud_model->get_instructor_wise_courses($instructor_details['id'], 'simple_array');
-              $this->db->select('user_id');
-              $this->db->distinct();
-              $this->db->where_in('course_id', $course_ids);
-              echo $this->db->get('enrol')->num_rows();
+              //$course_ids = $this->crud_model->get_instructor_wise_courses($instructor_details['id'], 'simple_array');
+             // $this->db->select('user_id');
+              //$this->db->distinct();
+              //$this->db->where_in('course_id', $course_ids);
+              //echo $this->db->get('enrol')->num_rows();
               ?>
-            </b> <?php echo get_phrase('students') ?></li>
+            </b> <?php //echo get_phrase('students') ?></li>-->
             <li><i class="fas fa-play-circle"></i><b>
               <?php echo $this->crud_model->get_instructor_wise_courses($instructor_details['id'])->num_rows(); ?>
             </b> <?php echo get_phrase('courses'); ?></li>
@@ -336,9 +336,9 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
       </div>
 
       <?php if(is_purchased($course_details['id'])) :?>
-        <div class="already_purchased">
-          <a href="<?php echo site_url('home/my_courses'); ?>"><?php echo get_phrase('already_purchased'); ?></a>
-        </div>
+        <!--<div class="already_purchased">
+          <a href="<?php //echo site_url('home/my_courses'); ?>"><?php //echo get_phrase('already_purchased'); ?></a>
+        </div>-->
       <?php else: ?>
         <?php if ($course_details['is_free_course'] == 1): ?>
           <div class="buy-btns">
@@ -360,7 +360,7 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
         <?php endif; ?>
       <?php endif; ?>
 
-
+	<br>
       <div class="includes">
         <div class="title"><b><?php echo get_phrase('includes'); ?>:</b></div>
         <ul>

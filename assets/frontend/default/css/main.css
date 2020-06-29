@@ -24,7 +24,8 @@ body.white-bg{
     background: #fff;
 }
 body.gray-bg{
-    background: #f7f8fa;
+    /* background: #f7f8fa; */
+    background:#f6f6f6;
 }
 body.modal-open {
     overflow: auto;
@@ -4280,5 +4281,6 @@ div.tagsinput span.tag a {
     font-weight: 600;
 }
 .home_page_info p{
-    font-size:13px;
+    font-size: 14px;
+    text-align: justify;
 }

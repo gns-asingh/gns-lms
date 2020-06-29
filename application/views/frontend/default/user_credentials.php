@@ -42,7 +42,7 @@
                                 <div class="email-group">
                                     <div class="form-group">
                                         <label for="email"><?php echo get_phrase('email'); ?>:</label>
-                                        <input type="email" class="form-control" name = "email" id="email" placeholder="<?php echo get_phrase('email'); ?>" value="<?php echo $user_details['email']; ?>">
+                                        <input type="email" class="form-control" name = "email" id="email" READONLY placeholder="<?php echo get_phrase('email'); ?>" value="<?php echo $user_details['email']; ?>">
                                     </div>
                                 </div>
                                 <div class="password-group">
