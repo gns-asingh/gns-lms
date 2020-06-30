@@ -41,6 +41,24 @@
 					</li>
 				</ul>
 			</li>
+			
+			<li class="side-nav-item ">
+				<a href="javascript: void(0);" class="side-nav-link ">
+					<i class="dripicons-user-group"></i>
+					<span> <?php echo get_phrase('users'); ?> </span>
+					<span class="menu-arrow"></span>
+				</a>
+				<ul class="side-nav-second-level" aria-expanded="false">
+					<li class = "<?php if($page_name == 'users' || $page_name == 'user_add' || $page_name == 'user_edit') echo 'active'; ?>">
+						<a href="<?php echo site_url('admin/users'); ?>" ><?php echo get_phrase('trainees'); ?></a>
+					</li>
+
+					<li class = "<?php if($page_name == 'instructors') echo 'active'; ?>">
+						<a href="<?php echo site_url('admin/instructors'); ?>"><?php echo get_phrase('instructors'); ?></a>
+					</li>
+				</ul>
+			</li>
+
 
 			<li class="side-nav-item">
 				<a href="<?php echo site_url('admin/courses'); ?>" class="side-nav-link <?php if ($page_name == 'courses' || $page_name == 'course_add' || $page_name == 'course_edit')echo 'active';?>">
@@ -48,12 +66,12 @@
 					<span><?php echo get_phrase('courses'); ?></span>
 				</a>
 			</li>
-			<li class="side-nav-item">
-				<a href="<?php echo site_url('admin/users'); ?>" class="side-nav-link <?php if ($page_name == 'users' || $page_name == 'user_add' || $page_name == 'user_edit')echo 'active';?>">
+			<!--<li class="side-nav-item">
+				<a href="<?php //echo site_url('admin/users'); ?>" class="side-nav-link <?php //if ($page_name == 'users' || $page_name == 'user_add' || $page_name == 'user_edit')echo 'active';?>">
 					<i class="dripicons-user-group"></i>
-					<span><?php echo get_phrase('Trainee'); ?></span>
+					<span><?php //echo get_phrase('Trainee'); ?></span>
 				</a>
-			</li>
+			</li>-->
 
 			<li class="side-nav-item <?php if ($page_name == 'enrol_history' || $page_name == 'enrol_student'): ?> active <?php endif; ?>">
 				<a href="javascript: void(0);" class="side-nav-link <?php if ($page_name == 'enrol_history' || $page_name == 'enrol_student'): ?> active <?php endif; ?>">
