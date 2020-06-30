@@ -87,7 +87,7 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
               </span>
             </div>
           </div>
-          <div class="course-curriculum-accordion">
+          <div class="course-curriculum-accordion course_accordian">
             <?php
             $sections = $this->crud_model->get_section('course', $course_id)->result_array();
             $counter = 0;
@@ -158,41 +158,43 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
     <div class="about-instructor-title">
       <?php echo get_phrase('about_the_instructor'); ?>
     </div>
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="about-instructor-image">
-          <img src="<?php echo $this->user_model->get_user_image_url($instructor_details['id']); ?>" alt="" class="img-fluid">
-          <ul>
-            <!-- <li><i class="fas fa-star"></i><b>4.4</b> Average Rating</li> -->
-            <li><i class="fas fa-comment"></i><b>
-              <?php echo $this->crud_model->get_instructor_wise_course_ratings($instructor_details['id'], 'course')->num_rows(); ?>
-            </b> <?php echo get_phrase('reviews'); ?></li>
-            <!--<li><i class="fas fa-user"></i><b>
-              <?php
-              //$course_ids = $this->crud_model->get_instructor_wise_courses($instructor_details['id'], 'simple_array');
-             // $this->db->select('user_id');
-              //$this->db->distinct();
-              //$this->db->where_in('course_id', $course_ids);
-              //echo $this->db->get('enrol')->num_rows();
-              ?>
-            </b> <?php //echo get_phrase('students') ?></li>-->
-            <li><i class="fas fa-play-circle"></i><b>
-              <?php echo $this->crud_model->get_instructor_wise_courses($instructor_details['id'])->num_rows(); ?>
-            </b> <?php echo get_phrase('courses'); ?></li>
-          </ul>
+    <div class="instructor_box">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="about-instructor-image">
+            <img src="<?php echo $this->user_model->get_user_image_url($instructor_details['id']); ?>" alt="" class="img-fluid">
+            <ul>
+              <!-- <li><i class="fas fa-star"></i><b>4.4</b> Average Rating</li> -->
+              <li><i class="fas fa-comment"></i><b>
+                <?php echo $this->crud_model->get_instructor_wise_course_ratings($instructor_details['id'], 'course')->num_rows(); ?>
+              </b> <?php echo get_phrase('reviews'); ?></li>
+              <!--<li><i class="fas fa-user"></i><b>
+                <?php
+                //$course_ids = $this->crud_model->get_instructor_wise_courses($instructor_details['id'], 'simple_array');
+              // $this->db->select('user_id');
+                //$this->db->distinct();
+                //$this->db->where_in('course_id', $course_ids);
+                //echo $this->db->get('enrol')->num_rows();
+                ?>
+              </b> <?php //echo get_phrase('students') ?></li>-->
+              <li><i class="fas fa-play-circle"></i><b>
+                <?php echo $this->crud_model->get_instructor_wise_courses($instructor_details['id'])->num_rows(); ?>
+              </b> <?php echo get_phrase('courses'); ?></li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="col-lg-8">
-        <div class="about-instructor-details view-more-parent">
-          <div class="view-more" onclick="viewMore(this)">+ <?php echo get_phrase('view_more'); ?></div>
-          <div class="instructor-name">
-            <a href="<?php echo site_url('home/instructor_page/'.$course_details['user_id']); ?>"><?php echo $instructor_details['first_name'].' '.$instructor_details['last_name']; ?></a>
-          </div>
-          <div class="instructor-title">
-            <?php echo $instructor_details['title']; ?>
-          </div>
-          <div class="instructor-bio">
-            <?php echo $instructor_details['biography']; ?>
+        <div class="col-lg-8">
+          <div class="about-instructor-details view-more-parent">
+            <div class="view-more" onclick="viewMore(this)">+ <?php echo get_phrase('view_more'); ?></div>
+            <div class="instructor-name">
+              <a href="<?php echo site_url('home/instructor_page/'.$course_details['user_id']); ?>"><?php echo $instructor_details['first_name'].' '.$instructor_details['last_name']; ?></a>
+            </div>
+            <div class="instructor-title">
+              <?php echo $instructor_details['title']; ?>
+            </div>
+            <div class="instructor-bio">
+              <?php echo $instructor_details['biography']; ?>
+            </div>
           </div>
         </div>
       </div>
@@ -228,11 +230,13 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
             <?php endif; ?>
           <?php endfor; ?>
         </div>
-        <div class="title"><?php echo get_phrase('average_rating'); ?></div>
+        <div class="title text-center"><?php echo get_phrase('average_rating'); ?></div>
+            </div>
+        
       </div>
-    </div>
+    
     <div class="col-lg-9">
-      <div class="individual-rating">
+      <div class="individual-rating" style="padding: 10px 10px;"> 
         <ul>
           <?php for($i = 1; $i <= 5; $i++): ?>
             <li>
@@ -256,7 +260,10 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
         </ul>
       </div>
     </div>
-  </div>
+    </div>
+  <hr>
+  
+                 
   <div class="reviews">
     <div class="reviews-title"><?php echo get_phrase('reviews'); ?></div>
     <ul>
@@ -349,7 +356,7 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
             <?php endif; ?>
           </div>
         <?php else: ?>
-          <div class="buy-btns">
+          <div class="buy-btns" style="display:none;">
             <a href = "<?php echo site_url('home/shopping_cart'); ?>" class="btn btn-buy-now" id = "course_<?php echo $course_details['id']; ?>" onclick="handleBuyNow(this)"><?php echo get_phrase('buy_now'); ?></a>
             <?php if (in_array($course_details['id'], $this->session->userdata('cart_items'))): ?>
               <button class="btn btn-add-cart addedToCart" type="button" id = "<?php echo $course_details['id']; ?>" onclick="handleCartItems(this)"><?php echo get_phrase('added_to_cart'); ?></button>
