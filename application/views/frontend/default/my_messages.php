@@ -1,11 +1,22 @@
 <?php
     $instructor_list = $this->user_model->get_instructor_list()->result_array();
 ?>
-<section class="page-header-area my-course-area">
+<section class="page-header-area my-course-area page_header">
     <div class="container">
         <div class="row">
             <div class="col">
                 <h1 class="page-title"><?php echo get_phrase('my_messages'); ?></h1>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-header-area my-course-area">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                
                 <ul>
                   <li><a href="<?php echo site_url('home/my_courses'); ?>"><?php echo get_phrase('all_courses'); ?></a></li>
                <!--   <li><a href="<?php echo site_url('home/my_wishlist'); ?>"><?php echo get_phrase('wishlists'); ?></a></li> -->
@@ -19,13 +30,13 @@
 </section>
 
 
-<section class="message-area">
+<section class="message-area my-courses-area">
     <div class="container">
-        <div class="row no-gutters align-items-stretch">
+        <div class="row align-items-stretch">
             <div class="col-lg-5">
                 <div class="message-sender-list-box">
-                    <button class="btn compose-btn" type="button" id="NewMessage" onclick="NewMessage(event)">Compose</button>
-                    <hr>
+                    <button class="btn btn-primary" type="button" id="NewMessage" onclick="NewMessage(event)">Compose</button>
+                   
                     <ul class="message-sender-list">
 
                         <?php
