@@ -39,10 +39,10 @@
                               <td><?php echo $user['email']; ?></td>
                               <td>
                                  <?php //$this->session->userdata('role_id')
-                                    $enrolled_courses = $this->crud_model->course_added_by_admin();?>
+                                    $enrolled_courses = $this->crud_model->course_added_by_user($user['id']);?>
                                     <ul>
                                         <?php foreach ($enrolled_courses->result_array() as $enrolled_course):
-                                            $course_details = $this->crud_model->get_course_by_id($enrolled_course['course_id'])->row_array();?>
+                                            $course_details = $this->crud_model->get_course_by_id($enrolled_course['id'])->row_array();?>
                                             <li><?php echo $course_details['title']; ?></li>
                                         <?php endforeach; ?>
                                     </ul>
