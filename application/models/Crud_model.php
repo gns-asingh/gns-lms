@@ -102,7 +102,7 @@ class Crud_model extends CI_Model {
         return $this->db->get_where('enrol', array('user_id' => $user_id));
     }
 	
-	public function course_added_by_admin($user_id = "") { //print_r($user_id);
+	public function course_added_by_user($user_id = "") { //print_r($user_id);
         return $this->db->get_where('course', array('user_id' => $user_id));
     }
 
