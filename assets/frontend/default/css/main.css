@@ -1895,6 +1895,7 @@ section.course-header-area {
     color: #007791;
     cursor: pointer;
     z-index: 5;
+    font-weight: 600;
 }
 .view-less{
     position: absolute;
@@ -1923,9 +1924,12 @@ section.course-header-area {
 }
 
 .description-box .description-title {
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 600;
-    margin: 0 0 10px;
+    margin: 0;
+    background: #00bcd4;
+    padding: 10px 10px;
+    color: #fff;
 }
 .description-box .audience {
     margin-top: 20px;
@@ -1937,6 +1941,10 @@ section.course-header-area {
 }
 .description-box .audience ul{
     margin-bottom: 0;
+}
+.description-content{
+    background: #fff;
+    padding: 10px 10px;
 }
 
 
@@ -1998,19 +2006,52 @@ section.course-header-area {
 
 
 .requirements-box{
-    margin-top: 40px;
+    margin-top: 20px;
 }
 .requirements-box .requirements-title {
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 600;
-    margin: 0 0 10px;
+    margin: 0;
+    background: #00bcd4;
+    padding: 10px 10px;
+    color: #fff;
 }
 
 .requirements-box .requirements__list {
-    list-style: disc;
-    margin-left: 10px;
-    padding-left: 10px;
-    margin-bottom: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px 20px;
+    background: #fff;
+}
+.requirements-box .requirements__list li{
+    display: flex;
+    margin-bottom: 10px;
+    width: 45%;
+    padding-left: 26px;
+    font-size: 15px;
+    position: relative;
+}
+.requirements-box .requirements__list li:before {
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    content: "\f00c";
+    color: #a1a7b3;
+    font-size: 14px;
+    position: absolute;
+    left: 0;
+    top: 4px;
 }
 .requirements-box .requirements__list li:not(:last-child){
     margin-bottom: 10px;
@@ -2166,9 +2207,12 @@ section.course-header-area {
 }
 .about-instructor-box .about-instructor-title {
     display: block;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 600;
-    margin: 0 0 20px;
+    margin: 0;
+    background: #00bcd4;
+    color: #fff;
+    padding: 10px 10px;
 }
 
 .about-instructor-box .about-instructor-image img {
@@ -2199,6 +2243,7 @@ section.course-header-area {
 
 .about-instructor-details {
     max-height: 380px;
+    height: 56px;
 }
 
 .about-instructor-box {
@@ -2219,18 +2264,24 @@ section.course-header-area {
     margin-bottom: 10px;
 }
 .student-feedback-box {
-    margin: 50px 0;
+    margin: 20px 0;
+    background:#fff;
 }
 
 .student-feedback-box .student-feedback-title {
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 600;
-    margin: 0 0 15px;
+    margin: 0;
+    background: #00bcd4;
+    color: #fff;
+    padding: 10px 10px;
 }
 
 .student-feedback-box .average-rating {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 0px;
+    background: #fff;
+    padding: 10px 10px;
 }
 
 .student-feedback-box .average-rating .num {
@@ -2290,9 +2341,12 @@ section.course-header-area {
     color: #007791;
 }
 .student-feedback-box .reviews .reviews-title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     padding: 0 0 20px;
+    color: #fff;
+    background: #00bcd4;
+    padding: 10px 10px;
 }
 
 .student-feedback-box .reviews ul {
@@ -2359,12 +2413,12 @@ section.course-header-area {
 }
 
 .course-curriculum-box {
-    margin-bottom: 40px;
+    margin-bottom: 25px;
 }
 .course-curriculum-box .course-curriculum-title .title {
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 600;
-    margin: 0 0 10px;
+    margin: 0;
 }
 
 .course-curriculum-box .course-curriculum-title .total-time {
@@ -2396,6 +2450,9 @@ section.course-header-area {
 
 .course-curriculum-box .course-curriculum-title {
     padding-right: 31px;
+    background: #00bcd4;
+    color: #fff;
+    padding: 10px 10px;
 }
 
 .course-curriculum-accordion .lecture-group-title:before {
@@ -4328,4 +4385,18 @@ div.tagsinput span.tag a {
     font-size: 14px!important;
     color: #17a2b8!important;
     font-weight: 600;
+}
+.course_accordian{
+    background: #fff;
+    padding: 10px 10px;
+}
+.requirements-content{
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 10px;
+}
+
+.instructor_box{
+    background:#fff;
+    padding:10px 10px;
 }
