@@ -31,7 +31,7 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
           <span class="enrolled-num">
             <?php
             $number_of_enrolments = $this->crud_model->enrol_history($course_details['id'])->num_rows();
-            echo $number_of_enrolments.' '.get_phrase('students_enrolled');
+            echo $number_of_enrolments.' '.get_phrase('trainees_enrolled');
             ?>
           </span>
         </div>
@@ -370,8 +370,8 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
             ?>
           </li>
           <li><i class="far fa-file"></i><?php echo $this->crud_model->get_lessons('course', $course_details['id'])->num_rows().' '.get_phrase('lessons'); ?></li>
-          <li><i class="far fa-compass"></i><?php echo get_phrase('full_lifetime_access'); ?></li>
-          <li><i class="fas fa-mobile-alt"></i><?php echo get_phrase('access_on_mobile_and_tv'); ?></li>
+          <!--<li><i class="far fa-compass"></i><?php //echo get_phrase('full_lifetime_access'); ?></li>
+          <li><i class="fas fa-mobile-alt"></i><?php //echo get_phrase('access_on_mobile_and_tv'); ?></li>-->
         </ul>
       </div>
     </div>
