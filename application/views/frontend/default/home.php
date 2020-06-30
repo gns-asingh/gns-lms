@@ -78,12 +78,14 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="col-md-4 d-flex">
                 <div class="home-fact-box mr-md-auto ml-auto mr-auto">
                     <i class="fa fa-users float-left"></i>
                     <div class="text-box">
-                        <h4><?php echo get_phrase('enrolled_trainees'); ?></h4>
+                        <h4><?php $all_trainee_users = $this->user_model->get_user();
+                        $number_of_trainee = $all_trainee_users->num_rows();
+                        echo $number_of_trainee.' '.get_phrase('enrolled_trainees'); ?></h4>
                         <p><?php echo get_phrase('trainees_currently_enrolled_for_various_courses'); ?></p>
                     </div>
                 </div>

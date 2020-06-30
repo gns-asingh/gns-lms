@@ -38,7 +38,7 @@
 	}else {
 		include 'logged_out_header.php';
 	}
-	echo $page_name;
+	//echo $page_name;
 	include $page_name.'.php';
 	include 'footer.php';
 	include 'includes_bottom.php';
