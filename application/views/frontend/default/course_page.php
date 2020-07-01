@@ -112,8 +112,29 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                   <?php $lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
                   foreach ($lessons as $lesson):?>
                   <li class="lecture has-preview">
-                    <span class="lecture-title"><?php echo $lesson['title']; ?></span>
-                    <span class="lecture-time float-right"><?php echo $lesson['duration']; ?></span>
+                    
+                  <span class="lecture-title"><?php echo $lesson['title']; ?>
+                   &nbsp; &nbsp; &nbsp;
+                                                  <?php 
+                                                        $tmp           = explode('.', $lesson['attachment']);
+                                                        $fileExtension = strtolower(end($tmp));?>
+                 <?php if ($fileExtension == 'jpg' || $fileExtension == 'jpeg' || $fileExtension == 'png' || $fileExtension == 'bmp' || $fileExtension == 'svg'): ?>
+                                                            <i class="fas fa-camera-retro"></i>
+                                                        <?php elseif($fileExtension == 'pdf'): ?>
+                                                          <a href="<?php echo base_url().'uploads/lesson_files/'.$lesson['attachment']; ?>" class="" download>
+  <i class="far fa-file-pdf"></i></a>
+                                                        <?php elseif($fileExtension == 'doc' || $fileExtension == 'docx'): ?>
+                                                            <i class="far fa-file-word"></i>
+                                                        <?php elseif($fileExtension == 'txt'): ?>
+                                                            <i class="far fa-file-alt"></i>
+                                                        <?php else: ?>
+                                                            <i class="fa fa-file"></i>
+                                                            <?php endif; ?>
+                                                          </span>
+                    
+                    <?php if ($lesson['lesson_type'] == 'video' || $lesson['lesson_type'] == '' || $lesson['lesson_type'] == NULL): ?>
+                      <span class="lecture-time float-right"><?php echo $lesson['duration']; ?></span>
+                      <?php endif; ?>
                     <!-- <span class="lecture-preview float-right" data-toggle="modal" data-target="#CoursePreviewModal">Preview</span> -->
                   </li>
                 <?php endforeach; ?>

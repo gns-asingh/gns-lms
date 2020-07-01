@@ -43,7 +43,7 @@
                     <?php
                       $lessons = $this->crud_model->get_lessons('course', $course['id'])->result_array();
                       foreach ($lessons as $lesson):?>
-                      <a href="<?php echo site_url('admin/watch_video/'.slugify($lesson['title']).'/'.$lesson['id']); ?>"><li><?php echo $lesson['title']; ?></li></a>
+                      <a href="<?php echo site_url('instructor/watch_video/'.slugify($lesson['title']).'/'.$lesson['id']); ?>"><li><?php echo $lesson['title']; ?></li></a>
                     <?php endforeach; ?>
                     </ul>
                 </td>
@@ -76,13 +76,13 @@
                             </li>
 
                             <li>
-                                <a href="<?php echo site_url('admin/sections/'.$course['id']); ?>">
+                                <a href="<?php echo site_url('instructor/sections/'.$course['id']); ?>">
                                     <?php echo get_phrase('manage_section');?>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="<?php echo site_url('admin/lessons/'.$course['id']); ?>">
+                                <a href="<?php echo site_url('instructor/lessons/'.$course['id']); ?>">
                                     <?php echo get_phrase('manage_lesson');?>
                                 </a>
                             </li>
@@ -94,7 +94,7 @@
                                         <?php echo get_phrase('mark_as_pending');?>
                                     </a>
                                 <?php else: ?>
-                                    <a href="#" onclick="confirm_modal('<?php echo site_url();?>admin/change_course_status_for_admin/pending/<?php echo $course['id'];?>', 'generic_confirmation');">
+                                    <a href="#" onclick="confirm_modal('<?php echo site_url();?>instructor/change_course_status_for_admin/pending/<?php echo $course['id'];?>', 'generic_confirmation');">
                                         <?php echo get_phrase('mark_as_pending');?>
                                     </a>
                                 <?php endif; ?>
@@ -102,14 +102,14 @@
 
 
                             <li>
-                                <a href="<?php echo site_url('admin/course_form/course_edit/'.$course['id']) ?>">
+                                <a href="<?php echo site_url('instructor/course_form/course_edit/'.$course['id']) ?>">
                                     <?php echo get_phrase('edit');?>
                                 </a>
                             </li>
 
                             <li class="divider"></li>
                             <li>
-                                <a href="#" onclick="confirm_modal('<?php echo site_url('admin/course_actions/delete/'.$course['id']); ?>');">
+                                <a href="#" onclick="confirm_modal('<?php echo site_url('instructor/course_actions/delete/'.$course['id']); ?>');">
                                     <?php echo get_phrase('delete');?>
                                 </a>
                             </li>

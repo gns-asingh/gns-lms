@@ -126,7 +126,7 @@
                                                   <?php echo get_phrase('mark_as_active');?>
                                               </a>
                                           <?php else: ?>
-                                              <a href="#" onclick="confirm_modal('<?php echo site_url();?>admin/change_course_status_for_admin/active/<?php echo $course['id'];?>', 'generic_confirmation');">
+                                              <a href="#" onclick="confirm_modal('<?php echo site_url();?>instructor/change_course_status_for_admin/active/<?php echo $course['id'];?>', 'generic_confirmation');">
                                                   <?php echo get_phrase('mark_as_active');?>
                                               </a>
                                           <?php endif; ?>
