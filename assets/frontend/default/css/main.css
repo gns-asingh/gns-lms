@@ -25,7 +25,7 @@ body.white-bg{
 }
 body.gray-bg{
     /* background: #f7f8fa; */
-    background:#f6f6f6;
+    background:#fdfdfd;
 }
 body.modal-open {
     overflow: auto;
@@ -1918,6 +1918,7 @@ section.course-header-area {
     max-height: 260px;
     margin-top: 40px;
     margin-bottom: 40px;
+    border: 1px solid #ddd;
 }
 .description-box ul{
     list-style: disc;
@@ -2266,6 +2267,7 @@ section.course-header-area {
 .student-feedback-box {
     margin: 20px 0;
     background:#fff;
+    border: 1px solid #ddd;
 }
 
 .student-feedback-box .student-feedback-title {
@@ -4365,13 +4367,15 @@ div.tagsinput span.tag a {
      margin-top:20px;
  }
 .home_page_info h6{
-    color:#ec5252;
-    font-weight: 600;
+    color:#fff;
+    font-weight: 500;
+    margin-bottom: 0;
 }
 .home_page_info p{
     font-size: 15px;
     text-align: justify;
-    color: #5d5d5d;
+    color: #333;
+    margin-bottom: 0;
 }
 .filter-box .dropdown-toggle::after {
     text-align: right;
@@ -4389,6 +4393,7 @@ div.tagsinput span.tag a {
 .course_accordian{
     background: #fff;
     padding: 10px 10px;
+    border:1px solid #ddd;
 }
 .requirements-content{
     background: #fff;
@@ -4399,4 +4404,52 @@ div.tagsinput span.tag a {
 .instructor_box{
     background:#fff;
     padding:10px 10px;
+    border: 1px solid #ddd;
 }
+.home_page_info_title{
+    /* background: #2196F3; */
+    background-color: #ec5252;
+    background: -webkit-linear-gradient(-45deg,#ec5252,#6e1a52);
+    background: -moz-linear-gradient(-45deg,#ec5252 0,#6e1a52 100%);
+    background: -ms-linear-gradient(-45deg,#ec5252 0,#6e1a52 100%);
+    background: -o-linear-gradient(-45deg,#ec5252 0,#6e1a52 100%);
+    background: linear-gradient(-45deg,#ec5252,#6e1a52);
+    color: #fff;
+    padding: 10px 16px;
+}
+.home_page_info_matter{
+    background: #fff;
+    padding: 15px 16px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    height: 240px;
+    box-shadow: 0px 4px 4px #ddd;
+}
+.lesson_accordian_header{
+    color: #535a66; 
+    background: none; 
+    border: none; 
+    white-space: normal;
+    cursor:pointer;
+}
+.card-header{
+    background: #2196F3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

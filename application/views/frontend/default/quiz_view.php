@@ -3,11 +3,19 @@ $quiz_questions = $this->crud_model->get_quiz_questions($lesson_details['id']);
 ?>
 <div id="quiz-body">
     <div class="" id="quiz-header">
-        <?php echo get_phrase("quiz_title"); ?> : <strong><?php echo $lesson_details['title']; ?></strong><br>
-        <?php echo get_phrase("number_of_questions"); ?> : <strong><?php echo count($quiz_questions->result_array()); ?></strong><br>
-        <?php if (count($quiz_questions->result_array()) > 0): ?>
-            <button type="button" name="button" class="btn btn-sign-up mt-2" style="color: #fff;" onclick="getStarted(1)"><?php echo get_phrase("get_started"); ?></button>
-        <?php endif; ?>
+        <div class="row">
+            <div class="col-sm-6">
+                <?php echo get_phrase("quiz_title"); ?> : <strong><?php echo $lesson_details['title']; ?></strong>
+            </div>
+            <div class="col-sm-6">
+                <div style="float:right;">
+                    <?php echo get_phrase("number_of_questions"); ?> : <strong><?php echo count($quiz_questions->result_array()); ?></strong>
+                    <?php if (count($quiz_questions->result_array()) > 0): ?>
+                        <button type="button" name="button" class="btn btn-primary btn-sign-up mt-2" style="color: #fff;" onclick="getStarted(1)"><?php echo get_phrase("get_started"); ?></button>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
     </div>
 
     <form class="" id = "quiz_form" action="" method="post">
