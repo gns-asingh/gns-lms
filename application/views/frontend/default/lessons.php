@@ -1,27 +1,39 @@
 <?php
 $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 ?>
-<div class="container-fluid">
+<section class="category-header-area page_header">
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-sm-12">
+                <div>
+                    <h1 class="category-name"><?php echo $course_details['title']; ?></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section style="padding-top: 35px; margin-bottom:20px;">
+<div class="container">
     <div class="row">
         <div class="col-lg-3">
-            <div class="text-center" style="margin-top: 10px;">
+            <!-- <div class="text-center" style="margin-top: 10px;">
                 <h4><?php echo $course_details['title']; ?></h4>
-            </div>
+            </div> -->
             <div class="accordion" id="accordionExample">
                 <?php
                 $section_counter = 0;
                 foreach ($sections as $section):
                     $section_counter++;
                     $lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();?>
-                    <div class="card" style="margin:10px 0px;">
+                    <div class="card">
                         <div class="card-header" id="<?php echo 'heading-'.$section['id']; ?>">
 
-                            <h5 class="mb-0">
-                                <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse" data-target="<?php echo '#collapse-'.$section['id']; ?>" aria-expanded="true" aria-controls="<?php echo 'collapse-'.$section['id']; ?>" style="color: #535a66; background: none; border: none; white-space: normal;">
-                                    <h6 style="color: #686f7a; font-size: 15px;">section <?php echo $section_counter;?></h6>
-                                    <?php echo $section['title']; ?>
-                                </button>
-                            </h5>
+                            <div class="mb-0">
+                                <div class="lesson_accordian_header" type="button" data-toggle="collapse" data-target="<?php echo '#collapse-'.$section['id']; ?>" aria-expanded="true" aria-controls="<?php echo 'collapse-'.$section['id']; ?>">
+                                    <h6 style="color: #fff; font-size: 15px;margin-bottom:0;">Section <?php echo $section_counter;?></h6>
+                                    <!-- <?php echo $section['title']; ?> -->
+                                </div>
+                            </div>
                         </div>
 
                         <div id="<?php echo 'collapse-'.$section['id']; ?>" class="collapse <?php if($section_id == $section['id']) echo 'show'; ?>" aria-labelledby="<?php echo 'heading-'.$section['id']; ?>" data-parent="#accordionExample">
@@ -77,7 +89,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
         <?php if (isset($lesson_id)): ?>
             <div class="col-lg-9" id = "video_player_area">
                 <!-- <div class="" style="background-color: #333;"> -->
-                <div class="" style="text-align: center;">
+                <div class="">
                     <?php
                     $lesson_details = $this->crud_model->get_lessons('lesson', $lesson_id)->row_array();
                     $lesson_thumbnail_url = $this->crud_model->get_lesson_thumbnail_url($lesson_id);
@@ -135,19 +147,19 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                 <!------------- PLYR.IO ------------>
                             <?php endif; ?>
                     <?php elseif ($lesson_details['lesson_type'] == 'quiz'): ?>
-                        <div class="mt-5">
+                        <div>
                             <?php include 'quiz_view.php'; ?>
                         </div>
                     <?php else: ?>
-                        <div class="mt-5">
-                            <a href="<?php echo base_url().'uploads/lesson_files/'.$lesson_details['attachment']; ?>" class="btn btn-sign-up" download style="color: #fff;">
+                        <div>
+                            <a href="<?php echo base_url().'uploads/lesson_files/'.$lesson_details['attachment']; ?>" class="btn btn-primary btn-sign-up" download style="color: #fff;">
                                 <i class="fa fa-download" style="font-size: 20px;"></i> <?php echo get_phrase('download').' '.$lesson_details['title']; ?>
                             </a>
                         </div>
                     <?php endif; ?>
                 </div>
 
-                        <div class="" style="margin: 20px 0;" id = "lesson-summary">
+                        <div class="" style="margin: 15px 0;" id = "lesson-summary">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $lesson_details['lesson_type'] == 'quiz' ? get_phrase('instruction') : get_phrase("note"); ?>:</h5>
@@ -163,3 +175,6 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                 <?php endif; ?>
             </div>
         </div>
+    </div>
+</div>
+</section>
