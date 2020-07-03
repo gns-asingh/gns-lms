@@ -23,7 +23,8 @@
                       <th><?php echo get_phrase('photo'); ?></th>
                       <th><?php echo get_phrase('name'); ?></th>
                       <th><?php echo get_phrase('email'); ?></th>
-                      <th><?php echo get_phrase('enrolled_courses'); ?></th>
+                      <!-- <th><?php echo get_phrase('enrolled_courses'); ?></th> -->
+                      <th><?php echo get_phrase('assigned_courses'); ?></th>
                       <th><?php echo get_phrase('actions'); ?></th>
                     </tr>
                   </thead>

@@ -2,7 +2,10 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="page-title"> <i class="mdi mdi-apple-keyboard-command title_icon"></i> <?php echo get_phrase('categories'); ?>
+                <h4 class="page-title"> 
+                    <!-- <i class="mdi mdi-apple-keyboard-command title_icon"></i>  -->
+                    <i class="dripicons-network-1 title_icon"></i>
+                    <span style="vertical-align:middle;position:relative;top:2px;"> <?php echo get_phrase('categories'); ?></span>
                   <a href="<?php echo site_url('admin/category_form/add_category'); ?>" class="btn btn-outline-primary btn-rounded alignToTitle"><i class="mdi mdi-plus"></i><?php echo get_phrase('add_new_category'); ?></a>
                 </h4>
             </div> <!-- end card body-->
@@ -15,8 +18,10 @@
          continue;
          $sub_categories = $this->crud_model->get_sub_categories($category['id']); ?>
          <div class="col-md-6 col-lg-6 col-xl-4 on-hover-action" id = "<?php echo $category['id']; ?>">
-             <div class="card d-block">
-                 <img class="card-img-top" src="<?php echo base_url('uploads/thumbnails/category_thumbnails/'.$category['thumbnail']); ?>" alt="Card image cap">
+             <div class="card d-block" style="border: 1px solid #ddd;">
+                 <div style="width:100%;height:202px;">
+                    <img class="card-img-top" style="height:100%;" src="<?php echo base_url('uploads/thumbnails/category_thumbnails/'.$category['thumbnail']); ?>" alt="Card image cap">
+                </div>
                  <div class="card-body">
                      <h4 class="card-title mb-0"><i class="<?php echo $category['font_awesome_class']; ?>"></i> <?php echo $category['name']; ?></h4>
                      <small style="font-style: italic;"><p class="card-text"><?php echo count($sub_categories).' '.get_phrase('sub_categories'); ?></p></small>
