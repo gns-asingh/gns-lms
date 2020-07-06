@@ -5,10 +5,10 @@
         <!-- LOGO -->
         <a href="<?php echo site_url($this->session->userdata('role')); ?>" class="topnav-logo" style = "min-width: unset;">
             <span class="topnav-logo-lg">
-                <img src="<?php echo base_url('uploads/system/logo-light.png');?>" alt="" style="width:126px;height:75px;">
+                <img src="<?php echo base_url('uploads/system/logo-light.png');?>" alt="" style="width:126px;height:70px;">
             </span>
             <span class="topnav-logo-sm">
-                <img src="<?php echo base_url('uploads/system/logo-light-sm.png');?>" alt="" style="width:126px;height:75px;">
+                <img src="<?php echo base_url('uploads/system/logo-light-sm.png');?>" alt="" style="width:126px;height:70px;">
             </span>
         </a>
 

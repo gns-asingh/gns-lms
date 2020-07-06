@@ -2,7 +2,7 @@
 	$status_wise_courses = $this->crud_model->get_status_wise_courses_for_instructor();
  ?>
 <!-- ========== Left Sidebar Start ========== -->
-<div class="left-side-menu left-side-menu-detached">
+<div class="left-side-menu left-side-menu-detached leftsidebar">
 	<div class="leftbar-user">
 		<a href="javascript: void(0);">
 			<img src="<?php echo $this->user_model->get_user_image_url($this->session->userdata('user_id')); ?>" alt="user-image" height="42" class="rounded-circle shadow-sm">

@@ -2,8 +2,8 @@
 	$status_wise_courses = $this->crud_model->get_status_wise_courses();
  ?>
 <!-- ========== Left Sidebar Start ========== -->
-<div class="left-side-menu left-side-menu-detached">
-	<div class="leftbar-user">
+<div class="left-side-menu left-side-menu-detached admin_left_sidebar">
+	<div class="leftbar-user admin_left_user">
 		<a href="javascript: void(0);">
 			<img src="<?php echo $this->user_model->get_user_image_url($this->session->userdata('user_id')); ?>" alt="user-image" height="42" class="rounded-circle shadow-sm">
 			<?php
@@ -14,7 +14,7 @@
 	</div>
 
 	<!--- Sidemenu -->
-		<ul class="metismenu side-nav side-nav-light">
+		<ul class="metismenu side-nav side-nav-light admin_left_menu">
 
 			<li class="side-nav-title side-nav-item"><?php echo get_phrase('navigation'); ?></li>
 
