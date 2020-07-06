@@ -17,13 +17,13 @@
 <body data-layout="detached">
     <!-- HEADER -->
     <?php include 'header.php'; ?>
-    <div class="container-fluid">
-        <div class="wrapper">
+    <div class="container-fluid setWidthContainer">
+        <div class="wrapper mainWrapperBody">
             <!-- BEGIN CONTENT -->
             <!-- SIDEBAR -->
             <?php include $logged_in_user_role.'/'.'navigation.php' ?>
             <!-- PAGE CONTAINER-->
-            <div class="content-page">
+            <div class="content-page main_content">
                 <div class="content">
                     <!-- BEGIN PlACE PAGE CONTENT HERE -->
                     <?php include $logged_in_user_role.'/'.$page_name.'.php';?>
