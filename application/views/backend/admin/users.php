@@ -2,7 +2,9 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="page-title"> <i class="mdi mdi-apple-keyboard-command title_icon"></i> <?php echo get_phrase('trainee'); ?>
+                <h4 class="page-title"> 
+                    <i class="dripicons-user-group title_icon"></i> 
+                    <span style="vertical-align:middle;position:relative;top:2px;"><?php echo get_phrase('trainee'); ?></span>
                 <a href = "<?php echo site_url('admin/user_form/add_user_form'); ?>" class="btn btn-outline-primary btn-rounded alignToTitle"><i class="mdi mdi-plus"></i><?php echo get_phrase('add_trainee'); ?></a>
             </h4>
             </div> <!-- end card body-->

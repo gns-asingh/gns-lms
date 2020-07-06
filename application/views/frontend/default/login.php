@@ -28,8 +28,8 @@
               <div class="user-dashboard-box mt-3 user_dash_bg">
                   <div class="user-dashboard-content w-100 login-form">
                       <div class="content-title-box">
-                          <div class="title"><?php echo get_phrase('login'); ?></div>
-                          <div class="subtitle"><?php echo get_phrase('provide_your_valid_login_credentials'); ?>.</div>
+                          <div class="title" style="color:#fff;"><?php echo get_phrase('login'); ?></div>
+                          <div class="subtitle" style="color:#fff;"><?php echo get_phrase('provide_your_valid_login_credentials'); ?>.</div>
                       </div>
                       <form action="<?php echo site_url('login/validate_login/user'); ?>" method="post">
                           <div class="content-box">

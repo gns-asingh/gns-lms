@@ -206,16 +206,19 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
         </div>
         <div class="col-lg-8">
           <div class="about-instructor-details view-more-parent">
-            <div class="view-more" onclick="viewMore(this)">+ <?php echo get_phrase('view_more'); ?></div>
+            <!-- <div class="view-more" onclick="viewMore(this)">+ <?php echo get_phrase('view_more'); ?></div> -->
             <div class="instructor-name">
               <a href="<?php echo site_url('home/instructor_page/'.$course_details['user_id']); ?>"><?php echo $instructor_details['first_name'].' '.$instructor_details['last_name']; ?></a>
             </div>
             <div class="instructor-title">
               <?php echo $instructor_details['title']; ?>
+              
             </div>
             <div class="instructor-bio">
               <?php echo $instructor_details['biography']; ?>
+              
             </div>
+            <div class="view-more" onclick="viewMore(this)">+ <?php echo get_phrase('view_more'); ?></div>
           </div>
         </div>
       </div>
@@ -282,12 +285,12 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
       </div>
     </div>
     </div>
-  <hr>
-  
+  </div>
                  
   <div class="reviews">
     <div class="reviews-title"><?php echo get_phrase('reviews'); ?></div>
-    <ul>
+    <div class="review_list_bg">
+    <ul class="review_list">
       <?php
       $ratings = $this->crud_model->get_ratings('course', $course_id)->result_array();
       foreach($ratings as $rating):
@@ -331,11 +334,16 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
           </div>
         </div>
       </li>
-    <?php endforeach; ?>
-  </ul>
+      <?php endforeach; ?>
+    </ul>
+    </div>
 </div>
+
 </div>
-</div>
+
+
+
+
 <div class="col-lg-4">
   <div class="course-sidebar natural">
     <?php if ($course_details['video_url'] != ""): ?>

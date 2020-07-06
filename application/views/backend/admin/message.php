@@ -2,7 +2,10 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="page-title"> <i class="mdi mdi-apple-keyboard-command title_icon"></i> <?php echo get_phrase('private_message'); ?></h4>
+                <h4 class="page-title"> 
+                    <i class="dripicons-message title_icon"></i> 
+                    <span style="vertical-align:middle;position:relative;top:0px;"><?php echo get_phrase('private_message'); ?></span>
+                </h4>
             </div> <!-- end card body-->
         </div> <!-- end card -->
     </div><!-- end col-->
