@@ -55,6 +55,94 @@ class Crud_model extends CI_Model {
         $data['date_added'] = strtotime(date('D, d-M-Y'));
         $this->db->insert('category', $data);
     }
+// code added by DD for add role:
+
+    public function add_role() {
+        $specialChar =  $this->checkSpecialChar($this->input->post('name'));
+        $validity = $this->check_duplication('on_create', $this->input->post('name'));
+        if($specialChar == false){
+            $this->session->set_flashdata('error_message', get_phrase('only_alphabets_are_allowed'));
+
+        }
+        else if ($validity == false) {
+            $this->session->set_flashdata('error_message', get_phrase('role_duplication'));
+        }else {
+        $data['name']   = html_escape(trim($this->input->post('name')));
+        $data['date_added'] = strtotime(date('D, d-M-Y'));
+        $data['last_modified'] = strtotime(date('D, d-M-Y'));
+        $this->db->insert('role', $data);
+        $this->session->set_flashdata('flash_message', get_phrase('role_added_successfully'));
+        }
+    }
+    public function get_all_roll_name($name = "") {
+        if($name != ""){
+        return $this->db->get_where('role', array('name' => $name));
+        }
+        else{
+            $this->db->select('*');
+            return $this->db->get('role');  
+        }
+    }
+    public function all_roll_name() {
+        $this->db->select('name');
+        $this->db->distinct('name');
+        return $this->db->get('name');
+    }
+
+    //edit role:
+    public function update_role($param1) {
+        $specialChar =  $this->checkSpecialChar($this->input->post('name'));
+        $validity = $this->check_duplication('on_update', $this->input->post('name'), $param1);
+        if ($validity == false) {
+            $this->session->set_flashdata('error_message', get_phrase('role_duplication'));
+
+        } 
+        else if($specialChar == false) {
+            $this->session->set_flashdata('error_message', get_phrase('only_alphabets_are_allowed'));
+        }
+        else{
+        $data['name']   = html_escape(trim($this->input->post('name')));
+       // $data['date_added'] = html_escape($this->input->post('date_added'));
+        
+        $data['last_modified'] = strtotime(date('D, d-M-Y'));
+        $this->db->where('id', $param1);
+        $this->db->update('role', $data);
+        }
+        
+    }
+    public function checkSpecialChar($name){
+       //  $regex = /^[A-Za-z0-9]+$/;
+     // $isValid = regex.test(String.fromCharCode($name));
+      if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $name)) {
+                return false;
+            }
+            else{
+                return true; 
+            }
+    }
+    public function check_duplication($action = "", $name = "", $role_id = "") {
+        $duplicate_roll_check = $this->db->get_where('role', array('name' => $name));
+
+        if ($action == 'on_create') {
+            if ($duplicate_roll_check->num_rows() > 0) {
+                return false;
+            }else {
+                return true;
+            }
+        }elseif ($action == 'on_update') {
+            if ($duplicate_roll_check->num_rows() > 0) {
+                if ($duplicate_roll_check->row()->id == $role_id) {
+                    return true;
+                }else {
+                    return false;
+                }
+            }else {
+                return true;
+            }
+        }
+    }
+
+// end of code added by DD
 
     public function edit_category($param1) {
         $data['name']   = html_escape($this->input->post('name'));
@@ -107,6 +195,8 @@ class Crud_model extends CI_Model {
         $this->db->distinct('user_id');
         return $this->db->get('enrol');
     }
+
+   
 
     public function enrol_history_by_date_range($timestamp_start = "", $timestamp_end = "") {
         $this->db->order_by('date_added' , 'desc');
@@ -566,7 +656,18 @@ class Crud_model extends CI_Model {
     public function get_course_by_id($course_id = "") {
         return $this->db->get_where('course', array('id' => $course_id));
     }
+    
+    public function get_role_by_id($role_id = "") {
+        return $this->db->get_where('role', array('id' => $role_id));
+    }
 
+    //delete role
+    public function delete_role($role_id) {
+        $this->db->where('id', $role_id);
+        $this->db->delete('role');
+    }
+    
+//end ofcode added by DD for role id
     public function delete_course($course_id) {
         $this->db->where('id', $course_id);
         $this->db->delete('course');

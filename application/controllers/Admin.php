@@ -407,6 +407,71 @@ class Admin extends CI_Controller {
     $this->load->view('backend/index', $page_data);
   }
 
+  //code added by DD for role
+  public function role() {
+    if ($this->session->userdata('admin_login') != true) {
+      redirect(site_url('login'), 'refresh');
+    }
+
+
+    $page_data['page_name']              = 'role';
+    $page_data['page_title']             = get_phrase('active_role');
+    $page_data['roles'] = $this->crud_model->get_all_roll_name()->result_array();
+    // echo "<pre>"; print_r($page_data);
+    // exit;
+    $this->load->view('backend/index', $page_data);
+  }
+  public function role_actions($param1 = "", $param2 = "") {
+    if ($this->session->userdata('admin_login') != true) {
+      redirect(site_url('login'), 'refresh');
+    }
+
+    if ($param1 == "add") {
+      $this->crud_model->add_role();
+      //
+      redirect(site_url('admin/role'), 'refresh');
+
+    }
+    elseif ($param1 == "edit") {
+      $role_details = $this->crud_model->get_role_by_id($param2)->row_array();
+      $this->crud_model->update_role($param2);
+      $this->session->set_flashdata('flash_message', get_phrase('role_updated_successfully'));
+      redirect(site_url('admin/role'), 'refresh');
+
+    }
+    elseif ($param1 == 'delete') {
+      $this->is_drafted_role($param2);
+      $this->crud_model->delete_role($param2);
+      $this->session->set_flashdata('flash_message', get_phrase('role_deleted_successfully'));
+      redirect(site_url('admin/role'), 'refresh');
+    }
+  }
+  public function role_form($param1 = "", $param2 = "") {
+
+    if ($this->session->userdata('admin_login') != true) {
+      redirect(site_url('login'), 'refresh');
+    }
+
+    if ($param1 == 'add_role') {
+      $page_data['page_name'] = 'role_add';
+      $page_data['page_title'] = get_phrase('add_role');
+      $this->load->view('backend/index', $page_data);
+
+    }elseif ($param1 == 'role_edit') {
+      $this->is_drafted_role($param2);
+      $page_data['page_name'] = 'role_edit';
+      $page_data['role_id'] = $param2;
+      //$page_data['role_details'] =  $role_details;
+      $page_data['page_title'] = get_phrase('edit_role');
+      $this->load->view('backend/index', $page_data);
+    }
+  }
+  private function is_drafted_role($role_id){
+    $role_details = $this->crud_model->get_role_by_id($role_id)->row_array();
+  }
+  //end of code added by DD for role
+
+
   public function pending_courses() {
     if ($this->session->userdata('admin_login') != true) {
       redirect(site_url('login'), 'refresh');

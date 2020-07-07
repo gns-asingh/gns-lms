@@ -48,6 +48,7 @@
 					<span><?php echo get_phrase('courses'); ?></span>
 				</a>
 			</li>
+       
 			<li class="side-nav-item">
 				<a href="<?php echo site_url('admin/users'); ?>" class="side-nav-link <?php if ($page_name == 'users' || $page_name == 'user_add' || $page_name == 'user_edit')echo 'active';?>">
 					<i class="dripicons-user-group"></i>
@@ -122,6 +123,11 @@
 				<li class = "<?php if($page_name == 'smtp_settings') echo 'active'; ?>">
 					<a href="<?php echo site_url('admin/smtp_settings'); ?>"><?php echo get_phrase('smtp_settings'); ?></a>
 				</li>
+				 <!-- code added by DD for role -->
+				 <li class = "<?php if($page_name == 'role') echo 'active'; ?>">
+					<a href="<?php echo site_url('admin/role'); ?>"><?php echo get_phrase('roles'); ?></a>
+				</li>
+           <!-- end of code added by DD for role -->
 			<!--<li class = "<?php if($page_name == 'about') echo 'active'; ?>">
 					<a href="<?php echo site_url('admin/about'); ?>"><?php echo get_phrase('about'); ?></a>
 				</li> -->
