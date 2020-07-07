@@ -165,7 +165,7 @@
                                                               <?php echo get_phrase('mark_as_pending');?>
                                                           </a>
                                                       <?php else: ?>
-                                                          <a class="dropdown-item" href="#" onclick="confirm_modal('<?php echo site_url();?>admin/change_course_status_for_admin/pending/<?php echo $course['id']; ?>/<?php echo $selected_category_id; ?>/<?php echo $selected_instructor_id; ?>/<?php echo $selected_price; ?>/<?php echo $selected_status;?>', '<?php echo get_phrase('inform_instructor'); ?>');">
+                                                          <a class="dropdown-item" href="#" onclick="confirm_modal('<?php echo site_url();?>instructor/change_course_status_for_admin/pending/<?php echo $course['id']; ?>/<?php echo $selected_category_id; ?>/<?php echo $selected_instructor_id; ?>/<?php echo $selected_price; ?>/<?php echo $selected_status;?>', '<?php echo get_phrase('inform_instructor'); ?>');">
                                                               <?php echo get_phrase('mark_as_pending');?>
                                                           </a>
                                                       <?php endif; ?>
@@ -175,7 +175,7 @@
                                                               <?php echo get_phrase('mark_as_active');?>
                                                           </a>
                                                       <?php else: ?>
-                                                          <a class="dropdown-item" href="#" onclick="confirm_modal('<?php echo site_url();?>admin/change_course_status_for_admin/active/<?php echo $course['id']; ?>/<?php echo $selected_category_id; ?>/<?php echo $selected_instructor_id; ?>/<?php echo $selected_price; ?>/<?php echo $selected_status;?>', '<?php echo get_phrase('inform_instructor'); ?>');">
+                                                          <a class="dropdown-item" href="#" onclick="confirm_modal('<?php echo site_url();?>instructor/change_course_status_for_admin/active/<?php echo $course['id']; ?>/<?php echo $selected_category_id; ?>/<?php echo $selected_instructor_id; ?>/<?php echo $selected_price; ?>/<?php echo $selected_status;?>', '<?php echo get_phrase('inform_instructor'); ?>');">
                                                               <?php echo get_phrase('mark_as_active');?>
                                                           </a>
                                                       <?php endif; ?>

@@ -2,8 +2,8 @@
 	$status_wise_courses = $this->crud_model->get_status_wise_courses();
  ?>
 <!-- ========== Left Sidebar Start ========== -->
-<div class="left-side-menu left-side-menu-detached">
-	<div class="leftbar-user">
+<div class="left-side-menu left-side-menu-detached admin_left_sidebar">
+	<div class="leftbar-user admin_left_user">
 		<a href="javascript: void(0);">
 			<img src="<?php echo $this->user_model->get_user_image_url($this->session->userdata('user_id')); ?>" alt="user-image" height="42" class="rounded-circle shadow-sm">
 			<?php
@@ -14,7 +14,7 @@
 	</div>
 
 	<!--- Sidemenu -->
-		<ul class="metismenu side-nav side-nav-light">
+		<ul class="metismenu side-nav side-nav-light admin_left_menu">
 
 			<li class="side-nav-title side-nav-item"><?php echo get_phrase('navigation'); ?></li>
 
@@ -41,6 +41,24 @@
 					</li>
 				</ul>
 			</li>
+			
+			<li class="side-nav-item ">
+				<a href="javascript: void(0);" class="side-nav-link ">
+					<i class="dripicons-user-group"></i>
+					<span> <?php echo get_phrase('users'); ?> </span>
+					<span class="menu-arrow"></span>
+				</a>
+				<ul class="side-nav-second-level" aria-expanded="false">
+					<li class = "<?php if($page_name == 'users' || $page_name == 'user_add' || $page_name == 'user_edit') echo 'active'; ?>">
+						<a href="<?php echo site_url('admin/users'); ?>" ><?php echo get_phrase('trainees'); ?></a>
+					</li>
+
+					<li class = "<?php if($page_name == 'instructors') echo 'active'; ?>">
+						<a href="<?php echo site_url('admin/instructors'); ?>"><?php echo get_phrase('instructors'); ?></a>
+					</li>
+				</ul>
+			</li>
+
 
 			<li class="side-nav-item">
 				<a href="<?php echo site_url('admin/courses'); ?>" class="side-nav-link <?php if ($page_name == 'courses' || $page_name == 'course_add' || $page_name == 'course_edit')echo 'active';?>">
@@ -48,13 +66,12 @@
 					<span><?php echo get_phrase('courses'); ?></span>
 				</a>
 			</li>
-       
-			<li class="side-nav-item">
-				<a href="<?php echo site_url('admin/users'); ?>" class="side-nav-link <?php if ($page_name == 'users' || $page_name == 'user_add' || $page_name == 'user_edit')echo 'active';?>">
+			<!--<li class="side-nav-item">
+				<a href="<?php //echo site_url('admin/users'); ?>" class="side-nav-link <?php //if ($page_name == 'users' || $page_name == 'user_add' || $page_name == 'user_edit')echo 'active';?>">
 					<i class="dripicons-user-group"></i>
-					<span><?php echo get_phrase('Trainee'); ?></span>
+					<span><?php //echo get_phrase('Trainee'); ?></span>
 				</a>
-			</li>
+			</li>-->
 
 			<li class="side-nav-item <?php if ($page_name == 'enrol_history' || $page_name == 'enrol_student'): ?> active <?php endif; ?>">
 				<a href="javascript: void(0);" class="side-nav-link <?php if ($page_name == 'enrol_history' || $page_name == 'enrol_student'): ?> active <?php endif; ?>">

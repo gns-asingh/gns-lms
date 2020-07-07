@@ -134,6 +134,30 @@ class Admin extends CI_Controller {
     $page_data['users'] = $this->user_model->get_user($param2);
     $this->load->view('backend/index', $page_data);
   }
+  
+  public function instructors($param1 = "", $param2 = "") {
+	if ($this->session->userdata('admin_login') != true) {
+      redirect(site_url('login'), 'refresh');
+    }
+	if ($param1 == "add") {
+      $this->user_model->add_instructor();
+      redirect(site_url('admin/instructors'), 'refresh');
+    }
+    elseif ($param1 == "edit") {
+      $this->user_model->edit_instructors($param2);
+      redirect(site_url('admin/instructors'), 'refresh');
+    }
+    elseif ($param1 == "delete") {
+      $this->user_model->delete_instructors($param2);
+      redirect(site_url('admin/instructors'), 'refresh');
+    }
+
+    $page_data['page_name'] = 'instructors';
+    $page_data['page_title'] = get_phrase('instructors');
+    $page_data['users'] = $this->user_model->get_instructors($param2);
+
+    $this->load->view('backend/index', $page_data);
+  }
 
   public function user_form($param1 = "", $param2 = "") {
     if ($this->session->userdata('admin_login') != true) {
@@ -151,6 +175,18 @@ class Admin extends CI_Controller {
       $page_data['page_title'] = get_phrase('student_edit');
       $this->load->view('backend/index', $page_data);
     }
+	elseif ($param1 == 'add_instructor_form') {
+      $page_data['page_name'] = 'instructor_add';
+      $page_data['user_id'] = $param2;
+      $page_data['page_title'] = get_phrase('instructor_add');
+      $this->load->view('backend/index', $page_data);
+    }
+	elseif ($param1 == 'edit_instructor_form') {
+      $page_data['page_name'] = 'instructor_edit';
+      $page_data['user_id'] = $param2;
+      $page_data['page_title'] = get_phrase('instructor_edit');
+      $this->load->view('backend/index', $page_data);
+    }	
   }
 
   public function enrol_history($param1 = "") {

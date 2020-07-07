@@ -5,10 +5,10 @@
         <!-- LOGO -->
         <a href="<?php echo site_url($this->session->userdata('role')); ?>" class="topnav-logo" style = "min-width: unset;">
             <span class="topnav-logo-lg">
-                <img src="<?php echo base_url('uploads/system/logo-light.png');?>" alt="" style="width:126px;height:75px;">
+                <img src="<?php echo base_url('uploads/system/logo-light.png');?>" alt="" style="width:126px;height:70px;">
             </span>
             <span class="topnav-logo-sm">
-                <img src="<?php echo base_url('uploads/system/logo-light-sm.png');?>" alt="" style="width:126px;height:75px;">
+                <img src="<?php echo base_url('uploads/system/logo-light-sm.png');?>" alt="" style="width:126px;height:70px;">
             </span>
         </a>
 
@@ -70,7 +70,7 @@
 </a>
 <div class="app-search">
     <h4 style="color: #fff; float: left;"> <?php echo $this->db->get_where('settings' , array('key'=>'system_name'))->row()->value; ?></h4>
-    <a href="<?php echo site_url('home'); ?>" target="_blank" class="btn btn-outline-light ml-3"><?php echo get_phrase('visit_website'); ?></a>
+    <!--<a href="<?php echo site_url('home'); ?>" target="_blank" class="btn btn-outline-light ml-3"><?php echo get_phrase('visit_website'); ?></a> -->
 </div>
 </div>
 </div>
