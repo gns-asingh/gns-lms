@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+/**
+ * Short description for class:
+ * Controller of all instructor functionality
+ * @copyright  GNS Technologies
+ */ 
 class Instructor extends CI_Controller {
   public function __construct()
   {
@@ -39,7 +43,12 @@ class Instructor extends CI_Controller {
     $page_data['page_name'] = 'blank_template';
     $this->load->view('backend/index.php', $page_data);
   }
-
+/**
+ * Category operation 
+ * @param String   $param1  contains string of operation(add/delete/update)
+ * @param integer  $param2   contains id for edit and delete
+ * @author GNS
+ */ 
   public function categories($param1 = "", $param2 = "") {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -65,7 +74,13 @@ class Instructor extends CI_Controller {
     $page_data['categories'] = $this->crud_model->get_categories($param2);
     $this->load->view('backend/index', $page_data);
   }
-
+/**
+ * Category Form to add and edit the data 
+ *
+ * @param String  $param1  contains string of operation(add/update)
+ * @param integer $param2   contains id for edit to get the data on edit page 
+ * @author GNS
+ */
   public function category_form($param1 = "", $param2 = "") {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -84,7 +99,12 @@ class Instructor extends CI_Controller {
 
     $this->load->view('backend/index', $page_data);
   }
-
+/**
+ * Category operation 
+ *
+ * @param integer $category_id  contains id 
+ * @author GNS
+ */ 
   public function sub_categories_by_category_id($category_id = 0) {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -93,7 +113,13 @@ class Instructor extends CI_Controller {
     $category_id = $this->input->post('category_id');
     redirect(site_url("admin/sub_categories/$category_id"), 'refresh');
   }
-
+/**
+ * Category operation 
+ * 
+ * @param String $param1  contains string of operation for add and edit
+ * @param integer $param2  contains id 
+ * @author GNS
+ */ 
   public function sub_category_form($param1 = "", $param2 = "") {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -134,7 +160,12 @@ class Instructor extends CI_Controller {
     $page_data['users'] = $this->user_model->get_user($param2);
     $this->load->view('backend/index', $page_data);
   }
-
+/**
+ * Users form  
+ * @param String   $param1  contains string of operation(add/delete/update)
+ * @param integer $param2   contains id for edit and delete
+ * @author GNS
+ */
   public function user_form($param1 = "", $param2 = "") {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -152,7 +183,10 @@ class Instructor extends CI_Controller {
       $this->load->view('backend/index', $page_data);
     }
   }
-
+/**
+ * Enrol History 
+ * @author GNS
+ */ 
   public function enrol_history($param1 = "") {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -263,7 +297,10 @@ class Instructor extends CI_Controller {
     $page_data['page_title'] = get_phrase('purchase_history');
     $this->load->view('backend/index', $page_data);
   }
-
+/**
+ * System settings
+ * @author GNS
+ */ 
   public function system_settings($param1 = "") {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -292,7 +329,10 @@ class Instructor extends CI_Controller {
     $page_data['page_title'] = get_phrase('system_settings');
     $this->load->view('backend/index', $page_data);
   }
-
+/**
+ * Front End settings
+ * @author GNS
+ */
   public function frontend_settings($param1 = "") {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -334,6 +374,10 @@ class Instructor extends CI_Controller {
     $page_data['page_title'] = get_phrase('frontend_settings');
     $this->load->view('backend/index', $page_data);
   }
+  /**
+ * Payment settings
+ * @author GNS
+ */
   public function payment_settings($param1 = "") {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -356,7 +400,10 @@ class Instructor extends CI_Controller {
     $page_data['page_title'] = get_phrase('payment_settings');
     $this->load->view('backend/index', $page_data);
   }
-
+/**
+ * smtp settings
+ * @author GNS
+ */
   public function smtp_settings($param1 = "") {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -372,7 +419,10 @@ class Instructor extends CI_Controller {
     $page_data['page_title'] = get_phrase('smtp_settings');
     $this->load->view('backend/index', $page_data);
   }
-
+/**
+ * Instructor settings
+ * @author GNS
+ */
   public function instructor_settings($param1 = "") {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -387,7 +437,10 @@ class Instructor extends CI_Controller {
     $page_data['page_title'] = get_phrase('instructor_settings');
     $this->load->view('backend/index', $page_data);
   }
-
+/**
+ * Courses
+ * @author GNS
+ */
   public function courses() {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -407,7 +460,10 @@ class Instructor extends CI_Controller {
     $page_data['page_title']             = get_phrase('active_courses');
     $this->load->view('backend/index', $page_data);
   }
-
+/**
+ * Pending courses
+ * @author GNS
+ */
   public function pending_courses() {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -418,7 +474,12 @@ class Instructor extends CI_Controller {
     $page_data['page_title'] = get_phrase('pending_courses');
     $this->load->view('backend/index', $page_data);
   }
-
+/**
+ * course operation 
+ * @param String   $param1  contains string of operation(add/delete/update)
+ * @param integer $param2   contains id for edit and delete
+ * @author GNS
+ */
   public function course_actions($param1 = "", $param2 = "") {
     
     if ($this->session->userdata('instructor_login') != true) {
@@ -441,8 +502,12 @@ class Instructor extends CI_Controller {
       redirect(site_url('instructor/courses'), 'refresh');
     }
   }
-
-
+/**
+ * course Form to add and edit the course 
+ * @param String   $param1  contains string of operation(add/delete/update)
+ * @param integer $param2   contains id for edit and delete
+ * @author GNS
+ */
   public function course_form($param1 = "", $param2 = "") {
 
     if ($this->session->userdata('instructor_login') != true) {
@@ -474,7 +539,11 @@ class Instructor extends CI_Controller {
       redirect(site_url('instructor/courses'), 'refresh');
     }
   }
-
+/**
+ * get cource by id  
+ * @param integer  $course_id contains id to  get the role details
+ * @author GNS
+ */
   public function change_course_status($updated_status = "") {
     $course_id = $this->input->post('course_id');
     $category_id = $this->input->post('category_id');
@@ -490,13 +559,20 @@ class Instructor extends CI_Controller {
     $this->session->set_flashdata('flash_message', get_phrase('course_status_updated'));
     redirect(site_url('instructor/courses?category_id='.$category_id.'&status='.$status.'&instructor_id='.$instructor_id.'&price='.$price), 'refresh');
   }
-
+/**
+ * Change course status for admin  
+ * @param String  $updated_status contains text 
+ * @author GNS
+ */
   public function change_course_status_for_admin($updated_status = "", $course_id = "", $category_id = "", $status = "", $instructor_id = "", $price = "") {
     $this->crud_model->change_course_status($updated_status, $course_id);
     $this->session->set_flashdata('flash_message', get_phrase('course_status_updated'));
     redirect(site_url('instructor/courses?category_id='.$category_id.'&status='.$status.'&instructor_id='.$instructor_id.'&price='.$price), 'refresh');
   }
-
+/**
+ * sections operation 
+ * @author GNS
+ */
   public function sections($param1 = "", $param2 = "", $param3 = "") {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -516,7 +592,13 @@ class Instructor extends CI_Controller {
     }
     redirect(site_url('instructor/course_form/course_edit/'.$param1));
   }
-
+/**
+ * lessons operation 
+ * @param String   $course_id  contains course id
+ * @param String   $param1     contains string to perform operation
+ * @param String   $param2     Contains lesson id
+ * @author GNS
+ */
   public function lessons($course_id = "", $param1 = "", $param2 = "") {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -545,7 +627,11 @@ class Instructor extends CI_Controller {
     $page_data['page_title'] = get_phrase('lessons');
     $this->load->view('backend/index', $page_data);
   }
-
+/**
+ * To watch video
+ * @param  String $lession_id contains lession id
+ * @author GNS
+ */
   public function watch_video($slugified_title = "", $lesson_id = "") {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -590,6 +676,10 @@ class Instructor extends CI_Controller {
     saveJSONFile($current_editing_language, $key, $updatedValue);
     echo $current_editing_language.' '.$key.' '.$updatedValue;
   }
+/**
+ * get all languages
+ * @author GNS
+ */
 
   function get_all_languages() {
     $language_files = array();
@@ -617,6 +707,11 @@ class Instructor extends CI_Controller {
     }
     return $results;
   }
+/**
+ * Get list of directories and files
+ * @param  String $lession_id contains lession id
+ * @author GNS
+ */
 
   function get_list_of_directories_and_files($dir = APPPATH, &$results = array()) {
     $files = scandir($dir);
@@ -631,6 +726,7 @@ class Instructor extends CI_Controller {
     }
     return $results;
   }
+
 
   function message($param1 = 'message_home', $param2 = '', $param3 = '')
   {
@@ -658,8 +754,10 @@ class Instructor extends CI_Controller {
     $page_data['page_title']              = get_phrase('private_messaging');
     $this->load->view('backend/index', $page_data);
   }
-
-  /******MANAGE OWN PROFILE AND CHANGE PASSWORD***/
+/**
+ * Manage own profile and change password
+ * @author GNS
+ */
   function manage_profile($param1 = '', $param2 = '', $param3 = '')
   {
     if ($this->session->userdata('instructor_login') != 1)
@@ -737,8 +835,10 @@ class Instructor extends CI_Controller {
     }
     redirect(site_url('instructor/courses'), 'refresh');
   }
-
-  // Manage Quizes
+/**
+ * Manage Quizes
+ * @author GNS
+ */
   public function quizes($course_id = "", $action = "", $quiz_id = "") {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -758,8 +858,10 @@ class Instructor extends CI_Controller {
     }
     redirect(site_url('instructor/course_form/course_edit/'.$course_id));
   }
-
-  // Manage Quize Questions
+/**
+ * Manage Quize questions
+ * @author GNS
+ */
   public function quiz_questions($quiz_id = "", $action = "", $question_id = "") {
     if ($this->session->userdata('instructor_login') != true) {
       redirect(site_url('login'), 'refresh');
@@ -782,8 +884,10 @@ class Instructor extends CI_Controller {
       redirect(site_url('instructor/course_form/course_edit/'.$quiz_details['course_id']));
     }
   }
-
-  // software about page
+/**
+ * Software about page
+ * @author GNS
+ */  
   function about() {
     if ($this->session->userdata('instructor_login') != 1)
     redirect(site_url('login'), 'refresh');
@@ -793,7 +897,10 @@ class Instructor extends CI_Controller {
     $page_data['page_title'] = get_phrase('about');
     $this->load->view('backend/index', $page_data);
   }
-  // software themes page
+ /**
+ * software themes page
+ * @author GNS
+ */
   function themes() {
     if ($this->session->userdata('instructor_login') != 1)
     redirect(site_url('login'), 'refresh');
@@ -802,7 +909,10 @@ class Instructor extends CI_Controller {
     $page_data['page_title'] = get_phrase('themes');
     $this->load->view('backend/index', $page_data);
   }
-  // software mobile app page
+ /**
+ * Software mobile app page
+ * @author GNS
+ */
   function mobile_app() {
     if ($this->session->userdata('instructor_login') != 1)
     redirect(site_url('login'), 'refresh');
@@ -811,10 +921,10 @@ class Instructor extends CI_Controller {
     $page_data['page_title'] = get_phrase('mobile_app');
     $this->load->view('backend/index', $page_data);
   }
-
-  // AJAX PORTION
-
-  // this function is responsible for managing multiple choice question
+/** AJAX PORTION
+ * this function is responsible for managing multiple choice question
+ * @author GNS
+ */
   function manage_multiple_choices_options() {
     $page_data['number_of_options'] = $this->input->post('number_of_options');
     $this->load->view('backend/admin/manage_multiple_choices_options', $page_data);
