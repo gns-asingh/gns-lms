@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+/**
+ * Short description for class:
+ * Controller of all User functionality
+ * @copyright  GNS Technologies
+ */ 
 class User extends CI_Controller {
     public function __construct()
     {
@@ -39,7 +43,12 @@ class User extends CI_Controller {
         $page_data['page_title']             = get_phrase('active_courses');
         $this->load->view('backend/index', $page_data);
     }
-
+/**
+ * course operation 
+ * @param String   $param1  contains string of operation(add/delete/update)
+ * @param integer $param2   contains id for edit and delete
+ * @author GNS
+ */
     public function course_actions($param1 = "", $param2 = "") {
         if ($this->session->userdata('user_login') != true) {
             redirect(site_url('login'), 'refresh');
@@ -72,7 +81,12 @@ class User extends CI_Controller {
             redirect(site_url('user/courses'), 'refresh');
         }
     }
-
+/**
+ * course Form to add and edit the course 
+ * @param String   $param1  contains string of operation(add/delete/update)
+ * @param integer $param2   contains id for edit and delete
+ * @author GNS
+ */
     public function course_form($param1 = "", $param2 = "") {
 
         if ($this->session->userdata('user_login') != true) {
@@ -96,7 +110,10 @@ class User extends CI_Controller {
             $this->load->view('backend/index', $page_data);
         }
     }
-
+/**
+ * Payment settings
+ * @author GNS
+ */ 
     public function payment_settings($param1 = "") {
         if ($this->session->userdata('user_login') != true) {
             redirect(site_url('login'), 'refresh');
@@ -135,7 +152,10 @@ class User extends CI_Controller {
         $page_data['page_title'] = get_phrase('instructor_revenue');
         $this->load->view('backend/index', $page_data);
     }
-
+/**
+ * get all lanuages
+ * @author GNS
+ */
     function get_all_languages() {
         $language_files = array();
         $all_files = $this->get_list_of_language_files();
@@ -148,6 +168,10 @@ class User extends CI_Controller {
         }
         return $language_files;
     }
+/**
+ *get a list of language file 
+ * @author GNS
+ */
 
     function get_list_of_language_files($dir = APPPATH.'/language', &$results = array()) {
         $files = scandir($dir);
@@ -162,7 +186,10 @@ class User extends CI_Controller {
         }
         return $results;
     }
-
+/**
+ * get list of directories and files
+ * @author GNS
+ */
     function get_list_of_directories_and_files($dir = APPPATH, &$results = array()) {
         $files = scandir($dir);
         foreach($files as $key => $value){
@@ -176,7 +203,11 @@ class User extends CI_Controller {
         }
         return $results;
     }
-
+/**
+ * get Preview
+ * @param String course_id contains course id
+ * @author GNS
+ */
     public function preview($course_id = '') {
         if ($this->session->userdata('user_login') != 1)
         redirect(site_url('login'), 'refresh');
@@ -191,7 +222,10 @@ class User extends CI_Controller {
         }
         redirect(site_url('user/courses'), 'refresh');
     }
-
+/**
+ * sections operation 
+ * @author GNS
+ */
     public function sections($param1 = "", $param2 = "", $param3 = "") {
         if ($this->session->userdata('user_login') != true) {
             redirect(site_url('login'), 'refresh');
@@ -211,7 +245,10 @@ class User extends CI_Controller {
         }
         redirect(site_url('user/course_form/course_edit/'.$param1));
     }
-
+/**
+ * get lessons
+ * @author GNS
+ */
     public function lessons($course_id = "", $param1 = "", $param2 = "") {
         if ($this->session->userdata('user_login') != true) {
             redirect(site_url('login'), 'refresh');
@@ -250,8 +287,11 @@ class User extends CI_Controller {
         }
     }
 
-    // Manage Quizes
-    public function quizes($course_id = "", $action = "", $quiz_id = "") {
+/**
+ * Manage Quizes
+ * @author GNS
+ */
+      public function quizes($course_id = "", $action = "", $quiz_id = "") {
         if ($this->session->userdata('user_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -271,7 +311,10 @@ class User extends CI_Controller {
         redirect(site_url('user/course_form/course_edit/'.$course_id));
     }
 
-    // Manage Quize Questions
+/**
+ * Manage Quize questions
+ * @author GNS
+ */
     public function quiz_questions($quiz_id = "", $action = "", $question_id = "") {
         if ($this->session->userdata('user_login') != true) {
             redirect(site_url('login'), 'refresh');
@@ -308,13 +351,16 @@ class User extends CI_Controller {
         $page_data['page_title'] = get_phrase('invoice');
         $this->load->view('backend/index', $page_data);
     }
-    // Ajax Portion
+/** AJAX PORTION
+ * @author GNS
+ */
     public function ajax_get_video_details() {
         $video_details = $this->video_model->getVideoDetails($_POST['video_url']);
         echo $video_details['duration'];
     }
-
-    // this function is responsible for managing multiple choice question
+/**   // this function is responsible for managing multiple choice question
+ *    @author GNS
+ */
     function manage_multiple_choices_options() {
         $page_data['number_of_options'] = $this->input->post('number_of_options');
         $this->load->view('backend/user/manage_multiple_choices_options', $page_data);

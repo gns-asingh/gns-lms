@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+/**
+ * Short description for class:
+ * Modal of all User functionality
+ * @copyright  GNS Technologies
+ */ 
 class User_model extends CI_Model {
 
     function __construct()
@@ -10,15 +14,25 @@ class User_model extends CI_Model {
         $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
         $this->output->set_header('Pragma: no-cache');
     }
-
+/**
+ * get admin details
+ * @author GNS
+ */
     public function get_admin_details() {
         return $this->db->get_where('users', array('role_id' => 1));
     }
-
+/**
+ * get instructor details
+ * @author GNS
+ */
     public function get_instructor_details() {
         return $this->db->get_where('users', array('role_id' => 3));
     }
-
+/**
+ * get instructor details by id
+ * @param String $user_id contains user id
+ * @author GNS
+ */
 	public function get_instructors($user_id = 0) {
         if ($user_id > 0) {
             $this->db->where('id', $user_id);
@@ -26,7 +40,11 @@ class User_model extends CI_Model {
         $this->db->where('role_id', 3);
         return $this->db->get('users');
     }
-	
+/**
+ * get user details by id
+ * @param String $user_id contains user id
+ * @author GNS
+ */	
     public function get_user($user_id = 0) {
         if ($user_id > 0) {
             $this->db->where('id', $user_id);
@@ -34,14 +52,21 @@ class User_model extends CI_Model {
         $this->db->where('role_id', 2);
         return $this->db->get('users');
     }
-
+/**
+ * get user details by id
+ * @param String $user_id contains user id
+ * @author GNS
+ */
     public function get_all_user($user_id = 0) {
         if ($user_id > 0) {
             $this->db->where('id', $user_id);
         }
         return $this->db->get('users');
     }
-	
+/**
+ * add instructor 
+ * @author GNS
+ */	
 	public function add_instructor() {
         $validity = $this->check_duplication('on_create', $this->input->post('email'));
         if ($validity == false) {
@@ -81,7 +106,10 @@ class User_model extends CI_Model {
             $this->session->set_flashdata('flash_message', get_phrase('instructor_added_successfully'));
         }
     }
-
+/**
+ * add user 
+ * @author GNS
+ */	
     public function add_user() {
         $validity = $this->check_duplication('on_create', $this->input->post('email'));
         if ($validity == false) {
@@ -121,7 +149,13 @@ class User_model extends CI_Model {
             $this->session->set_flashdata('flash_message', get_phrase('user_added_successfully'));
         }
     }
-
+/**
+ * check duplicate
+ * @param String $action  contains string of action
+ * @param String $email   contains email 
+ * @param String $user_id contains user id  
+ * @author GNS
+ */	
     public function check_duplication($action = "", $email = "", $user_id = "") {
         $duplicate_email_check = $this->db->get_where('users', array('email' => $email));
 
@@ -143,7 +177,11 @@ class User_model extends CI_Model {
             }
         }
     }
-	
+/**
+ * edit instructor 
+ * @param String $user_id contains user id
+ * @author GNS
+ */		
 	public function edit_instructors($user_id = "") { // Admin does this editing
         $validity = $this->check_duplication('on_update', $this->input->post('email'), $user_id);
         if ($validity) {
@@ -185,7 +223,11 @@ class User_model extends CI_Model {
 
         $this->upload_user_image($user_id);
     }
-
+/**
+ * edit user 
+ * @param String $user_id contains user id
+ * @author GNS
+ */	
     public function edit_user($user_id = "") { // Admin does this editing
         $validity = $this->check_duplication('on_update', $this->input->post('email'), $user_id);
         if ($validity) {
@@ -227,39 +269,68 @@ class User_model extends CI_Model {
 
         $this->upload_user_image($user_id);
     }
-	
+/**
+ * delete instructor 
+ * @param String $user_id contains user id
+ * @author GNS
+ */	
 	public function delete_instructors($user_id = "") {
         $this->db->where('id', $user_id);
         $this->db->delete('users');
         $this->session->set_flashdata('flash_message', get_phrase('instructor_deleted_successfully'));
     }
+/**
+ * edit user
+ * @param String $user_id contains user id
+ * @author GNS
+ */	
     public function delete_user($user_id = "") {
         $this->db->where('id', $user_id);
         $this->db->delete('users');
         $this->session->set_flashdata('flash_message', get_phrase('user_deleted_successfully'));
     }
-
+/**
+ * unlock screen by password
+ * @param String $password contains password
+ * @author GNS
+ */	
     public function unlock_screen_by_password($password = "") {
         $password = sha1($password);
         return $this->db->get_where('users', array('id' => $this->session->userdata('user_id'), 'password' => $password))->num_rows();
     }
-
+/**
+ * Gegister user
+ * @param String $data contains data of user
+ * @author GNS
+ */	
     public function register_user($data) {
         $this->db->insert('users', $data);
         return $this->db->insert_id();
     }
-
+/**
+ * To get my course
+ * @param String $data contains data
+ * @author GNS
+ */	
     public function my_courses() {
         return $this->db->get_where('enrol', array('user_id' => $this->session->userdata('user_id')));
     }
-
+/**
+ * To upload user image
+ * @param String $user_id contains user id
+ * @author GNS
+ */	
     public function upload_user_image($user_id) {
         if (isset($_FILES['user_image']) && $_FILES['user_image']['name'] != "") {
             move_uploaded_file($_FILES['user_image']['tmp_name'], 'uploads/user_image/'.$user_id.'.jpg');
             $this->session->set_flashdata('flash_message', get_phrase('user_update_successfully'));
         }
     }
-
+/**
+ * To update account settings
+ * @param String $user_id contains user id
+ * @author GNS
+ */	
     public function update_account_settings($user_id) {
         $validity = $this->check_duplication('on_update', $this->input->post('email'), $user_id);
         if ($validity) {
@@ -283,7 +354,11 @@ class User_model extends CI_Model {
             $this->session->set_flashdata('error_message', get_phrase('email_duplication'));
         }
     }
-
+/**
+ * To change password
+ * @param String $user_id contains user id
+ * @author GNS
+ */	
     public function change_password($user_id) {
         $data = array();
         if (!empty($_POST['current_password']) && !empty($_POST['new_password']) && !empty($_POST['confirm_password'])) {
@@ -305,7 +380,11 @@ class User_model extends CI_Model {
         $this->session->set_flashdata('flash_message', get_phrase('password_updated'));
     }
 
-
+/**
+ * To get instructor
+ * @param String $id contains  id
+ * @author GNS
+ */	
     public function get_instructor($id = 0) {
         if ($id > 0) {
             return $this->db->get_all_user($id);
@@ -329,7 +408,10 @@ class User_model extends CI_Model {
             }
         }
     }
-
+/**
+ * To check if instructor exists
+ * @author GNS
+ */	
     public function check_if_instructor_exists() {
         $this->db->where('user_id >', 0);
         $result = $this->db->get('course')->num_rows();
@@ -339,7 +421,11 @@ class User_model extends CI_Model {
             return false;
         }
     }
-
+/**
+ * To user image url
+ * @param String $user_id contains user id
+ * @author GNS
+ */	
     public function get_user_image_url($user_id) {
 
          if (file_exists('uploads/user_image/'.$user_id.'.jpg'))
@@ -347,6 +433,10 @@ class User_model extends CI_Model {
         else
             return base_url().'uploads/user_image/placeholder.png';
     }
+/**
+ * To get instructor list
+ * @author GNS
+ */	    
     public function get_instructor_list() {
         $query1 = $this->db->get_where('course', array('status' => 'active'))->result_array();
         $instructor_ids = array();
@@ -365,7 +455,11 @@ class User_model extends CI_Model {
 
         return $query_result;
     }
-
+/**
+ * To update instructor paypal settings 
+ * @param String $user_id contains user id
+ * @author GNS
+ */	
     public function update_instructor_paypal_settings($user_id = '') {
         // Update paypal keys
         $paypal_info = array();
@@ -375,6 +469,12 @@ class User_model extends CI_Model {
         $this->db->where('id', $user_id);
         $this->db->update('users', $data);
     }
+ /**
+ * To update instructor stripe settings 
+ * @param String $user_id contains user id
+ * @author GNS
+ */	
+   
     public function update_instructor_stripe_settings($user_id = '') {
         // Update Stripe keys
         $stripe_info = array();

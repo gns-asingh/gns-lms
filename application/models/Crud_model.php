@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+/**
+ * Short description for class:
+ * Modal of all Admin functionality
+ * @copyright  GNS Technologies
+ */ 
 class Crud_model extends CI_Model {
 
     function __construct()
@@ -10,7 +14,11 @@ class Crud_model extends CI_Model {
         $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
         $this->output->set_header('Pragma: no-cache');
     }
-
+/**
+ * Get Category 
+ * @param String   $param1  contains string of operation(id)
+ * @author GNS
+ */
     public function get_categories($param1 = "") {
         if ($param1 != "") {
             $this->db->where('id', $param1);
@@ -27,7 +35,10 @@ class Crud_model extends CI_Model {
         $category_details = $this->db->get_where('category', array('slug' => $slug))->row_array();
         return $category_details['id'];
     }
-
+/**
+ * Service to add category 
+ * @author GNS
+ */
     public function add_category() {
         $data['code']   = html_escape($this->input->post('code'));
         $data['name']   = html_escape($this->input->post('name'));
@@ -55,6 +66,123 @@ class Crud_model extends CI_Model {
         $data['date_added'] = strtotime(date('D, d-M-Y'));
         $this->db->insert('category', $data);
     }
+/** code added by DD for add role:
+ *  Service to add role 
+ *  @author GNS
+ */
+    public function add_role() {
+        $specialChar =  $this->checkSpecialChar($this->input->post('name'));
+        $validity = $this->check_duplication('on_create', $this->input->post('name'));
+        if($specialChar == false){
+            $this->session->set_flashdata('error_message', get_phrase('only_alphabets_are_allowed'));
+
+        }
+        else if ($validity == false) {
+            $this->session->set_flashdata('error_message', get_phrase('role_duplication'));
+        }else {
+        $data['name']   = html_escape(trim($this->input->post('name')));
+        $data['date_added'] = strtotime(date('D, d-M-Y'));
+        $data['last_modified'] = strtotime(date('D, d-M-Y'));
+        $this->db->insert('role', $data);
+        $this->session->set_flashdata('flash_message', get_phrase('role_added_successfully'));
+        }
+    }
+/** code added by DD for add role:
+ *  Service to get role by name
+ *  @param String $name contains name of the role 
+ *  @author GNS
+ */
+    public function get_all_roll_name($name = "") {
+        if($name != ""){
+        return $this->db->get_where('role', array('name' => $name));
+        }
+        else{
+            $this->db->select('*');
+            return $this->db->get('role');  
+        }
+    }
+/** code added by DD for add role:
+ *  Service to get all role by name
+ *  @author GNS
+ */
+    public function all_roll_name() {
+        $this->db->select('name');
+        $this->db->distinct('name');
+        return $this->db->get('name');
+    }
+
+/** code added by DD for add role:
+ *  Service to update role by name
+ *  @param String $param1 contains name of the role 
+ *  @author GNS
+ */
+    public function update_role($param1) {
+        $specialChar =  $this->checkSpecialChar($this->input->post('name'));
+        $validity = $this->check_duplication('on_update', $this->input->post('name'), $param1);
+        if ($validity == false) {
+            $this->session->set_flashdata('error_message', get_phrase('role_duplication'));
+
+        } 
+        else if($specialChar == false) {
+            $this->session->set_flashdata('error_message', get_phrase('only_alphabets_are_allowed'));
+        }
+        else{
+        $data['name']   = html_escape(trim($this->input->post('name')));
+       // $data['date_added'] = html_escape($this->input->post('date_added'));
+        
+        $data['last_modified'] = strtotime(date('D, d-M-Y'));
+        $this->db->where('id', $param1);
+        $this->db->update('role', $data);
+        }
+        
+    }
+/** code added by DD for add role:
+ *  function to check the special character validation
+ *  @param String $name contains name field from screen of the role 
+ *  @author GNS
+ */
+    public function checkSpecialChar($name){
+      if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $name)) {
+                return false;
+            }
+            else{
+                return true; 
+            }
+    }
+/** code added by DD for add role:
+ *  Function to check wheather the role name is already present in database or not
+ *  @param String $action contains action(on_create/on_update) 
+ *  @param String $name   contains name of role 
+ *  @param String $role id  contains role id 
+ *  @author GNS
+ */
+    public function check_duplication($action = "", $name = "", $role_id = "") {
+        $duplicate_roll_check = $this->db->get_where('role', array('name' => $name));
+
+        if ($action == 'on_create') {
+            if ($duplicate_roll_check->num_rows() > 0) {
+                return false;
+            }else {
+                return true;
+            }
+        }elseif ($action == 'on_update') {
+            if ($duplicate_roll_check->num_rows() > 0) {
+                if ($duplicate_roll_check->row()->id == $role_id) {
+                    return true;
+                }else {
+                    return false;
+                }
+            }else {
+                return true;
+            }
+        }
+    }
+
+/** 
+ *  Service to edit category
+ *  @param String $param  contains role id 
+ *  @author GNS
+ */
 
     public function edit_category($param1) {
         $data['name']   = html_escape($this->input->post('name'));
@@ -80,16 +208,28 @@ class Crud_model extends CI_Model {
         $this->db->where('id', $param1);
         $this->db->update('category', $data);
     }
-
+/** 
+ *  Service to delete category
+ *  @param String $param  contains role id 
+ *  @author GNS
+ */
     public function delete_category($category_id) {
         $this->db->where('id', $category_id);
         $this->db->delete('category');
     }
-
+/** 
+ *  Service to get sub category by parent id
+ *  @param String $parent_id  contains parent id 
+ *  @author GNS
+ */
     public function get_sub_categories($parent_id = "") {
         return $this->db->get_where('category', array('parent' => $parent_id))->result_array();
     }
-
+/** 
+ *  Service to get enrol history by course id
+ *  @param String $course_id  contains course id 
+ *  @author GNS
+ */
     public function enrol_history($course_id = "") {
         if ($course_id > 0) {
             return $this->db->get_where('enrol', array('course_id' => $course_id));
@@ -97,28 +237,49 @@ class Crud_model extends CI_Model {
             return $this->db->get('enrol');
         }
     }
-
+/** 
+ *  Service to get enrol history by user id
+ *  @param String $user_id  contains user id 
+ *  @author GNS
+ */
     public function enrol_history_by_user_id($user_id = "") {
         return $this->db->get_where('enrol', array('user_id' => $user_id));
     }
-	
+/** 
+ *  Service to add course by user id
+ *  @param String $user_id  contains user id 
+ *  @author GNS
+ */
 	public function course_added_by_user($user_id = "") { //print_r($user_id);
         return $this->db->get_where('course', array('user_id' => $user_id));
     }
-
+/** 
+ *  Service to get all enrolled student
+ *  @author GNS
+ */
     public function all_enrolled_student() {
         $this->db->select('user_id');
         $this->db->distinct('user_id');
         return $this->db->get('enrol');
     }
-
+/** 
+ *  Service to enrol history by date range
+ *  @param Date $timestamp_start  contains enrol history start date 
+ *  @param Date $timestamp_end  contains enrol history end date
+ *  @author GNS
+ */
     public function enrol_history_by_date_range($timestamp_start = "", $timestamp_end = "") {
         $this->db->order_by('date_added' , 'desc');
         $this->db->where('date_added >=' , $timestamp_start);
         $this->db->where('date_added <=' , $timestamp_end);
         return $this->db->get('enrol');
     }
-
+/** 
+ *  Service to get revenue by user type
+ *  @param Date $timestamp_start  contains revenue start date 
+ *  @param Date $timestamp_end  contains revenue end date
+ *  @author GNS
+ */
     public function get_revenue_by_user_type($timestamp_start = "", $timestamp_end = "", $revenue_type = "") {
         $course_ids = array();
         $courses    = array();
@@ -146,7 +307,12 @@ class Crud_model extends CI_Model {
         $this->db->where('date_added <=' , $timestamp_end);
         return $this->db->get('payment')->result_array();
     }
-
+/** 
+ *  Service to get instructor revenue by user type
+ *  @param Date $timestamp_start  contains revenue start date 
+ *  @param Date $timestamp_end  contains revenue end date
+ *  @author GNS
+ */
     public function get_instructor_revenue($timestamp_start = "", $timestamp_end = "") {
         $course_ids = array();
         $courses    = array();
@@ -170,16 +336,29 @@ class Crud_model extends CI_Model {
         $this->db->where('date_added <=' , $timestamp_end);
         return $this->db->get('payment')->result_array();
     }
-
+/** 
+ *  Service to get delete payment history
+ *  @param Date $param1  contains id 
+ *  @author GNS
+ */
     public function delete_payment_history($param1) {
         $this->db->where('id', $param1);
         $this->db->delete('payment');
     }
+/** 
+ *  Service to get delete payment history
+ *  @param Date $param1  contains id 
+ *  @author GNS
+ */
     public function delete_enrol_history($param1) {
         $this->db->where('id', $param1);
         $this->db->delete('enrol');
     }
-
+/** 
+ *  Service to get purchase history
+ *  @param Date $user_id  contains user_id  
+ *  @author GNS
+ */
     public function purchase_history($user_id) {
         if ($user_id > 0) {
             return $this->db->get_where('payment', array('user_id'=> $user_id));
@@ -187,11 +366,19 @@ class Crud_model extends CI_Model {
             return $this->db->get('payment');
         }
     }
-
+/** 
+ *  Service to get payment details by id
+ *  @param Date $user_id  contains user_id  
+ *  @author GNS
+ */
     public function get_payment_details_by_id($payment_id = "") {
         return $this->db->get_where('payment', array('id' => $payment_id))->row_array();
     }
-
+/** 
+ *  Service to update instructor payment status
+ *  @param Date $payment_id  contains payment_id  
+ *  @author GNS
+ */
     public function update_instructor_payment_status($payment_id = "") {
         $updater = array(
             'instructor_payment_status' => 1
@@ -199,7 +386,10 @@ class Crud_model extends CI_Model {
         $this->db->where('id', $payment_id);
         $this->db->update('payment', $updater);
     }
-
+/** 
+ *  Service to update system settings
+ *  @author GNS
+ */
     public function update_system_settings() {
         $data['value'] = html_escape($this->input->post('system_name'));
         $this->db->where('key', 'system_name');
@@ -269,7 +459,10 @@ class Crud_model extends CI_Model {
         $this->db->where('key', 'student_email_verification');
         $this->db->update('settings', $data);
     }
-
+/** 
+ *  Service to update smtp settings
+ *  @author GNS
+ */
     public function update_smtp_settings() {
         $data['value'] = html_escape($this->input->post('protocol'));
         $this->db->where('key', 'protocol');
@@ -291,7 +484,10 @@ class Crud_model extends CI_Model {
         $this->db->where('key', 'smtp_pass');
         $this->db->update('settings', $data);
     }
-
+/** 
+ *  Service to update paypal settings
+ *  @author GNS
+ */
     public function update_paypal_settings() {
         // update paypal keys
         $paypal_info = array();
@@ -332,7 +528,10 @@ class Crud_model extends CI_Model {
         $this->db->where('key', 'stripe_currency');
         $this->db->update('settings', $data);
     }
-
+/** 
+ *  Service to update system currency 
+ *  @author GNS
+ */
     public function update_system_currency() {
         $data['value'] = html_escape($this->input->post('system_currency'));
         $this->db->where('key', 'system_currency');
@@ -342,7 +541,10 @@ class Crud_model extends CI_Model {
         $this->db->where('key', 'currency_position');
         $this->db->update('settings', $data);
     }
-
+/** 
+ *  Service to update instructor settings
+ *  @author GNS
+ */
     public function update_instructor_settings() {
         $data['value'] = html_escape($this->input->post('allow_instructor'));
         $this->db->where('key', 'allow_instructor');
@@ -352,7 +554,10 @@ class Crud_model extends CI_Model {
         $this->db->where('key', 'instructor_revenue');
         $this->db->update('settings', $data);
     }
-
+/** 
+ *  Service to get lessions
+ *  @author GNS
+ */
     public function get_lessons($type = "", $id = "") {
         $this->db->order_by("order", "asc");
         if($type == "course"){
@@ -368,7 +573,10 @@ class Crud_model extends CI_Model {
             return $this->db->get('lesson');
         }
     }
-
+/** 
+ *  Service to add cource
+ *  @author GNS
+ */
     public function add_course($param1 = "") {
         $outcomes = $this->trim_and_return_json($this->input->post('outcomes'));
         $requirements = $this->trim_and_return_json($this->input->post('requirements'));
@@ -448,7 +656,12 @@ class Crud_model extends CI_Model {
         }
         return json_encode($trimmed_array);
     }
-
+/** 
+ *  Service to update course
+ *  @param String $course_id contains cource id
+ *  @param String $type      contains cource type to update
+ *  @author GNS
+ */
     public function update_course($course_id, $type = "") {
         $outcomes = $this->trim_and_return_json($this->input->post('outcomes'));
         $requirements = $this->trim_and_return_json($this->input->post('requirements'));
@@ -508,7 +721,12 @@ class Crud_model extends CI_Model {
             $this->session->set_flashdata('flash_message', get_phrase('your_course_has_been_added_to_draft'));
         }
     }
-
+/** 
+ *  Service to change course status
+ *  @param String $course_id contains cource id
+ *  @param String $staus     contains cource status to update
+ *  @author GNS
+ */
     public function change_course_status($status = "", $course_id = "") {
         $updater = array(
             'status' => $status
@@ -516,7 +734,11 @@ class Crud_model extends CI_Model {
         $this->db->where('id', $course_id);
         $this->db->update('course', $updater);
     }
-
+/** 
+ *  Service to get course thumbnail url
+ *  @param String $course_id contains cource id
+ *  @author GNS
+ */
     public function get_course_thumbnail_url($course_id) {
 
         if (file_exists('uploads/thumbnails/course_thumbnails/'.$course_id.'.jpg'))
@@ -524,6 +746,11 @@ class Crud_model extends CI_Model {
         else
         return base_url().'uploads/thumbnails/course_thumbnails/course-thumbnail.png';
     }
+/** 
+ *  Service to get lesson thumbnail url
+ *  @param String $lesson_id contains lesson id
+ *  @author GNS
+ */
     public function get_lesson_thumbnail_url($lesson_id) {
 
         if (file_exists('uploads/thumbnails/lesson_thumbnails/'.$lesson_id.'.jpg'))
@@ -531,7 +758,11 @@ class Crud_model extends CI_Model {
         else
         return base_url().'uploads/thumbnails/thumbnail.png';
     }
-
+/** 
+ *  Service to update lesson thumbnail url
+ *  @param String $lesson_id contains lesson id
+ *  @author GNS
+ */
     public function get_my_courses_by_category_id($category_id) {
         $this->db->select('course_id');
         $course_lists_by_enrol = $this->db->get_where('enrol', array('user_id' => $this->session->userdata('user_id')))->result_array();
@@ -545,7 +776,11 @@ class Crud_model extends CI_Model {
         $this->db->where('category_id', $category_id);
         return $this->db->get('course');
     }
-
+/** 
+ *  Service to get course by search 
+ *  @param String $search_string contains string to search
+ *  @author GNS
+ */
     public function get_my_courses_by_search_string($search_string) {
         $this->db->select('course_id');
         $course_lists_by_enrol = $this->db->get_where('enrol', array('user_id' => $this->session->userdata('user_id')))->result_array();
@@ -559,41 +794,84 @@ class Crud_model extends CI_Model {
         $this->db->like('title', $search_string);
         return $this->db->get('course');
     }
-
+/** 
+ *  Service to get course by search 
+ *  @param String $search_string contains string to search
+ *  @author GNS
+ */
     public function get_courses_by_search_string($search_string) {
         $this->db->like('title', $search_string);
         $this->db->where('status', 'active');
         return $this->db->get('course');
     }
-
+/** 
+ *  Service to get course by id 
+ *  @param String $cource_id contains course id
+ *  @author GNS
+ */
 
     public function get_course_by_id($course_id = "") {
         return $this->db->get_where('course', array('id' => $course_id));
     }
-
+ /** 
+ *  Service to get role by id 
+ *  @param String $role_id contains role id
+ *  @author GNS
+ */   
+    public function get_role_by_id($role_id = "") {
+        return $this->db->get_where('role', array('id' => $role_id));
+    }
+/** 
+ *  Service to delete role by id 
+ *  @param String $role_id contains role id to delete
+ *  @author GNS
+ */
+    public function delete_role($role_id) {
+        $this->db->where('id', $role_id);
+        $this->db->delete('role');
+    }
+/** 
+ *  Service to delete cource by id 
+ *  @param String $course_id contains course id to delete
+ *  @author GNS
+ */    
     public function delete_course($course_id) {
         $this->db->where('id', $course_id);
         $this->db->delete('course');
     }
-
+/** 
+ *  Service to get top cources 
+ *  @author GNS
+ */
     public function get_top_courses() {
         return $this->db->get_where('course', array('is_top_course' => 1, 'status' => 'active'));
     }
-
+/** 
+ *  Service to get default category id 
+ *  @author GNS
+ */
     public function get_default_category_id() {
         $categories = $this->get_categories()->result_array();
         foreach ($categories as $category) {
             return $category['id'];
         }
     }
-
+/** 
+ *  Service to get cources by user id
+ *  @param String  $param1 contains user id 
+ *  @author GNS
+ */
     public function get_courses_by_user_id($param1 = "") {
         $courses['draft'] = $this->db->get_where('course', array('user_id' => $param1, 'status' => 'draft'));
         $courses['pending'] = $this->db->get_where('course', array('user_id' => $param1, 'status' => 'pending'));
         $courses['active'] = $this->db->get_where('course', array('user_id' => $param1, 'status' => 'active'));
         return $courses;
     }
-
+/** 
+ *  Service to get status wise cources 
+ *  @param String  $status contains status 
+ *  @author GNS
+ */
     public function get_status_wise_courses($status = "") {
         if ($status != "") {
             $courses = $this->db->get_where('course', array('status' => $status));
@@ -604,7 +882,11 @@ class Crud_model extends CI_Model {
         }
         return $courses;
     }
-
+/** 
+ *  Service to get status wise cources for instructor 
+ *  @param String  $status contains status 
+ *  @author GNS
+ */
     public function get_status_wise_courses_for_instructor($status = "") {
         if ($status != "") {
             $this->db->where('status', $status);
@@ -625,14 +907,23 @@ class Crud_model extends CI_Model {
         }
         return $courses;
     }
-
+/** 
+ *  Service to get default sub category id 
+ *  @param String  $default_cateegory_id contains default cateegory id 
+ *  @author GNS
+ */
     public function get_default_sub_category_id($default_cateegory_id) {
         $sub_categories = $this->get_sub_categories($default_cateegory_id);
         foreach ($sub_categories as $sub_category) {
             return $sub_category['id'];
         }
     }
-
+/** 
+ *  Service to get instructor wise courses
+ *  @param String  $instructor_id contains instructor id 
+ *  @param String  $return_as 
+ *  @author GNS
+ */
     public function get_instructor_wise_courses($instructor_id = "", $return_as = "") {
         $courses = $this->db->get_where('course', array('user_id' => $instructor_id));
         if ($return_as == 'simple_array') {
@@ -647,7 +938,11 @@ class Crud_model extends CI_Model {
             return $courses;
         }
     }
-
+/** 
+ *  Service to get instructor wise payment history
+ *  @param String  $instructor_id contains instructor id 
+ *  @author GNS
+ */
     public function get_instructor_wise_payment_history($instructor_id = "") {
         $courses = $this->get_instructor_wise_courses($instructor_id, 'simple_array');
         if (sizeof($courses) > 0) {
@@ -657,7 +952,11 @@ class Crud_model extends CI_Model {
             return array();
         }
     }
-
+/** 
+ *  Service to add section
+ *  @param String  $course_id contains course id 
+ *  @author GNS
+ */
     public function add_section($course_id) {
         $data['title'] = html_escape($this->input->post('title'));
         $data['course_id'] = $course_id;
@@ -680,13 +979,22 @@ class Crud_model extends CI_Model {
             $this->db->update('course', $updater);
         }
     }
-
+/** 
+ *  Service to edit section
+ *  @param String  $section_id contains section id 
+ *  @author GNS
+ */
     public function edit_section($section_id) {
         $data['title'] = $this->input->post('title');
         $this->db->where('id', $section_id);
         $this->db->update('section', $data);
     }
-
+/** 
+ *  Service to delete section
+ *  @param String  $course_id contains course id 
+ *  @param String  $section_id contains section id 
+ *  @author GNS
+ */
     public function delete_section($course_id, $section_id) {
         $this->db->where('id', $section_id);
         $this->db->delete('section');
@@ -706,7 +1014,12 @@ class Crud_model extends CI_Model {
             $this->db->update('course', $updater);
         }
     }
-
+/** 
+ *  Service to get section
+ *  @param String  $id         contains course id 
+ *  @param String  $type_by    contains string of type 
+ *  @author GNS
+ */
     public function get_section($type_by, $id){
         $this->db->order_by("order", "asc");
         if ($type_by == 'course') {
@@ -715,7 +1028,12 @@ class Crud_model extends CI_Model {
             return $this->db->get_where('section', array('id' => $id));
         }
     }
-
+/** 
+ *  Service to get section
+ *  @param String  $course_id         contains course id 
+ *  @param String  $serialization    
+ *  @author GNS
+ */
     public function serialize_section($course_id, $serialization) {
         $updater = array(
             'section' => $serialization
@@ -723,7 +1041,10 @@ class Crud_model extends CI_Model {
         $this->db->where('id', $course_id);
         $this->db->update('course', $updater);
     }
-
+/** 
+ *  Service to add lesson
+ *  @author GNS
+ */
     public function add_lesson() {
         $data['course_id'] = html_escape($this->input->post('course_id'));
         $data['title'] = html_escape($this->input->post('title'));
@@ -799,7 +1120,11 @@ class Crud_model extends CI_Model {
             move_uploaded_file($_FILES['thumbnail']['tmp_name'], 'uploads/thumbnails/lesson_thumbnails/'.$inserted_id.'.jpg');
         }
     }
-
+/** 
+ *  Service to edit lesson
+ *  @param String  $lesson_id         contains lesson id 
+ *  @author GNS
+ */
     public function edit_lesson($lesson_id) {
 
         $previous_data = $this->db->get_where('lesson', array('id' => $lesson_id))->row_array();
@@ -884,11 +1209,19 @@ class Crud_model extends CI_Model {
         $this->db->where('id', $lesson_id);
         $this->db->update('lesson', $data);
     }
+/** 
+ *  Service to delete lesson
+ *  @param String  $lesson_id  contains lesson id to delete
+ *  @author GNS
+ */
     public function delete_lesson($lesson_id) {
         $this->db->where('id', $lesson_id);
         $this->db->delete('lesson');
     }
-
+/** 
+ *  Service to update front end settings
+ *  @author GNS
+ */
     public function update_frontend_settings() {
         $data['value'] = html_escape($this->input->post('banner_title'));
         $this->db->where('key', 'banner_title');
@@ -911,27 +1244,46 @@ class Crud_model extends CI_Model {
         $this->db->where('key', 'privacy_policy');
         $this->db->update('frontend_settings', $data);
     }
-
+/** 
+ *  Service to update front end banner
+ *  @author GNS
+ */
     public function update_frontend_banner() {
         move_uploaded_file($_FILES['banner_image']['tmp_name'], 'uploads/system/home-banner.jpg');
     }
-
+/** 
+ *  Service to update light logo
+ *  @author GNS
+ */
     public function update_light_logo() {
         move_uploaded_file($_FILES['light_logo']['tmp_name'], 'uploads/system/logo-light.png');
     }
-
+/** 
+ *  Service to update dark logo
+ *  @author GNS
+ */
     public function update_dark_logo() {
         move_uploaded_file($_FILES['dark_logo']['tmp_name'], 'uploads/system/logo-dark.png');
     }
-
+/** 
+ *  Service to update small logo
+ *  @author GNS
+ */
     public function update_small_logo() {
         move_uploaded_file($_FILES['small_logo']['tmp_name'], 'uploads/system/logo-light-sm.png');
     }
-
+/** 
+ *  Service to update favicon
+ *  @author GNS
+ */
     public function update_favicon() {
         move_uploaded_file($_FILES['favicon']['tmp_name'], 'uploads/system/favicon.png');
     }
-
+/** 
+ *  Service to update handle wishlist
+ *  @param  String $cource_id  contains cource id
+ *  @author GNS
+ */
     public function handleWishList($course_id) {
         $wishlists = array();
         $user_details = $this->user_model->get_user($this->session->userdata('user_id'))->row_array();
@@ -958,6 +1310,11 @@ class Crud_model extends CI_Model {
         $this->db->where('id', $this->session->userdata('user_id'));
         $this->db->update('users', $updater);
     }
+/** 
+ *  Service to add wishlist
+ *  @param  String $cource_id  contains cource id
+ *  @author GNS
+ */
 
     public function is_added_to_wishlist($course_id = "") {
         if ($this->session->userdata('user_login') == 1) {
@@ -973,11 +1330,19 @@ class Crud_model extends CI_Model {
             return false;
         }
     }
+/** 
+ *  Service to get wishlist
+ *  @author GNS
+ */
 
     public function getWishLists() {
         $user_details = $this->user_model->get_user($this->session->userdata('user_id'))->row_array();
         return json_decode($user_details['wishlist']);
     }
+/** 
+ *  Service to get latest 10 course
+ *  @author GNS
+ */
 
     public function get_latest_10_course() {
         $this->db->order_by("id", "desc");
@@ -985,6 +1350,11 @@ class Crud_model extends CI_Model {
         $this->db->where('status', 'active');
         return $this->db->get('course')->result_array();
     }
+/** 
+ *  Service to update handle wishlist
+ *  @param  String $user_id  contains user id
+ *  @author GNS
+ */
 
     public function enrol_student($user_id){
         $purchased_courses = $this->session->userdata('cart_items');
@@ -995,6 +1365,10 @@ class Crud_model extends CI_Model {
             $this->db->insert('enrol', $data);
         }
     }
+/** 
+ *  Service to get a student manually
+ *  @author GNS
+ */
     public function enrol_a_student_manually() {
         $data['course_id'] = $this->input->post('course_id');
         $data['user_id']   = $this->input->post('user_id');
@@ -1006,7 +1380,12 @@ class Crud_model extends CI_Model {
             $this->session->set_flashdata('flash_message', get_phrase('student_has_been_enrolled_to_that_course'));
         }
     }
-
+/** 
+ *  Service to get free course
+ *  @param  String $course_id contains cource id
+ *  @param  String $user_id   contains user id
+ *  @author GNS
+ */
     public function enrol_to_free_course($course_id = "", $user_id = "") {
         $course_details = $this->get_course_by_id($course_id)->row_array();
         if ($course_details['is_free_course'] == 1) {
@@ -1025,6 +1404,13 @@ class Crud_model extends CI_Model {
         }
 
     }
+/** 
+ *  Service to course purchase
+ *  @param  String $user_id     contains user id
+ *  @param  String $method      contains payment type
+ *  @param  String $amount_paid  
+ *  @author GNS
+ */
     public function course_purchase($user_id, $method, $amount_paid) {
         $purchased_courses = $this->session->userdata('cart_items');
         foreach ($purchased_courses as $purchased_course) {
@@ -1056,14 +1442,22 @@ class Crud_model extends CI_Model {
             $this->db->insert('payment', $data);
         }
     }
-
+/** 
+ *  Service to get default lesson
+ *  @param  String $section_id  contains section_id
+ *  @author GNS
+ */
     public function get_default_lesson($section_id) {
         $this->db->order_by('order',"asc");
         $this->db->limit(1);
         $this->db->where('section_id', $section_id);
         return $this->db->get('lesson');
     }
-
+/** 
+ *  Service to get courses by wishlist
+ *  @param  String $section_id  contains section_id
+ *  @author GNS
+ */
     public function get_courses_by_wishlists() {
         $wishlists = $this->getWishLists();
         if (sizeof($wishlists) > 0) {
@@ -1074,7 +1468,11 @@ class Crud_model extends CI_Model {
         }
 
     }
-
+/** 
+ *  Service to get courses wishlist by search string
+ *  @param  String $search_string  contains search title
+ *  @author GNS
+ */
 
     public function get_courses_of_wishlists_by_search_string($search_string) {
         $wishlists = $this->getWishLists();
@@ -1086,7 +1484,11 @@ class Crud_model extends CI_Model {
             return array();
         }
     }
-
+/** 
+ *  Service to get total duration of lesson by course id
+ *  @param  String $course_id  contains course id
+ *  @author GNS
+ */
     public function get_total_duration_of_lesson_by_course_id($course_id) {
         $total_duration = 0;
         $lessons = $this->crud_model->get_lessons('course', $course_id)->result_array();
@@ -1101,7 +1503,11 @@ class Crud_model extends CI_Model {
         }
         return gmdate("H:i:s", $total_duration).' '.get_phrase('hours');
     }
-
+/** 
+ *  Service to get total duration of lesson by section id
+ *  @param  String $section_id  contains section id
+ *  @author GNS
+ */
     public function get_total_duration_of_lesson_by_section_id($section_id) {
         $total_duration = 0;
         $lessons = $this->crud_model->get_lessons('section', $section_id)->result_array();
@@ -1126,11 +1532,22 @@ class Crud_model extends CI_Model {
             $this->db->update('rating', $data);
         }
     }
-
+/** 
+ *  Service to get user specific rating
+ *  @param  String $ratable_type  contains ratable type
+ *  @param  String $ratable_id  contains ratable id 
+ *  @author GNS
+ */
     public function get_user_specific_rating($ratable_type = "", $ratable_id = "") {
         return $this->db->get_where('rating', array('ratable_type' => $ratable_type, 'user_id' => $this->session->userdata('user_id'), 'ratable_id' => $ratable_id))->row_array();
     }
-
+/** 
+ *  Service to get rating
+ *  @param  String $ratable_type  contains ratable type
+ *  @param  String $ratable_id    contains ratable id 
+ *  @param  String $is_sum        contains boolean value
+ *  @author GNS
+ */
     public function get_ratings($ratable_type = "", $ratable_id = "", $is_sum = false) {
         if ($is_sum) {
             $this->db->select_sum('rating');
@@ -1140,6 +1557,14 @@ class Crud_model extends CI_Model {
             return $this->db->get_where('rating', array('ratable_type' => $ratable_type, 'ratable_id' => $ratable_id));
         }
     }
+/** 
+ *  Service to get instructor wise rating
+ *  @param  String $instructor_id contains instructor id
+ *  @param  String $ratable_id    contains ratable id 
+ *  @param  String $is_sum        contains boolean value
+ *  @author GNS
+ */
+       
     public function get_instructor_wise_course_ratings($instructor_id = "", $ratable_type = "", $is_sum = false) {
         $course_ids = $this->get_instructor_wise_courses($instructor_id, 'simple_array');
         if ($is_sum) {
@@ -1154,6 +1579,14 @@ class Crud_model extends CI_Model {
             return $this->db->get('rating');
         }
     }
+/** 
+ *  Service to get percentage of specific rating
+ *  @param  String $rating          contains instructor id
+ *  @param  String $ratable_type    contains ratable type 
+ *  @param  String $ratable_id      contains ratable id
+ *  @author GNS
+ */
+
     public function get_percentage_of_specific_rating($rating = "", $ratable_type = "", $ratable_id = "") {
         $number_of_user_rated = $this->db->get_where('rating', array(
             'ratable_type' => $ratable_type,
@@ -1174,8 +1607,10 @@ class Crud_model extends CI_Model {
         }
         return floor($percentage);
     }
-
-    ////////private message//////
+/** 
+ *  private message
+ *  @author GNS
+ */
     function send_new_private_message() {
         $message    = $this->input->post('message');
         $timestamp  = strtotime(date("Y-m-d H:i:s"));
@@ -1207,6 +1642,11 @@ class Crud_model extends CI_Model {
 
         return $message_thread_code;
     }
+/** 
+ *  send reply to message
+ *  @param  String $message_thread_code contains message thread code
+ *  @author GNS
+ */
 
     function send_reply_message($message_thread_code) {
         $message    = html_escape($this->input->post('message'));
@@ -1219,7 +1659,11 @@ class Crud_model extends CI_Model {
         $data_message['timestamp']              = $timestamp;
         $this->db->insert('message', $data_message);
     }
-
+/** 
+ *  mark message read
+ *  @param  String $message_thread_code contains message thread code
+ *  @author GNS
+ */
     function mark_thread_messages_read($message_thread_code) {
         // mark read only the oponnent messages of this thread, not currently logged in user's sent messages
         $current_user = $this->session->userdata('user_id');
@@ -1227,7 +1671,11 @@ class Crud_model extends CI_Model {
         $this->db->where('message_thread_code', $message_thread_code);
         $this->db->update('message', array('read_status' => 1));
     }
-
+/** 
+ *  unread message count
+ *  @param  String $message_thread_code contains message thread code
+ *  @author GNS
+ */
     function count_unread_message_of_thread($message_thread_code) {
         $unread_message_counter = 0;
         $current_user = $this->session->userdata('user_id');
@@ -1238,7 +1686,11 @@ class Crud_model extends CI_Model {
         }
         return $unread_message_counter;
     }
-
+/** 
+ *  get last message
+ *  @param  String $message_thread_code contains message thread code
+ *  @author GNS
+ */
     public function get_last_message_by_message_thread_code($message_thread_code) {
         $this->db->order_by('message_id','desc');
         $this->db->limit(1);
@@ -1282,22 +1734,37 @@ class Crud_model extends CI_Model {
             }
         }
 
-
+/** 
+ *  get currencies
+ *  @author GNS
+ */
         // version 1.3
         function get_currencies() {
             return $this->db->get('currency')->result_array();
         }
-
+/** 
+ *  get paypal supported currencies
+ *  @author GNS
+ */
+  
         function get_paypal_supported_currencies() {
             $this->db->where('paypal_supported', 1);
             return $this->db->get('currency')->result_array();
         }
-
+/** 
+ *  get strip supported currencies
+ *  @author GNS
+ */
+  
         function get_stripe_supported_currencies() {
             $this->db->where('stripe_supported', 1);
             return $this->db->get('currency')->result_array();
         }
-
+/** 
+ *  get filter course
+ *  @author GNS
+ */
+  
         // version 1.4
         function filter_course($selected_category_id = "", $selected_price = "", $selected_level = "", $selected_language = "", $selected_rating = ""){
             //echo $selected_category_id.' '.$selected_price.' '.$selected_level.' '.$selected_language.' '.$selected_rating;
@@ -1347,7 +1814,14 @@ class Crud_model extends CI_Model {
                 return array();
             }
         }
-
+/** 
+ *  get cources
+ *  @param String $category_id      contains category id
+ *  @param String $sub_category_id  contains sub category id 
+ *  @param String $instructor_id    contains instructor id
+ *  @author GNS
+ */
+  
         public function get_courses($category_id = "", $sub_category_id = "", $instructor_id = 0) {
             if ($category_id > 0 && $sub_category_id > 0 && $instructor_id > 0) {
                 return $this->db->get_where('course', array('category_id' => $category_id, 'sub_category_id' => $sub_category_id, 'user_id' => $instructor_id));
@@ -1357,6 +1831,14 @@ class Crud_model extends CI_Model {
                 return $this->db->get('course');
             }
         }
+/** 
+ *  get filter cources for backend
+ *  @param String $category_id      contains category id
+ *  @param String $price            contains price for course
+ *  @param String $status           contains status
+ *  @param String $instructor_id    contains instructor id
+ *  @author GNS
+ */
 
         public function filter_course_for_backend($category_id, $instructor_id, $price, $status) {
             if ($category_id != "all") {
@@ -1380,7 +1862,10 @@ class Crud_model extends CI_Model {
             }
             return $this->db->get('course')->result_array();
         }
-
+/** 
+ *  sort section
+ *  @author GNS
+ */
         public function sort_section($section_json) {
             $sections = json_decode($section_json);
             foreach ($sections as $key => $value) {
@@ -1391,7 +1876,10 @@ class Crud_model extends CI_Model {
                 $this->db->update('section', $updater);
             }
         }
-
+/** 
+ *  sort lesson
+ *  @author GNS
+ */
         public function sort_lesson($lesson_json) {
             $lessons = json_decode($lesson_json);
             foreach ($lessons as $key => $value) {
@@ -1402,6 +1890,10 @@ class Crud_model extends CI_Model {
                 $this->db->update('lesson', $updater);
             }
         }
+/** 
+ *  sort question
+ *  @author GNS
+ */
         public function sort_question($question_json) {
             $questions = json_decode($question_json);
             foreach ($questions as $key => $value) {
@@ -1412,7 +1904,12 @@ class Crud_model extends CI_Model {
                 $this->db->update('question', $updater);
             }
         }
-
+/** 
+ *  get free and paid cources
+ *  @param  String  $price_status  contains price status
+ *  @param  String  $instructor_id contains instructor id
+ *  @author GNS
+ */
         public function get_free_and_paid_courses($price_status = "", $instructor_id = "") {
             $this->db->where('status', 'active');
             if ($price_status == 'free') {
@@ -1426,8 +1923,12 @@ class Crud_model extends CI_Model {
             }
             return $this->db->get('course');
         }
-
-        // Adding quiz functionalities
+/** 
+ *  Adding quiz functionalities
+ *  @param  String  $price_status  contains price status
+ *  @param  String  $instructor_id contains instructor id
+ *  @author GNS
+ */
         public function add_quiz($course_id = "") {
             $data['course_id'] = $course_id;
             $data['title'] = html_escape($this->input->post('title'));
@@ -1439,8 +1940,12 @@ class Crud_model extends CI_Model {
             $data['summary'] = html_escape($this->input->post('summary'));
             $this->db->insert('lesson', $data);
         }
-
-        // updating quiz functionalities
+/** 
+ *  updating quiz functionalities
+ *  @param  String  $lesson_id  contains lesson id
+ *  @author GNS
+ */
+         
         public function edit_quiz($lesson_id = "") {
             $data['title'] = html_escape($this->input->post('title'));
             $data['section_id'] = html_escape($this->input->post('section_id'));
@@ -1449,8 +1954,11 @@ class Crud_model extends CI_Model {
             $this->db->where('id', $lesson_id);
             $this->db->update('lesson', $data);
         }
-
-        // Get quiz questions
+/** 
+ *  Get quiz questions
+ *  @param  String  $quiz_id  contains quiz id
+ *  @author GNS
+ */
         public function get_quiz_questions($quiz_id) {
             $this->db->order_by("order", "asc");
             $this->db->where('quiz_id', $quiz_id);
@@ -1462,8 +1970,11 @@ class Crud_model extends CI_Model {
             $this->db->where('id', $question_id);
             return $this->db->get('question');
         }
-
-        // Add Quiz Questions
+/** 
+ *  Get quiz questions
+ *  @param  String  $quiz_id  contains quiz id
+ *  @author GNS
+ */
         public function add_quiz_questions($quiz_id) {
             $question_type = $this->input->post('question_type');
             if ($question_type == 'mcq') {
@@ -1471,7 +1982,11 @@ class Crud_model extends CI_Model {
                 return $response;
             }
         }
-
+/** 
+ *  Get quiz questions
+ *  @param  String  $question_id  contains question id
+ *  @author GNS
+ */
         public function update_quiz_questions($question_id) {
             $question_type = $this->input->post('question_type');
             if ($question_type == 'mcq') {
@@ -1479,7 +1994,11 @@ class Crud_model extends CI_Model {
                 return $response;
             }
         }
-        // multiple_choice_question crud functions
+/** 
+ *  multiple_choice_question crud functions
+ *  @param  String  $quiz_id  contains quiz id
+ *  @author GNS
+ */
         function add_multiple_choice_question($quiz_id){
             if (sizeof($this->input->post('options')) != $this->input->post('number_of_options')) {
                 return false;
@@ -1504,7 +2023,12 @@ class Crud_model extends CI_Model {
             $this->db->insert('question', $data);
             return true;
         }
-        // update multiple choice question
+ /** 
+ *  update multiple choice question
+ *  @param  String  $question_id  contains question id
+ *  @author GNS
+ */
+ 
         function update_multiple_choice_question($question_id){
             if (sizeof($this->input->post('options')) != $this->input->post('number_of_options')) {
                 return false;
@@ -1531,13 +2055,20 @@ class Crud_model extends CI_Model {
             $this->db->update('question', $data);
             return true;
         }
-
+/** 
+ *  delete quiz question
+ *  @param  String  $question_id  contains question id
+ *  @author GNS
+ */
         function delete_quiz_question($question_id) {
             $this->db->where('id', $question_id);
             $this->db->delete('question');
             return true;
         }
-
+/** 
+ *  get applications details
+ *  @author GNS
+ */
         function get_application_details() {
             $purchase_code = get_settings('purchase_code');
             $returnable_array = array(

@@ -3,11 +3,8 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /*
- *  @author   : Creativeitem
- *  date    : 07 october, 2018
- *  Academy
- *  http://codecanyon.net/user/Creativeitem
- *  http://support.creativeitem.com
+ *  @author   : GNS
+ *  date    : 07 July, 2020
  */
 
      ini_set('max_execution_time', 0);
@@ -54,14 +51,25 @@ class Install extends CI_Controller {
 
     $validation_response = TRUE;
     if ($validation_response == true) {
-      // keeping the purchase code in users session
+/**
+ *keeping the purchase code in users session
+ * @author GNS
+ */
       session_start();
       $_SESSION['purchase_code']  = $purchase_code;
       $_SESSION['purchase_code_verified'] = 1;
-      //move to step 3
+      
+/** 
+ *  move to step 3
+ *  @author GNS
+ */
       redirect(site_url('install/step3'), 'refresh');
     } else {
-      //remain on step 2 and show error
+      
+/** 
+ *  remain on step 2 and show error
+ *  @author GNS
+ */
       session_start();
       $_SESSION['purchase_code_verified'] = 0;
       redirect(site_url('install/step2/error'), 'refresh');
@@ -88,7 +96,10 @@ class Install extends CI_Controller {
       $username = $this->input->post('username');
       $password = $this->input->post('password');
       $dbname   = $this->input->post('dbname');
-      // check db connection using the above credentials
+/** 
+ *  check db connection using the above credentials
+ *  @author GNS
+ */
       $db_connection = $this->check_database_connection($hostname, $username, $password, $dbname);
       if ($db_connection == 'failed') {
         redirect(site_url('install/step3/error_con_fail'), 'refresh');
@@ -187,7 +198,10 @@ class Install extends CI_Controller {
       }
     }
   }
-
+/** 
+ *  finalizing setup
+ *  @author GNS
+ */
   function finalizing_setup($param1 = '', $param2 = '') {
     if ($this->router->default_controller != 'install') {
       redirect(site_url('login'), 'refresh');
@@ -230,22 +244,32 @@ class Install extends CI_Controller {
 
     $this->load->database();
     $admin_email = $this->db->get_where('users', array('id' => 1))->row()->email;
-
+/** 
+ *  To start the session
+ *  @author GNS
+ */
     session_start();
     if (isset($_SESSION['purchase_code'])) {
       $data['value']  = $_SESSION['purchase_code'];
       $this->db->where('key', 'purchase_code');
       $this->db->update('settings', $data);
     }
+/** 
+ *  To destroy the session
+ *  @author GNS
+ */
     session_destroy();
 
     $page_data['admin_email'] = $admin_email;
     $page_data['page_name'] = 'success';
     $this->load->view('install/index', $page_data);
   }
-
+/** 
+ *  write routes.php
+ *  @author GNS
+*/
   function configure_routes() {
-    // write routes.php
+     write routes.php
     $data_routes = file_get_contents('./application/config/routes.php');
     $data_routes = str_replace('install',	'home',	$data_routes);
     file_put_contents('./application/config/routes.php', $data_routes);

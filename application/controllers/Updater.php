@@ -2,13 +2,9 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-/*
- *  @author   : Creativeitem
- *  date    : 7 October, 2018
- *  Academy
- *  http://codecanyon.net/user/Creativeitem
- *  http://support.creativeitem.com
- */
+/**
+ * @copyright  GNS Technologies
+ */ 
 
 class Updater extends CI_Controller
 {
