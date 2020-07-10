@@ -298,7 +298,7 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
   background: #0e0e0e;
 }
 .admin_left_user{
-  background: #3c4655;
+  background-color: #3c4655;
   padding: 17px 20px;
 }
 .admin_left_user span{
@@ -322,8 +322,41 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 .admin_left_sidebar .side-nav-light .side-nav-link.active{
   color:#00BCD4;
 }
-
-
+.instructor_card_title{
+  background: #3c4655;
+  color: #fff;
+  padding: 10px 10px;
+}
+.leftsidebar .side-nav-light .side-nav-link{
+  color:#000;
+}
+.leftsidebar .side-nav-light .side-nav-link.active{
+  color:#00BCD4;
+}
+.instructor_box1,.instructor_box1 p{
+  background:#bcc1ff;
+  color:#000;
+}
+.instructor_box2, .instructor_box2 p{
+  background:#ffe59c;
+  color:#000;
+}
+.instructor_box3, .instructor_box3 p{
+  background:#a1ecd7;
+  color:#000;
+}
+.instructor_box4 , .instructor_box4 p{
+  background:#ffb3c3;
+  color:#000;
+}
+.instructor_add_course{
+  position:relative;
+  top:-5px;
+}
+.admin_add_category{
+  position:relative;
+  top:-5px;
+}
 
 
 
