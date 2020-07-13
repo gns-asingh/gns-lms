@@ -696,5 +696,9 @@
     "role_deleted_successfully": "Role deleted successfully",
     "role_updated_successfully": "Role updated successfully",
     "only_alphabets_are_allowed.": "Only alphabets are allowed.",
-    "only_alphabets_are_allowed": "Only alphabets are allowed"
+    "only_alphabets_are_allowed": "Only alphabets are allowed",
+	"duration": "duration",
+	"start_date": "Start Date",
+	"days": "Days"
+	
 }

@@ -1376,6 +1376,8 @@ class Crud_model extends CI_Model {
             $this->session->set_flashdata('error_message', get_phrase('student_has_already_been_enrolled_to_this_course'));
         }else {
             $data['date_added'] = strtotime(date('D, d-M-Y'));
+			$data['duration_period'] = $this->input->post('duration_period');
+			$data['start_date'] = strtotime($this->input->post('start_date'));
             $this->db->insert('enrol', $data);
             $this->session->set_flashdata('flash_message', get_phrase('student_has_been_enrolled_to_that_course'));
         }
