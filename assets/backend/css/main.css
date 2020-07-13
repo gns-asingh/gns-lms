@@ -261,7 +261,6 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 }
 .setPageTitle{
   padding:7px 15px;
-  border-bottom: 2px solid #ddd;
 }
 .mb-20{
   margin-bottom: 20px;;
@@ -286,7 +285,7 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
   color:#f3656e;
 }
 .setBorderRight{
-  border-right:1px solid #ddd;
+  border-right:1px solid #181924;
 }
 .setIconHead{
   position: relative;
@@ -308,13 +307,19 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
   color:#fff;
 }
 .admin_card_title{
-  background: #3c4655;
-    color: #fff;
+      color: #fff;
     padding: 10px 10px;
+    background-color: #20202a;
+    border-bottom:1px solid #181924;
+}
+.admin_card_title h5{
+  font-weight:500;
 }
 
 .admin_card_border{
   border:1px solid #ddd;
+  background-color: #23242d;
+  border:1px solid  #181924;
 }
 .admin_left_sidebar .side-nav-light .side-nav-link{
   color:#fff;
@@ -357,14 +362,47 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
   position:relative;
   top:-5px;
 }
-
-
-
-
-
-
-
-
+.btn_line_height{
+  line-height:0;
+}
+.admin_main_content{
+  background: #0a0b18;
+  padding:20px 15px;
+}
+.admin_title_bg{
+  background:#2c2c34;
+}
+.admin_title_color{
+  vertical-align: middle;
+    position: relative;
+    top: 2px;
+    color: #8a93a2;
+    font-weight: 500;
+}
+.admin_bg_primary{
+  background: linear-gradient(45deg,#4638c2,#2d2587)!important;
+    border:1px solid #2d2587!important;
+}
+.admin_bg_info{
+  background: linear-gradient(45deg,#4799eb,#4280b4)!important;
+    border:1px solid  #4280b4!important;
+}
+.admin_bg_warning{
+  background: linear-gradient(45deg,#e1a82d,#dd9124)!important;
+  border:1px solid #dd9124!important;
+}
+.admin_bg_danger{
+  background: linear-gradient(45deg,#d16767,#c14f4f)!important;
+  border:1px solid #c14f4f!important;
+}
+.admin_text_white:hover{
+  color:#fff;
+}
+.admin_card_footer{
+  background-color: #20202a;
+    border-color: #181924;
+        border-top: 1px solid #181924;
+}
 
 
 

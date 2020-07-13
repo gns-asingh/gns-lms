@@ -6,7 +6,7 @@
                     <!-- <i class="mdi mdi-apple-keyboard-command title_icon"></i>  -->
                     <i class="dripicons-network-1 title_icon"></i>
                     <span style="vertical-align:middle;position:relative;top:2px;"> <?php echo get_phrase('categories'); ?></span>
-                  <a href="<?php echo site_url('admin/category_form/add_category'); ?>" class="btn btn-outline-primary btn-rounded alignToTitle admin_add_category"><i class="mdi mdi-plus"></i><?php echo get_phrase('add_new_category'); ?></a>
+                  <a href="<?php echo site_url('admin/category_form/add_category'); ?>" class="btn btn-outline-primary btn_line_height btn-rounded alignToTitle admin_add_category"><i class="mdi mdi-plus"></i><?php echo get_phrase('add_new_category'); ?></a>
                 </h4>
             </div> <!-- end card body-->
         </div> <!-- end card -->
