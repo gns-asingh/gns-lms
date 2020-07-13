@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body setPageTitle">
                 <h4 class="page-title"> <i class="dripicons-archive title_icon setIconHead"></i> <?php echo get_phrase('courses'); ?>
-                    <a href="<?php echo site_url('instructor/course_form/add_course'); ?>" class="btn btn-outline-primary btn-rounded alignToTitle instructor_add_course"><i class="mdi mdi-plus"></i><?php echo get_phrase('add_new_course'); ?></a>
+                    <a href="<?php echo site_url('instructor/course_form/add_course'); ?>" class="btn btn-outline-primary btn-rounded btn_line_height alignToTitle instructor_add_course"><i class="mdi mdi-plus"></i><?php echo get_phrase('add_new_course'); ?></a>
                 </h4>
             </div> <!-- end card body-->
         </div> <!-- end card -->
