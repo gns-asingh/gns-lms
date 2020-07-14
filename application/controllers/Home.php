@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+/**
+ * Short description for class:
+ * Controller of all Home functionality
+ * @copyright  GNS Technologies
+ */ 
 class Home extends CI_Controller {
 
     public function __construct()
@@ -36,7 +40,10 @@ class Home extends CI_Controller {
         $page_data['page_title'] = get_phrase('shopping_cart');
         $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
     }
-
+ /**
+ * Courses
+ * @author GNS
+ */
     public function courses() {
         if (!$this->session->userdata('layout')) {
             $this->session->set_userdata('layout', 'list');
@@ -370,7 +377,10 @@ class Home extends CI_Controller {
         $page_data['page_title'] = $course_details['title'];
         $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
     }
-
+/**
+ * To get course by category
+ * @author GNS
+*/
     public function my_courses_by_category() {
         $category_id = $this->input->post('category_id');
         $course_details = $this->crud_model->get_my_courses_by_category_id($category_id)->result_array();
@@ -396,32 +406,48 @@ class Home extends CI_Controller {
         $page_data['page_title'] = get_phrase('search_results');
         $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
     }
+/**
+ * To get course list by search
+ * @author GNS
+*/
     public function my_courses_by_search_string() {
         $search_string = $this->input->post('search_string');
         $course_details = $this->crud_model->get_my_courses_by_search_string($search_string)->result_array();
         $page_data['my_courses'] = $course_details;
         $this->load->view('frontend/'.get_frontend_settings('theme').'/reload_my_courses', $page_data);
     }
-
+/**
+ * To get wish list by search
+ * @author GNS
+*/
     public function get_my_wishlists_by_search_string() {
         $search_string = $this->input->post('search_string');
         $course_details = $this->crud_model->get_courses_of_wishlists_by_search_string($search_string);
         $page_data['my_courses'] = $course_details;
         $this->load->view('frontend/'.get_frontend_settings('theme').'/reload_my_wishlists', $page_data);
     }
-
+/**
+ * To get course details
+ * @author GNS
+*/
     public function reload_my_wishlists() {
         $my_courses = $this->crud_model->get_courses_by_wishlists();
         $page_data['my_courses'] = $my_courses;
         $this->load->view('frontend/'.get_frontend_settings('theme').'/reload_my_wishlists', $page_data);
     }
-
+/**
+ * To get course details
+ * @author GNS
+*/
     public function get_course_details() {
         $course_id = $this->input->post('course_id');
         $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
         echo $course_details['title'];
     }
-
+/**
+ * To rate the course 
+ * @author GNS
+ */
     public function rate_course() {
         $data['review'] = $this->input->post('review');
         $data['ratable_id'] = $this->input->post('course_id');
@@ -431,13 +457,19 @@ class Home extends CI_Controller {
         $data['user_id'] = $this->session->userdata('user_id');
         $this->crud_model->rate($data);
     }
-
+/**
+ * About us page 
+ * @author GNS
+ */ 
     public function about_us() {
         $page_data['page_name'] = 'about_us';
         $page_data['page_title'] = get_phrase('about_us');
         $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
     }
-
+/**
+ * Terms and condition 
+ * @author GNS
+ */
     public function terms_and_condition() {
         $page_data['page_name'] = 'terms_and_condition';
         $page_data['page_title'] = get_phrase('terms_and_condition');
@@ -494,7 +526,12 @@ class Home extends CI_Controller {
         $page_data['page_title'] = get_phrase('edit_course');
         $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
     }
-
+/** 
+ *  Course operations
+ * @param String   $param1  contains string of operation(add/delete/update)
+ * @param integer $param2   contains id for edit and delete
+ *  @author GNS
+ */
     public function course_action($param1 = "", $param2 = "") {
         if ($this->session->userdata('user_login') != 1){
             redirect('home', 'refresh');
@@ -519,7 +556,13 @@ class Home extends CI_Controller {
         }
     }
 
-
+/** 
+ *  Section operations
+ *  @param String   $action      contains the text to perform operation(Add/update/delete)
+ *  @param String   $course_id   contains course id to edit
+ *  @param String   $section_id  contains section id to edit
+ *  @author GNS
+ */
     public function sections($action = "", $course_id = "", $section_id = "") {
         if ($this->session->userdata('user_login') != 1){
             redirect('home', 'refresh');
@@ -549,7 +592,13 @@ class Home extends CI_Controller {
         $page_data['course_details'] = $this->crud_model->get_course_by_id($course_id)->row_array();
         return $this->load->view('frontend/'.get_frontend_settings('theme').'/reload_section', $page_data);
     }
-
+/** 
+ *  Lessions operations
+ *  @param String   $action     contains the text to perform operation(Add/update/delete)
+ *  @param String   $course_id  contains course id to edit
+ *  @param String   $lesson_id  contains lession id to edit
+ *  @author GNS
+ */
     public function manage_lessons($action = "", $course_id = "", $lesson_id = "") {
         if ($this->session->userdata('user_login') != 1){
             redirect('home', 'refresh');
@@ -568,7 +617,12 @@ class Home extends CI_Controller {
         }
         redirect('home/edit_course/'.$course_id.'/manage_lesson');
     }
-
+/** 
+ *  To edit the lesson form
+ *  @param String   $lesson_id  contains lession id to edit
+ *  @param String   $course_id  contains course id to edit
+ *  @author GNS
+ */
     public function lesson_editing_form($lesson_id = "", $course_id = "") {
         if ($this->session->userdata('user_login') != 1){
             redirect('home', 'refresh');
@@ -580,7 +634,11 @@ class Home extends CI_Controller {
         $page_data['page_title'] = get_phrase('update_lesson');
         $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
     }
-
+/** 
+ *  To Download the files
+ *  @param String   $filename  contains filename which have to download
+ *  @author GNS
+ */
     public function download($filename = "") {
         $tmp           = explode('.', $filename);
         $fileExtension = strtolower(end($tmp));
@@ -610,7 +668,10 @@ class Home extends CI_Controller {
             redirect(site_url('login'), 'refresh');
         }
     }
-
+/** 
+ *  To Login
+ *  @author GNS
+ */
     // Version 1.4 codes
     public function login() {
         if ($this->session->userdata('admin_login')) {
@@ -622,7 +683,10 @@ class Home extends CI_Controller {
         $page_data['page_title'] = get_phrase('login');
         $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
     }
-
+/** 
+ *  To sign up
+ *  @author GNS
+ */
     public function sign_up() {
         if ($this->session->userdata('admin_login')) {
             redirect(site_url('admin'), 'refresh');
@@ -633,7 +697,10 @@ class Home extends CI_Controller {
         $page_data['page_title'] = get_phrase('sign_up');
         $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
     }
-
+/** 
+ *  To submit quiz
+ *  @author GNS
+ */
     public function submit_quiz() {
         $submitted_quiz_info = array();
         $container = array();

@@ -140,6 +140,11 @@
 				<li class = "<?php if($page_name == 'smtp_settings') echo 'active'; ?>">
 					<a href="<?php echo site_url('admin/smtp_settings'); ?>"><?php echo get_phrase('smtp_settings'); ?></a>
 				</li>
+				 <!-- code added by DD for role -->
+				 <li class = "<?php if($page_name == 'role') echo 'active'; ?>">
+					<a href="<?php echo site_url('admin/role'); ?>"><?php echo get_phrase('roles'); ?></a>
+				</li>
+           <!-- end of code added by DD for role -->
 			<!--<li class = "<?php if($page_name == 'about') echo 'active'; ?>">
 					<a href="<?php echo site_url('admin/about'); ?>"><?php echo get_phrase('about'); ?></a>
 				</li> -->

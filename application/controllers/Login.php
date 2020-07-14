@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+/**
+ * Short description for class:
+ * Controller of all Login functionality
+ * @copyright  GNS Technologies
+ */ 
 class Login extends CI_Controller {
 
     public function __construct()
@@ -23,7 +27,10 @@ class Login extends CI_Controller {
             redirect(site_url('home/login'), 'refresh');
         }
     }
-
+/**
+ * Validations for login
+ * @author GNS
+ */
     public function validate_login($from = "") {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
@@ -59,7 +66,10 @@ class Login extends CI_Controller {
         }
 
     }
-
+/**
+ * Registeration for login
+ * @author GNS
+ */
     public function register() {
         $data['first_name'] = html_escape($this->input->post('first_name'));
         $data['last_name']  = html_escape($this->input->post('last_name'));
@@ -121,9 +131,11 @@ class Login extends CI_Controller {
         }
         redirect(site_url('home'), 'refresh');
     }
-
+/**
+ *destroy sessions of specific userdata. We've done this for not removing the cart session
+ * @author GNS
+ */
     public function logout($from = "") {
-        //destroy sessions of specific userdata. We've done this for not removing the cart session
         $this->session_destroy();
         redirect(site_url('home/login'), 'refresh');
     }
@@ -141,7 +153,10 @@ class Login extends CI_Controller {
             $this->session->unset_userdata('trainee_login');
         }
     }
-
+/**
+ * Forget password
+ * @author GNS
+ */
     function forgot_password($from = "") {
         $email = $this->input->post('email');
         //resetting user password here

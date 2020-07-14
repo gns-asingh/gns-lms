@@ -42,6 +42,8 @@
                                   <th><?php echo get_phrase('photo'); ?></th>
                                   <th><?php echo get_phrase('user_name'); ?></th>
                                   <th><?php echo get_phrase('enrolled_course'); ?></th>
+								  <th><?php echo get_phrase('duration'); ?></th>
+								  <th><?php echo get_phrase('start_date'); ?></th>
                                   <th><?php echo get_phrase('enrolment_date'); ?></th>
                                   <th><?php echo get_phrase('actions'); ?></th>
                               </tr>
@@ -59,7 +61,11 @@
                                           <small><?php echo get_phrase('email').': '.$user_data['email']; ?></small>
                                       </td>
                                       <td><strong><a href="<?php echo site_url('admin/course_form/course_edit/'.$course_data['id']); ?>" target="_blank"><?php echo ellipsis($course_data['title']); ?></a></strong></td>
-                                      <td><?php echo date('D, d-M-Y', $enrol['date_added']); ?></td>
+                                      
+									  <td><?php echo $enrol['duration_period'];?> <?php echo get_phrase('days'); ?></td>
+									  <td><?php echo date('D, d-M-Y', $enrol['start_date']); ?></td>
+									  
+									  <td><?php echo date('D, d-M-Y', $enrol['date_added']); ?></td>
                                       <td>
                                           <button type="button" class="btn btn-outline-danger btn-icon btn-rounded btn-sm" onclick="confirm_modal('<?php echo site_url('admin/enrol_history_delete/'.$enrol['id']); ?>');"> <i class="dripicons-trash"></i> </button>
                                       </td>

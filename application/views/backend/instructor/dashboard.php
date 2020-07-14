@@ -29,10 +29,10 @@
                             <div class="boxInfo">
                                 <a href="<?php echo site_url('instructor/courses'); ?>" class="text-secondary">
                                     <div class="card shadow-none m-0">
-                                        <div class="card-body text-center">
+                                        <div class="card-body text-center instructor_box1">
                                             <i class="dripicons-archive iconColor" style="font-size: 24px;"></i>
                                             <h3><span><?php echo $number_of_courses; ?></span></h3>
-                                            <p class="text-muted font-15 mb-0"><?php echo get_phrase('number_courses'); ?></p>
+                                            <p class="font-15 mb-0"><?php echo get_phrase('number_courses'); ?></p>
                                         </div>
                                     </div>
                                 </a>
@@ -42,11 +42,11 @@
                         <div class="col-sm-6 col-xl-3">
                             <div class="boxInfo1">
                                 <a href="<?php echo site_url('instructor/courses'); ?>" class="text-secondary">
-                                    <div class="card shadow-none m-0 border-left">
+                                    <div class="card shadow-none m-0 border-left instructor_box2">
                                         <div class="card-body text-center">
                                             <i class="dripicons-camcorder iconColor" style="font-size: 24px;"></i>
                                             <h3><span><?php echo $number_of_lessons; ?></span></h3>
-                                            <p class="text-muted font-15 mb-0"><?php echo get_phrase('number_of_lessons'); ?></p>
+                                            <p class="font-15 mb-0"><?php echo get_phrase('number_of_lessons'); ?></p>
                                         </div>
                                     </div>
                                 </a>
@@ -56,11 +56,11 @@
                         <div class="col-sm-6 col-xl-3">
                             <div class="boxInfo2">
                                 <a href="<?php echo site_url('instructor/enrol_history'); ?>" class="text-secondary">
-                                    <div class="card shadow-none m-0 border-left">
+                                    <div class="card shadow-none m-0 border-left instructor_box3">
                                         <div class="card-body text-center">
                                             <i class="dripicons-network-3 iconColor" style="font-size: 24px;"></i>
                                             <h3><span><?php echo $number_of_enrolment; ?></span></h3>
-                                            <p class="text-muted font-15 mb-0"><?php echo get_phrase('number_of_enrolment'); ?></p>
+                                            <p class="font-15 mb-0"><?php echo get_phrase('number_of_enrolment'); ?></p>
                                         </div>
                                     </div>
                                 </a>
@@ -70,11 +70,11 @@
                         <div class="col-sm-6 col-xl-3">
                             <div class="boxInfo3">
                                 <a href="<?php echo site_url('instructor/users'); ?>" class="text-secondary">
-                                    <div class="card shadow-none m-0 border-left">
+                                    <div class="card shadow-none m-0 border-left instructor_box4">
                                         <div class="card-body text-center">
                                             <i class="dripicons-user-group iconColor" style="font-size: 24px;"></i>
                                             <h3><span><?php echo $number_of_students; ?></span></h3>
-                                            <p class="text-muted font-15 mb-0"><?php echo get_phrase('number_of_trainee'); ?></p>
+                                            <p class="font-15 mb-0"><?php echo get_phrase('number_of_trainee'); ?></p>
                                         </div>
                                     </div>
                                 </a>
@@ -89,8 +89,10 @@
     <div class="row">
         <div class="col-xl-4">
             <div class="card">
-                <div class="card-body boxInfo">
-                    <h4 class="header-title mb-4"><?php echo get_phrase('course_overview'); ?></h4>
+                <div class="boxInfo">
+                    <div class="instructor_card_title">
+                        <h4 class="header-title m-0"><?php echo get_phrase('course_overview'); ?></h4>
+                    </div>
                     <div class="my-4 chartjs-chart" style="height: 202px;">
                         <canvas id="project-status-chart"></canvas>
                     </div>

@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+/**
+ * Short description for class:
+ * Modal of all Video functionality
+ * @copyright  GNS Technologies
+ */ 
 class Video_model extends CI_Model {
 
   // constructor
@@ -8,14 +12,22 @@ class Video_model extends CI_Model {
 	{
 		parent::__construct();
 	}
+/**
+ * parse video id from youtube embed url
+ * @param String   $embed_url  contains url
+ * @author GNS
+ */
 
-	// parse video id from youtube embed url
 	function get_youtube_video_id($embed_url = '') {
 		preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $embed_url, $match);
 		$video_id = $match[1];
 		return $video_id;
 	}
-	// parse video id from vimeo embed url
+/**
+ * parse video id from vimeo embed url
+ * @param String   $embed_url  contains url
+ * @author GNS
+ */
 	function get_vimeo_video_id($embed_url = '') {
         if(preg_match("/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/", $embed_url, $output_array)) {
             $video_id = $output_array[5];
@@ -23,7 +35,12 @@ class Video_model extends CI_Model {
         }
 	}
 
-	// fetch video information from youtube video id old code
+/**
+ * fetch video information from youtube video id old code
+ * @param String   $embed_url  contains url
+ * @author GNS
+ */
+
 	function get_youtube_video_information($video_id = '') {
 		// api base url
 		$url = 'https://www.googleapis.com/youtube/v3/videos';
@@ -49,8 +66,11 @@ class Video_model extends CI_Model {
 		$data['duration'] = $duration->format('%H:%I:%S');
 		return $data;
 	}
-
-    // Get video details new code
+/**
+ * Get video details new code
+ * @param String   $url  contains url
+ * @author GNS
+ */
     function getVideoDetails($url)
 	{
 	    $host = explode('.', str_replace('www.', '', strtolower(parse_url($url, PHP_URL_HOST))));
