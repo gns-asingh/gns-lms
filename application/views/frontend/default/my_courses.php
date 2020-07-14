@@ -102,9 +102,20 @@ foreach ($my_courses as $my_course) {
 
 
         <div class="row" id = "my_courses_area" style="margin-top:30px;">
-            <?php foreach ($my_courses as $my_course):
+            <?php 
+				$now = new DateTime();
+				$todayDate = $now->getTimestamp();
+				
+				foreach ($my_courses as $my_course):
                 $course_details = $this->crud_model->get_course_by_id($my_course['course_id'])->row_array();
-                $instructor_details = $this->user_model->get_all_user($course_details['user_id'])->row_array();?>
+                $instructor_details = $this->user_model->get_all_user($course_details['user_id'])->row_array();
+				$enroled_courses = $this->crud_model->enrol_history($my_course['course_id'])->result_array();
+					
+				foreach ($enroled_courses as $enroled_course):				
+				$endDate = strtotime('+'.$enroled_course['duration_period'].' days', $enroled_course['start_date']);
+				
+				if($endDate >= $todayDate):				
+				?>  
 
                 <div class="col-lg-3">
                     <div class="course-box-wrap">
@@ -156,7 +167,9 @@ foreach ($my_courses as $my_course) {
                             </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php endif; 
+				endforeach;
+			endforeach; ?>
         </div>
     </div>
 </section>

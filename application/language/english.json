@@ -699,6 +699,7 @@
     "only_alphabets_are_allowed": "Only alphabets are allowed",
 	"duration": "duration",
 	"start_date": "Start Date",
+	"end_date": "End Date",
 	"days": "Days"
 	
 }
