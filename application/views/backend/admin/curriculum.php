@@ -12,10 +12,7 @@
             $lesson_counter = 0;
             $quiz_counter   = 0;
             $sections = $this->crud_model->get_section('course', $course_id)->result_array();
-            foreach ($sections as $key => $section):
-			
-				
-				
+            foreach ($sections as $key => $section):				
 			?>
             <div class="col-xl-12">
                 <div class="card bg-light text-seconday on-hover-action mb-5" id = "section-<?php echo $section['id']; ?>"> 
