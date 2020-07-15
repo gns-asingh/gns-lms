@@ -7,7 +7,7 @@
 ?>
 <div class="row">
     <div class="col-xl-12">
-        <div class="card">
+        <div class="instructor_title_bg">
             <div class="card-body setPageTitle">
                 <h4 class="page-title"> <i class="dripicons-view-apps title_icon setIconHead"></i> <?php echo get_phrase('dashboard'); ?></h4>
             </div> <!-- end card body-->
@@ -15,107 +15,106 @@
     </div><!-- end col-->
 </div>
 
-<div class="row">
-   
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <div class="widget-inline">
-                <div class="mb-20">
-                    <div class="row">
-                        <div class="col-sm-6 col-xl-3">
-                            <div class="boxInfo">
-                                <a href="<?php echo site_url('instructor/courses'); ?>" class="text-secondary">
-                                    <div class="card shadow-none m-0">
-                                        <div class="card-body text-center instructor_box1">
-                                            <i class="dripicons-archive iconColor" style="font-size: 24px;"></i>
-                                            <h3><span><?php echo $number_of_courses; ?></span></h3>
-                                            <p class="font-15 mb-0"><?php echo get_phrase('number_courses'); ?></p>
+<div class="row"></div>
+<div class="instructor_main_content">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="widget-inline">
+                    <div class="mb-20">
+                        <div class="row">
+                            <div class="col-sm-6 col-xl-3">
+                                <div class="boxInfo">
+                                    <a href="<?php echo site_url('instructor/courses'); ?>" class="text-secondary">
+                                        <div class="card shadow-none m-0">
+                                            <div class="card-body text-center instructor_box1">
+                                                <i class="dripicons-archive iconColor" style="font-size: 24px;"></i>
+                                                <h3><span><?php echo $number_of_courses; ?></span></h3>
+                                                <p class="font-15 mb-0"><?php echo get_phrase('number_courses'); ?></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-sm-6 col-xl-3">
-                            <div class="boxInfo1">
-                                <a href="<?php echo site_url('instructor/courses'); ?>" class="text-secondary">
-                                    <div class="card shadow-none m-0 border-left instructor_box2">
-                                        <div class="card-body text-center">
-                                            <i class="dripicons-camcorder iconColor" style="font-size: 24px;"></i>
-                                            <h3><span><?php echo $number_of_lessons; ?></span></h3>
-                                            <p class="font-15 mb-0"><?php echo get_phrase('number_of_lessons'); ?></p>
+                            <div class="col-sm-6 col-xl-3">
+                                <div class="boxInfo1">
+                                    <a href="<?php echo site_url('instructor/courses'); ?>" class="text-secondary">
+                                        <div class="card shadow-none m-0 border-left instructor_box2">
+                                            <div class="card-body text-center">
+                                                <i class="dripicons-camcorder iconColor" style="font-size: 24px;"></i>
+                                                <h3><span><?php echo $number_of_lessons; ?></span></h3>
+                                                <p class="font-15 mb-0"><?php echo get_phrase('number_of_lessons'); ?></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-sm-6 col-xl-3">
-                            <div class="boxInfo2">
-                                <a href="<?php echo site_url('instructor/enrol_history'); ?>" class="text-secondary">
-                                    <div class="card shadow-none m-0 border-left instructor_box3">
-                                        <div class="card-body text-center">
-                                            <i class="dripicons-network-3 iconColor" style="font-size: 24px;"></i>
-                                            <h3><span><?php echo $number_of_enrolment; ?></span></h3>
-                                            <p class="font-15 mb-0"><?php echo get_phrase('number_of_enrolment'); ?></p>
+                            <div class="col-sm-6 col-xl-3">
+                                <div class="boxInfo2">
+                                    <a href="<?php echo site_url('instructor/enrol_history'); ?>" class="text-secondary">
+                                        <div class="card shadow-none m-0 border-left instructor_box3">
+                                            <div class="card-body text-center">
+                                                <i class="dripicons-network-3 iconColor" style="font-size: 24px;"></i>
+                                                <h3><span><?php echo $number_of_enrolment; ?></span></h3>
+                                                <p class="font-15 mb-0"><?php echo get_phrase('number_of_enrolment'); ?></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-sm-6 col-xl-3">
-                            <div class="boxInfo3">
-                                <a href="<?php echo site_url('instructor/users'); ?>" class="text-secondary">
-                                    <div class="card shadow-none m-0 border-left instructor_box4">
-                                        <div class="card-body text-center">
-                                            <i class="dripicons-user-group iconColor" style="font-size: 24px;"></i>
-                                            <h3><span><?php echo $number_of_students; ?></span></h3>
-                                            <p class="font-15 mb-0"><?php echo get_phrase('number_of_trainee'); ?></p>
+                            <div class="col-sm-6 col-xl-3">
+                                <div class="boxInfo3">
+                                    <a href="<?php echo site_url('instructor/users'); ?>" class="text-secondary">
+                                        <div class="card shadow-none m-0 border-left instructor_box4">
+                                            <div class="card-body text-center">
+                                                <i class="dripicons-user-group iconColor" style="font-size: 24px;"></i>
+                                                <h3><span><?php echo $number_of_students; ?></span></h3>
+                                                <p class="font-15 mb-0"><?php echo get_phrase('number_of_trainee'); ?></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                    </div> <!-- end row -->
-                </div>
-            </div> <!-- end card-box-->
-        </div> <!-- end col-->
-    </div>
-    <div class="row">
-        <div class="col-xl-4">
-            <div class="card">
-                <div class="boxInfo">
-                    <div class="instructor_card_title">
-                        <h4 class="header-title m-0"><?php echo get_phrase('course_overview'); ?></h4>
+                        </div> <!-- end row -->
                     </div>
-                    <div class="my-4 chartjs-chart" style="height: 202px;">
-                        <canvas id="project-status-chart"></canvas>
-                    </div>
-                    <div class="row text-center mt-2 py-2">
-                        <div class="col-6 setBorderRight">
-                            <i class="mdi mdi-trending-up text-success mt-3 h3"></i>
-                            <h3 class="font-weight-normal">
-                                <span><?php echo $status_wise_courses['active']->num_rows(); ?></span>
-                            </h3>
-                            <p class="text-muted mb-0"><?php echo get_phrase('active_courses'); ?></p>
+                </div> <!-- end card-box-->
+            </div> <!-- end col-->
+        </div>
+        <div class="row">
+            <div class="col-xl-4">
+                <div class="card">
+                    <div class="boxInfo">
+                        <div class="instructor_card_title">
+                            <h4 class="header-title m-0"><?php echo get_phrase('course_overview'); ?></h4>
                         </div>
-                        <div class="col-6">
-                            <i class="mdi mdi-trending-down text-warning mt-3 h3"></i>
-                            <h3 class="font-weight-normal">
-                                <span><?php echo $status_wise_courses['pending']->num_rows(); ?></span>
-                            </h3>
-                            <p class="text-muted mb-0"> <?php echo get_phrase('pending_courses'); ?></p>
+                        <div class="my-4 chartjs-chart" style="height: 202px;">
+                            <canvas id="project-status-chart"></canvas>
+                        </div>
+                        <div class="row text-center mt-2 py-2">
+                            <div class="col-6 setBorderRight">
+                                <i class="mdi mdi-trending-up text-success mt-3 h3"></i>
+                                <h3 class="font-weight-normal">
+                                    <span><?php echo $status_wise_courses['active']->num_rows(); ?></span>
+                                </h3>
+                                <p class="text-muted mb-0"><?php echo get_phrase('active_courses'); ?></p>
+                            </div>
+                            <div class="col-6">
+                                <i class="mdi mdi-trending-down text-warning mt-3 h3"></i>
+                                <h3 class="font-weight-normal">
+                                    <span><?php echo $status_wise_courses['pending']->num_rows(); ?></span>
+                                </h3>
+                                <p class="text-muted mb-0"> <?php echo get_phrase('pending_courses'); ?></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        
         </div>
-    
     </div>
 </div>
 

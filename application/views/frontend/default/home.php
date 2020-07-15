@@ -62,58 +62,76 @@
     </div>
 </section>
 
-<section class="home-fact-area">
-    <div class="container-lg">
+<section class="pt-50 pb-50">
+    <div class="container">
         <div class="row">
             <?php $courses = $this->crud_model->get_courses(); ?>
             <div class="col-md-4 d-flex">
-                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
-                    <i class="fas fa-bullseye float-left"></i>
-                    <div class="text-box">
-                        <h4><?php
-                        $status_wise_courses = $this->crud_model->get_status_wise_courses();
-                        $number_of_courses = $status_wise_courses['active']->num_rows();
-                        echo $number_of_courses.' '.get_phrase('online_courses'); ?></h4>
-                        <p><?php echo get_phrase('explore_the_variety_of_courses'); ?></p>
+                <div>
+                    <div class="imgScale">       
+                        <div class="home-fact-box mr-md-auto ml-auto mr-auto">
+                            <div><i class="fas fa-bullseye"></i></div>
+                            <div class="text-box">
+                                <h4><?php
+                                $status_wise_courses = $this->crud_model->get_status_wise_courses();
+                                $number_of_courses = $status_wise_courses['active']->num_rows();
+                                echo $number_of_courses.' '.get_phrase('online_courses'); ?></h4>
+                                <p><?php echo get_phrase('explore_the_variety_of_courses'); ?></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="col-md-4 d-flex">
-                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
-                    <i class="fa fa-users float-left"></i>
-                    <div class="text-box">
-                        <h4><?php $all_trainee_users = $this->user_model->get_user();
-                        $number_of_trainee = $all_trainee_users->num_rows();
-                        echo $number_of_trainee.' '.get_phrase('enrolled_trainees'); ?></h4>
-                        <p><?php echo get_phrase('trainees_currently_enrolled_for_various_courses'); ?></p>
+                <div>
+                    <div class="imgScale1">  
+                        <div class="home-fact-box mr-md-auto ml-auto mr-auto">
+                           <div> <i class="fa fa-users"></i></div>
+                            <div class="text-box">
+                                <h4><?php $all_trainee_users = $this->user_model->get_user();
+                                $number_of_trainee = $all_trainee_users->num_rows();
+                                echo $number_of_trainee.' '.get_phrase('enrolled_trainees'); ?></h4>
+                                <p><?php echo get_phrase('trainees_currently_enrolled_for_various_courses'); ?></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4 d-flex">
-                <div class="home-fact-box mr-md-auto ml-auto mr-auto">
-                    <i class="fa fa-clock float-left"></i>
-                    <div class="text-box">
-                        <h4><?php echo get_phrase('scheduled courses'); ?></h4>
-                        <p><?php echo get_phrase('attend_scheduled_courses_for_today'); ?></p>
+                <div>
+                    <div class="imgScale2">
+                        <div class="home-fact-box mr-md-auto ml-auto mr-auto">
+                            <div><i class="fa fa-clock"></i></div>
+                            <div class="text-box">
+                                <h4><?php echo get_phrase('scheduled courses'); ?></h4>
+                                <p><?php echo get_phrase('attend_scheduled_courses_for_today'); ?></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    
 </section>
 
-<section style="margin-bottom:20px;">
+<section style="margin-bottom:20px;background:#f1f1f1">
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
                 <div class="home_page_info">
                     <div class="home_page_info_title">
-                        <h6>Learning Management System</h6>
+                        <div>
+                            <i class="fa fa-book home_page_icon"></i>
+                        </div>
+                        <h4>Learning Management System</h4>
                     </div>
-                    <div class="home_page_info_matter">
-                        <p>
+
+                    <div class="home_page_info_matter overlay">
+                        <p class="text">
                             LMS (learning management system), an application that enables various sectors, companies, and
                             educational institutions to create, manage &amp; schedule courses, assignments, quizzes, group discussions
                             and reporting. A learning management system also assist the organization deliver training materials and
@@ -122,13 +140,20 @@
                     </div>
                 </div>
             </div>
+
+
+
+
             <div class="col-sm-4">
                 <div class="home_page_info">
                     <div class="home_page_info_title">
-                       <h6>Daily Online Learning</h6>
+                        <div>
+                            <i class="fa fa-desktop home_page_icon"></i>
+                        </div>
+                       <h4>Daily Online Learning</h4>
                     </div>
-                    <div class="home_page_info_matter">
-                        <p>
+                    <div class="home_page_info_matter overlay">
+                        <p class="text">
                             Build courses, assignments or quizzes from scratch and use it whenever required. This one-time activity
                             can reduce the rework and efforts. Share and schedule the courses and assignments on daily basis and
                             appear for it online. Whether on desktop or mobile, morning or night, your teams can easily access
@@ -140,10 +165,13 @@
             <div class="col-sm-4">
                 <div class="home_page_info">
                     <div class="home_page_info_title">
-                        <h6>Administration is so easy.</h6>
+                        <div>
+                            <i class="fa fa-user-circle home_page_icon"></i>
+                        </div>
+                        <h4>Administration is so easy.</h4>
                     </div>
-                    <div class="home_page_info_matter">
-                        <p>
+                    <div class="home_page_info_matter overlay">
+                        <p class="text">
                             Why to put more efforts on managing manually?
                             GNS-LMS is great role-based solution for administrating the learning system. Admin user with ownership
                             of providing access can allow instructor user to create courses, assignments and uploading documents.
@@ -157,10 +185,13 @@
             <div class="col-sm-4">
                 <div class="home_page_info">
                     <div class="home_page_info_title">
-                        <h6>Judge progress by referring reports</h6>
+                        <div>
+                            <i class="fa fa-tasks home_page_icon"></i>
+                        </div>
+                        <h4>Judge progress by referring reports</h4>
                     </div>
-                    <div class="home_page_info_matter">
-                        <p>
+                    <div class="home_page_info_matter overlay">
+                        <p class="text">
                             Decision making is so simple that every user can see how online training works for them. Its path for
                             development and progress to reach the goals. Generate reports about everything that happens inside
                             your eLearning and have complete control over your training.
@@ -171,10 +202,13 @@
             <div class="col-sm-4">
                 <div class="home_page_info">
                     <div class="home_page_info_title">
-                        <h6>Create &amp; schedule courses in a few clicks</h6>
+                        <div>
+                            <i class="fa fa-clock home_page_icon"></i>
+                        </div>
+                        <h4>Create &amp; schedule courses in a few clicks</h4>
                     </div>
-                    <div class="home_page_info_matter">
-                        <p>
+                    <div class="home_page_info_matter overlay">
+                        <p class="text">
                             No need to do any paperwork, just create online courses, assignments, or quizzes in few clicks. Add your
                             videos as a part of courses, just play and learn. Are you worried about conducting exams? Its very easy
                             to setup the assignments online using GNS-LMS. No more need to remember dates and time, just
@@ -186,10 +220,13 @@
             <div class="col-sm-4">
                 <div class="home_page_info">
                     <div class="home_page_info_title">
-                        <h6>Better choice is LMS platform</h6>
+                        <div>
+                            <i class="fa fa-thumbs-up home_page_icon"></i>
+                        </div>                    
+                        <h4>Better choice is LMS platform</h4>
                     </div>
-                    <div class="home_page_info_matter">
-                        <p>
+                    <div class="home_page_info_matter overlay">
+                        <p class="text">
                             GNS-LMS will make learning easy, interesting and progressive that every user choose an LMS will reach
                             the heights of success.
                         </p>
