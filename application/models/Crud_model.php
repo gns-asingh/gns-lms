@@ -1105,6 +1105,12 @@ class Crud_model extends CI_Model {
                 }
                 move_uploaded_file($_FILES['attachment']['tmp_name'], 'uploads/lesson_files/'.$uploadable_file);
             }
+			
+			$duration_hours = $this->input->post('duration_hours') ? html_escape($this->input->post('duration_hours')) : '00';
+			$duration_mins = html_escape($this->input->post('duration_mins'));
+			$duration_sec = $this->input->post('duration_sec') ? html_escape($this->input->post('duration_sec')) : '00';
+			
+			$data['duration'] = $duration_hours.':'.$duration_mins.':'.$duration_sec;
         }
 
         $data['date_added'] = strtotime(date('D, d-M-Y'));

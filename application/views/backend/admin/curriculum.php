@@ -12,12 +12,26 @@
             $lesson_counter = 0;
             $quiz_counter   = 0;
             $sections = $this->crud_model->get_section('course', $course_id)->result_array();
-            foreach ($sections as $key => $section):?>
+            foreach ($sections as $key => $section):
+			
+				
+				
+			?>
             <div class="col-xl-12">
-                <div class="card bg-light text-seconday on-hover-action mb-5" id = "section-<?php echo $section['id']; ?>">
+                <div class="card bg-light text-seconday on-hover-action mb-5" id = "section-<?php echo $section['id']; ?>"> 
                     <div class="card-body">
-                        <h5 class="card-title" class="mb-3" style="min-height: 35px;"><span class="font-weight-light"><?php echo get_phrase('section').' '.++$key; ?></span>: <?php echo $section['title']; ?>
-                            <div class="row justify-content-center alignToTitle float-right display-none" id = "widgets-of-section-<?php echo $section['id']; ?>">
+                        <h5 class="card-title" class="mb-3" style="min-height: 35px;"><span class="font-weight-light"><?php echo get_phrase('section').' '.++$key; ?></span>: <?php echo $section['title']; ?> &nbsp;&nbsp;&nbsp;&nbsp; 						
+						<?php  
+						$lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
+						$totalDuration = 0;
+						foreach ($lessons as $index => $lesson):
+							$temp = explode(':', $lesson['duration']);
+							$totalDuration += intval($temp[2]); // Add the seconds
+							$totalDuration += intval($temp[1]) * 60; // Add the minutes
+							$totalDuration += intval($temp[0]) * 60 * 60;							
+						endforeach;
+						?>
+						<span class="font-weight-light"><?php echo get_phrase('duration'); ?>: <?php echo gmdate("H:i:s", $totalDuration); ?></span>			<div class="row justify-content-center alignToTitle float-right display-none" id = "widgets-of-section-<?php echo $section['id']; ?>">
                                 <button type="button" class="btn btn-outline-secondary btn-rounded btn-sm" name="button" onclick="showLargeModal('<?php echo site_url('modal/popup/sort_lesson/'.$section['id']); ?>', '<?php echo get_phrase('sort_lessons'); ?>')" ><i class="mdi mdi-sort-variant"></i> <?php echo get_phrase('sort_lesson'); ?></button>
                                 <button type="button" class="btn btn-outline-secondary btn-rounded btn-sm ml-1" name="button" onclick="showAjaxModal('<?php echo site_url('modal/popup/section_edit/'.$section['id'].'/'.$course_id); ?>', '<?php echo get_phrase('update_section'); ?>')" ><i class="mdi mdi-pencil-outline"></i> <?php echo get_phrase('edit_section'); ?></button>
                                 <button type="button" class="btn btn-outline-secondary btn-rounded btn-sm ml-1" name="button" onclick="confirm_modal('<?php echo site_url('admin/sections/'.$course_id.'/delete'.'/'.$section['id']); ?>');"><i class="mdi mdi-window-close"></i> <?php echo get_phrase('delete_section'); ?></button>
@@ -26,7 +40,16 @@
                         <div class="clearfix"></div>
                         <?php
                         $lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
-                        foreach ($lessons as $index => $lesson):?>
+						foreach ($lessons as $index => $lesson):
+						/*$totalDuration = 0;
+                        
+							//$totalDuration += $lesson['duration'];
+							$temp = explode(':', $lesson['duration']);
+							$totalDuration += intval($temp[2]); // Add the seconds
+							$totalDuration += intval($temp[1]) * 60; // Add the minutes
+							$totalDuration += intval($temp[0]) * 60 * 60;
+						*/
+						?>							
                         <div class="col-md-12">
                             <!-- Portlet card -->
                             <div class="card text-secondary on-hover-action mb-2" id = "<?php echo 'lesson-'.$lesson['id']; ?>">
@@ -62,7 +85,7 @@
                                 </div>
                             </div> <!-- end card-->
                         </div>
-                    <?php endforeach; ?>
+                    <?php endforeach; ?>					
                 </div> <!-- end card-body-->
             </div> <!-- end card-->
         </div>
