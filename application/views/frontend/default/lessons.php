@@ -24,13 +24,23 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                 $section_counter = 0;
                 foreach ($sections as $section):
                     $section_counter++;
-                    $lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();?>
+                    $lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
+					
+					$totalDuration = 0;
+					foreach ($lessons as $index => $lesson):
+						$temp = explode(':', $lesson['duration']);
+						$totalDuration += intval($temp[2]); // Add the seconds
+						$totalDuration += intval($temp[1]) * 60; // Add the minutes
+						$totalDuration += intval($temp[0]) * 60 * 60;							
+					endforeach;
+					?>
                     <div class="card">
                         <div class="card-header" id="<?php echo 'heading-'.$section['id']; ?>">
 
                             <div class="mb-0">
                                 <div class="lesson_accordian_header" type="button" data-toggle="collapse" data-target="<?php echo '#collapse-'.$section['id']; ?>" aria-expanded="true" aria-controls="<?php echo 'collapse-'.$section['id']; ?>">
-                                    <h6 style="color: #fff; font-size: 15px;margin-bottom:0;">Section <?php echo $section_counter;?></h6>
+                                    <h6 style="color: #fff; font-size: 15px;margin-bottom:0;">Section<?php echo $section_counter;?> &nbsp;&nbsp;<?php echo get_phrase('duration'); ?>: <?php echo gmdate("H:i:s", $totalDuration); ?></h6>
+									
                                     <!-- <?php echo $section['title']; ?> -->
                                 </div>
                             </div>

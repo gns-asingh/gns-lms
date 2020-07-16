@@ -253,8 +253,8 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
   padding-top:0!important;
 }
 .leftsidebar{
-  border:2px solid #d8d8d8;
-  background:#ececec;
+  border-right:1px solid #000;
+  background:#212438;
 }
 .main_content{
   padding: 0 0px 5px 0px!important;
@@ -333,14 +333,22 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
   padding: 10px 10px;
 }
 .leftsidebar .side-nav-light .side-nav-link{
-  color:#000;
+  color:#efefef;
 }
 .leftsidebar .side-nav-light .side-nav-link.active{
-  color:#00BCD4;
+  color:#fff;
+  background: #00BCD4;
+    border-left: 5px solid #007486;
 }
-.instructor_box1,.instructor_box1 p{
-  background:#bcc1ff;
-  color:#000;
+.instructor_box1{
+ 
+  background: #646ecf;
+    color: #fff;
+    /* border: 1px solid #192acc; */
+    box-shadow: 2px 3px 3px #2d2d2d;
+}
+.instructor_box1 p{
+  color:#fff;
 }
 .instructor_box2, .instructor_box2 p{
   background:#ffe59c;
@@ -403,9 +411,32 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
     border-color: #181924;
         border-top: 1px solid #181924;
 }
-
-
-
+.instructor_main_content{
+  background: #e4e5e6;
+  padding:20px 15px;
+}
+.instructor_title_bg{
+  background:#fff;
+  border-bottom: 1px solid #c8ced3;
+}
+.profile_left{
+  float:left;
+}
+.profile_name_left , .profile_name_left span{
+  float: left;
+  color:#fff!important;
+  width: 79%;
+    text-align: left;
+}
+.instructor_profile_bg{
+  border-bottom: 1px solid #141623;
+  box-shadow: 0px 1px 4px #141623;
+  padding:30px 11px;
+  margin-bottom:20px;
+}
+.clear{
+  clear:both;
+}
 
 
 

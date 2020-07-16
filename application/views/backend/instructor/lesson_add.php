@@ -94,6 +94,16 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
                 </div>
             </div>
         </div>
+		
+		<div class="form-group">
+			<label><?php echo get_phrase('duration'); ?></label>
+			<div>
+				HH &nbsp;<input type="text" name="duration_hours" class="form-control" style="width:50px; display: inline;" placeholder="00">&nbsp;&nbsp;&nbsp;&nbsp;
+				MM &nbsp;<input type="text" name="duration_mins" class="form-control" style="width:50px; display: inline;" required placeholder="00">&nbsp;&nbsp;&nbsp;&nbsp;
+				SS &nbsp;<input type="text" name="duration_sec" class="form-control" style="width:50px; display: inline;" placeholder="00">
+			</div>
+		</div>
+		
     </div>
 
     <div class="form-group">
