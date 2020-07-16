@@ -1,3 +1,6 @@
+html,body{
+  height:100%;
+}
 .title_icon {
   font-size: 20px;
   vertical-align: middle;
@@ -248,6 +251,10 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 .setWidthContainer{
   max-width:100%!important;
   padding-left:0;
+  height:100%;
+}
+.content{
+  height:100%;
 }
 .mainWrapperBody{
   padding-top:0!important;
@@ -267,22 +274,25 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 }
 .boxInfo{
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-  border-bottom: 3px solid #727cf5;
+  border-bottom: 5px solid #727cf5;
 }
 .boxInfo1{
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-  border-bottom: 3px solid #ffbc00;
+  border-bottom: 5px solid #ffbc00
 }
 .boxInfo2{
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-  border-bottom: 3px solid #0acf97;
+  border-bottom: 5px solid #0acf97;
 }
 .boxInfo3{
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-  border-bottom: 3px solid #fa5c7c;
+  border-bottom: 5px solid #fa5c7c;
 }
 .iconColor{
-  color:#f3656e;
+  color:#fff;
+  display: inline;
+    text-align: center;
+    margin: 0 auto;
 }
 .setBorderRight{
   border-right:1px solid #181924;
@@ -341,14 +351,16 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
     border-left: 5px solid #007486;
 }
 .instructor_box1{
- 
-  background: #646ecf;
+  box-shadow: 2px 3px 3px #2d2d2d40;
+    height: 150px;
+    display: flex;
+  /* background: #646ecf; */
     color: #fff;
     /* border: 1px solid #192acc; */
-    box-shadow: 2px 3px 3px #2d2d2d;
+    /* box-shadow: 2px 3px 3px #2d2d2d; */
 }
 .instructor_box1 p{
-  color:#fff;
+  color:#333;
 }
 .instructor_box2, .instructor_box2 p{
   background:#ffe59c;
@@ -376,6 +388,7 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 .admin_main_content{
   background: #0a0b18;
   padding:20px 15px;
+  height:100%;
 }
 .admin_title_bg{
   background:#2c2c34;
@@ -414,6 +427,7 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 .instructor_main_content{
   background: #e4e5e6;
   padding:20px 15px;
+  height:100%;
 }
 .instructor_title_bg{
   background:#fff;
@@ -437,9 +451,46 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 .clear{
   clear:both;
 }
-
-
-
+.instructor_box_icon{  
+    border-right: 1px solid #ddd;    
+    background: #646ecf;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width:60px;
+}
+.instructor_box_content{
+  background: #fff;
+    color: #333;
+    width: 77%;
+    /* height: 140px; */
+    height: auto;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;  
+    /* align-items: center; */
+    /* align-content: center; */
+    align-self: center;
+    
+}
+.instructor_box_content h3{
+  margin: 0;
+  margin-bottom: 10px;
+}
+.course_chart_bg{
+  border-top: 1px solid #3e3e3e;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #3c4655;
+}
+.active_color{
+  color:#fff;
+}
+.table_thead{
+  background: #696969;
+    color: #fff;
+}
 
 
 
