@@ -40,6 +40,15 @@ class Crud_model extends CI_Model {
  * @author GNS
  */
     public function add_category() {
+        $specialChar =  $this->checkSpecialChar($this->input->post('name'));
+    $validity = $this->check_duplication_sub_cat('on_create', $this->input->post('name'));
+    if($specialChar == false){
+        $this->session->set_flashdata('error_message', get_phrase('only_alphabets_are_allowed'));
+
+    }
+    else if ($validity == false) {
+        $this->session->set_flashdata('error_message', get_phrase('category_duplication'));
+    }else{
         $data['code']   = html_escape($this->input->post('code'));
         $data['name']   = html_escape($this->input->post('name'));
         $data['parent'] = html_escape($this->input->post('parent'));
@@ -65,9 +74,12 @@ class Crud_model extends CI_Model {
         }
         $data['date_added'] = strtotime(date('D, d-M-Y'));
         $this->db->insert('category', $data);
+        $this->session->set_flashdata('flash_message', get_phrase('data_added_successfully'));
+
     }
+}
 /**
- * Service to add category 
+ * Service to add sub category 
  * @author GNS
  */
 public function add_sub_category() {
@@ -223,7 +235,7 @@ public function add_sub_category() {
  *  Function to check wheather the role name is already present in database or not
  *  @param String $action contains action(on_create/on_update) 
  *  @param String $name   contains name of role 
- *  @param String $role id  contains role id 
+ *  @param String $category_id  contains category id 
  *  @author GNS
  */
 public function check_duplication_sub_cat($action = "", $name = "", $category_id = "") {
@@ -248,13 +260,23 @@ public function check_duplication_sub_cat($action = "", $name = "", $category_id
     }
 }
 
+
 /** 
  *  Service to edit category
- *  @param String $param  contains role id 
+ *  @param String $param  contains category id 
  *  @author GNS
  */
 
     public function edit_category($param1) {
+    $specialChar =  $this->checkSpecialChar($this->input->post('name'));
+    $validity = $this->check_duplication_sub_cat('on_update', $this->input->post('name'),$param1);
+    if($specialChar == false){
+        $this->session->set_flashdata('error_message', get_phrase('only_alphabets_are_allowed'));
+
+    }
+    else if ($validity == false) {
+        $this->session->set_flashdata('error_message', get_phrase('Category_duplication'));
+    }else{
         $data['name']   = html_escape($this->input->post('name'));
         $data['parent'] = html_escape($this->input->post('parent'));
         $data['slug']   = slugify(html_escape($this->input->post('name')));
@@ -277,16 +299,19 @@ public function check_duplication_sub_cat($action = "", $name = "", $category_id
         $data['last_modified'] = strtotime(date('D, d-M-Y'));
         $this->db->where('id', $param1);
         $this->db->update('category', $data);
+        $this->session->set_flashdata('flash_message', get_phrase('data_updated_successfully'));
+
     }
+}
 /** 
- *  Service to edit category
- *  @param String $param  contains role id 
+ *  Service to edit suv category
+ *  @param String $param  contains category id 
  *  @author GNS
  */
 
 public function edit_sub_category($param1) {
     $specialChar =  $this->checkSpecialChar($this->input->post('name'));
-    $validity = $this->check_duplication_sub_cat('on_create', $this->input->post('name'));
+    $validity = $this->check_duplication_sub_cat('on_update', $this->input->post('name'),$param1);
     if($specialChar == false){
         $this->session->set_flashdata('error_message', get_phrase('only_alphabets_are_allowed'));
 
@@ -1218,11 +1243,11 @@ public function edit_sub_category($param1) {
                 move_uploaded_file($_FILES['attachment']['tmp_name'], 'uploads/lesson_files/'.$uploadable_file);
             }
 			
-			$duration_hours = $this->input->post('duration_hours') ? html_escape($this->input->post('duration_hours')) : '00';
-			$duration_mins = html_escape($this->input->post('duration_mins'));
-			$duration_sec = $this->input->post('duration_sec') ? html_escape($this->input->post('duration_sec')) : '00';
-			
-			$data['duration'] = $duration_hours.':'.$duration_mins.':'.$duration_sec;
+			$duration_formatter = explode(':', $this->input->post('html5_duration'));
+			$hour = sprintf('%02d', $duration_formatter[0]);
+			$min = sprintf('%02d', $duration_formatter[1]);
+			$sec = sprintf('%02d', $duration_formatter[2]);
+			$data['duration'] = $hour.':'.$min.':'.$sec;
         }
 
         $data['date_added'] = strtotime(date('D, d-M-Y'));
@@ -1320,12 +1345,11 @@ public function edit_sub_category($param1) {
                 move_uploaded_file($_FILES['attachment']['tmp_name'], 'uploads/lesson_files/'.$uploadable_file);
             }
 			
-			$duration_hours = $this->input->post('duration_hours') ? html_escape($this->input->post('duration_hours')) : '00';
-			$duration_mins = html_escape($this->input->post('duration_mins'));
-			$duration_sec = $this->input->post('duration_sec') ? html_escape($this->input->post('duration_sec')) : '00';
-			
-			$data['duration'] = $duration_hours.':'.$duration_mins.':'.$duration_sec;
-			
+			$duration_formatter = explode(':', $this->input->post('html5_duration'));
+			$hour = sprintf('%02d', $duration_formatter[0]);
+			$min = sprintf('%02d', $duration_formatter[1]);
+			$sec = sprintf('%02d', $duration_formatter[2]);
+			$data['duration'] = $hour.':'.$min.':'.$sec;			
         }
 
         $data['last_modified'] = strtotime(date('D, d-M-Y'));

@@ -55,3 +55,40 @@
         </div><!-- end col-->
     </div>
  </div>
+
+                    <div class="form-group">
+                        <label for="course_id"><?php echo get_phrase('course_to_enrol'); ?><span class="required">*</span> </label>
+                        <select class="form-control select2" data-toggle="select2" name="course_id" id="course_id" required>
+                            <option value=""><?php echo get_phrase('select_a_course'); ?></option>
+                            <?php $course_list = $this->crud_model->get_courses()->result_array();
+                                foreach ($course_list as $course):
+                                if ($course['status'] != 'active')
+                                    continue;?>
+                                <option value="<?php echo $course['id'] ?>"><?php echo $course['title']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+					
+					<div class="form-group">
+                        <label for="duration_id"><?php echo get_phrase('duration'); ?><span class="required">*</span> </label>
+                        <input type="text" class="form-control" id="duration_period" name="duration_period" required placeholder="Number in days(Numeric value)">
+                    </div>
+
+					
+					<div class="form-group">
+						<label for="start_date."><?php echo get_phrase('start_date'); ?><span class="required">*</span></label>
+						<input type="text" class="form-control" id="start_date" name="start_date" placeholder="Start Date" required readonly>
+					</div>
+
+                    <button type="button" class="btn btn-primary" onclick="checkRequiredFields()"><?php echo get_phrase('enrol_student'); ?></button>
+                </form>
+              </div>
+            </div> <!-- end card body-->
+        </div> <!-- end card -->
+    </div><!-- end col-->
+</div>
+<script type="text/javascript">
+$(function() {
+    $("#start_date").datepicker();
+});
+</script>
