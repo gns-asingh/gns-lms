@@ -78,6 +78,35 @@ class Admin extends CI_Controller {
     $page_data['categories'] = $this->crud_model->get_categories($param2);
     $this->load->view('backend/index', $page_data);
   }
+  /**
+ * Category operation 
+ * @param String   $param1  contains string of operation(add/delete/update)
+ * @param integer  $param2   contains id for edit and delete
+ * @author GNS
+ */ 
+public function sub_categories($param1 = "", $param2 = "") {
+  if ($this->session->userdata('admin_login') != true) {
+    redirect(site_url('login'), 'refresh');
+  }
+
+  if ($param1 == 'add') {
+    $this->crud_model->add_sub_category();
+    redirect(site_url('admin/categories'), 'refresh');
+  }
+  elseif ($param1 == "edit") {
+    $this->crud_model->edit_sub_category($param2);
+    redirect(site_url('admin/categories'), 'refresh');
+  }
+  elseif ($param1 == "delete") {
+    $this->crud_model->delete_sub_category($param2);
+    $this->session->set_flashdata('flash_message', get_phrase('data_deleted'));
+    redirect(site_url('admin/categories'), 'refresh');
+  }
+  $page_data['page_name'] = 'categories';
+  $page_data['page_title'] = get_phrase('categories');
+  $page_data['categories'] = $this->crud_model->get_categories($param2);
+  $this->load->view('backend/index', $page_data);
+}
 /**
  * Category Form to add and edit the data 
  *
@@ -103,6 +132,31 @@ class Admin extends CI_Controller {
 
     $this->load->view('backend/index', $page_data);
   }
+  /**
+ * Sub Category Form to add and edit the data 
+ *
+ * @param String  $param1  contains string of operation(add/update)
+ * @param integer $param2   contains id for edit to get the data on edit page 
+ * @author GNS
+ */ 
+public function subcategory_form($param1 = "", $param2 = "") {
+  if ($this->session->userdata('admin_login') != true) {
+    redirect(site_url('login'), 'refresh');
+  }
+  if ($param1 == "add_subcategory") {
+    $page_data['page_name'] = 'sub_category_add';
+    $page_data['categories'] = $this->crud_model->get_categories()->result_array();
+    $page_data['page_title'] = get_phrase('add_subcategory');
+  }
+  if ($param1 == "sub_edit_category") {
+    $page_data['page_name'] = 'sub_category_edit';
+    $page_data['page_title'] = get_phrase('sub_edit_category');
+    $page_data['categories'] = $this->crud_model->get_categories()->result_array();
+    $page_data['category_id'] = $param2;
+  }
+
+  $this->load->view('backend/index', $page_data);
+}
 /**
  * Category operation 
  *

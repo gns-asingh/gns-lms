@@ -36,7 +36,7 @@
                                     <a href="javascript::" class="action-icon" onclick="confirm_modal('<?php echo site_url('admin/categories/delete/'.$sub_category['id']); ?>');"> <i class="mdi mdi-delete" style="font-size: 18px;"></i></a>
                                 </span>
                                 <span class="category-action" id = 'category-edit-btn-<?php echo $sub_category['id']; ?>' style="float: right; display: none; height: 20px;">
-                                    <a href="<?php echo site_url('admin/category_form/edit_category/'.$sub_category['id']); ?>" class="action-icon"> <i class="mdi mdi-pencil" style="font-size: 18px;"></i></a>
+                                    <a href="<?php echo site_url('admin/subcategory_form/sub_edit_category/'.$sub_category['id']); ?>" class="action-icon"> <i class="mdi mdi-pencil" style="font-size: 18px;"></i></a>
                                 </span>
                             </li>
                         <?php endforeach; ?>

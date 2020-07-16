@@ -66,6 +66,48 @@ class Crud_model extends CI_Model {
         $data['date_added'] = strtotime(date('D, d-M-Y'));
         $this->db->insert('category', $data);
     }
+/**
+ * Service to add category 
+ * @author GNS
+ */
+public function add_sub_category() {
+    $specialChar =  $this->checkSpecialChar($this->input->post('name'));
+    $validity = $this->check_duplication_sub_cat('on_create', $this->input->post('name'));
+    if($specialChar == false){
+        $this->session->set_flashdata('error_message', get_phrase('only_alphabets_are_allowed'));
+
+    }
+    else if ($validity == false) {
+        $this->session->set_flashdata('error_message', get_phrase('Sub_category_duplication'));
+    }else {
+    $data['code']   = html_escape($this->input->post('code'));
+    $data['name']   = html_escape($this->input->post('name'));
+    $data['parent'] = html_escape($this->input->post('parent'));
+    $data['slug']   = slugify(html_escape($this->input->post('name')));
+    if ($this->input->post('parent') == 1) {
+        // Font awesome class adding
+        if ($_POST['font_awesome_class'] != "") {
+            $data['font_awesome_class'] = html_escape($this->input->post('font_awesome_class'));
+        }else {
+            $data['font_awesome_class'] = 'fas fa-chess';
+        }
+
+        // category thumbnail adding
+        if (!file_exists('uploads/thumbnails/category_thumbnails')) {
+            mkdir('uploads/thumbnails/category_thumbnails', 0777, true);
+        }
+        if ($_FILES['category_thumbnail']['name'] == "") {
+            $data['thumbnail'] = 'category-thumbnail.png';
+        }else {
+            $data['thumbnail'] = md5(rand(10000000, 20000000)).'.jpg';
+            move_uploaded_file($_FILES['category_thumbnail']['tmp_name'], 'uploads/thumbnails/category_thumbnails/'.$data['thumbnail']);
+        }
+    }
+    $data['date_added'] = strtotime(date('D, d-M-Y'));
+    $this->db->insert('category', $data);
+    $this->session->set_flashdata('flash_message', get_phrase('data_added_successfully'));
+}
+}
 /** code added by DD for add role:
  *  Service to add role 
  *  @author GNS
@@ -177,6 +219,34 @@ class Crud_model extends CI_Model {
             }
         }
     }
+/** code added by DD for add role:
+ *  Function to check wheather the role name is already present in database or not
+ *  @param String $action contains action(on_create/on_update) 
+ *  @param String $name   contains name of role 
+ *  @param String $role id  contains role id 
+ *  @author GNS
+ */
+public function check_duplication_sub_cat($action = "", $name = "", $category_id = "") {
+    $duplicate_roll_check = $this->db->get_where('category', array('name' => $name));
+
+    if ($action == 'on_create') {
+        if ($duplicate_roll_check->num_rows() > 0) {
+            return false;
+        }else {
+            return true;
+        }
+    }elseif ($action == 'on_update') {
+        if ($duplicate_roll_check->num_rows() > 0) {
+            if ($duplicate_roll_check->row()->id == $category_id) {
+                return true;
+            }else {
+                return false;
+            }
+        }else {
+            return true;
+        }
+    }
+}
 
 /** 
  *  Service to edit category
@@ -208,6 +278,48 @@ class Crud_model extends CI_Model {
         $this->db->where('id', $param1);
         $this->db->update('category', $data);
     }
+/** 
+ *  Service to edit category
+ *  @param String $param  contains role id 
+ *  @author GNS
+ */
+
+public function edit_sub_category($param1) {
+    $specialChar =  $this->checkSpecialChar($this->input->post('name'));
+    $validity = $this->check_duplication_sub_cat('on_create', $this->input->post('name'));
+    if($specialChar == false){
+        $this->session->set_flashdata('error_message', get_phrase('only_alphabets_are_allowed'));
+
+    }
+    else if ($validity == false) {
+        $this->session->set_flashdata('error_message', get_phrase('Sub_category_duplication'));
+    }else{
+    $data['name']   = html_escape($this->input->post('name'));
+    $data['parent'] = html_escape($this->input->post('parent'));
+    $data['slug']   = slugify(html_escape($this->input->post('name')));
+    if ($this->input->post('parent') == 0) {
+        // Font awesome class adding
+        if ($_POST['font_awesome_class'] != "") {
+            $data['font_awesome_class'] = html_escape($this->input->post('font_awesome_class'));
+        }else {
+            $data['font_awesome_class'] = 'fas fa-chess';
+        }
+        // category thumbnail adding
+        if (!file_exists('uploads/category_thumbnails')) {
+            mkdir('uploads/category_thumbnails', 0777, true);
+        }
+        if ($_FILES['category_thumbnail']['name'] != "") {
+            $data['thumbnail'] = md5(rand(10000000, 20000000)).'.jpg';
+            move_uploaded_file($_FILES['category_thumbnail']['tmp_name'], 'uploads/thumbnails/category_thumbnails/'.$data['thumbnail']);
+        }
+    }
+    $data['last_modified'] = strtotime(date('D, d-M-Y'));
+    $this->db->where('id', $param1);
+    $this->db->update('category', $data);
+    $this->session->set_flashdata('flash_message', get_phrase('data_updated_successfully'));
+
+}
+}
 /** 
  *  Service to delete category
  *  @param String $param  contains role id 

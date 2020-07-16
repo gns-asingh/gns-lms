@@ -17,7 +17,7 @@
                 <h4 class="mb-3 header-title"><?php echo get_phrase('category_add_form'); ?></h4>
 
                 <form class="required-form" action="<?php echo site_url('admin/categories/add'); ?>" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
+                    <div class="form-group" hidden>
                         <label for="code"><?php echo get_phrase('category_code'); ?></label>
                         <input type="text" class="form-control" id="code" name = "code" value="<?php echo substr(md5(rand(0, 1000000)), 0, 10); ?>" readonly>
                     </div>
@@ -27,7 +27,7 @@
                         <input type="text" class="form-control" id="name" name = "name" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" hidden>
                         <label for="parent"><?php echo get_phrase('parent'); ?></label>
                         <select class="form-control select2" data-toggle="select2" name="parent" id="parent" onchange="checkCategoryType(this.value)">
                           <option value="0"><?php echo get_phrase('none'); ?></option>
