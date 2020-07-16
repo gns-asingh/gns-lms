@@ -259,5 +259,9 @@
     "course_overview_url": "Course overview url",
     "course_thumbnail": "Course thumbnail",
     "meta_keywords": "Meta keywords",
-    "meta_description": "Meta description"
+    "meta_description": "Meta description",
+    "student_has_already_been_enrolled_to_this_course": "Student has already been enrolled to this course",
+    "data_deleted_successfully": "Data deleted successfully",
+    "student_has_been_enrolled_to_that_course": "Student has been enrolled to that course",
+    "no_data_found": "No data found"
 }
