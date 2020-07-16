@@ -72,4 +72,14 @@
             $('#icon-picker-area').show();
         }
     }
+    $(document).ready(function(){
+ $("#name").change(function(){
+     var str = $("#name").val();
+            if (/[^a-zA-Z0-9 \-\/]/.test( str )) {
+ $.NotificationApp.send("<?php echo get_phrase('oh_snap'); ?>!", "<?php echo get_phrase('Only Alphabets are allowed.'); ?>" ,"top-right","rgba(0,0,0,0.2)","error");
+ return false;
+}
+return true;
+ });
+});
 </script>
