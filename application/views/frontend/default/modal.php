@@ -70,3 +70,32 @@ document.getElementById('delete_link').setAttribute('href' , delete_url);
         </div>
     </div>
 </div>
+
+
+
+<script type="text/javascript">
+function confirm_read_modal(read_url)
+{
+jQuery('#modal-5').modal('show', {backdrop: 'static'});
+document.getElementById('yes_link').setAttribute('href' , read_url);
+}
+</script>
+
+<!-- (Normal Modal)-->
+<div class="modal fade" id="modal-5">
+    <div class="modal-dialog">
+        <div class="modal-content" style="margin-top:100px;">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" style="text-align:center;">Are you sure,you have completed this lesson ?</h4>
+            </div>
+
+
+            <div class="modal-footer" style="margin:0px; border-top:0px; text-align:center;">
+                <a href="#" class="btn btn-danger" id="yes_link"><?php echo get_phrase('Yes');?></a>
+                <button type="button" class="btn btn-info" data-dismiss="modal"><?php echo get_phrase('cancel');?></button>
+            </div>
+        </div>
+    </div>
+</div>
