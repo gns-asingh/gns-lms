@@ -39,6 +39,10 @@
 					<li class = "<?php if($page_name == 'category_add') echo 'active'; ?>">
 						<a href="<?php echo site_url('admin/category_form/add_category'); ?>"><?php echo get_phrase('add_new_category'); ?></a>
 					</li>
+
+					<li class = "<?php if($page_name == 'subcategory_add') echo 'active'; ?>">
+						<a href="<?php echo site_url('admin/subcategory_form/add_subcategory'); ?>"><?php echo get_phrase('add_new_sub_category'); ?></a>
+					</li>
 				</ul>
 			</li>
 			

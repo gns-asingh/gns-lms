@@ -17,6 +17,18 @@
                 <div class="card bg-light text-seconday on-hover-action mb-5" id = "section-<?php echo $section['id']; ?>">
                     <div class="card-body">
                         <h5 class="card-title" class="mb-3" style="min-height: 35px;"><span class="font-weight-light"><?php echo get_phrase('section').' '.++$key; ?></span>: <?php echo $section['title']; ?>
+							&nbsp;&nbsp;&nbsp;&nbsp; 						
+							<?php  
+							$lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
+							$totalDuration = 0;
+							foreach ($lessons as $index => $lesson):
+								$temp = explode(':', $lesson['duration']);
+								$totalDuration += intval($temp[2]); // Add the seconds
+								$totalDuration += intval($temp[1]) * 60; // Add the minutes
+								$totalDuration += intval($temp[0]) * 60 * 60;							
+							endforeach;
+							?>
+							<span class="font-weight-light"><?php echo get_phrase('duration'); ?>: <?php echo gmdate("H:i:s", $totalDuration); ?></span>
                             <div class="row justify-content-center alignToTitle float-right display-none" id = "widgets-of-section-<?php echo $section['id']; ?>">
                                 <button type="button" class="btn btn-outline-secondary btn-rounded btn-sm" name="button" onclick="showLargeModal('<?php echo site_url('modal/popup/sort_lesson/'.$section['id']); ?>', '<?php echo get_phrase('sort_lessons'); ?>')" ><i class="mdi mdi-sort-variant"></i> <?php echo get_phrase('sort_lesson'); ?></button>
                                 <button type="button" class="btn btn-outline-secondary btn-rounded btn-sm ml-1" name="button" onclick="showAjaxModal('<?php echo site_url('modal/popup/section_edit/'.$section['id'].'/'.$course_id); ?>', '<?php echo get_phrase('update_section'); ?>')" ><i class="mdi mdi-pencil-outline"></i> <?php echo get_phrase('edit_section'); ?></button>
