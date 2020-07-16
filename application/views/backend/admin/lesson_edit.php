@@ -95,12 +95,9 @@
             </div>
         </div>
 		
-		<label><?php echo get_phrase('duration'); ?></label>
-		<div>
-			<?php $duration = explode(":", $lesson_details['duration']); ?>
-			HH &nbsp;<input type="text" name="duration_hours" class="form-control" style="width:50px; display: inline;" value="<?php echo $duration[0]; ?>">&nbsp;&nbsp;&nbsp;&nbsp;
-			MM &nbsp;<input type="text" name="duration_mins" class="form-control" style="width:50px; display: inline;" required value="<?php echo $duration[1]; ?>">&nbsp;&nbsp;&nbsp;&nbsp;
-			SS &nbsp;<input type="text" name="duration_sec" class="form-control" style="width:50px; display: inline;" value="<?php echo $duration[2]; ?>">
+		<div class="form-group">
+			<label><?php echo get_phrase('duration'); ?></label>
+			<input type="text" class="form-control" data-toggle='timepicker' data-minute-step="5" name="html5_duration" id = "html5_duration" data-show-meridian="false" value="<?php echo $lesson_details['duration']; ?>">
 		</div>
     </div>
 
