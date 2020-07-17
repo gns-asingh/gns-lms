@@ -319,6 +319,20 @@ class Home extends CI_Controller {
         $this->session->set_flashdata('flash_message', get_phrase('payment_successfully_done'));
         redirect('home', 'refresh');
     }
+	
+	public function read_lesson($slug = "", $course_id = "", $lesson_id = "") {
+		if ($this->session->userdata('user_login') != 1){
+            if ($this->session->userdata('admin_login') != 1){
+                redirect('home', 'refresh');
+            }
+        }
+		
+		if($lesson_id != "") {
+			$this->crud_model->read_lesson($lesson_id);
+			$this->session->set_flashdata('flash_message', get_phrase('lesson_updated'));
+		}
+		redirect('home/lesson/'.$slug.'/'.$course_id.'/'.$lesson_id);
+	}
 
     public function lesson($slug = "", $course_id = "", $lesson_id = "") {
         if ($this->session->userdata('user_login') != 1){

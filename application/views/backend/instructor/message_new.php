@@ -2,11 +2,12 @@
     // $student_list = $this->crud_model->all_enrolled_student()->result_array();
     $student_list = $this->user_model->get_user()->result_array();
 ?>
-<div class="card">
-	<h3>
-		<span class="p-3"><?php echo get_phrase('write_new_messages');?></span>
-	</h3>
-	<div class="card-body">
+<div>
+		<div class="instructor_card_title">
+            <h4 class="mb-0 header-title"><?php echo get_phrase('write_new_messages');?></h4>
+        </div>
+	
+	<div class="card-body boxInfo">
 		<form method="post" class="mt-2" action="<?php echo site_url('instructor/message/send_new'); ?>" enctype="multipart/form-data">
 
 			<div class="form-group">
@@ -38,7 +39,7 @@
 		    <div class="form-group mt-4">
 		        <div class="row">
 		            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-13 text-center">
-		                <button type="submit" class="btn btn-success float-right"><?php echo get_phrase('sent_message'); ?></button>
+		                <button type="submit" class="btn btn-primary float-right"><?php echo get_phrase('sent_message'); ?></button>
 		            </div>
 		        </div>
 		    </div>

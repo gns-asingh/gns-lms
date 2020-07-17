@@ -16,7 +16,7 @@
             <div class="col-xl-12">
                 <div class="card bg-light text-seconday on-hover-action mb-5" id = "section-<?php echo $section['id']; ?>">
                     <div class="card-body">
-                        <h5 class="card-title" class="mb-3" style="min-height: 35px;"><span class="font-weight-light"><?php echo get_phrase('section').' '.++$key; ?></span>: <?php echo $section['title']; ?>
+                        <h5 class="card-title" class="mb-3" style="min-height: 40px;"><span class="font-weight-light"><?php echo get_phrase('section').' '.++$key; ?></span>: <?php echo $section['title']; ?>
 							&nbsp;&nbsp;&nbsp;&nbsp; 						
 							<?php  
 							$lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
@@ -28,7 +28,7 @@
 								$totalDuration += intval($temp[0]) * 60 * 60;							
 							endforeach;
 							?>
-							<span class="font-weight-light"><?php echo get_phrase('duration'); ?>: <?php echo gmdate("H:i:s", $totalDuration); ?></span>
+							<span class="font-weight-light"><?php echo get_phrase('duration'); ?>: <?php echo gmdate("H:i:s", $totalDuration); ?> Hours</span>
                             <div class="row justify-content-center alignToTitle float-right display-none" id = "widgets-of-section-<?php echo $section['id']; ?>">
                                 <button type="button" class="btn btn-outline-secondary btn-rounded btn-sm" name="button" onclick="showLargeModal('<?php echo site_url('modal/popup/sort_lesson/'.$section['id']); ?>', '<?php echo get_phrase('sort_lessons'); ?>')" ><i class="mdi mdi-sort-variant"></i> <?php echo get_phrase('sort_lesson'); ?></button>
                                 <button type="button" class="btn btn-outline-secondary btn-rounded btn-sm ml-1" name="button" onclick="showAjaxModal('<?php echo site_url('modal/popup/section_edit/'.$section['id'].'/'.$course_id); ?>', '<?php echo get_phrase('update_section'); ?>')" ><i class="mdi mdi-pencil-outline"></i> <?php echo get_phrase('edit_section'); ?></button>
@@ -70,6 +70,7 @@
                                             <img src="<?php echo base_url('assets/backend/lesson_icon/'.$lesson_type.'.png'); ?>" alt="" height = "16">
                                             <?php echo $lesson['lesson_type'] == 'quiz' ? get_phrase('quiz').' '.$quiz_counter : get_phrase('lesson').' '.$lesson_counter; ?>
                                         </span>: <?php echo $lesson['title']; ?>
+										<span style="padding-right: 100px; font-weight:100; float: right;"><?php echo $lesson['duration']; ?> Hours</span>
                                     </h5>
                                 </div>
                             </div> <!-- end card-->

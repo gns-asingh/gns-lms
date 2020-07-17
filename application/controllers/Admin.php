@@ -60,12 +60,11 @@ class Admin extends CI_Controller {
 
     if ($param1 == 'add') {
       $this->crud_model->add_category();
-      $this->session->set_flashdata('flash_message', get_phrase('data_added_successfully'));
       redirect(site_url('admin/categories'), 'refresh');
     }
     elseif ($param1 == "edit") {
       $this->crud_model->edit_category($param2);
-      $this->session->set_flashdata('flash_message', get_phrase('data_updated_successfully'));
+   //   $this->session->set_flashdata('flash_message', get_phrase('data_updated_successfully'));
       redirect(site_url('admin/categories'), 'refresh');
     }
     elseif ($param1 == "delete") {
