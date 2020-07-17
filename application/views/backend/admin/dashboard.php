@@ -36,7 +36,7 @@
     </div> -->
 </div>
 <div class="admin_main_content">
-    <div class="container">
+    <div class="">
         <div class="row">
             <div class="col-12">
                 <div class="widget-inline">
@@ -135,9 +135,7 @@
                             </div>
                         </div>
 </div>
-                    </div>
-                </div>
-            </div>
+                    
         <!--  <div class="col-xl-8">
                 <div class="card" id = 'unpaid-instructor-revenue'>
                     <div class="card-body">

@@ -265,6 +265,7 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 }
 .main_content{
   padding: 0 0px 5px 0px!important;
+  min-height: 100vh;
 }
 .setPageTitle{
   padding:7px 15px;
@@ -304,7 +305,8 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 
 /*********************Admin Sidebar Dashboard **********************************/
 .admin_left_sidebar{
-  background: #0e0e0e;
+  background: #2c2c34;
+  box-shadow:none;
 }
 .admin_left_user{
   background-color: #3c4655;
@@ -387,7 +389,7 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 }
 .admin_main_content{
   background: #0a0b18;
-  padding:20px 15px;
+  padding:30px 20px;
   height:100%;
 }
 .admin_title_bg{
@@ -491,6 +493,61 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
   background: #696969;
     color: #fff;
 }
+.backtocourse{
+  position: relative;
+  top:-5px;
+}
 
-
-
+.box-shadow-none{
+  box-shadow:none;
+}
+.form_control_bg{
+    color: #e1e1e1;
+    background-color: hsla(0,0%,100%,.1);
+    border-color: hsla(0,0%,100%,.15)
+}
+.form_control_bg:focus{
+  color: #e1e1e1;
+    background-color: hsla(0,0%,100%,.15);
+    border-color: hsla(0,0%,100%,.2)
+}
+.custom_file_bg{
+    color: #e1e1e1;
+    background-color: hsla(0,0%,100%,.1);
+    border-color: rgba(0,0,21,.3);
+}
+.custom_file_bg:focus{
+  color: #e1e1e1;
+  background-color: hsla(0,0%,100%,.1);
+  border-color: rgba(0,0,21,.3);
+}
+.custom_file_bg:after{
+  color: #e1e1e1;
+  background-color: #181924;
+}
+.select_box_bg, span.select2-selection.select2-selection--single{
+    color: #e1e1e1;
+    background-color: hsla(0,0%,100%,.1);
+    border-color: rgba(0,0,21,.3);
+}
+.add_btn_set{
+  position: relative;
+  top:-6px;
+}
+.table-bg{
+  color: #fff;
+    background-color: rgba(0,0,21,.5);
+}
+.table-bg td, .table-bg th, .table-bg thead th {
+  border-color: rgba(0,0,21,.9);
+}
+.datatable_input .form-control {
+  color: #e1e1e1;
+  background-color: hsla(0,0%,100%,.1);
+  border-color: hsla(0,0%,100%,.15);
+}
+.datatable_input .page-item.disabled .page-link {
+    color: #e1e1e1!important;
+    background-color: hsla(0,0%,100%,.075)!important;
+    border-color: #181924!important;
+}
