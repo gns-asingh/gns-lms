@@ -69,14 +69,14 @@
                             <input type="text" name = "youtube_api_key" id = "youtube_api_key" class="form-control" value="<?php echo get_settings('youtube_api_key');  ?>" required>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" hidden>
                             <label for="vimeo_api_key"><?php echo get_phrase('vimeo_API_key'); ?><span class="required">*</span> &nbsp; <a href = "https://www.youtube.com/watch?v=Wwy9aibAd54" target = "_blank" style="color: #a7a4a4">(<?php echo get_phrase('get_Vimeo_API_key'); ?>)</a></label>
-                            <input type="text" name = "vimeo_api_key" id = "vimeo_api_key" class="form-control" value="<?php echo get_settings('vimeo_api_key');  ?>" required>
+                            <input type="text" name = "vimeo_api_key" id = "vimeo_api_key" class="form-control" value="<?php echo get_settings('vimeo_api_key');  ?>">
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" hidden>
                             <label for="purchase_code"><?php echo get_phrase('purchase_code'); ?><span class="required">*</span></label>
-                            <input type="text" name = "purchase_code" id = "purchase_code" class="form-control" value="<?php echo get_settings('purchase_code');  ?>" required>
+                            <input type="text" name = "purchase_code" id = "purchase_code" class="form-control" value="<?php echo get_settings('purchase_code');  ?>">
                         </div>
 
                         <div class="form-group">

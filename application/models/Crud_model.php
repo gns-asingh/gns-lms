@@ -1768,31 +1768,38 @@ public function edit_sub_category($param1) {
 
         $receiver   = $this->input->post('receiver');
         $sender     = $this->session->userdata('user_id');
-
+       
+         foreach($receiver as $value){
+            // echo "<pre>"; print_r($receiver);
+            // exit;  
+          //  $user = implode(" ",$receiver);
+         
         //check if the thread between those 2 users exists, if not create new thread
-        $num1 = $this->db->get_where('message_thread', array('sender' => $sender, 'receiver' => $receiver))->num_rows();
-        $num2 = $this->db->get_where('message_thread', array('sender' => $receiver, 'receiver' => $sender))->num_rows();
+        $num1 = $this->db->get_where('message_thread', array('sender' => $sender, 'receiver' => $value))->num_rows();
+        $num2 = $this->db->get_where('message_thread', array('sender' => $value, 'receiver' => $sender))->num_rows();
         if ($num1 == 0 && $num2 == 0) {
             $message_thread_code                        = substr(md5(rand(100000000, 20000000000)), 0, 15);
             $data_message_thread['message_thread_code'] = $message_thread_code;
             $data_message_thread['sender']              = $sender;
-            $data_message_thread['receiver']            = $receiver;
+            $data_message_thread['receiver']            = $value;
             $this->db->insert('message_thread', $data_message_thread);
         }
         if ($num1 > 0)
-        $message_thread_code = $this->db->get_where('message_thread', array('sender' => $sender, 'receiver' => $receiver))->row()->message_thread_code;
+        $message_thread_code = $this->db->get_where('message_thread', array('sender' => $sender, 'receiver' => $value))->row()->message_thread_code;
         if ($num2 > 0)
-        $message_thread_code = $this->db->get_where('message_thread', array('sender' => $receiver, 'receiver' => $sender))->row()->message_thread_code;
-
+        $message_thread_code = $this->db->get_where('message_thread', array('sender' => $value, 'receiver' => $sender))->row()->message_thread_code;
+    
 
         $data_message['message_thread_code']    = $message_thread_code;
         $data_message['message']                = $message;
         $data_message['sender']                 = $sender;
         $data_message['timestamp']              = $timestamp;
         $this->db->insert('message', $data_message);
-
-        return $message_thread_code;
     }
+        $this->session->set_flashdata('flash_message', get_phrase('message_sent!'));
+        return $message_thread_code;
+   
+}
 /** 
  *  send reply to message
  *  @param  String $message_thread_code contains message thread code

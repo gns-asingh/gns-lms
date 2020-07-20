@@ -933,11 +933,12 @@ public function subcategory_form($param1 = "", $param2 = "") {
  */
   function message($param1 = 'message_home', $param2 = '', $param3 = '')
   {
+    // echo "<pre>"; print_r($param2);
+    // exit;
     if ($this->session->userdata('admin_login') != 1)
     redirect(site_url('login'), 'refresh');
     if ($param1 == 'send_new') {
       $message_thread_code = $this->crud_model->send_new_private_message();
-      $this->session->set_flashdata('flash_message', get_phrase('message_sent!'));
       redirect(site_url('admin/message/message_read/' . $message_thread_code), 'refresh');
     }
 
