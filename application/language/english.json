@@ -326,5 +326,16 @@
     "update_product": "Update product",
     "file": "File",
     "system_settings_updated": "System settings updated",
-    "lesson_updated": "Lesson updated"
+    "lesson_updated": "Lesson updated",
+    "private_messaging": "Private messaging",
+    "private_message": "Private message",
+    "new_message": "New message",
+    "choose_an_option_from_the_left_side": "Choose an option from the left side",
+    "write_new_messages": "Write new messages",
+    "recipient": "Recipient",
+    "students": "Students",
+    "type_your_message": "Type your message",
+    "sent_message": "Sent message",
+    "add_instructor": "Add instructor",
+    "assigned_courses": "Assigned courses"
 }

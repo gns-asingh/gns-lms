@@ -53,6 +53,31 @@ class User_model extends CI_Model {
         return $this->db->get('users');
     }
 /**
+ * get admin details by id
+ * @param String $user_id contains user id
+ * @author GNS
+ */	
+public function get_admin($user_id = 0) {
+    if ($user_id > 0) {
+        $this->db->where('id', $user_id);
+    }
+    $this->db->where('role_id', 1);
+    return $this->db->get('users');
+}
+/**
+ * get instructor details by id
+ * @param String $user_id contains user id
+ * @author GNS
+ */	
+// public function get_instructors($user_id = 0) {
+//     if ($user_id > 0) {
+//         $this->db->where('id', $user_id);
+//     }
+//     $this->db->where('role_id', 3);
+//     return $this->db->get('users');
+// }
+    
+/**
  * get user details by id
  * @param String $user_id contains user id
  * @author GNS

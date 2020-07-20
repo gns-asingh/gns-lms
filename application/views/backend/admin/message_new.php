@@ -1,6 +1,8 @@
 <?php
     // $student_list = $this->crud_model->all_enrolled_student()->result_array();
-    $student_list = $this->user_model->get_user()->result_array();
+	$student_list = $this->user_model->get_user()->result_array();
+	$instructor_list  =  $this->user_model->get_instructors()->result_array();
+
 ?>
 <div class="card">
 	<h3>
@@ -12,14 +14,19 @@
 			<div class="form-group">
 		        <div class="row">
 		            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		            	<label><?php echo get_phrase('Recipient'); ?></label>
-		            	<i class="float-right mdi mdi-reply"></i>
-                        <select class="form-control select2" data-toggle="select2" name="receiver" id="receiver" required>
-							<option value=""><?php echo get_phrase('select_a_user');?></option>
-                            <optgroup label="<?php echo get_phrase('trainee'); ?>">
-                                <?php foreach($student_list as $student):?>
-                                    <option value="<?php echo $student['id']; ?>">
-                                        - <?php echo $student['first_name'].' '.$student['last_name']; ?></option>
+		            	<label><?php echo get_phrase('Recipient'); ?></label><br>
+		            	<!-- <i class="float-right mdi mdi-reply"></i> -->
+                        <select class="form-control"  name="receiver[]" id="receiver" required multiple>
+							<!-- <option value = "" disabled><?php echo get_phrase('select_a_user');?></option> -->
+							 <optgroup label="<?php echo get_phrase('trainees'); ?>">
+								 <?php foreach($student_list as $student):?> 
+                                    <option value="<?php echo $student['id']; ?>"> 
+                                         <?php echo $student['first_name'].' '.$student['last_name']; ?></option>
+                                <?php endforeach; ?>
+								<optgroup label="<?php echo get_phrase('instructor'); ?>">
+                                <?php foreach($instructor_list as $instructor):?>
+                                    <option value="<?php echo $instructor['id']; ?>">
+                                         <?php echo $instructor['first_name'].' '.$instructor['last_name']; ?></option>
                                 <?php endforeach; ?>
                             </optgroup>
 						</select>
@@ -54,4 +61,10 @@
             return false;
 		}
 	}
+	$(document).ready(function() {       
+	$('#receiver').multiselect({		
+		nonSelectedText: 'Select A User'				
+	});
+});
 </script>
+
