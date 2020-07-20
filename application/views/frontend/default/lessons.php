@@ -39,7 +39,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 
                             <div class="mb-0">
                                 <div class="lesson_accordian_header" type="button" data-toggle="collapse" data-target="<?php echo '#collapse-'.$section['id']; ?>" aria-expanded="true" aria-controls="<?php echo 'collapse-'.$section['id']; ?>">
-                                    <h6 style="color: #fff; font-size: 15px;margin-bottom:0;">Section<?php echo $section_counter;?> &nbsp;&nbsp;<?php echo get_phrase('duration'); ?>: <?php echo gmdate("H:i:s", $totalDuration); ?></h6>
+                                    <h6 style="color: #fff; font-size: 15px;margin-bottom:0;">Section<?php echo $section_counter;?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo gmdate("H:i:s", $totalDuration); ?> Hours
 									
                                     <!-- <?php echo $section['title']; ?> -->
                                 </div>
@@ -49,10 +49,23 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                         <div id="<?php echo 'collapse-'.$section['id']; ?>" class="collapse <?php if($section_id == $section['id']) echo 'show'; ?>" aria-labelledby="<?php echo 'heading-'.$section['id']; ?>" data-parent="#accordionExample">
                             <div class="card-body"  style="padding:0px;">
                                 <table style="width: 100%;">
-                                    <?php foreach ($lessons as $lesson): ?>
+                                    <?php 
+										//$readStatus = '';
+										foreach ($lessons as $lesson): 										
+										/*if($lesson['read_status'] == 1):
+											$readStatus = 'disabled';
+										endif;*/
+									?>
 
                                         <tr style="width: 100%; padding: 5px 0px;">
-                                            <td style="text-align: left;padding:10px; border-bottom:1px solid #ccc;">
+											<td style="padding-left:10px; border-bottom:1px solid #ccc;">
+												<?php if($lesson['read_status'] == 1): ?>
+													<input type="checkbox" name="lesson-<?php echo $lesson['id'];?>" checked="checked" onclick="return false" >
+												<?php else: ?>
+													<input type="checkbox" name="lesson-<?php echo $lesson['id'];?>" onclick="confirm_read_modal('<?php echo site_url('home/read_lesson/'.slugify($course_details['title']).'/'.$course_id.'/'.$lesson['id']); ?>');">
+												<?php endif; ?>
+											</td>
+                                            <td style="text-align: left; border-bottom:1px solid #ccc;">
                                                 <a href="<?php echo site_url('home/lesson/'.slugify($course_details['title']).'/'.$course_id.'/'.$lesson['id']); ?>" id = "<?php echo $lesson['id']; ?>">
                                                     <i class="fa fa-play" style="font-size: 12px;color: #909090;padding: 10px;"></i>
                                                     <?php if ($lesson['lesson_type'] != 'other'):?>
@@ -61,8 +74,9 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                         <?php echo $lesson['title']; ?> <i class="fa fa-paperclip"></i>
                                                     <?php endif; ?>
                                                 </a>
+													<?php echo nbs(2);?><span style="font-size:12px; color: #909090;"><?php echo $lesson['duration']; ?></span>
                                             </td>
-                                            <td style="text-align: right; padding:10px; border-bottom:1px solid #ccc;">
+                                            <td style="text-align: right; padding:5px; border-bottom:1px solid #ccc;">
                                                 <span class="lesson_duration">
                                                     <?php if ($lesson['lesson_type'] == 'video' || $lesson['lesson_type'] == '' || $lesson['lesson_type'] == NULL): ?>
                                                         <?php echo $lesson['duration']; ?>

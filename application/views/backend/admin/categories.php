@@ -1,6 +1,6 @@
 <div class="row ">
     <div class="col-xl-12">
-        <div class="card">
+        <div class="admin_title_bg">
             <div class="card-body setPageTitle">
                 <h4 class="page-title"> 
                     <!-- <i class="mdi mdi-apple-keyboard-command title_icon"></i>  -->
@@ -12,14 +12,14 @@
         </div> <!-- end card -->
     </div><!-- end col-->
 </div>
-<div class="container">
+<div class="admin_main_content">
     <div class="row">
         <?php foreach ($categories->result_array() as $category):
             if($category['parent'] > 0)
             continue;
             $sub_categories = $this->crud_model->get_sub_categories($category['id']); ?>
             <div class="col-md-6 col-lg-6 col-xl-4 on-hover-action" id = "<?php echo $category['id']; ?>">
-                <div class="card d-block" style="border: 1px solid #ddd;">
+                <div class="card d-block" style="border: 1px solid #151515;">
                     <div style="width:100%;height:202px;">
                         <img class="card-img-top" style="height:100%;" src="<?php echo base_url('uploads/thumbnails/category_thumbnails/'.$category['thumbnail']); ?>" alt="Card image cap">
                     </div>
@@ -42,10 +42,10 @@
                         <?php endforeach; ?>
                     </ul>
                     <div class="card-body">
-                        <a href = "<?php echo site_url('admin/category_form/edit_category/'.$category['id']); ?>" class="btn btn-icon btn-outline-info btn-sm" id = "category-edit-btn-<?php echo $category['id']; ?>" style="display: none;" style="margin-right:5px;">
+                        <a href = "<?php echo site_url('admin/category_form/edit_category/'.$category['id']); ?>" class="btn btn-icon btn-info btn-sm" id = "category-edit-btn-<?php echo $category['id']; ?>" style="display: none;" style="margin-right:5px;">
                             <i class="mdi mdi-wrench"></i> <?php echo get_phrase('edit'); ?>
                         </a>
-                        <a href = "#" class="btn btn-icon btn-outline-danger btn-sm" id = "category-delete-btn-<?php echo $category['id']; ?>"style="float: right; display: none;" onclick="confirm_modal('<?php echo site_url('admin/categories/delete/'.$category['id']); ?>');" style="margin-right:5px;">
+                        <a href = "#" class="btn btn-icon btn-danger btn-sm" id = "category-delete-btn-<?php echo $category['id']; ?>"style="float: right; display: none;" onclick="confirm_modal('<?php echo site_url('admin/categories/delete/'.$category['id']); ?>');" style="margin-right:5px;">
                             <i class="mdi mdi-delete"></i> <?php echo get_phrase('delete'); ?>
                         </a>
                     </div> <!-- end card-body-->

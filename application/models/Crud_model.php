@@ -1263,6 +1263,20 @@ public function edit_sub_category($param1) {
             move_uploaded_file($_FILES['thumbnail']['tmp_name'], 'uploads/thumbnails/lesson_thumbnails/'.$inserted_id.'.jpg');
         }
     }
+	
+/** 
+ *  Service to read lesson
+ *  @param String  $lesson_id         contains lesson id 
+ *  @author GNS
+ */
+	public function read_lesson($lesson_id) {
+		//$previous_data = $this->db->get_where('lesson', array('id' => $lesson_id))->row_array();
+		
+		$data['read_status'] = true;
+		$this->db->where('id', $lesson_id);
+        $this->db->update('lesson', $data);
+	}
+	
 /** 
  *  Service to edit lesson
  *  @param String  $lesson_id         contains lesson id 
