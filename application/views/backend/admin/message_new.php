@@ -4,32 +4,37 @@
 	$instructor_list  =  $this->user_model->get_instructors()->result_array();
 
 ?>
-<div class="card">
-	<h3>
-		<span class="p-3"><?php echo get_phrase('write_new_messages');?></span>
-	</h3>
+<div class="admin_card_border">
+	<div class="admin_card_title">
+		<h5 class="mb-0 header-title">
+			<?php echo get_phrase('write_new_messages');?>
+		</h5>
+	</div>
 	<div class="card-body">
 		<form method="post" class="mt-2" action="<?php echo site_url('admin/message/send_new'); ?>" enctype="multipart/form-data">
 
 			<div class="form-group">
 		        <div class="row">
 		            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		            	<label><?php echo get_phrase('Recipient'); ?></label><br>
-		            	<!-- <i class="float-right mdi mdi-reply"></i> -->
-                        <select class="form-control"  name="receiver[]" id="receiver" required multiple>
-							<!-- <option value = "" disabled><?php echo get_phrase('select_a_user');?></option> -->
-							 <optgroup label="<?php echo get_phrase('trainees'); ?>">
-								 <?php foreach($student_list as $student):?> 
-                                    <option value="<?php echo $student['id']; ?>"> 
-                                         <?php echo $student['first_name'].' '.$student['last_name']; ?></option>
-                                <?php endforeach; ?>
-								<optgroup label="<?php echo get_phrase('instructor'); ?>">
-                                <?php foreach($instructor_list as $instructor):?>
-                                    <option value="<?php echo $instructor['id']; ?>">
-                                         <?php echo $instructor['first_name'].' '.$instructor['last_name']; ?></option>
-                                <?php endforeach; ?>
-                            </optgroup>
-						</select>
+		            	
+						<!-- <i class="float-right mdi mdi-reply"></i> -->
+						<div class="message_box">
+							<label><?php echo get_phrase('Recipient'); ?></label>
+							<select class="form-control form_control_bg"  name="receiver[]" id="receiver" required multiple>
+								<!-- <option value = "" disabled><?php echo get_phrase('select_a_user');?></option> -->
+								<optgroup label="<?php echo get_phrase('trainees'); ?>">
+									<?php foreach($student_list as $student):?> 
+										<option value="<?php echo $student['id']; ?>"> 
+											<?php echo $student['first_name'].' '.$student['last_name']; ?></option>
+									<?php endforeach; ?>
+									<optgroup label="<?php echo get_phrase('instructor'); ?>">
+									<?php foreach($instructor_list as $instructor):?>
+										<option value="<?php echo $instructor['id']; ?>">
+											<?php echo $instructor['first_name'].' '.$instructor['last_name']; ?></option>
+									<?php endforeach; ?>
+								</optgroup>
+							</select>
+						</div>
 		            </div>
 		        </div>
 		    </div>
@@ -37,7 +42,7 @@
 		    <div class="form-group">
 		        <div class="row">
 		            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		                <textarea class="form-control" rows="5" name="message" id="message" placeholder="<?php echo get_phrase('type_your_message'); ?>" required></textarea>
+		                <textarea class="form-control form_control_bg" rows="5" name="message" id="message" placeholder="<?php echo get_phrase('type_your_message'); ?>" required></textarea>
 		            </div>
 		        </div>
 		    </div>
@@ -45,7 +50,7 @@
 		    <div class="form-group mt-4">
 		        <div class="row">
 		            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-13 text-center">
-		                <button type="submit" class="btn btn-success float-right"><?php echo get_phrase('sent_message'); ?></button>
+		                <button type="submit" class="btn btn-primary box-shadow-none float-right"><?php echo get_phrase('sent_message'); ?></button>
 		            </div>
 		        </div>
 		    </div>
