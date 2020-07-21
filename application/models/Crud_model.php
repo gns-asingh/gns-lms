@@ -976,13 +976,14 @@ public function edit_sub_category($param1) {
     public function delete_course($course_id) {
         $this->db->where('id', $course_id);
         $this->db->delete('course');
-
-
-        $validity = $this->delete_lesson_after_course($course_id);
-       // delete_lesson_after_course($course_id);
-      //  $this->db->where('course_id', $course_id);
-       // $this->db->delete('lessons');
+        $lesson_delete = $this->delete_lesson_after_course($course_id);
+       
     }
+/** 
+ *  Service to delete lessons if course is deleted 
+ *  @param String $course_id contains course id to delete
+ *  @author GNS
+ */    
 
     public function delete_lesson_after_course($course_id) {
         $this->db->where('course_id', $course_id);
