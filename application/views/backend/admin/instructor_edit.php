@@ -81,7 +81,9 @@
                                                 <div class="form-group row mb-3">
                                                     <label class="col-md-3 col-form-label" for="linkedin_link"><?php echo get_phrase('biography'); ?></label>
                                                     <div class="col-md-9">
+                                                    <div class="summernote">
                                                         <textarea name="biography" id = "summernote-basic" class="form-control form_control_bg"><?php echo $user_data['biography']; ?></textarea>
+                                                    </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row mb-3">
