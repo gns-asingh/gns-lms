@@ -503,13 +503,24 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 }
 .form_control_bg{
     color: #e1e1e1;
-    background-color: hsla(0,0%,100%,.1);
+    background-color: hsla(0,0%,100%,.1)!important;
     border-color: hsla(0,0%,100%,.15)
 }
 .form_control_bg:focus{
   color: #e1e1e1;
     background-color: hsla(0,0%,100%,.15);
     border-color: hsla(0,0%,100%,.2)
+}
+.summernote .note-editor.note-frame .note-editable {
+  border: none;
+  background-color: #251616!important;
+  color: #6c757d!important;
+}
+
+.bootstraptag .bootstrap-tagsinput {
+  color: #e1e1e1;
+    background-color: hsla(0,0%,100%,.1)!important;
+    border-color: hsla(0,0%,100%,.15)
 }
 .custom_file_bg{
     color: #e1e1e1;
@@ -551,3 +562,59 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
     background-color: hsla(0,0%,100%,.075)!important;
     border-color: #181924!important;
 }
+.message_box .btn-group {
+  width: 50%;
+}
+.message_box button.multiselect.dropdown-toggle.btn.btn-default{
+  text-align:left;
+  color: #e1e1e1!important;
+    background-color: hsla(0,0%,100%,.075)!important;
+    border-color: #181924!important;
+}
+.message_box ul.multiselect-container.dropdown-menu.show{
+  width:100%;
+  border:1px solid  #181924;
+  height:auto;
+  max-height: 350px;
+  overflow-y: auto;
+}
+.message_box li.multiselect-item.multiselect-group {
+  background: #393a42;
+  color: #e1e1e1!important; 
+}
+.message_box .dropdown-toggle::after{
+  float: right;
+  position: relative;
+  top: 7px;
+}
+.instructor_message_box .btn-group {
+  width: 50%;
+}
+.instructor_message_box button.multiselect.dropdown-toggle.btn.btn-default{
+  text-align:left;
+    background-color: hsla(0,0%,100%,.075)!important;
+    border-color: #ddd!important;
+}
+.instructor_message_box ul.multiselect-container.dropdown-menu.show{
+  width:100%;
+  border:1px solid  #181924;
+  max-height: 350px;
+  overflow-y: auto;
+}
+.instructor_message_box li.multiselect-item.multiselect-group {
+  background: #3c4655;
+  color: #e1e1e1!important; 
+}
+.instructor_message_box .dropdown-toggle::after{
+    float: right;
+    position: relative;
+    top: 7px;
+}
+.form-wizard-header{
+  background-color: hsla(0,0%,100%,.075)!important;
+}
+
+/* .message_list{
+  background: #393a42;
+    padding: 10px 10px;
+} */
