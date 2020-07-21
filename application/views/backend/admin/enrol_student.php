@@ -52,7 +52,6 @@
                                     <input type="text" class="form-control form_control_bg" id="duration_period" name="duration_period" required placeholder="Number in days(Numeric value)">
                                 </div>
 
-<<<<<<< HEAD
                     <div class="form-group">
                         <label for="user_id"><?php echo get_phrase('user'); ?><span class="required">*</span> </label><br>
                         <select class="form-control"  name="user_id[]" id="user_id" required multiple>
@@ -63,13 +62,11 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
-=======
                                 
                                 <div class="form-group">
                                     <label for="start_date."><?php echo get_phrase('start_date'); ?><span class="required">*</span></label>
                                     <input type="text" class="form-control form_control_bg" id="start_date" name="start_date" placeholder="Start Date" required readonly>
                                 </div>
->>>>>>> a03067bb96be3576ec12f9da112e43035717ad48
 
                                 <button type="button" class="btn btn-primary box-shadow-none" onclick="checkRequiredFields()"><?php echo get_phrase('enrol_student'); ?></button>
                             </form>
