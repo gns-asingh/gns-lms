@@ -24,8 +24,8 @@
 
                                 <div class="form-group">
                                     <label for="user_id"><?php echo get_phrase('user'); ?><span class="required">*</span> </label>
-                                    <select class="form-control select2" data-toggle="select2" name="user_id" id="user_id" required>
-                                        <option value=""><?php echo get_phrase('select_a_user'); ?></option>
+                                    <select class="form-control" name="user_id[]" id="user_id" required multiple>
+                                        <!-- <option value=""><?php echo get_phrase('select_a_user'); ?></option> -->
                                         <?php $user_list = $this->user_model->get_user()->result_array();
                                             foreach ($user_list as $user):?>
                                             <option value="<?php echo $user['id'] ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></option>
@@ -90,5 +90,10 @@
 <script type="text/javascript">
 $(function() {
     $("#start_date").datepicker();
+});
+$(document).ready(function() {       
+	$('#user_id').multiselect({		
+		nonSelectedText: 'Select A User'				
+	});
 });
 </script>

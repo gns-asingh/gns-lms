@@ -692,10 +692,11 @@ public function edit_sub_category($param1) {
         $this->db->update('settings', $data);
     }
 /** 
- *  Service to get lessions
+ *  Service to get lessons
  *  @author GNS
  */
     public function get_lessons($type = "", $id = "") {
+      
         $this->db->order_by("order", "asc");
         if($type == "course"){
             return $this->db->get_where('lesson', array('course_id' => $id));
@@ -975,6 +976,18 @@ public function edit_sub_category($param1) {
     public function delete_course($course_id) {
         $this->db->where('id', $course_id);
         $this->db->delete('course');
+
+
+        $validity = $this->delete_lesson_after_course($course_id);
+       // delete_lesson_after_course($course_id);
+      //  $this->db->where('course_id', $course_id);
+       // $this->db->delete('lessons');
+    }
+
+    public function delete_lesson_after_course($course_id) {
+        $this->db->where('course_id', $course_id);
+        $this->db->delete('lesson');
+        return;
     }
 /** 
  *  Service to get top cources 
@@ -1533,8 +1546,11 @@ public function edit_sub_category($param1) {
  *  @author GNS
  */
     public function enrol_a_student_manually() {
+        
         $data['course_id'] = $this->input->post('course_id');
-        $data['user_id']   = $this->input->post('user_id');
+        $user_id   = $this->input->post('user_id');
+        foreach ($user_id as $value) {
+            $data['user_id']  = $value;
         if ($this->db->get_where('enrol', $data)->num_rows() > 0) {
             $this->session->set_flashdata('error_message', get_phrase('student_has_already_been_enrolled_to_this_course'));
         }else {
@@ -1544,6 +1560,7 @@ public function edit_sub_category($param1) {
             $this->db->insert('enrol', $data);
             $this->session->set_flashdata('flash_message', get_phrase('student_has_been_enrolled_to_that_course'));
         }
+    }
     }
 /** 
  *  Service to get free course
