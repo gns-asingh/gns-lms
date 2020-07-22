@@ -14,22 +14,24 @@
 			<div class="form-group">
 		        <div class="row">
 		            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		            	<label><?php echo get_phrase('Recipient'); ?></label><br>
-		            	<!-- <i class="float-right mdi mdi-reply"></i> -->
-                        <select class="form-control"  name="receiver[]" id="receiver" required multiple>
-							<!-- <option value=""><?php echo get_phrase('select_a_user');?></option> -->
-                            <optgroup label="<?php echo get_phrase('trainees'); ?>">
-                                <?php foreach($student_list as $student):?>
-                                    <option value="<?php echo $student['id']; ?>">
-                                        - <?php echo $student['first_name'].' '.$student['last_name']; ?></option>
-                                <?php endforeach; ?>
-								<optgroup label="<?php echo get_phrase('admin'); ?>">
-                                <?php foreach($admin_list as $admin):?>
-                                    <option value="<?php echo $admin['id']; ?>">
-                                        - <?php echo $admin['first_name'].' '.$admin['last_name']; ?></option>
-                                <?php endforeach; ?>
-                            </optgroup>
-						</select>
+						<div class="instructor_message_box">
+							<label><?php echo get_phrase('Recipient'); ?></label>
+							<!-- <i class="float-right mdi mdi-reply"></i> -->
+							<select class="form-control"  name="receiver[]" id="receiver" required multiple>
+								<!-- <option value=""><?php echo get_phrase('select_a_user');?></option> -->
+								<optgroup label="<?php echo get_phrase('trainees'); ?>">
+									<?php foreach($student_list as $student):?>
+										<option value="<?php echo $student['id']; ?>">
+											- <?php echo $student['first_name'].' '.$student['last_name']; ?></option>
+									<?php endforeach; ?>
+									<optgroup label="<?php echo get_phrase('admin'); ?>">
+									<?php foreach($admin_list as $admin):?>
+										<option value="<?php echo $admin['id']; ?>">
+											- <?php echo $admin['first_name'].' '.$admin['last_name']; ?></option>
+									<?php endforeach; ?>
+								</optgroup>
+							</select>
+						</div>
 		            </div>
 		        </div>
 		    </div>

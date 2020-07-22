@@ -16,7 +16,7 @@
             <div class="card box-shadow-none">
                 <div class="admin_card_border">
                     <div class="admin_card_title">
-                        <h4 class="mb-0 header-title"><?php echo get_phrase('instructors'); ?></h4>
+                        <h5 class="mb-0 header-title"><?php echo get_phrase('instructors'); ?></h5>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive-sm mt-4 datatable_input">

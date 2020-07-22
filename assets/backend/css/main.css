@@ -503,13 +503,45 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 }
 .form_control_bg{
     color: #e1e1e1;
-    background-color: hsla(0,0%,100%,.1);
+    background-color: hsla(0,0%,100%,.1)!important;
     border-color: hsla(0,0%,100%,.15)
 }
 .form_control_bg:focus{
   color: #e1e1e1;
     background-color: hsla(0,0%,100%,.15);
     border-color: hsla(0,0%,100%,.2)
+}
+.summernote .note-editor.note-frame .note-editable {
+  border: none;
+  background-color:hsl(233, 7%, 24%)!important;
+  color: #6c757d!important;
+  border-radius:inherit
+}
+.summernote .note-editor.note-frame{
+  border-color: hsla(0, 0%, 26%, 0.89);
+}
+.summernote .card-header.note-toolbar{
+  background:#20202a;
+  border-bottom: 1px solid hsla(0, 0%, 26%, 0.89);
+}
+.summernote .note-btn-group .btn-light{
+  background-color: #393a42;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: hsla(0,0%,100%,.2);
+  color: #e1e1e1;
+}
+.summernote .note-editor.note-frame .note-statusbar{
+  background-color: #23242d;
+    border-top: 1px solid hsla(0, 0%, 26%, 0.89);
+}
+.bootstraptag .bootstrap-tagsinput {
+  color: #e1e1e1;
+    background-color: hsla(0,0%,100%,.1)!important;
+    border-color: hsla(0,0%,100%,.15)
+}
+.bootstraptag .bootstrap-tagsinput .tag{
+  background-color: rgb(32, 32, 42);
 }
 .custom_file_bg{
     color: #e1e1e1;
@@ -550,4 +582,70 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
     color: #e1e1e1!important;
     background-color: hsla(0,0%,100%,.075)!important;
     border-color: #181924!important;
+}
+.message_box .btn-group {
+  width: 50%;
+}
+.message_box button.multiselect.dropdown-toggle.btn.btn-default{
+  text-align:left;
+  color: #e1e1e1!important;
+    background-color: hsla(0,0%,100%,.075)!important;
+    border-color: #181924!important;
+}
+.message_box ul.multiselect-container.dropdown-menu.show{
+  width:100%;
+  border:1px solid  #181924;
+  height:auto;
+  max-height: 350px;
+  overflow-y: auto;
+}
+.message_box li.multiselect-item.multiselect-group {
+  background: #20202a;
+  color: #e1e1e1!important; 
+}
+.message_box .multiselect-container>li{
+  background:#393a42;
+}
+.message_box .dropdown-toggle::after{
+  float: right;
+  position: relative;
+  top: 7px;
+}
+.message_box .multiselect-container>li>a>label{
+  padding:7px 14px 7px 40px;
+  width:100%;
+  color: #e1e1e1;
+}
+.instructor_message_box .btn-group {
+  width: 50%;
+}
+.instructor_message_box button.multiselect.dropdown-toggle.btn.btn-default{
+  text-align:left;
+    background-color: hsla(0,0%,100%,.075)!important;
+    border-color: #ddd!important;
+}
+.instructor_message_box ul.multiselect-container.dropdown-menu.show{
+  width:100%;
+  border:1px solid  #181924;
+  max-height: 350px;
+  overflow-y: auto;
+}
+.instructor_message_box li.multiselect-item.multiselect-group {
+  background: #3c4655;
+  color: #e1e1e1!important; 
+}
+.instructor_message_box .dropdown-toggle::after{
+    float: right;
+    position: relative;
+    top: 7px;
+}
+.form-wizard-header{
+  background-color: hsla(0,0%,100%,.075)!important;
+}
+.border-radius-none{
+  border-radius: inherit;
+}
+.chatBox.conversation-list .ctext-wrap:after{
+  border-top-color: #393a42;  
+  border-right-color: #393a42;
 }

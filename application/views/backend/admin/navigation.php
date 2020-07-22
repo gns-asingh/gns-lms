@@ -16,7 +16,7 @@
 	<!--- Sidemenu -->
 		<ul class="metismenu side-nav side-nav-light admin_left_menu">
 
-			<li class="side-nav-title side-nav-item"><?php echo get_phrase('navigation'); ?></li>
+			<!-- <li class="side-nav-title side-nav-item"><?php echo get_phrase('navigation'); ?></li> -->
 
 			<li class="side-nav-item <?php if ($page_name == 'dashboard')echo 'active';?>">
 				<a href="<?php echo site_url('admin/dashboard'); ?>" class="side-nav-link">
