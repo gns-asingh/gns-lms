@@ -2,10 +2,10 @@
     <div class="col-xl-12">
         <div class="instructor_title_bg">
             <div class="card-body setPageTitle">
-                <h4 class="page-title"> 
+                <h5 class="page-title setColorTitle"> 
                     <i class="dripicons-archive title_icon setIconHead"></i> <?php echo get_phrase('courses'); ?>
-                    <a href="<?php echo site_url('instructor/course_form/add_course'); ?>" class="btn btn-outline-primary btn-rounded btn_line_height alignToTitle instructor_add_course"><i class="mdi mdi-plus"></i><?php echo get_phrase('add_new_course'); ?></a>
-                </h4>
+                    <a href="<?php echo site_url('instructor/course_form/add_course'); ?>" class="btn btn-primary shadow-none btn-rounded btn_line_height alignToTitle instructor_add_course"><i class="mdi mdi-plus"></i><?php echo get_phrase('add_new_course'); ?></a>
+                </h5>
             </div> <!-- end card body-->
         </div> <!-- end card -->
     </div><!-- end col-->
@@ -20,9 +20,9 @@
                             <div class="col-sm-6 col-xl-3">
                                 <div class="boxInfo">
                                     <a href="<?php echo site_url('instructor/courses'); ?>" class="text-secondary">
-                                        <div class="card shadow-none m-0">
+                                        <div class="card shadow-none m-0 instructor_box_bg">
                                             <div class="text-center instructor_box1">
-                                                <div class="instructor_box_icon bg-primary">
+                                                <div class="instructor_box_icon">
                                                     <i class="dripicons-link iconColor" style="font-size: 24px;"></i>
                                                 </div>
                                                 <div class="instructor_box_content"> 
@@ -40,9 +40,9 @@
                             <div class="col-sm-6 col-xl-3">
                                 <div class="boxInfo1">
                                     <a href="<?php echo site_url('instructor/courses'); ?>" class="text-secondary">
-                                        <div class="card shadow-none m-0 border-left">
+                                        <div class="card shadow-none m-0 instructor_box_bg">
                                             <div class="text-center instructor_box1">
-                                                <div class="instructor_box_icon bg-warning">
+                                                <div class="instructor_box_icon">
                                                     <i class="dripicons-link-broken iconColor" style="font-size: 24px;"></i>
                                                 </div>
                                                 <div class="instructor_box_content"> 
@@ -65,10 +65,10 @@
         </div>
         <div class="row">
             <div class="col-xl-12">
-                <div class="card">
-                    <div class="boxInfo">
+                <div class="card box-shadow-none">
+                    <div class="instructor_info_bg">
                         <div class="instructor_card_title">
-                            <h4 class="header-title m-0"><?php echo get_phrase('course_list'); ?></h4>
+                            <h5 class="header-title m-0 setColorTitle"><?php echo get_phrase('course_list'); ?></h5>
                         </div>
                         <div class="card-body">
                             <form class="row" action="<?php echo site_url('instructor/courses'); ?>" method="get">
@@ -119,13 +119,13 @@
                         
                             <div class="col-xl-2">
                                 <label for=".." class="text-white"><?php echo get_phrase('..'); ?></label>
-                                <button type="submit" class="btn btn-primary btn-block" name="button"><?php echo get_phrase('filter'); ?></button>
+                                <button type="submit" class="btn btn-primary box-shadow-none btn-block" name="button"><?php echo get_phrase('filter'); ?></button>
                             </div>
                         </form>
 
-                        <div class="table-responsive-sm mt-4">
+                        <div class="table-responsive-sm mt-4 datatable_input">
                             <?php if (count($courses) > 0): ?>
-                                <table id="course-datatable" class="table table-striped table-bordered dt-responsive nowrap" width="100%" data-page-length='25'>
+                                <table id="course-datatable" class="table table-bg dt-responsive nowrap" width="100%" data-page-length='25'>
                                     <thead>
                                         <tr>
                                             <th>#</th>

@@ -2,8 +2,8 @@
     <div class="col-xl-12">
         <div class="instructor_title_bg">
             <div class="card-body setPageTitle">
-                <h4 class="page-title"> 
-                    <i class="dripicons-network-3 title_icon setIconHead"></i> <?php echo get_phrase('enrol_history'); ?></h4>
+                <h5 class="page-title setColorTitle"> 
+                    <i class="dripicons-network-3 title_icon setIconHead"></i> <?php echo get_phrase('enrol_history'); ?></h5>
             </div> <!-- end card body-->
         </div> <!-- end card -->
     </div><!-- end col-->
@@ -12,9 +12,9 @@
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
-                <div class="boxInfo">
+                <div class="instructor_info_bg">
                     <div class="instructor_card_title">
-                        <h4 class="header-title mb-0"><?php echo get_phrase('enrol_histories'); ?></h4>
+                        <h5 class="header-title setColorTitle mb-0"><?php echo get_phrase('enrol_histories'); ?></h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -22,7 +22,7 @@
                                 <form class="form-inline" action="<?php echo site_url('admin/enrol_history/filter_by_date_range') ?>" method="get">
                                     <div class="col-xl-10">
                                         <div class="form-group">
-                                            <div id="reportrange" class="form-control" data-toggle="date-picker-range" data-target-display="#selectedValue"  data-cancel-class="btn-light" style="width: 100%;">
+                                            <div id="reportrange" class="form-control form_control_bg" data-toggle="date-picker-range" data-target-display="#selectedValue"  data-cancel-class="btn-light" style="width: 100%;">
                                                 <i class="mdi mdi-calendar"></i>&nbsp;
                                                 <span id="selectedValue"><?php echo date("F d, Y" , $timestamp_start) . " - " . date("F d, Y" , $timestamp_end);?></span> <i class="mdi mdi-menu-down"></i>
                                             </div>
@@ -30,7 +30,7 @@
                                         </div>
                                     </div>
                                     <div class="col-xl-2">
-                                        <button type="submit" class="btn btn-info" id="submit-button" onclick="update_date_range();"> <?php echo get_phrase('filter');?></button>
+                                        <button type="submit" class="btn btn-info box-shadow-none" id="submit-button" onclick="update_date_range();"> <?php echo get_phrase('filter');?></button>
                                     </div>
                                 </form>
                             </div>

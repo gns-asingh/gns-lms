@@ -260,8 +260,8 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
   padding-top:0!important;
 }
 .leftsidebar{
-  border-right:1px solid #000;
-  background:#212438;
+  border-right:1px solid #1f1717;
+  background: #1f1a24;
 }
 .main_content{
   padding: 0 0px 5px 0px!important;
@@ -275,19 +275,19 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 }
 .boxInfo{
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-  border-bottom: 5px solid #727cf5;
+  border-bottom: 5px solid #121212;
 }
 .boxInfo1{
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-  border-bottom: 5px solid #ffbc00
+  border-bottom: 5px solid #121212
 }
 .boxInfo2{
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-  border-bottom: 5px solid #0acf97;
+  border-bottom: 5px solid #121212;
 }
 .boxInfo3{
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-  border-bottom: 5px solid #fa5c7c;
+  border-bottom: 5px solid #121212;
 }
 .iconColor{
   color:#fff;
@@ -340,7 +340,7 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
   color:#00BCD4;
 }
 .instructor_card_title{
-  background: #3c4655;
+  background: #121212;
   color: #fff;
   padding: 10px 10px;
 }
@@ -349,8 +349,8 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 }
 .leftsidebar .side-nav-light .side-nav-link.active{
   color:#fff;
-  background: #00BCD4;
-    border-left: 5px solid #007486;
+  background: #343039;
+    border-left: 5px solid #121212;
 }
 .instructor_box1{
   box-shadow: 2px 3px 3px #2d2d2d40;
@@ -362,7 +362,7 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
     /* box-shadow: 2px 3px 3px #2d2d2d; */
 }
 .instructor_box1 p{
-  color:#333;
+  color:#fff;
 }
 .instructor_box2, .instructor_box2 p{
   background:#ffe59c;
@@ -427,13 +427,14 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
         border-top: 1px solid #181924;
 }
 .instructor_main_content{
-  background: #e4e5e6;
+   background: #292929;
+  /* background: #383f48; */
   padding:20px 15px;
   height:100%;
 }
 .instructor_title_bg{
-  background:#fff;
-  border-bottom: 1px solid #c8ced3;
+  background: #343039;
+  border-bottom: 1px solid #292222;
 }
 .profile_left{
   float:left;
@@ -454,16 +455,16 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
   clear:both;
 }
 .instructor_box_icon{  
-    border-right: 1px solid #ddd;    
-    background: #646ecf;
+  border-right: 1px solid #2d2d2d;
+  background: #121212;
     display: flex;
     align-items: center;
     text-align: center;
     width:60px;
 }
 .instructor_box_content{
-  background: #fff;
-    color: #333;
+  background: #343039;
+    color: #fff;
     width: 77%;
     /* height: 140px; */
     height: auto;
@@ -473,18 +474,24 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
     flex-direction: column;  
     /* align-items: center; */
     /* align-content: center; */
-    align-self: center;
-    
+    align-self: center;    
+}
+.instructor_box_bg{
+  background:#343039;
+}
+.instructor_info_bg{
+  background:#343039;
+  border:1px solid #292222;
 }
 .instructor_box_content h3{
   margin: 0;
   margin-bottom: 10px;
 }
 .course_chart_bg{
-  border-top: 1px solid #3e3e3e;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background: #3c4655;
+  border-top: 1px solid #292222;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #343039;
 }
 .active_color{
   color:#fff;
@@ -584,7 +591,7 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
     border-color: #181924!important;
 }
 .message_box .btn-group {
-  width: 50%;
+  width: 60%;
 }
 .message_box button.multiselect.dropdown-toggle.btn.btn-default{
   text-align:left;
@@ -648,4 +655,11 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 .chatBox.conversation-list .ctext-wrap:after{
   border-top-color: #393a42;  
   border-right-color: #393a42;
+}
+.setColorTitle{
+  color:#d8d8d8;
+}
+.instructor_card_border{
+  background:#1f1b24;
+  border: 1px solid #181924;
 }
