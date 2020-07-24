@@ -2,7 +2,7 @@
 	$status_wise_courses = $this->crud_model->get_status_wise_courses_for_instructor();
  ?>
 <!-- ========== Left Sidebar Start ========== -->
-<div class="left-side-menu left-side-menu-detached leftsidebar">
+<div class="left-side-menu left-side-menu-detached leftsidebar shadow-none">
 	<div class="leftbar-user instructor_profile_bg">
 		<a href="javascript: void(0);">
 			<div class="profile_left">

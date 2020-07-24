@@ -2,24 +2,24 @@
     <div class="col-xl-12">
         <div class="instructor_title_bg">
             <div class="card-body setPageTitle">
-                <h4 class="page-title"> 
+                <h5 class="page-title setColorTitle"> 
                     <i class="dripicons-message title_icon setIconHead"></i> <?php echo get_phrase('private_message'); ?>
-                </h4>
+                </h5>
             </div> <!-- end card body-->
         </div> <!-- end card -->
     </div><!-- end col-->
 </div>
 <div class="instructor_main_content">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="card">
+    <div class="">
+        <div class="card box-shadow-none">
+            <div class="instructor_info_bg">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
 
                             <!-- compose new email button -->
                             <div class="mail-sidebar-row visible-xs">
-                                <a href="<?php echo site_url('instructor/message/message_new');?>" class="btn btn-primary btn-block">
+                                <a href="<?php echo site_url('instructor/message/message_new');?>" class="btn btn-primary box-shadow-none btn-block">
                                     <?php echo get_phrase('new_message');?>
                                     <i class="mdi mdi-pencil float-right"></i>
                                 </a>
@@ -46,7 +46,7 @@
                                     $unread_message_number = $this->crud_model->count_unread_message_of_thread($row['message_thread_code']);
                                     ?>
                                     <li class="nav-item">
-                                        <a class="text-left mb-1 btn btn-light d-block <?php if (isset($current_message_thread_code) && $current_message_thread_code == $row['message_thread_code'])echo 'active';?>" href="<?php echo site_url('instructor/message/message_read/' . $row['message_thread_code']);?>">
+                                        <a class="text-left mb-1 btn form_control_bg d-block <?php if (isset($current_message_thread_code) && $current_message_thread_code == $row['message_thread_code'])echo 'active';?>" href="<?php echo site_url('instructor/message/message_read/' . $row['message_thread_code']);?>">
 
                                             <?php
                                                 $user_details = $this->db->get_where('users' , array('id' => $user_to_show_id))->row_array();

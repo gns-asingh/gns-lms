@@ -9,7 +9,8 @@
     <div class="col-xl-12">
         <div class="instructor_title_bg">
             <div class="card-body setPageTitle">
-                <h4 class="page-title"> <i class="dripicons-view-apps title_icon setIconHead"></i> <?php echo get_phrase('dashboard'); ?></h4>
+                <h5 class="page-title setColorTitle"> <i class="dripicons-view-apps title_icon setIconHead"></i> 
+                <?php echo get_phrase('dashboard'); ?></h5>
             </div> <!-- end card body-->
         </div> <!-- end card -->
     </div><!-- end col-->
@@ -26,7 +27,7 @@
                             <div class="col-sm-6 col-xl-3">
                                 <div class="boxInfo">
                                     <a href="<?php echo site_url('instructor/courses'); ?>" class="text-secondary">
-                                        <div class="card shadow-none m-0">
+                                        <div class="card shadow-none m-0 instructor_box_bg">
                                             <div class="text-center instructor_box1">
                                                <div class="instructor_box_icon"> 
                                                    <i class="dripicons-archive iconColor" style="font-size: 24px;"></i>
@@ -46,9 +47,9 @@
                             <div class="col-sm-6 col-xl-3">
                                 <div class="boxInfo1">
                                     <a href="<?php echo site_url('instructor/courses'); ?>" class="text-secondary">
-                                        <div class="card shadow-none m-0">
+                                        <div class="card shadow-none m-0 instructor_box_bg">
                                             <div class="text-center  instructor_box1">
-                                                <div class="instructor_box_icon bg-warning"> 
+                                                <div class="instructor_box_icon"> 
                                                     <i class="dripicons-camcorder iconColor" style="font-size: 24px;"></i>
                                                 </div>
                                                 <div class="instructor_box_content"> 
@@ -66,9 +67,9 @@
                             <div class="col-sm-6 col-xl-3">
                                 <div class="boxInfo2">
                                     <a href="<?php echo site_url('instructor/enrol_history'); ?>" class="text-secondary">
-                                        <div class="card shadow-none m-0">
+                                        <div class="card shadow-none m-0 instructor_box_bg">
                                             <div class="text-center  instructor_box1">
-                                                <div class="instructor_box_icon bg-success">
+                                                <div class="instructor_box_icon">
                                                     <i class="dripicons-network-3 iconColor" style="font-size: 24px;"></i>
                                                 </div>
                                                 <div class="instructor_box_content"> 
@@ -86,9 +87,9 @@
                             <div class="col-sm-6 col-xl-3">
                                 <div class="boxInfo3">
                                     <a href="<?php echo site_url('instructor/users'); ?>" class="text-secondary">
-                                        <div class="card shadow-none m-0">
+                                        <div class="card shadow-none m-0 instructor_box_bg">
                                             <div class="text-center instructor_box1">
-                                                <div class="instructor_box_icon bg-danger">
+                                                <div class="instructor_box_icon">
                                                     <i class="dripicons-user-group iconColor" style="font-size: 24px;"></i>
                                                 </div>
                                                 <div class="instructor_box_content"> 
@@ -110,8 +111,9 @@
         </div>
         <div class="row">
             <div class="col-xl-4">
-                <div class="card">
-                    <div>
+                <div class="card shadow-none">
+
+                    <div class="instructor_card_border">
                         <div class="instructor_card_title">
                             <h4 class="header-title m-0"><?php echo get_phrase('course_overview'); ?></h4>
                         </div>

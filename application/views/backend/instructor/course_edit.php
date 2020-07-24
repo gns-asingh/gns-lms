@@ -3,25 +3,30 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 ?>
 <div class="row ">
     <div class="col-xl-12">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="page-title"> <i class="mdi mdi-apple-keyboard-command title_icon"></i> <?php echo get_phrase('update').': '.$course_details['title']; ?></h4>
+        <div class="instructor_title_bg">
+            <div class="card-body setPageTitle">
+                <h5 class="page-title setColorTitle"> 
+                    <i class="dripicons-archive setIconHead title_icon"></i> 
+                    <?php echo get_phrase('update').': '.$course_details['title']; ?>
+                </h5>
             </div> <!-- end card body-->
         </div> <!-- end card -->
     </div><!-- end col-->
 </div>
-
+<div class="instructor_main_content">
 <div class="row">
     <div class="col-xl-12">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="header-title mb-3"><?php echo get_phrase('course_manager'); ?>
-                    <a href="<?php echo site_url('instructor/preview/'.$course_id); ?>" class="alignToTitle btn btn-outline-secondary btn-rounded btn-sm ml-1" target="_blank"><?php echo get_phrase('view_on_frontend'); ?> <i class="mdi mdi-arrow-right"></i> </a>
-                    <a href="<?php echo site_url('instructor/courses'); ?>" class="alignToTitle btn btn-outline-secondary btn-rounded btn-sm"> <i class=" mdi mdi-keyboard-backspace"></i> <?php echo get_phrase('back_to_course_list'); ?></a>
-                </h4>
+        <div class="card shadow-none">
+            <div class="instructor_info_bg">
+                <div class="instructor_card_title">
+                    <h5 class="header-title mb-1 setColorTitle"><?php echo get_phrase('course_manager'); ?>
+                        <a href="<?php echo site_url('instructor/preview/'.$course_id); ?>" class="alignToTitle add_btn_set btn btn-secondary shadow-none btn-rounded btn-sm ml-1" target="_blank"><?php echo get_phrase('view_on_frontend'); ?> <i class="mdi mdi-arrow-right"></i> </a>
+                        <a href="<?php echo site_url('instructor/courses'); ?>" class="alignToTitle add_btn_set btn btn-secondary shadow-none  btn-rounded btn-sm"> <i class=" mdi mdi-keyboard-backspace"></i> <?php echo get_phrase('back_to_course_list'); ?></a>
+                    </h5>
+                </div>
 
-                <div class="row">
-                    <div class="col-xl-12">
+                <div class="card-body">
+                    <div>
                         <form class="required-form" action="<?php echo site_url('instructor/course_actions/edit/'.$course_id); ?>" method="post" enctype="multipart/form-data">
                             <div id="basicwizard">
                                 <ul class="nav nav-pills nav-justified form-wizard-header mb-3">
@@ -418,6 +423,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
     </div><!-- end row-->
 </div> <!-- end card-body-->
 </div> <!-- end card-->
+</div>
 </div>
 </div>
 
