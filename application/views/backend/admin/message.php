@@ -47,7 +47,7 @@
                                 $unread_message_number = $this->crud_model->count_unread_message_of_thread($row['message_thread_code']);
                                 ?>
                                 <li class="nav-item">
-                                    <a class="text-left mb-1 btn btn-light d-block <?php if (isset($current_message_thread_code) && $current_message_thread_code == $row['message_thread_code'])echo 'active';?>" href="<?php echo site_url('admin/message/message_read/' . $row['message_thread_code']);?>">
+                                    <a class="text-left mb-1 btn form_control_bg d-block <?php if (isset($current_message_thread_code) && $current_message_thread_code == $row['message_thread_code'])echo 'active';?>" href="<?php echo site_url('admin/message/message_read/' . $row['message_thread_code']);?>">
 
                                         <?php
                                             $user_details = $this->db->get_where('users' , array('id' => $user_to_show_id))->row_array();

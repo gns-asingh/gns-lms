@@ -2,7 +2,7 @@
     <div class="col-xl-12">
         <div class="instructor_title_bg">
             <div class="card-body setPageTitle">
-                <h4 class="page-title"> <i class="dripicons-archive setIconHead title_icon"></i> <?php echo get_phrase('add_new_course'); ?></h4>
+                <h5 class="page-title setColorTitle"> <i class="dripicons-archive setIconHead title_icon"></i> <?php echo get_phrase('add_new_course'); ?></h5>
             </div> <!-- end card body-->
         </div> <!-- end card -->
     </div><!-- end col-->
@@ -10,12 +10,12 @@
 <div class="instructor_main_content">
 <div class="row">
     <div class="col-xl-12">
-        <div class="card mb-0">
-            <div>
+        <div class="card mb-0 shadow-none">
+            <div class="instructor_info_bg">
                 <div class="instructor_card_title">
-                    <h4 class="header-title mb-1"><?php echo get_phrase('course_adding_form'); ?>
-                        <a href="<?php echo site_url('instructor/courses'); ?>" class="alignToTitle backtocourse btn btn-primary btn-rounded btn-sm"> <i class=" mdi mdi-keyboard-backspace"></i> <?php echo get_phrase('back_to_course_list'); ?></a>
-                    </h4>
+                    <h5 class="header-title mb-1 setColorTitle"><?php echo get_phrase('course_adding_form'); ?>
+                        <a href="<?php echo site_url('instructor/courses'); ?>" class="alignToTitle backtocourse btn btn-primary shadow-none btn-rounded btn-sm"> <i class=" mdi mdi-keyboard-backspace"></i> <?php echo get_phrase('back_to_course_list'); ?></a>
+                    </h5>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -75,19 +75,21 @@
                                                     <div class="form-group row mb-3">
                                                         <label class="col-md-2 col-form-label" for="course_title"><?php echo get_phrase('course_title'); ?> <span class="required">*</span> </label>
                                                         <div class="col-md-10">
-                                                            <input type="text" class="form-control" id="course_title" name = "title" placeholder="<?php echo get_phrase('enter_course_title'); ?>" required>
+                                                            <input type="text" class="form-control form_control_bg" id="course_title" name = "title" placeholder="<?php echo get_phrase('enter_course_title'); ?>" required>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row mb-3">
                                                         <label class="col-md-2 col-form-label" for="short_description"><?php echo get_phrase('short_description'); ?></label>
                                                         <div class="col-md-10">
-                                                            <textarea name="short_description" id = "short_description" class="form-control"></textarea>
+                                                            <textarea name="short_description" id = "short_description" class="form_control_bg form-control"></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row mb-3">
                                                         <label class="col-md-2 col-form-label" for="description"><?php echo get_phrase('description'); ?></label>
                                                         <div class="col-md-10">
-                                                            <textarea name="description" id = "description" class="form-control"></textarea>
+                                                            <div class="summernote">
+                                                                <textarea name="description" id = "description" class="form-control"></textarea>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row mb-3">
@@ -149,22 +151,22 @@
                                                             <div class="d-flex mt-2">
                                                                 <div class="flex-grow-1 px-3">
                                                                     <div class="form-group">
-                                                                        <input type="text" class="form-control" name="requirements[]" id="requirements" placeholder="<?php echo get_phrase('provide_requirements'); ?>">
+                                                                        <input type="text" class="form-control form_control_bg" name="requirements[]" id="requirements" placeholder="<?php echo get_phrase('provide_requirements'); ?>">
                                                                     </div>
                                                                 </div>
                                                                 <div class="">
-                                                                    <button type="button" class="btn btn-success btn-sm" style="" name="button" onclick="appendRequirement()"> <i class="fa fa-plus"></i> </button>
+                                                                    <button type="button" class="btn btn-success shadow-none btn-sm" style="" name="button" onclick="appendRequirement()"> <i class="fa fa-plus"></i> </button>
                                                                 </div>
                                                             </div>
                                                             <div id = "blank_requirement_field">
                                                                 <div class="d-flex mt-2">
                                                                     <div class="flex-grow-1 px-3">
                                                                         <div class="form-group">
-                                                                            <input type="text" class="form-control" name="requirements[]" id="requirements" placeholder="<?php echo get_phrase('provide_requirements'); ?>">
+                                                                            <input type="text" class="form-control form_control_bg" name="requirements[]" id="requirements" placeholder="<?php echo get_phrase('provide_requirements'); ?>">
                                                                         </div>
                                                                     </div>
                                                                     <div class="">
-                                                                        <button type="button" class="btn btn-danger btn-sm" style="margin-top: 0px;" name="button" onclick="removeRequirement(this)"> <i class="fa fa-minus"></i> </button>
+                                                                        <button type="button" class="btn btn-danger shadow-none btn-sm" style="margin-top: 0px;" name="button" onclick="removeRequirement(this)"> <i class="fa fa-minus"></i> </button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -185,22 +187,22 @@
                                                             <div class="d-flex mt-2">
                                                                 <div class="flex-grow-1 px-3">
                                                                     <div class="form-group">
-                                                                        <input type="text" class="form-control" name="outcomes[]" id="outcomes" placeholder="<?php echo get_phrase('provide_outcomes'); ?>">
+                                                                        <input type="text" class="form-control form_control_bg" name="outcomes[]" id="outcomes" placeholder="<?php echo get_phrase('provide_outcomes'); ?>">
                                                                     </div>
                                                                 </div>
                                                                 <div class="">
-                                                                    <button type="button" class="btn btn-success btn-sm" name="button" onclick="appendOutcome()"> <i class="fa fa-plus"></i> </button>
+                                                                    <button type="button" class="btn btn-success shadow-none btn-sm" name="button" onclick="appendOutcome()"> <i class="fa fa-plus"></i> </button>
                                                                 </div>
                                                             </div>
                                                             <div id = "blank_outcome_field">
                                                                 <div class="d-flex mt-2">
                                                                     <div class="flex-grow-1 px-3">
                                                                         <div class="form-group">
-                                                                            <input type="text" class="form-control" name="outcomes[]" id="outcomes" placeholder="<?php echo get_phrase('provide_outcomes'); ?>">
+                                                                            <input type="text" class="form-control form_control_bg" name="outcomes[]" id="outcomes" placeholder="<?php echo get_phrase('provide_outcomes'); ?>">
                                                                         </div>
                                                                     </div>
                                                                     <div class="">
-                                                                        <button type="button" class="btn btn-danger btn-sm" style="margin-top: 0px;" name="button" onclick="removeOutcome(this)"> <i class="fa fa-minus"></i> </button>
+                                                                        <button type="button" class="btn btn-danger shadow-none btn-sm" style="margin-top: 0px;" name="button" onclick="removeOutcome(this)"> <i class="fa fa-minus"></i> </button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -226,7 +228,7 @@
                                                 <div class="form-group row mb-3">
                                                     <label class="col-md-2 col-form-label" for="price"><?php echo get_phrase('course_price').' ('.currency_code_and_symbol().')'; ?></label>
                                                     <div class="col-md-10">
-                                                        <input type="number" class="form-control" id="price" name = "price" placeholder="<?php echo get_phrase('enter_course_course_price'); ?>" min="0">
+                                                        <input type="number" class="form-control form_control_bg" id="price" name = "price" placeholder="<?php echo get_phrase('enter_course_course_price'); ?>" min="0">
                                                     </div>
                                                 </div>
 
@@ -242,7 +244,7 @@
                                                 <div class="form-group row mb-3">
                                                     <label class="col-md-2 col-form-label" for="discounted_price"><?php echo get_phrase('discounted_price').' ('.currency_code_and_symbol().')'; ?></label>
                                                     <div class="col-md-10">
-                                                        <input type="number" class="form-control" name="discounted_price" id="discounted_price" onkeyup="calculateDiscountPercentage(this.value)" min="0">
+                                                        <input type="number" class="form-control form_control_bg" name="discounted_price" id="discounted_price" onkeyup="calculateDiscountPercentage(this.value)" min="0">
                                                         <small class="text-muted"><?php echo get_phrase('this_course_has'); ?> <span id = "discounted_percentage" class="text-danger">0%</span> <?php echo get_phrase('discount'); ?></small>
                                                     </div>
                                                 </div>
@@ -270,7 +272,7 @@
                                                 <div class="form-group row mb-3">
                                                     <label class="col-md-2 col-form-label" for="course_overview_url"><?php echo get_phrase('course_overview_url'); ?></label>
                                                     <div class="col-md-10">
-                                                        <input type="text" class="form-control" name="course_overview_url" id="course_overview_url" placeholder="E.g: https://www.youtube.com/watch?v=oBtf8Yglw2w">
+                                                        <input type="text" class="form-control form_control_bg" name="course_overview_url" id="course_overview_url" placeholder="E.g: https://www.youtube.com/watch?v=oBtf8Yglw2w">
                                                     </div>
                                                 </div>
                                             </div> <!-- end col -->
@@ -299,7 +301,9 @@
                                                 <div class="form-group row mb-3">
                                                     <label class="col-md-2 col-form-label" for="website_keywords"><?php echo get_phrase('meta_keywords'); ?></label>
                                                     <div class="col-md-10">
-                                                        <input type="text" class="form-control bootstrap-tag-input" id = "meta_keywords" name="meta_keywords" data-role="tagsinput" style="width: 100%;"/>
+                                                        <div class="bootstraptag">
+                                                            <input type="text" class="form-control bootstrap-tag-input" id = "meta_keywords" name="meta_keywords" data-role="tagsinput" style="width: 100%;"/>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div> <!-- end col -->
@@ -307,7 +311,7 @@
                                                 <div class="form-group row mb-3">
                                                     <label class="col-md-2 col-form-label" for="meta_description"><?php echo get_phrase('meta_description'); ?></label>
                                                     <div class="col-md-10">
-                                                        <textarea name="meta_description" class="form-control"></textarea>
+                                                        <textarea name="meta_description" class="form-control form_control_bg"></textarea>
                                                     </div>
                                                 </div>
                                             </div> <!-- end col -->
@@ -323,7 +327,7 @@
                                                     <p class="w-75 mb-2 mx-auto"><?php echo get_phrase('you_are_just_one_click_away'); ?></p>
 
                                                     <div class="mb-3 mt-3">
-                                                        <button type="button" class="btn btn-primary text-center" onclick="checkRequiredFields()"><?php echo get_phrase('submit'); ?></button>
+                                                        <button type="button" class="btn btn-primary box-shadow-none text-center" onclick="checkRequiredFields()"><?php echo get_phrase('submit'); ?></button>
                                                     </div>
                                                 </div>
                                             </div> <!-- end col -->
@@ -332,10 +336,10 @@
 
                                     <ul class="list-inline mb-0 wizard text-center">
                                         <li class="previous list-inline-item">
-                                            <a href="javascript::" class="btn btn-info"> <i class="mdi mdi-arrow-left-bold"></i> </a>
+                                            <a href="javascript::" class="btn btn-info shadow-none"> <i class="mdi mdi-arrow-left-bold"></i> </a>
                                         </li>
                                         <li class="next list-inline-item">
-                                            <a href="javascript::" class="btn btn-info"> <i class="mdi mdi-arrow-right-bold"></i> </a>
+                                            <a href="javascript::" class="btn btn-info shadow-none"> <i class="mdi mdi-arrow-right-bold"></i> </a>
                                         </li>
                                     </ul>
 

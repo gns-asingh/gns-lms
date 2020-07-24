@@ -90,7 +90,9 @@
                                                         <div class="form-group row mb-3">
                                                             <label class="col-md-2 col-form-label" for="description"><?php echo get_phrase('description'); ?></label>
                                                             <div class="col-md-10">
-                                                                <textarea name="description" id = "description" class="form-control form_control_bg"></textarea>
+                                                                <div class="summernote">
+                                                                    <textarea name="description" id = "description" class="form-control form_control_bg"></textarea>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row mb-3">

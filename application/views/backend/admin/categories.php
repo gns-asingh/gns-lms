@@ -6,7 +6,7 @@
                     <!-- <i class="mdi mdi-apple-keyboard-command title_icon"></i>  -->
                     <i class="dripicons-network-1 title_icon"></i>
                     <span style="vertical-align:middle;position:relative;top:2px;"> <?php echo get_phrase('categories'); ?></span>
-                  <a href="<?php echo site_url('admin/category_form/add_category'); ?>" class="btn btn-outline-primary btn_line_height btn-rounded alignToTitle admin_add_category"><i class="mdi mdi-plus"></i><?php echo get_phrase('add_new_category'); ?></a>
+                  <a href="<?php echo site_url('admin/category_form/add_category'); ?>" class="btn btn-primary box-shadow-none btn_line_height btn-rounded alignToTitle admin_add_category"><i class="mdi mdi-plus"></i><?php echo get_phrase('add_new_category'); ?></a>
                 </h4>
             </div> <!-- end card body-->
         </div> <!-- end card -->
@@ -19,7 +19,7 @@
             continue;
             $sub_categories = $this->crud_model->get_sub_categories($category['id']); ?>
             <div class="col-md-6 col-lg-6 col-xl-4 on-hover-action" id = "<?php echo $category['id']; ?>">
-                <div class="card d-block" style="border: 1px solid #151515;">
+                <div class="card d-block admin_card_border box-shadow-none" style="border: 1px solid #151515;">
                     <div style="width:100%;height:202px;">
                         <img class="card-img-top" style="height:100%;" src="<?php echo base_url('uploads/thumbnails/category_thumbnails/'.$category['thumbnail']); ?>" alt="Card image cap">
                     </div>
@@ -30,7 +30,7 @@
 
                     <ul class="list-group list-group-flush">
                         <?php foreach ($sub_categories as $sub_category): ?>
-                            <li class="list-group-item on-hover-action" id = "<?php echo $sub_category['id']; ?>">
+                            <li class="list-group-item on-hover-action admin_card_border" id = "<?php echo $sub_category['id']; ?>">
                                 <span><i class="<?php echo $sub_category['font_awesome_class']; ?>"></i> <?php echo $sub_category['name']; ?></span>
                                 <span class="category-action" id = 'category-delete-btn-<?php echo $sub_category['id']; ?>' style="float: right; margin-left: 5px; display: none; height: 20px;">
                                     <a href="javascript::" class="action-icon" onclick="confirm_modal('<?php echo site_url('admin/categories/delete/'.$sub_category['id']); ?>');"> <i class="mdi mdi-delete" style="font-size: 18px;"></i></a>
@@ -41,11 +41,11 @@
                             </li>
                         <?php endforeach; ?>
                     </ul>
-                    <div class="card-body">
-                        <a href = "<?php echo site_url('admin/category_form/edit_category/'.$category['id']); ?>" class="btn btn-icon btn-info btn-sm" id = "category-edit-btn-<?php echo $category['id']; ?>" style="display: none;" style="margin-right:5px;">
+                    <div class="card-body admin_card_footer">
+                        <a href = "<?php echo site_url('admin/category_form/edit_category/'.$category['id']); ?>" class="btn btn-icon box-shadow-none btn-info btn-sm" id = "category-edit-btn-<?php echo $category['id']; ?>" style="display: none;" style="margin-right:5px;">
                             <i class="mdi mdi-wrench"></i> <?php echo get_phrase('edit'); ?>
                         </a>
-                        <a href = "#" class="btn btn-icon btn-danger btn-sm" id = "category-delete-btn-<?php echo $category['id']; ?>"style="float: right; display: none;" onclick="confirm_modal('<?php echo site_url('admin/categories/delete/'.$category['id']); ?>');" style="margin-right:5px;">
+                        <a href = "#" class="btn btn-icon box-shadow-none btn-danger btn-sm" id = "category-delete-btn-<?php echo $category['id']; ?>"style="float: right; display: none;" onclick="confirm_modal('<?php echo site_url('admin/categories/delete/'.$category['id']); ?>');" style="margin-right:5px;">
                             <i class="mdi mdi-delete"></i> <?php echo get_phrase('delete'); ?>
                         </a>
                     </div> <!-- end card-body-->

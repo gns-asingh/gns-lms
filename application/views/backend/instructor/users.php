@@ -2,10 +2,10 @@
     <div class="col-xl-12">
         <div class="instructor_title_bg">
             <div class="card-body setPageTitle">
-                <h4 class="page-title"> 
+                <h5 class="page-title setColorTitle"> 
                     <i class="dripicons-user-group title_icon setIconHead"></i> <?php echo get_phrase('trainee'); ?>
             <!--    <a href = "<?php echo site_url('instructor/user_form/add_user_form'); ?>" class="btn btn-outline-primary btn-rounded alignToTitle"><i class="mdi mdi-plus"></i><?php echo get_phrase('add_trainee'); ?></a> -->
-                </h4>
+                </h5>
             </div> <!-- end card body-->
         </div> <!-- end card -->
     </div><!-- end col-->
@@ -14,14 +14,14 @@
     <div class="">
         <div class="row">
             <div class="col-xl-12">
-                <div class="card">
-                    <div class="boxInfo">
+                <div class="card box-shadow-none">
+                    <div class="instructor_info_bg">
                         <div class="instructor_card_title">
-                            <h4 class="mb-0 header-title"><?php echo get_phrase('trainee'); ?></h4>
+                            <h5 class="mb-0 header-title setColorTitle"><?php echo get_phrase('trainee'); ?></h5>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive-sm mt-4">
-                                <table id="basic-datatable" class="table table-striped table-bordered table-centered mb-0">
+                            <div class="table-responsive-sm mt-4 datatable_input">
+                                <table id="basic-datatable" class="table table-bg table-centered mb-0">
                                     <thead class="table_thead">
                                         <tr>
                                         <th>#</th>

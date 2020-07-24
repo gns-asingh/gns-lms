@@ -102,7 +102,9 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                         <div class="form-group row mb-3">
                                                             <label class="col-md-2 col-form-label" for="description"><?php echo get_phrase('description'); ?></label>
                                                             <div class="col-md-10">
-                                                                <textarea name="description" id = "description" class="form-control form_control_bg"><?php echo $course_details['description']; ?></textarea>
+                                                                <div class="summernote">
+                                                                    <textarea name="description" id = "description" class="form-control form_control_bg"><?php echo $course_details['description']; ?></textarea>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row mb-3">
@@ -412,7 +414,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                             <p class="w-75 mb-2 mx-auto"><?php echo get_phrase('you_are_just_one_click_away'); ?></p>
 
                                                             <div class="mb-3 mt-3">
-                                                                <button type="button" class="btn btn-primary text-center" onclick="checkRequiredFields()"><?php echo get_phrase('submit'); ?></button>
+                                                                <button type="button" class="btn btn-primary text-center box-shadow-none" onclick="checkRequiredFields()"><?php echo get_phrase('submit'); ?></button>
                                                             </div>
                                                         </div>
                                                     </div> <!-- end col -->
