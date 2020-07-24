@@ -1728,14 +1728,15 @@ section.course-header-area {
     course sidebar
 */
 .course-sidebar {
-    background-color: #fff;
-    box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
+    background-color: #23242d;
+    /* box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1); */
     border-radius: 4px;
-    color: #505763;
+    color: #d0d0d0;
     padding: 3px;
     position: relative;
     margin-top: -250px;
     z-index: 10;
+    border: 1px solid #121212;
 }
 .course-sidebar.fixed {
     position: fixed;
@@ -1889,7 +1890,7 @@ section.course-header-area {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(hsla(0,0%,100%,0),hsla(0,0%,100%,.95),#fff);
+    /* background: linear-gradient(hsla(0,0%,100%,0),hsla(0,0%,100%,.95),#fff); */
     display: block;
     padding: 30px 3px 3px 3px;
     color: #007791;
@@ -1917,7 +1918,9 @@ section.course-header-area {
     max-height: 260px;
     margin-top: 40px;
     margin-bottom: 40px;
-    border: 1px solid #ddd;
+   
+    background-color: #23242d;
+    border: 1px solid #181924;
 }
 .description-box ul{
     list-style: disc;
@@ -1927,7 +1930,8 @@ section.course-header-area {
     font-size: 16px;
     font-weight: 600;
     margin: 0;
-    background: #00bcd4;
+    background-color: #20202a;
+    border-bottom: 1px solid #181924;
     padding: 10px 10px;
     color: #fff;
 }
@@ -1943,7 +1947,7 @@ section.course-header-area {
     margin-bottom: 0;
 }
 .description-content{
-    background: #fff;
+    color: #d0d0d0;
     padding: 10px 10px;
 }
 
@@ -1951,10 +1955,12 @@ section.course-header-area {
 
 
 .what-you-get-box {
-    background-color: #f9f9f9;
-    border: 1px solid #dedfe0;
+    /* background-color: #f9f9f9;
+    border: 1px solid #dedfe0; */
     /* padding: 10px 15px; */
     margin-top: 40px;
+    background-color: #23242d;
+    border: 1px solid #181924;
 }
 
 .what-you-get-box .what-you-get-title {
@@ -1963,7 +1969,9 @@ section.course-header-area {
     font-size: 16px;
     font-weight: 600;
     margin: 0;
-    background: #00BCD4;
+    /* background: #00BCD4; */
+    background-color: #20202a;
+    border-bottom: 1px solid #181924;
     padding: 10px 10px;
     color: #fff;
 }
@@ -1976,7 +1984,7 @@ section.course-header-area {
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 10px 20px;
-    background: #fff;
+    color: #d0d0d0;
 }
 .what-you-get-box ul li{
     display: flex;
@@ -2007,12 +2015,16 @@ section.course-header-area {
 
 .requirements-box{
     margin-top: 20px;
+    background-color: #23242d;
+    border: 1px solid #181924;
+
 }
 .requirements-box .requirements-title {
     font-size: 16px;
     font-weight: 600;
     margin: 0;
-    background: #00bcd4;
+    background-color: #20202a;
+    border-bottom: 1px solid #181924;
     padding: 10px 10px;
     color: #fff;
 }
@@ -2026,7 +2038,6 @@ section.course-header-area {
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 10px 20px;
-    background: #fff;
 }
 .requirements-box .requirements__list li{
     display: flex;
@@ -2210,7 +2221,8 @@ section.course-header-area {
     font-size: 16px;
     font-weight: 600;
     margin: 0;
-    background: #00bcd4;
+    background-color: #20202a;
+    border-bottom: 1px solid #181924;
     color: #fff;
     padding: 10px 10px;
 }
@@ -2248,6 +2260,8 @@ section.course-header-area {
 
 .about-instructor-box {
     margin-bottom: 40px;
+    background-color: #23242d;
+    border: 1px solid #181924;
 }
 
 .about-instructor-details .instructor-name {
@@ -2265,15 +2279,16 @@ section.course-header-area {
 }
 .student-feedback-box {
     margin: 20px 0;
-    background:#fff;
-    border: 1px solid #ddd;
+    background-color: #23242d;
+    border: 1px solid #181924;
 }
 
 .student-feedback-box .student-feedback-title {
     font-size: 16px;
     font-weight: 600;
     margin: 0;
-    background: #00bcd4;
+    background-color: #20202a;
+    border-bottom: 1px solid #181924;
     color: #fff;
     padding: 10px 10px;
 }
@@ -2281,7 +2296,7 @@ section.course-header-area {
 .student-feedback-box .average-rating {
     text-align: center;
     margin-top: 0px;
-    background: #fff;
+    color: #d0d0d0;
     padding: 10px 10px;
 }
 
@@ -2415,6 +2430,9 @@ section.course-header-area {
 
 .course-curriculum-box {
     margin-bottom: 25px;
+    background-color: #23242d;
+    border: 1px solid #181924;
+
 }
 .course-curriculum-box .course-curriculum-title .title {
     font-size: 16px;
@@ -2451,7 +2469,9 @@ section.course-header-area {
 
 .course-curriculum-box .course-curriculum-title {
     padding-right: 31px;
-    background: #00bcd4;
+    /* background: #00bcd4; */
+    background-color: #20202a;
+    border-bottom: 1px solid #181924;
     color: #fff;
     padding: 10px 10px;
 }
@@ -4391,20 +4411,16 @@ div.tagsinput span.tag a {
     font-weight: 600;
 }
 .course_accordian{
-    background: #fff;
+    color: #d0d0d0;
     padding: 10px 10px;
-    border:1px solid #ddd;
 }
 .requirements-content{
-    background: #fff;
-    border: 1px solid #ddd;
+    color: #d0d0d0;
     padding: 10px 10px;
 }
-
 .instructor_box{
-    background:#fff;
+    color:#d0d0d0;
     padding:10px 10px;
-    border: 1px solid #ddd;
 }
 .home_page_info_title{
     /* background: #2196F3; */
@@ -4443,8 +4459,9 @@ div.tagsinput span.tag a {
 .reviews-title{
     font-size: 16px;
     font-weight: 600;
-    margin: 0;
-    background: #00bcd4;
+    margin: 0;    
+    background-color: #20202a;
+    border-bottom: 1px solid #181924;;
     color: #fff;
     padding: 10px 10px;
 }
@@ -4457,7 +4474,7 @@ div.tagsinput span.tag a {
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 10px 20px;
-    background: #fff;
+    color: #d0d0d0;
 }
 .review_list li{
     display: flex;
@@ -4468,8 +4485,7 @@ div.tagsinput span.tag a {
     position: relative;
 }
 .review_list_bg{
-    background:#fff;
-    border:1px solid #ddd;
+    color:#d0d0d0;
     margin-bottom: 20px;
     padding: 10px 10px;
 }
@@ -4625,9 +4641,17 @@ float: left;
   .home_page_icon{
     font-size: 50px; padding-top: 47px;margin-bottom:20px;color:#424242;
   }
-
-
-
+.trainee_course_bg{
+    background:#0a0b18;
+}
+.reviews{
+    background-color: #23242d;
+    border: 1px solid #181924;
+    margin-bottom: 40px;
+}
+.instructor-name a{
+    color:#d0d0d0;
+}
 
 
 

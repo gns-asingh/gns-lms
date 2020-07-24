@@ -91,19 +91,21 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                             <div class="form-group row mb-3">
                                                 <label class="col-md-2 col-form-label" for="course_title"><?php echo get_phrase('course_title'); ?><span class="required">*</span></label>
                                                 <div class="col-md-10">
-                                                    <input type="text" class="form-control" id="course_title" name = "title" placeholder="<?php echo get_phrase('enter_course_title'); ?>" value="<?php echo $course_details['title']; ?>" required>
+                                                    <input type="text" class="form-control form_control_bg" id="course_title" name = "title" placeholder="<?php echo get_phrase('enter_course_title'); ?>" value="<?php echo $course_details['title']; ?>" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row mb-3">
                                                 <label class="col-md-2 col-form-label" for="short_description"><?php echo get_phrase('short_description'); ?></label>
                                                 <div class="col-md-10">
-                                                    <textarea name="short_description" id = "short_description" class="form-control"><?php echo $course_details['short_description']; ?></textarea>
+                                                    <textarea name="short_description" id = "short_description" class="form-control form_control_bg"><?php echo $course_details['short_description']; ?></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group row mb-3">
                                                 <label class="col-md-2 col-form-label" for="description"><?php echo get_phrase('description'); ?></label>
                                                 <div class="col-md-10">
-                                                    <textarea name="description" id = "description" class="form-control"><?php echo $course_details['description']; ?></textarea>
+                                                    <div class="summernote">
+                                                        <textarea name="description" id = "description" class="form-control"><?php echo $course_details['description']; ?></textarea>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row mb-3">
@@ -170,22 +172,22 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                                 <div class="d-flex mt-2">
                                                                     <div class="flex-grow-1 px-3">
                                                                         <div class="form-group">
-                                                                            <input type="text" class="form-control" name="requirements[]" id="requirements" placeholder="<?php echo get_phrase('provide_requirements'); ?>" value="<?php echo $requirement; ?>">
+                                                                            <input type="text" class="form-control form_control_bg" name="requirements[]" id="requirements" placeholder="<?php echo get_phrase('provide_requirements'); ?>" value="<?php echo $requirement; ?>">
                                                                         </div>
                                                                     </div>
                                                                     <div class="">
-                                                                        <button type="button" class="btn btn-success btn-sm" style="" name="button" onclick="appendRequirement()"> <i class="fa fa-plus"></i> </button>
+                                                                        <button type="button" class="btn btn-success shadow-none btn-sm" style="" name="button" onclick="appendRequirement()"> <i class="fa fa-plus"></i> </button>
                                                                     </div>
                                                                 </div>
                                                             <?php else: ?>
                                                                 <div class="d-flex mt-2">
                                                                     <div class="flex-grow-1 px-3">
                                                                         <div class="form-group">
-                                                                            <input type="text" class="form-control" name="requirements[]" id="requirements" placeholder="<?php echo get_phrase('provide_requirements'); ?>" value="<?php echo $requirement; ?>">
+                                                                            <input type="text" class="form-control form_control_bg" name="requirements[]" id="requirements" placeholder="<?php echo get_phrase('provide_requirements'); ?>" value="<?php echo $requirement; ?>">
                                                                         </div>
                                                                     </div>
                                                                     <div class="">
-                                                                        <button type="button" class="btn btn-danger btn-sm" style="margin-top: 0px;" name="button" onclick="removeRequirement(this)"> <i class="fa fa-minus"></i> </button>
+                                                                        <button type="button" class="btn btn-danger shadow-none btn-sm" style="margin-top: 0px;" name="button" onclick="removeRequirement(this)"> <i class="fa fa-minus"></i> </button>
                                                                     </div>
                                                                 </div>
                                                             <?php endif; ?>
@@ -194,11 +196,11 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                         <div class="d-flex mt-2">
                                                             <div class="flex-grow-1 px-3">
                                                                 <div class="form-group">
-                                                                    <input type="text" class="form-control" name="requirements[]" id="requirements" placeholder="<?php echo get_phrase('provide_requirements'); ?>">
+                                                                    <input type="text" class="form-control form_control_bg" name="requirements[]" id="requirements" placeholder="<?php echo get_phrase('provide_requirements'); ?>">
                                                                 </div>
                                                             </div>
                                                             <div class="">
-                                                                <button type="button" class="btn btn-success btn-sm" style="" name="button" onclick="appendRequirement()"> <i class="fa fa-plus"></i> </button>
+                                                                <button type="button" class="btn btn-success shadow-none btn-sm" style="" name="button" onclick="appendRequirement()"> <i class="fa fa-plus"></i> </button>
                                                             </div>
                                                         </div>
                                                     <?php endif; ?>
@@ -207,11 +209,11 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                         <div class="d-flex mt-2">
                                                             <div class="flex-grow-1 px-3">
                                                                 <div class="form-group">
-                                                                    <input type="text" class="form-control" name="requirements[]" id="requirements" placeholder="<?php echo get_phrase('provide_requirements'); ?>">
+                                                                    <input type="text" class="form-control form_control_bg" name="requirements[]" id="requirements" placeholder="<?php echo get_phrase('provide_requirements'); ?>">
                                                                 </div>
                                                             </div>
                                                             <div class="">
-                                                                <button type="button" class="btn btn-danger btn-sm" style="margin-top: 0px;" name="button" onclick="removeRequirement(this)"> <i class="fa fa-minus"></i> </button>
+                                                                <button type="button" class="btn btn-danger shadow-none  btn-sm" style="margin-top: 0px;" name="button" onclick="removeRequirement(this)"> <i class="fa fa-minus"></i> </button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -238,22 +240,22 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                             <div class="d-flex mt-2">
                                                                 <div class="flex-grow-1 px-3">
                                                                     <div class="form-group">
-                                                                        <input type="text" class="form-control" name="outcomes[]" placeholder="<?php echo get_phrase('provide_outcomes'); ?>" value="<?php echo $outcome; ?>">
+                                                                        <input type="text" class="form-control form_control_bg" name="outcomes[]" placeholder="<?php echo get_phrase('provide_outcomes'); ?>" value="<?php echo $outcome; ?>">
                                                                     </div>
                                                                 </div>
                                                                 <div class="">
-                                                                    <button type="button" class="btn btn-success btn-sm" name="button" onclick="appendOutcome()"> <i class="fa fa-plus"></i> </button>
+                                                                    <button type="button" class="btn btn-success shadow-none btn-sm" name="button" onclick="appendOutcome()"> <i class="fa fa-plus"></i> </button>
                                                                 </div>
                                                             </div>
                                                         <?php else: ?>
                                                             <div class="d-flex mt-2">
                                                                 <div class="flex-grow-1 px-3">
                                                                     <div class="form-group">
-                                                                        <input type="text" class="form-control" name="outcomes[]"  placeholder="<?php echo get_phrase('provide_outcomes'); ?>" value="<?php echo $outcome; ?>">
+                                                                        <input type="text" class="form-control form_control_bg" name="outcomes[]"  placeholder="<?php echo get_phrase('provide_outcomes'); ?>" value="<?php echo $outcome; ?>">
                                                                     </div>
                                                                 </div>
                                                                 <div class="">
-                                                                    <button type="button" class="btn btn-danger btn-sm" style="margin-top: 0px;" name="button" onclick="removeOutcome(this)"> <i class="fa fa-minus"></i> </button>
+                                                                    <button type="button" class="btn btn-danger shadow-none btn-sm" style="margin-top: 0px;" name="button" onclick="removeOutcome(this)"> <i class="fa fa-minus"></i> </button>
                                                                 </div>
                                                             </div>
                                                         <?php endif; ?>
@@ -262,11 +264,11 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                     <div class="d-flex mt-2">
                                                         <div class="flex-grow-1 px-3">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" name="outcomes[]" placeholder="<?php echo get_phrase('provide_outcomes'); ?>">
+                                                                <input type="text" class="form-control form_control_bg" name="outcomes[]" placeholder="<?php echo get_phrase('provide_outcomes'); ?>">
                                                             </div>
                                                         </div>
                                                         <div class="">
-                                                            <button type="button" class="btn btn-success btn-sm" name="button" onclick="appendOutcome()"> <i class="fa fa-plus"></i> </button>
+                                                            <button type="button" class="btn btn-success shadow-none btn-sm" name="button" onclick="appendOutcome()"> <i class="fa fa-plus"></i> </button>
                                                         </div>
                                                     </div>
                                                 <?php endif; ?>
@@ -274,11 +276,11 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                     <div class="d-flex mt-2">
                                                         <div class="flex-grow-1 px-3">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" name="outcomes[]" id="outcomes" placeholder="<?php echo get_phrase('provide_outcomes'); ?>">
+                                                                <input type="text" class="form-control form_control_bg" name="outcomes[]" id="outcomes" placeholder="<?php echo get_phrase('provide_outcomes'); ?>">
                                                             </div>
                                                         </div>
                                                         <div class="">
-                                                            <button type="button" class="btn btn-danger btn-sm" style="margin-top: 0px;" name="button" onclick="removeOutcome(this)"> <i class="fa fa-minus"></i> </button>
+                                                            <button type="button" class="btn btn-danger shadow-none btn-sm" style="margin-top: 0px;" name="button" onclick="removeOutcome(this)"> <i class="fa fa-minus"></i> </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -304,7 +306,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                     <div class="form-group row mb-3">
                                         <label class="col-md-2 col-form-label" for="price"><?php echo get_phrase('course_price').' ('.currency_code_and_symbol().')'; ?></label>
                                         <div class="col-md-10">
-                                            <input type="number" class="form-control" id="price" name = "price" min="0" placeholder="<?php echo get_phrase('enter_course_course_price'); ?>" value="<?php echo $course_details['price']; ?>" >
+                                            <input type="number" class="form-control form_control_bg" id="price" name = "price" min="0" placeholder="<?php echo get_phrase('enter_course_course_price'); ?>" value="<?php echo $course_details['price']; ?>" >
                                         </div>
                                     </div>
 
@@ -320,7 +322,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                     <div class="form-group row mb-3">
                                         <label class="col-md-2 col-form-label" for="discounted_price"><?php echo get_phrase('discounted_price').' ('.currency_code_and_symbol().')'; ?></label>
                                         <div class="col-md-10">
-                                            <input type="number" class="form-control" name="discounted_price" id="discounted_price" onkeyup="calculateDiscountPercentage(this.value)" value="<?php echo $course_details['discounted_price']; ?>" min="0">
+                                            <input type="number" class="form-control form_control_bg" name="discounted_price" id="discounted_price" onkeyup="calculateDiscountPercentage(this.value)" value="<?php echo $course_details['discounted_price']; ?>" min="0">
                                             <small class="text-muted"><?php echo get_phrase('this_course_has'); ?> <span id = "discounted_percentage" class="text-danger">0%</span> <?php echo get_phrase('discount'); ?></small>
                                         </div>
                                     </div>
@@ -347,7 +349,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                     <div class="form-group row mb-3">
                                         <label class="col-md-2 col-form-label" for="course_overview_url"><?php echo get_phrase('course_overview_url'); ?></label>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control" name="course_overview_url" id="course_overview_url" placeholder="E.g: https://www.youtube.com/watch?v=oBtf8Yglw2w" value="<?php echo $course_details['video_url'] ?>">
+                                            <input type="text" class="form-control form_control_bg" name="course_overview_url" id="course_overview_url" placeholder="E.g: https://www.youtube.com/watch?v=oBtf8Yglw2w" value="<?php echo $course_details['video_url'] ?>">
                                         </div>
                                     </div>
                                 </div> <!-- end col -->
@@ -376,7 +378,9 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                     <div class="form-group row mb-3">
                                         <label class="col-md-2 col-form-label" for="website_keywords"><?php echo get_phrase('meta_keywords'); ?></label>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control bootstrap-tag-input" id = "meta_keywords" name="meta_keywords" data-role="tagsinput" style="width: 100%;" value="<?php echo $course_details['meta_keywords']; ?>"/>
+                                            <div class="bootstraptag">
+                                                <input type="text" class="form-control bootstrap-tag-input" id = "meta_keywords" name="meta_keywords" data-role="tagsinput" style="width: 100%;" value="<?php echo $course_details['meta_keywords']; ?>"/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div> <!-- end col -->
@@ -384,7 +388,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                     <div class="form-group row mb-3">
                                         <label class="col-md-2 col-form-label" for="meta_description"><?php echo get_phrase('meta_description'); ?></label>
                                         <div class="col-md-10">
-                                            <textarea name="meta_description" class="form-control"><?php echo $course_details['meta_description']; ?></textarea>
+                                            <textarea name="meta_description" class="form-control form_control_bg"><?php echo $course_details['meta_description']; ?></textarea>
                                         </div>
                                     </div>
                                 </div> <!-- end col -->
@@ -400,7 +404,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                         <p class="w-75 mb-2 mx-auto"><?php echo get_phrase('you_are_just_one_click_away'); ?></p>
 
                                         <div class="mb-3 mt-3">
-                                            <button type="button" class="btn btn-primary text-center" onclick="checkRequiredFields()"><?php echo get_phrase('submit'); ?></button>
+                                            <button type="button" class="btn btn-primary shadow-none text-center" onclick="checkRequiredFields()"><?php echo get_phrase('submit'); ?></button>
                                         </div>
                                     </div>
                                 </div> <!-- end col -->
@@ -409,10 +413,10 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 
                         <ul class="list-inline mb-0 wizard text-center">
                             <li class="previous list-inline-item">
-                                <a href="javascript::" class="btn btn-info"> <i class="mdi mdi-arrow-left-bold"></i> </a>
+                                <a href="javascript::" class="btn btn-info shadow-none"> <i class="mdi mdi-arrow-left-bold"></i> </a>
                             </li>
                             <li class="next list-inline-item">
-                                <a href="javascript::" class="btn btn-info"> <i class="mdi mdi-arrow-right-bold"></i> </a>
+                                <a href="javascript::" class="btn btn-info shadow-none"> <i class="mdi mdi-arrow-right-bold"></i> </a>
                             </li>
                         </ul>
 
