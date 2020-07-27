@@ -40,15 +40,18 @@
                                 <table class="table table-striped table-bordered table-centered mb-0">
                                     <thead class="table_thead">
                                         <tr>
-                                            <th><?php echo get_phrase('photo'); ?></th>
+                                        <th><?php echo get_phrase('photo'); ?></th>
                                             <th><?php echo get_phrase('user_name'); ?></th>
                                             <th><?php echo get_phrase('enrolled_course'); ?></th>
                                             <th><?php echo get_phrase('enrolment_date'); ?></th>
+                                            <th><?php echo get_phrase('duration'); ?></th>
+                                            <th><?php echo get_phrase('start_date'); ?></th>
+                                            <th><?php echo get_phrase('end_date'); ?></th>                                  
                                             <th><?php echo get_phrase('actions'); ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($enrol_history->result_array() as $enrol):
+                                    <?php foreach ($enrol_history->result_array() as $enrol):
                                             $user_data = $this->db->get_where('users', array('id' => $enrol['user_id']))->row_array();
                                             $course_data = $this->db->get_where('course', array('id' => $enrol['course_id']))->row_array();?>
                                             <tr class="gradeU">
@@ -60,7 +63,15 @@
                                                     <small><?php echo get_phrase('email').': '.$user_data['email']; ?></small>
                                                 </td>
                                                 <td><strong><a href="<?php echo site_url('admin/course_form/course_edit/'.$course_data['id']); ?>" target="_blank"><?php echo ellipsis($course_data['title']); ?></a></strong></td>
+                                                
                                                 <td><?php echo date('D, d-M-Y', $enrol['date_added']); ?></td>
+                                                
+                                                <td><?php echo $enrol['duration_period'];?> <?php echo get_phrase('days'); ?></td>
+                                                <td><?php echo date('D, d-M-Y', $enrol['start_date']); ?></td>
+                                                
+                                                <td><?php $endDate = strtotime('+'.$enrol['duration_period'].' days', $enrol['start_date']);
+                                                echo date('D, d-M-Y', $endDate); ?></td>
+                                                
                                                 <td>
                                                     <button type="button" class="btn btn-outline-danger btn-icon btn-rounded btn-sm" onclick="confirm_modal('<?php echo site_url('admin/enrol_history_delete/'.$enrol['id']); ?>');"> <i class="dripicons-trash"></i> </button>
                                                 </td>
