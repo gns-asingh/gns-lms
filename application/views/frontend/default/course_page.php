@@ -57,7 +57,7 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
 </section>
 
 
-<section class="course-content-area">
+<section class="course-content-area trainee_course_bg">
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
@@ -160,13 +160,14 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
       </div>
     </div>
     <div class="description-box view-more-parent">
-      <div class="view-more" onclick="viewMore(this,'hide')">+ <?php echo get_phrase('view_more'); ?></div>
+      
       <div class="description-title"><?php echo get_phrase('description'); ?></div>
       <div class="description-content-wrap">
         <div class="description-content">
           <?php echo $course_details['description']; ?>
         </div>
       </div>
+      <div class="view-more" onclick="viewMore(this,'hide')">+ <?php echo get_phrase('view_more'); ?></div>
     </div>
 
 
