@@ -58,33 +58,35 @@
                                 <div class="basic-group">
                                     <div class="form-group">
                                         <label for="FristName"><?php echo get_phrase('basics'); ?>:</label>
-                                        <input type="text" class="form-control" name = "first_name" id="FristName" placeholder="<?php echo get_phrase('first_name'); ?>" value="<?php echo $user_details['first_name']; ?>">
+                                        <input type="text" class="form-control form_control_bg" name = "first_name" id="FristName" placeholder="<?php echo get_phrase('first_name'); ?>" value="<?php echo $user_details['first_name']; ?>">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name = "last_name" placeholder="<?php echo get_phrase('last_name'); ?>" value="<?php echo $user_details['last_name']; ?>">
+                                        <input type="text" class="form-control form_control_bg" name = "last_name" placeholder="<?php echo get_phrase('last_name'); ?>" value="<?php echo $user_details['last_name']; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="Biography"><?php echo get_phrase('biography'); ?>:</label>
-                                        <textarea class="form-control author-biography-editor" name = "biography" id="Biography"><?php echo $user_details['biography']; ?></textarea>
+                                        <div class="biography">
+                                            <textarea class="form-control author-biography-editor form_control_bg" name = "biography" id="Biography"><?php echo $user_details['biography']; ?></textarea>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="link-group">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" maxlength="60" name = "twitter_link" placeholder="<?php echo get_phrase('twitter_link'); ?>" value="<?php echo $social_links['twitter']; ?>">
+                                        <input type="text" class="form-control form_control_bg" maxlength="60" name = "twitter_link" placeholder="<?php echo get_phrase('twitter_link'); ?>" value="<?php echo $social_links['twitter']; ?>">
                                         <small class="form-text text-muted"><?php echo get_phrase('add_your_twitter_link'); ?>.</small>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" maxlength="60" name = "facebook_link" placeholder="<?php echo get_phrase('facebook_link'); ?>" value="<?php echo $social_links['facebook']; ?>">
+                                        <input type="text" class="form-control form_control_bg" maxlength="60" name = "facebook_link" placeholder="<?php echo get_phrase('facebook_link'); ?>" value="<?php echo $social_links['facebook']; ?>">
                                         <small class="form-text text-muted"><?php echo get_phrase('add_your_facebook_link'); ?>.</small>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" maxlength="60" name = "linkedin_link" placeholder="<?php echo get_phrase('linkedin_link'); ?>" value="<?php echo $social_links['linkedin']; ?>">
+                                        <input type="text" class="form-control form_control_bg" maxlength="60" name = "linkedin_link" placeholder="<?php echo get_phrase('linkedin_link'); ?>" value="<?php echo $social_links['linkedin']; ?>">
                                         <small class="form-text text-muted"><?php echo get_phrase('add_your_linkedin_link'); ?>.</small>
                                     </div>
                                 </div>
                             </div>
                             <div class="content-update-box">
-                                <button type="submit" class="btn">Save</button>
+                                <button type="submit" class="btn btn-primary shadow-none">Save</button>
                             </div>
                         </form>
                     </div>

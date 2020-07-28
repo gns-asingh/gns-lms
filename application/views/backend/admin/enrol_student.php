@@ -25,6 +25,7 @@
 
                                 <div class="form-group">
                                     <label for="user_id"><?php echo get_phrase('user'); ?><span class="required">*</span> </label>
+                                    <div class="message_box">
                                     <select class="form-control"  name="user_id[]" id="user_id" required multiple>
                                         <!-- <option value=""><?php echo get_phrase('select_a_user'); ?></option> -->
                                         <?php $user_list = $this->user_model->get_user()->result_array();
@@ -32,6 +33,7 @@
                                             <option value="<?php echo $user['id'] ?>"><?php echo $user['first_name'].' '.$user['last_name']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
