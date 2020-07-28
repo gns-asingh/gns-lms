@@ -122,7 +122,9 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                                                             <i class="fas fa-camera-retro"></i>
                                                         <?php elseif($fileExtension == 'pdf'): ?>
                                                           <a href="<?php echo base_url().'uploads/lesson_files/'.$lesson['attachment']; ?>" class="" download>
-  <i class="far fa-file-pdf"></i></a>
+                                        <i class="far fa-file-pdf"></i>
+                                        </a>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                             &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;<?php echo $lesson['duration']; ?>
                                                         <?php elseif($fileExtension == 'doc' || $fileExtension == 'docx'): ?>
                                                             <i class="far fa-file-word"></i>
                                                         <?php elseif($fileExtension == 'txt'): ?>
@@ -168,6 +170,8 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
         </div>
       </div>
       <div class="view-more" onclick="viewMore(this,'hide')">+ <?php echo get_phrase('view_more'); ?></div>
+       <div class="view-less" onclick="viewMore(this,'show')">+ <?php echo get_phrase('view_less'); ?></div> 
+
     </div>
 
 

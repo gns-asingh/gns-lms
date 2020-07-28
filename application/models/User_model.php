@@ -312,7 +312,13 @@ public function get_admin($user_id = 0) {
     public function delete_user($user_id = "") {
         $this->db->where('id', $user_id);
         $this->db->delete('users');
+        $message_delete = $this->delete_message_after_user($user_id);
         $this->session->set_flashdata('flash_message', get_phrase('user_deleted_successfully'));
+    }
+
+    public function delete_message_after_user($user_id){
+        $this->db->where('receiver', $user_id);
+        $this->db->delete('message_thread');
     }
 /**
  * unlock screen by password
