@@ -49,7 +49,7 @@
                                     <a href="<?php echo site_url('instructor/courses'); ?>" class="text-secondary">
                                         <div class="card shadow-none m-0 instructor_box_bg">
                                             <div class="text-center  instructor_box1">
-                                                <div class="instructor_box_icon"> 
+                                                <div class="instructor_box_icon1"> 
                                                     <i class="dripicons-camcorder iconColor" style="font-size: 24px;"></i>
                                                 </div>
                                                 <div class="instructor_box_content"> 
@@ -69,7 +69,7 @@
                                     <a href="<?php echo site_url('instructor/enrol_history'); ?>" class="text-secondary">
                                         <div class="card shadow-none m-0 instructor_box_bg">
                                             <div class="text-center  instructor_box1">
-                                                <div class="instructor_box_icon">
+                                                <div class="instructor_box_icon2">
                                                     <i class="dripicons-network-3 iconColor" style="font-size: 24px;"></i>
                                                 </div>
                                                 <div class="instructor_box_content"> 
@@ -89,7 +89,7 @@
                                     <a href="<?php echo site_url('instructor/users'); ?>" class="text-secondary">
                                         <div class="card shadow-none m-0 instructor_box_bg">
                                             <div class="text-center instructor_box1">
-                                                <div class="instructor_box_icon">
+                                                <div class="instructor_box_icon3">
                                                     <i class="dripicons-user-group iconColor" style="font-size: 24px;"></i>
                                                 </div>
                                                 <div class="instructor_box_content"> 

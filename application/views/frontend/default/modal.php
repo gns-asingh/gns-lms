@@ -94,7 +94,7 @@ document.getElementById('yes_link').setAttribute('href' , read_url);
 
             <div class="modal-footer" style="margin:0px; border-top:0px; text-align:center;">
                 <a href="#" class="btn btn-danger" id="yes_link"><?php echo get_phrase('Yes');?></a>
-                <button type="button" class="btn btn-info" data-dismiss="modal"><?php echo get_phrase('cancel');?></button>
+                <button type="button" class="btn btn-info" data-dismiss="modal"><?php echo get_phrase('cancel'); return exit;?></button>
             </div>
         </div>
     </div>

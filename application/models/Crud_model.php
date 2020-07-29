@@ -1683,6 +1683,14 @@ public function edit_sub_category($param1) {
                 $seconds = $time_array[2];
                 $total_duration += $hour_to_seconds + $minute_to_seconds + $seconds;
             }
+            else
+            {
+                $time_array = explode(':', $lesson['duration']);
+                $hour_to_seconds = $time_array[0] * 60 * 60;
+                $minute_to_seconds = $time_array[1] * 60;
+                $seconds = $time_array[2];
+                $total_duration += $hour_to_seconds + $minute_to_seconds + $seconds;   
+            }
         }
         return gmdate("H:i:s", $total_duration).' '.get_phrase('hours');
     }
@@ -1695,8 +1703,18 @@ public function edit_sub_category($param1) {
         $total_duration = 0;
         $lessons = $this->crud_model->get_lessons('section', $section_id)->result_array();
         foreach ($lessons as $lesson) {
+            
             if ($lesson['lesson_type'] != 'other') {
                 $time_array = explode(':', $lesson['duration']);
+                
+                $hour_to_seconds = $time_array[0] * 60 * 60;
+                $minute_to_seconds = $time_array[1] * 60;
+                $seconds = $time_array[2];
+                $total_duration += $hour_to_seconds + $minute_to_seconds + $seconds;
+            }
+            else{
+                $time_array = explode(':', $lesson['duration']);
+                
                 $hour_to_seconds = $time_array[0] * 60 * 60;
                 $minute_to_seconds = $time_array[1] * 60;
                 $seconds = $time_array[2];
