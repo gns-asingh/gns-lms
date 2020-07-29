@@ -40,136 +40,138 @@ foreach ($my_courses as $my_course) {
 
 <section class="my-courses-area">
     <div class="container">
-        <div class="row align-items-baseline">
-            <div class="col-lg-6">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="my-course-filter-bar filter-box">
-                        <!-- <span><?php echo get_phrase('filter_by'); ?></span> -->
-                            <div class="btn-group" style="width:100%;">
-                                <a class="btn btn-outline-secondary dropdown-toggle all-btn" href="#"data-toggle="dropdown">
-                                    <?php echo get_phrase('categories'); ?>
-                                </a>
+        <div class="my_course_tabs">
+            <div class="row align-items-baseline">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="my-course-filter-bar filter-box">
+                            <!-- <span><?php echo get_phrase('filter_by'); ?></span> -->
+                                <div class="btn-group" style="width:100%;">
+                                    <a class="category_box btn-outline-secondary form_control_bg dropdown-toggle all-btn" href="#"data-toggle="dropdown">
+                                        <?php echo get_phrase('categories'); ?>
+                                    </a>
 
-                                <div class="dropdown-menu">
-                                    <?php foreach ($categories as $category):
-                                        $category_details = $this->crud_model->get_categories($category)->row_array();
-                                        ?>
-                                        <a class="dropdown-item" href="#" id = "<?php echo $category; ?>" onclick="getCoursesByCategoryId(this.id)"><?php echo $category_details['name']; ?></a>
-                                    <?php endforeach; ?>
+                                    <div class="dropdown-menu">
+                                        <?php foreach ($categories as $category):
+                                            $category_details = $this->crud_model->get_categories($category)->row_array();
+                                            ?>
+                                            <a class="dropdown-item" href="#" id = "<?php echo $category; ?>" onclick="getCoursesByCategoryId(this.id)"><?php echo $category_details['name']; ?></a>
+                                        <?php endforeach; ?>
+                                    </div>
                                 </div>
+                                <!-- <div class="btn-group">
+                                    <a class="btn btn-outline-secondary dropdown-toggle" href="#"data-toggle="dropdown">
+                                        <?php echo get_phrase('instructors'); ?>
+                                    </a>
+
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#"><?php echo $instructor_details['first_name'].' '.$instructor_details['last_name']; ?></a>
+
+                                    </div>
+                                </div> -->
+                            
                             </div>
-                            <!-- <div class="btn-group">
-                                <a class="btn btn-outline-secondary dropdown-toggle" href="#"data-toggle="dropdown">
-                                    <?php echo get_phrase('instructors'); ?>
-                                </a>
-
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#"><?php echo $instructor_details['first_name'].' '.$instructor_details['last_name']; ?></a>
-
-                                </div>
-                            </div> -->
-                        
                         </div>
                     </div>
+                    
                 </div>
-                
-            </div>
-            <div class="col-lg-6">
-                <div class="row">
-                    <div class="col-sm-10">
-                        <div class="my-course-search-bar">
-                            <form action="">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="<?php echo get_phrase('search_my_courses'); ?>" onkeyup="getCoursesBySearchString(this.value)">
-                                    <div class="input-group-append">
-                                        <button class="btn" type="submit"><i class="fas fa-search"></i></button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="btn-group">
-                            <a href="<?php echo site_url('home/my_courses'); ?>" class="btn reset-btn btn-primary" disabled><?php echo get_phrase('reset'); ?></a>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-
-
-
-        <div class="row" id = "my_courses_area" style="margin-top:30px;">
-            <?php 
-				$now = new DateTime();
-				$todayDate = $now->getTimestamp();
-				
-				foreach ($my_courses as $my_course):
-                $course_details = $this->crud_model->get_course_by_id($my_course['course_id'])->row_array();
-                $instructor_details = $this->user_model->get_all_user($course_details['user_id'])->row_array();
-				$enroled_courses = $this->crud_model->enrol_history($my_course['course_id'])->result_array();
-					
-				foreach ($enroled_courses as $enroled_course):				
-				$endDate = strtotime('+'.$enroled_course['duration_period'].' days', $enroled_course['start_date']);
-				
-				if($endDate >= $todayDate):				
-				?>  
-
-                <div class="col-lg-3">
-                    <div class="course-box-wrap">
-                            <div class="course-box">
-                                <a href="<?php echo site_url('home/lesson/'.slugify($course_details['title']).'/'.$my_course['course_id']); ?>">
-                                    <div class="course-image">
-                                        <img src="<?php echo $this->crud_model->get_course_thumbnail_url($my_course['course_id']); ?>" alt="" class="img-fluid">
-                                       
-                                        <!-- <span class="play-btn"></span> -->
-                                    </div>
-                                </a>
-                                <div class="course-details">
-                                    <a href="<?php echo site_url('home/course/'.slugify($course_details['title']).'/'.$my_course['course_id']); ?>"><h5 class="title"><?php echo ellipsis($course_details['title']); ?></h5></a>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <a href="<?php echo site_url('home/instructor_page/'.$instructor_details['id']); ?>"><p class="instructors nameinstructor"><?php echo $instructor_details['first_name'].' '.$instructor_details['last_name']; ?></p></a>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <div class="my-course-search-bar">
+                                <form action="">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control form_control_bg" placeholder="<?php echo get_phrase('search_my_courses'); ?>" onkeyup="getCoursesBySearchString(this.value)">
+                                        <div class="input-group-append search_icon_bg">
+                                            <button class="btn search_icon_bg" type="submit"><i class="fas fa-search"></i></button>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="rating your-rating-box" onclick="event.preventDefault();" data-toggle="modal" data-target="#EditRatingModal">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="btn-group">
+                                <a href="<?php echo site_url('home/my_courses'); ?>" class="btn reset-btn btn-primary" disabled><?php echo get_phrase('reset'); ?></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
 
-                                                <?php
-                                                $get_my_rating = $this->crud_model->get_user_specific_rating('course', $my_course['course_id']);
-                                                for($i = 1; $i < 6; $i++):?>
-                                                <?php if ($i <= $get_my_rating['rating']): ?>
-                                                    <i class="fas fa-star filled"></i>
-                                                <?php else: ?>
-                                                    <i class="fas fa-star"></i>
-                                                <?php endif; ?>
-                                                <?php endfor; ?>
-                                                <p class="your-rating-text" id = "<?php echo $my_course['course_id']; ?>" onclick="getCourseDetailsForRatingModal(this.id)">
-                                                    <span class="your"><?php echo get_phrase('your'); ?></span>
-                                                    <span class="edit"><?php echo get_phrase('edit'); ?></span>
-                                                    <?php echo get_phrase('rating'); ?>
-                                                </p>
+
+
+            <div class="row" id = "my_courses_area" style="margin-top:30px;">
+                <?php 
+                    $now = new DateTime();
+                    $todayDate = $now->getTimestamp();
+                    
+                    foreach ($my_courses as $my_course):
+                    $course_details = $this->crud_model->get_course_by_id($my_course['course_id'])->row_array();
+                    $instructor_details = $this->user_model->get_all_user($course_details['user_id'])->row_array();
+                    $enroled_courses = $this->crud_model->enrol_history($my_course['course_id'])->result_array();
+                        
+                    foreach ($enroled_courses as $enroled_course):				
+                    $endDate = strtotime('+'.$enroled_course['duration_period'].' days', $enroled_course['start_date']);
+                    
+                    if($endDate >= $todayDate):				
+                    ?>  
+
+                    <div class="col-lg-3">
+                        <div class="course-box-wrap">
+                                <div class="course-box">
+                                    <a href="<?php echo site_url('home/lesson/'.slugify($course_details['title']).'/'.$my_course['course_id']); ?>">
+                                        <div class="course-image">
+                                            <img src="<?php echo $this->crud_model->get_course_thumbnail_url($my_course['course_id']); ?>" alt="" class="img-fluid">
+                                        
+                                            <!-- <span class="play-btn"></span> -->
+                                        </div>
+                                    </a>
+                                    <div class="course-details">
+                                        <a href="<?php echo site_url('home/course/'.slugify($course_details['title']).'/'.$my_course['course_id']); ?>"><h5 class="title"><?php echo ellipsis($course_details['title']); ?></h5></a>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <a href="<?php echo site_url('home/instructor_page/'.$instructor_details['id']); ?>"><p class="instructors nameinstructor"><?php echo $instructor_details['first_name'].' '.$instructor_details['last_name']; ?></p></a>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="rating your-rating-box" onclick="event.preventDefault();" data-toggle="modal" data-target="#EditRatingModal">
+
+                                                    <?php
+                                                    $get_my_rating = $this->crud_model->get_user_specific_rating('course', $my_course['course_id']);
+                                                    for($i = 1; $i < 6; $i++):?>
+                                                    <?php if ($i <= $get_my_rating['rating']): ?>
+                                                        <i class="fas fa-star filled"></i>
+                                                    <?php else: ?>
+                                                        <i class="fas fa-star"></i>
+                                                    <?php endif; ?>
+                                                    <?php endfor; ?>
+                                                    <p class="your-rating-text" id = "<?php echo $my_course['course_id']; ?>" onclick="getCourseDetailsForRatingModal(this.id)">
+                                                        <span class="your"><?php echo get_phrase('your'); ?></span>
+                                                        <span class="edit"><?php echo get_phrase('edit'); ?></span>
+                                                        <?php echo get_phrase('rating'); ?>
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    
+                                        
 
-                                   
-                                </div>
-                                <div style="padding: 10px 5px;">
-                                    <div>
-                                        <a href="<?php echo site_url('home/course/'.slugify($course_details['title']).'/'.$my_course['course_id']); ?>" class="btn btn-info"><?php echo get_phrase('course_detail'); ?></a>
-                                       <a href="<?php echo site_url('home/lesson/'.slugify($course_details['title']).'/'.$my_course['course_id']); ?>" class="btn btn-info"><?php echo get_phrase('start_lesson'); ?></a>
-                                    </div>
                                     
+                                    </div>
+                                    <div style="padding: 10px 5px;">
+                                        <div>
+                                            <a href="<?php echo site_url('home/course/'.slugify($course_details['title']).'/'.$my_course['course_id']); ?>" class="btn btn-info"><?php echo get_phrase('course_detail'); ?></a>
+                                        <a href="<?php echo site_url('home/lesson/'.slugify($course_details['title']).'/'.$my_course['course_id']); ?>" class="btn btn-info"><?php echo get_phrase('start_lesson'); ?></a>
+                                        </div>
+                                        
+                                    </div>
                                 </div>
-                            </div>
+                        </div>
                     </div>
-                </div>
-            <?php endif; 
-				endforeach;
-			endforeach; ?>
+                <?php endif; 
+                    endforeach;
+                endforeach; ?>
+            </div>
         </div>
     </div>
 </section>

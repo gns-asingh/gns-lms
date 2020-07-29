@@ -36,11 +36,11 @@
                               <div class="basic-group">
                                   <div class="form-group">
                                       <label for="login-email"><span class="input-field-icon"><i class="fas fa-envelope"></i></span> <?php echo get_phrase('email'); ?>:</label>
-                                      <input type="email" class="form-control" name = "email" id="login-email" placeholder="<?php echo get_phrase('email'); ?>" value="" required>
+                                      <input type="email" class="form-control form_control_bg" name = "email" id="login-email" placeholder="<?php echo get_phrase('email'); ?>" value="" required>
                                   </div>
                                   <div class="form-group">
                                       <label for="login-password"><span class="input-field-icon"><i class="fas fa-lock"></i></span> <?php echo get_phrase('password'); ?>:</label>
-                                      <input type="password" class="form-control" name = "password" placeholder="<?php echo get_phrase('password'); ?>" value="" required>
+                                      <input type="password" class="form-control form_control_bg" name = "password" placeholder="<?php echo get_phrase('password'); ?>" value="" required>
                                   </div>
                               </div>
                           </div>
@@ -101,7 +101,7 @@
                               <div class="basic-group">
                                   <div class="form-group">
                                       <label for="forgot-email"><span class="input-field-icon"><i class="fas fa-envelope"></i></span> <?php echo get_phrase('email'); ?>:</label>
-                                      <input type="email" class="form-control" name = "email" id="forgot-email" placeholder="<?php echo get_phrase('email'); ?>" value="" required>
+                                      <input type="email" class="form-control form_control_bg" name = "email" id="forgot-email" placeholder="<?php echo get_phrase('email'); ?>" value="" required>
                                       <small class="form-text text-muted"><?php echo get_phrase('provide_your_email_address_to_get_password'); ?>.</small>
                                   </div>
                               </div>
@@ -110,7 +110,7 @@
                               <button type="submit" class="btn"><?php echo get_phrase('reset_password'); ?></button>
                           </div>
                           <div class="forgot-pass text-center">
-                              <?php echo get_phrase('want_to_go_back'); ?>? <a href="javascript::" onclick="toggoleForm('login')"><?php echo get_phrase('login'); ?></a>
+                              <a href=""><?php echo get_phrase('want_to_go_back'); ?>?</a> <a href="javascript::" onclick="toggoleForm('login')"><?php echo get_phrase('login'); ?></a>
                           </div>
                       </form>
                   </div>
