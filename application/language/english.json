@@ -271,5 +271,22 @@
     "last_updater": "Last updater",
     "already_purchased": "Already purchased",
     "course_updated_successfully": "Course updated successfully",
-    "you_do_not_have_permission_to_access_this_course": "You do not have permission to access this course"
+    "you_do_not_have_permission_to_access_this_course": "You do not have permission to access this course",
+    "data_deleted_successfully": "Data deleted successfully",
+    "add_subcategory": "Add subcategory",
+    "sub_category_add_form": "Sub category add form",
+    "category_code": "Category code",
+    "sub_category_title": "Sub category title",
+    "select_a_parent_category": "Select a parent category",
+    "icon_picker": "Icon picker",
+    "category_thumbnail": "Category thumbnail",
+    "choose_thumbnail": "Choose thumbnail",
+    "only_alphabets_are_allowed.": "Only alphabets are allowed.",
+    "add_category": "Add category",
+    "category_add_form": "Category add form",
+    "category_title": "Category title",
+    "parent": "Parent",
+    "none": "None",
+    "data_added_successfully": "Data added successfully",
+    "sub_categories": "Sub categories"
 }
