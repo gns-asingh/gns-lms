@@ -288,5 +288,7 @@
     "parent": "Parent",
     "none": "None",
     "data_added_successfully": "Data added successfully",
-    "sub_categories": "Sub categories"
+    "sub_categories": "Sub categories",
+    "video_url_is_not_supported": "Video url is not supported",
+    "lesson_updated": "Lesson updated"
 }

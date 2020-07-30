@@ -82,7 +82,7 @@ document.getElementById('yes_link').setAttribute('href' , read_url);
 }
 function UncheckCourse(){
     var lessonId = jQuery('#checkid').val();
-    $("#lesson-"+lessonId).prop("checked", false);
+    jQuery("#lesson-"+lessonId).prop("checked", false);
 
 }
 </script>

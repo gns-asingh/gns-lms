@@ -158,7 +158,7 @@ foreach ($my_courses as $my_course) {
 
                                     
                                     </div>
-                                    <div style="padding: 10px 5px;">
+                                    <div style="padding: 10px 1px 0 2px">
                                         <div>
                                             <a href="<?php echo site_url('home/course/'.slugify($course_details['title']).'/'.$my_course['course_id']); ?>" class="btn btn-info"><?php echo get_phrase('course_detail'); ?></a>
                                         <a href="<?php echo site_url('home/lesson/'.slugify($course_details['title']).'/'.$my_course['course_id']); ?>" class="btn btn-info"><?php echo get_phrase('start_lesson'); ?></a>

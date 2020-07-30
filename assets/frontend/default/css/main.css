@@ -1128,7 +1128,8 @@ select + .select2-container{
 }
 .course-box{
     position: relative;
-    background: #fff;
+    background: #2c2c34;
+    border: 1px solid #1f1f1f;
 }
 .course-box:before,
 .course-box:after{
@@ -1211,7 +1212,7 @@ select + .select2-container{
     height: 36px;
     min-height: 42px;
     font-size: 15px;
-    color: #29303b;
+    color: #d0d0d0;
     margin-bottom: 10px;
     line-height: 20px;
 }
@@ -1296,7 +1297,7 @@ select + .select2-container{
 .course-box .course-details .your-rating-box .your-rating-text {
     margin-bottom: 0;
     font-size: 13px;
-    color: #29303b;
+    color: #d0d0d0;
     margin-top: 2px;
 }
 .course-box .course-details .your-rating-box:hover .your-rating-text {
@@ -1918,10 +1919,9 @@ section.course-header-area {
     padding-bottom: 30px;
 }
 .description-box {
-    max-height: 260px;
+    /* max-height: 260px; */
     margin-top: 40px;
-    margin-bottom: 40px;
-   
+    /* margin-bottom: 40px;    */
     background-color: #23242d;
     border: 1px solid #181924;
 }
@@ -1951,7 +1951,11 @@ section.course-header-area {
 }
 .description-content{
     color: #d0d0d0;
-    padding: 10px 10px;
+    padding: 10px 15px;
+    height: auto;
+    max-height: 260px;
+    overflow: auto;
+    
 }
 
 
@@ -2257,8 +2261,8 @@ section.course-header-area {
 }
 
 .about-instructor-details {
-    max-height: 380px;
-    height: 56px;
+    /* max-height: 380px;
+    height: 56px; */
 }
 
 .about-instructor-box {
@@ -2462,12 +2466,12 @@ section.course-header-area {
 .course-curriculum-accordion .lecture-group-title {
     position: relative;
     padding: 10px 30px 10px 45px;
-    background: #f9f9f9;
-    border: 1px solid #e8e9eb;
+    background-color: #20202a;
+    border-bottom: 1px solid #181924;
     cursor: pointer;
     height: auto;
     margin-top: 3px;
-    color: #505763;
+    color: #d0d0d0;
 }
 
 .course-curriculum-box .course-curriculum-title {
@@ -2515,10 +2519,8 @@ section.course-header-area {
 
 .course-curriculum-accordion .lecture-list .lecture {
     padding: 12px 30px 12px 73px;
-    position: relative;
-    border-bottom: 1px solid #e8e9eb;
-    border-left: 1px solid #e8e9eb;
-    border-right: 1px solid #e8e9eb;
+    position: relative;   
+    border: 1px solid #181924;    
     color: #686f7a;
 }
 
@@ -2552,7 +2554,7 @@ section.course-header-area {
     top: 17px;
 }
 .course-curriculum-accordion .lecture-list .lecture.has-preview {
-    color: #007791;
+    color: #d0d0d0;
 }
 .course-curriculum-accordion .lecture-list .lecture.has-preview .lecture-title,
 .course-curriculum-accordion .lecture-list .lecture.has-preview .lecture-preview{
@@ -2561,7 +2563,25 @@ section.course-header-area {
 .course-curriculum-accordion .lecture-list .lecture.has-preview .lecture-title:hover{
     color: #003845;
 }
-
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
 
 
 
@@ -3453,7 +3473,7 @@ section.user-dashboard-area {
     width: 30%;
     border-right: 1px solid #181924;
     background: #d8d8d8;
-    background-color: #20202a;
+    background-color: #23242d;
     border-bottom: 1px solid #181924;
     color: #d0d0d0;
 }
@@ -3478,11 +3498,13 @@ section.user-dashboard-area {
 .user-dashboard-sidebar .user-box {
     text-align: center;
     padding: 10px;
+    background-color: #20202a;
+    border-bottom: 1px solid #181924;
 }
 
 .user-dashboard-sidebar .user-box img {
-    height: 118px;
-    width: 118px;
+    height: 100px;
+    width: 100px;
     border-radius: 50%;
     margin-bottom: 15px;
 }
@@ -3529,7 +3551,7 @@ section.user-dashboard-area {
 }
 
 .user-dashboard-content .content-update-box {
-    border-top: 1px solid #dedfe0;
+    border-top: 1px solid #121212;
     padding: 20px;
     text-align: center;
 }
@@ -3584,7 +3606,7 @@ section.user-dashboard-area {
 .user-dashboard-content .content-box .mce-panel,
 .user-dashboard-content .content-box .mce-top-part::before{
     box-shadow: none;
-    border-color: #cacbcc;
+    border-color: #212121;
 }
 .user-dashboard-content .content-box .mce-edit-area.mce-container{
     border-right: 1px solid #cacbcc !important;
@@ -4733,9 +4755,57 @@ body#tinymce{
     background-color: hsla(0,0%,100%,.1)!important;
     border-color: rgba(0,0,21,.3)!important;;
 }
-
-
-
-
+.lession_bg{
+    padding-top: 35px; 
+    margin-bottom:20px;
+    background:#0a0b18;
+}
+.lesson_section{
+    background-color: #23242d;
+    border: 1px solid #181924;
+    border-bottom: none;
+    box-shadow: none;
+    border-radius: inherit;
+}
+.lesson_header{
+    background-color: #20202a;
+    border-bottom: 1px solid #181924;
+}
+.lesson_info{
+    width: 100%; 
+    padding: 5px 0px;
+    border-bottom:1px solid #121212;
+    line-height: 35px;
+}
+.display_video_bg{
+    padding:15px 15px;
+    background-color: #23242d;
+    border: 1px solid #181924;
+    border-bottom: none;
+    box-shadow: none;
+    margin-bottom:20px;
+}
+.video_note_header{
+    background-color: #20202a;
+    border-bottom: 1px solid #181924;
+    padding:7px 5px;
+    color:#d0d0d0;
+}
+.display_video_note{
+    background-color: #23242d;
+    border: 1px solid #181924;
+    border-radius: inherit;
+}
+.card-text{
+    color:#d0d0d0;
+}
+.biography .mce-btn-group .mce-btn{
+    background:#0a0b18; 
+}
+.setInstructorBio{
+    height:auto;
+    max-height:180px;
+    overflow:auto;
+}
 
 
