@@ -12,10 +12,10 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
         </div>
     </div>
 </section>
-<section style="padding-top: 35px; margin-bottom:20px;">
+<section class="lession_bg">
 <div class="container">
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <!-- <div class="text-center" style="margin-top: 10px;">
                 <h4><?php echo $course_details['title']; ?></h4>
             </div> -->
@@ -36,8 +36,8 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                         $remainDuration = 	$totalDuration ;					
 					endforeach;
 					?>
-                    <div class="card">
-                        <div class="card-header" id="<?php echo 'heading-'.$section['id']; ?>">
+                    <div class="card lesson_section">
+                        <div class="card-header lesson_header" id="<?php echo 'heading-'.$section['id']; ?>">
 
                             <div class="mb-0">
                                 <div class="lesson_accordian_header" type="button" data-toggle="collapse" data-target="<?php echo '#collapse-'.$section['id']; ?>" aria-expanded="true" aria-controls="<?php echo 'collapse-'.$section['id']; ?>">
@@ -60,16 +60,16 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 										endif;*/
 									?>
 
-                                        <tr style="width: 100%; padding: 5px 0px;">
-											<td style="padding-left:10px; border-bottom:1px solid #ccc;">
+                                        <tr class="lesson_info">
+											<td style="padding-left:10px;">
 												<?php if($lesson['read_status'] == 1): ?>
 													<input type="checkbox" name="lesson-<?php echo $lesson['id'];?>" checked="checked" onclick="return false" >
 												<?php else: ?>
 													<input type="checkbox" name="lesson-<?php echo $lesson['id'];?>" onclick="confirm_read_modal('<?php echo site_url('home/read_lesson/'.slugify($course_details['title']).'/'.$course_id.'/'.$lesson['id']); ?>');">
 												<?php endif; ?>
 											</td>
-                                            <td style="text-align: left; border-bottom:1px solid #ccc;">
-                                                <a href="<?php echo site_url('home/lesson/'.slugify($course_details['title']).'/'.$course_id.'/'.$lesson['id']); ?>" id = "<?php echo $lesson['id']; ?>">
+                                            <td style="text-align: left;">
+                                                <a style="color:#d0d0d0" href="<?php echo site_url('home/lesson/'.slugify($course_details['title']).'/'.$course_id.'/'.$lesson['id']); ?>" id = "<?php echo $lesson['id']; ?>">
                                                     <i class="fa fa-play" style="font-size: 12px;color: #909090;padding: 10px;"></i>
                                                     <?php if ($lesson['lesson_type'] != 'other'):?>
                                                         <?php echo $lesson['title']; ?>
@@ -79,7 +79,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                 </a>
 													<?php echo nbs(2);?><span style="font-size:12px; color: #909090;"><?php echo $lesson['duration']; ?></span>
                                             </td>
-                                            <td style="text-align: right; padding:5px; border-bottom:1px solid #ccc;">
+                                            <td style="text-align: right; padding:5px;">
                                                 <span class="lesson_duration">
                                                     <?php if ($lesson['lesson_type'] == 'video' || $lesson['lesson_type'] == '' || $lesson['lesson_type'] == NULL): ?>
                                                         <!-- <?php echo $lesson['duration']; ?> -->
@@ -114,9 +114,10 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
             </div>
         </div>
         <?php if (isset($lesson_id)): ?>
-            <div class="col-lg-9" id = "video_player_area">
+            <div class="col-lg-8" id = "video_player_area">
+                <div class="display_video_bg">
                 <!-- <div class="" style="background-color: #333;"> -->
-                <div class="">
+                <div>
                     <?php
                     $lesson_details = $this->crud_model->get_lessons('lesson', $lesson_id)->row_array();
                     $lesson_thumbnail_url = $this->crud_model->get_lesson_thumbnail_url($lesson_id);
@@ -180,26 +181,29 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                     <?php else: ?>
                         <div>
                             <a href="<?php echo base_url().'uploads/lesson_files/'.$lesson_details['attachment']; ?>" class="btn btn-primary btn-sign-up" download style="color: #fff;">
-                                <i class="fa fa-download" style="font-size: 20px;"></i> <?php echo get_phrase('download').' '.$lesson_details['title']; ?>
+                                <i class="fa fa-download" style="font-size: 15px;"></i> <?php echo get_phrase('download').' '.$lesson_details['title']; ?>
                             </a>
                         </div>
                     <?php endif; ?>
                 </div>
 
-                        <div class="" style="margin: 15px 0;" id = "lesson-summary">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?php echo $lesson_details['lesson_type'] == 'quiz' ? get_phrase('instruction') : get_phrase("note"); ?>:</h5>
-                                    <?php if ($lesson_details['summary'] == ""): ?>
-                                        <p class="card-text"><?php echo $lesson_details['lesson_type'] == 'quiz' ? get_phrase('no_instruction_found') : get_phrase("no_summary_found"); ?></p>
-                                    <?php else: ?>
-                                        <p class="card-text"><?php echo $lesson_details['summary']; ?></p>
-                                    <?php endif; ?>
+                        <div style="margin: 15px 0;" id = "lesson-summary">
+                            <div class="card display_video_note">
+                                <div>
+                                    <h5 class="card-title video_note_header"><?php echo $lesson_details['lesson_type'] == 'quiz' ? get_phrase('instruction') : get_phrase("note"); ?>:</h5>
+                                    <div class="card-body">
+                                        <?php if ($lesson_details['summary'] == ""): ?>
+                                            <p class="card-text"><?php echo $lesson_details['lesson_type'] == 'quiz' ? get_phrase('no_instruction_found') : get_phrase("no_summary_found"); ?></p>
+                                        <?php else: ?>
+                                            <p class="card-text"><?php echo $lesson_details['summary']; ?></p>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 <?php endif; ?>
+            </div>
             </div>
         </div>
     </div>
