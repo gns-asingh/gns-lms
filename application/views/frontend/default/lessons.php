@@ -41,9 +41,22 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 
                             <div class="mb-0">
                                 <div class="lesson_accordian_header" type="button" data-toggle="collapse" data-target="<?php echo '#collapse-'.$section['id']; ?>" aria-expanded="true" aria-controls="<?php echo 'collapse-'.$section['id']; ?>">
-                                    <h6 style="color: #fff; font-size: 15px;margin-bottom:0;">Section<?php echo $section_counter;?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo gmdate("H:i:s", $totalDuration); ?> Hours
-                                    <!-- Remaining hours <?php echo gmdate("H:i:s", $remainDuration) ; ?> Hours -->
-									
+                                    <h6 style="color: #fff; font-size: 15px;margin-bottom:0;">Section<?php echo $section_counter;?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo gmdate("H:i:s", $totalDuration); ?> Hours<br>
+                                    <?php 
+                                        foreach ($lessons as $lesson): 	
+                                           								
+									?>
+
+                                    <?php if($lesson['read_status'] == 1):?>
+                                        <?php   $temp = explode(':', $lesson['duration']);
+					                 	$completeLesDuration += intval($temp[2]); // Add the seconds
+					                 	$completeLesDuration += intval($temp[1]) * 60; // Add the minutes
+                                        $completeLesDuration += intval($temp[0]) * 60 * 60;       
+                                         $remainDuration =   $remainDuration -  $completeLesDuration;  ?>  
+                                        Remaining hours <?php echo gmdate("H:i:s", $remainDuration) ; ?> Hours
+                                                <?php else: ?>
+                                               <?php endif; ?>
+                                               <?php endforeach; ?>
                                     <!-- <?php echo $section['title']; ?> -->
                                 </div>
                             </div>
@@ -53,7 +66,8 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                             <div class="card-body"  style="padding:0px;">
                                 <table style="width: 100%;">
                                     <?php 
-										//$readStatus = '';
+                                        //$readStatus = '';
+                                        
 										foreach ($lessons as $lesson): 										
 										/*if($lesson['read_status'] == 1):
 											$readStatus = 'disabled';
@@ -62,10 +76,11 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 
                                         <tr class="lesson_info">
 											<td style="padding-left:10px;">
-												<?php if($lesson['read_status'] == 1): ?>
-													<input type="checkbox" name="lesson-<?php echo $lesson['id'];?>" checked="checked" onclick="return false" >
+												<?php if($lesson['read_status'] == 1):?>
+                                                   
+													<input type="checkbox" name="lesson-<?php echo $lesson['id'];?>" checked="checked" onclick="return false" disabled >
 												<?php else: ?>
-													<input type="checkbox" name="lesson-<?php echo $lesson['id'];?>" onclick="confirm_read_modal('<?php echo site_url('home/read_lesson/'.slugify($course_details['title']).'/'.$course_id.'/'.$lesson['id']); ?>');">
+													<input type="checkbox" id='unchecked' name="lesson-<?php echo $lesson['id'];?>"  onclick="confirm_read_modal('<?php echo site_url('home/read_lesson/'.slugify($course_details['title']).'/'.$course_id.'/'.$lesson['id']); ?>');">
 												<?php endif; ?>
 											</td>
                                             <td style="text-align: left;">
@@ -209,3 +224,12 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
     </div>
 </div>
 </section>
+<script>
+var checkboxes = document.getElementsByTagName('unchecked');
+
+for (var i=0; i<checkboxes.length; i++)  {
+  if (checkboxes[i].type == 'checkbox')   {
+    checkboxes[i].checked = false;
+  }
+}
+</script>
