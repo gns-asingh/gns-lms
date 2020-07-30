@@ -5,11 +5,11 @@ $quiz_questions = $this->crud_model->get_quiz_questions($lesson_details['id']);
     <div class="" id="quiz-header">
         <div class="row">
             <div class="col-sm-6">
-                <?php echo get_phrase("quiz_title"); ?> : <strong><?php echo $lesson_details['title']; ?></strong>
+                <label><strong><?php echo get_phrase("quiz_title"); ?> :</strong></label> <label><?php echo $lesson_details['title']; ?></label>
             </div>
             <div class="col-sm-6">
                 <div style="float:right;">
-                    <?php echo get_phrase("number_of_questions"); ?> : <strong><?php echo count($quiz_questions->result_array()); ?></strong>
+                    <label><strong><?php echo get_phrase("number_of_questions"); ?> :</strong> </label><label><?php echo count($quiz_questions->result_array()); ?></label>
                     <?php if (count($quiz_questions->result_array()) > 0): ?>
                         <button type="button" name="button" class="btn btn-primary btn-sign-up mt-2" style="color: #fff;" onclick="getStarted(1)"><?php echo get_phrase("get_started"); ?></button>
                     <?php endif; ?>

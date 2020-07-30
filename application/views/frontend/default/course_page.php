@@ -169,8 +169,8 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
           <?php echo $course_details['description']; ?>
         </div>
       </div>
-      <div class="view-more" onclick="viewMore(this,'hide')">+ <?php echo get_phrase('view_more'); ?></div>
-       <div class="view-less" onclick="viewMore(this,'show')">+ <?php echo get_phrase('view_less'); ?></div> 
+      <!-- <div class="view-more" onclick="viewMore(this,'hide')">+ <?php echo get_phrase('view_more'); ?></div>
+       <div class="view-less" onclick="viewMore(this,'show')">+ <?php echo get_phrase('view_less'); ?></div>  -->
 
     </div>
 
@@ -215,6 +215,7 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
             <div class="instructor-name">
               <a href="<?php echo site_url('home/instructor_page/'.$course_details['user_id']); ?>"><?php echo $instructor_details['first_name'].' '.$instructor_details['last_name']; ?></a>
             </div>
+            <div class="setInstructorBio">
             <div class="instructor-title">
               <?php echo $instructor_details['title']; ?>
               
@@ -223,7 +224,8 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
               <?php echo $instructor_details['biography']; ?>
               
             </div>
-            <div class="view-more" onclick="viewMore(this)">+ <?php echo get_phrase('view_more'); ?></div>
+      </div>
+            <!-- <div class="view-more" onclick="viewMore(this)">+ <?php echo get_phrase('view_more'); ?></div> -->
           </div>
         </div>
       </div>

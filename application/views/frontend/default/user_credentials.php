@@ -1,8 +1,19 @@
-<section class="page-header-area my-course-area">
+
+<section class="page-header-area my-course-area page_header">
     <div class="container">
         <div class="row">
             <div class="col">
                 <h1 class="page-title"><?php echo get_phrase('purchase_history'); ?></h1>
+               
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-header-area my-course-area">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+               
                 <ul>
                     <li><a href="<?php echo site_url('home/my_courses'); ?>"><?php echo get_phrase('all_courses'); ?></a></li>
                     <!--<li><a href="<?php echo site_url('home/my_wishlist'); ?>"><?php echo get_phrase('wishlists'); ?></a></li> -->
@@ -42,24 +53,24 @@
                                 <div class="email-group">
                                     <div class="form-group">
                                         <label for="email"><?php echo get_phrase('email'); ?>:</label>
-                                        <input type="email" class="form-control" name = "email" id="email" READONLY placeholder="<?php echo get_phrase('email'); ?>" value="<?php echo $user_details['email']; ?>">
+                                        <input type="email" class="form-control form_control_bg" name = "email" id="email" READONLY placeholder="<?php echo get_phrase('email'); ?>" value="<?php echo $user_details['email']; ?>">
                                     </div>
                                 </div>
                                 <div class="password-group">
                                     <div class="form-group">
                                         <label for="password"><?php echo get_phrase('password'); ?>:</label>
-                                        <input type="password" class="form-control" id="current_password" name = "current_password" placeholder="<?php echo get_phrase('enter_current_password'); ?>">
+                                        <input type="password" class="form-control form_control_bg" id="current_password" name = "current_password" placeholder="<?php echo get_phrase('enter_current_password'); ?>">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" name = "new_password" placeholder="<?php echo get_phrase('enter_new_password'); ?>">
+                                        <input type="password" class="form-control form_control_bg" name = "new_password" placeholder="<?php echo get_phrase('enter_new_password'); ?>">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" name = "confirm_password" placeholder="<?php echo get_phrase('re-type_your_password'); ?>">
+                                        <input type="password" class="form-control form_control_bg" name = "confirm_password" placeholder="<?php echo get_phrase('re-type_your_password'); ?>">
                                     </div>
                                 </div>
                             </div>
                             <div class="content-update-box">
-                                <button type="submit" class="btn"><?php echo get_phrase('save'); ?></button>
+                                <button type="submit" class="btn btn-primary shadow-none"><?php echo get_phrase('save'); ?></button>
                             </div>
                         </form>
                     </div>

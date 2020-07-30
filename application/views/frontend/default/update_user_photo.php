@@ -1,19 +1,31 @@
-<section class="page-header-area my-course-area">
+<section class="page-header-area my-course-area page_header">
     <div class="container">
         <div class="row">
             <div class="col">
                 <h1 class="page-title"><?php echo get_phrase('purchase_history'); ?></h1>
+               
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-header-area my-course-area">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+               
                 <ul>
-                    <li><a href="<?php echo site_url('home/my_courses'); ?>"><?php echo get_phrase('all_courses'); ?></a></li>
-                  <!--  <li><a href="<?php echo site_url('home/my_wishlist'); ?>"><?php echo get_phrase('wishlists'); ?></a></li> -->
-                    <li><a href="<?php echo site_url('home/my_messages'); ?>"><?php echo get_phrase('my_messages'); ?></a></li>
-               <!--     <li><a href="<?php echo site_url('home/purchase_history'); ?>"><?php echo get_phrase('purchase_history'); ?></a></li> -->
-                    <li class="active"><a href=""><?php echo get_phrase('user_profile'); ?></a></li>
+                  <li class="active"><a href="<?php echo site_url('home/my_courses'); ?>"><?php echo get_phrase('all_courses'); ?></a></li>
+                 <!-- <li><a href="<?php echo site_url('home/my_wishlist'); ?>"><?php echo get_phrase('wishlists'); ?></a></li> -->
+                  <li><a href="<?php echo site_url('home/my_messages'); ?>"><?php echo get_phrase('my_messages'); ?></a></li>
+                 <!-- <li><a href="<?php echo site_url('home/purchase_history'); ?>"><?php echo get_phrase('purchase_history'); ?></a></li> -->
+                  <li ><a href="<?php echo site_url('home/profile/user_profile'); ?>"><?php echo get_phrase('user_profile'); ?></a></li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
+
 <section class="user-dashboard-area">
     <div class="container">
         <div class="row">
@@ -42,12 +54,12 @@
                                 <div class="email-group">
                                     <div class="form-group">
                                         <label for="user_image"><?php echo get_phrase('upload_image'); ?>:</label>
-                                        <input type="file" class="form-control" name = "user_image" id="user_image">
+                                        <input type="file" class="form-control form_control_bg" name = "user_image" id="user_image">
                                     </div>
                                 </div>
                             </div>
                             <div class="content-update-box">
-                                <button type="submit" class="btn"><?php echo get_phrase('save'); ?></button>
+                                <button type="submit" class="btn btn-primary"><?php echo get_phrase('save'); ?></button>
                             </div>
                         </form>
                     </div>
