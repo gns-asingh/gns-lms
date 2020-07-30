@@ -60,9 +60,9 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                         <tr style="width: 100%; padding: 5px 0px;">
 											<td style="padding-left:10px; border-bottom:1px solid #ccc;">
 												<?php if($lesson['read_status'] == 1): ?>
-													<input type="checkbox" name="lesson-<?php echo $lesson['id'];?>" checked="checked" onclick="return false" >
+													<input type="checkbox" name="lesson-<?php echo $lesson['id'];?>" id="lesson-<?php echo $lesson['id'];?>" checked="checked" onclick="return false" >
 												<?php else: ?>
-													<input type="checkbox" name="lesson-<?php echo $lesson['id'];?>" onclick="confirm_read_modal('<?php echo site_url('home/read_lesson/'.slugify($course_details['title']).'/'.$course_id.'/'.$lesson['id']); ?>');">
+													<input type="checkbox" name="lesson-<?php echo $lesson['id'];?>" id="lesson-<?php echo $lesson['id'];?>" onclick="confirm_read_modal('<?php echo site_url('home/read_lesson/'.slugify($course_details['title']).'/'.$course_id.'/'.$lesson['id']); ?>','<?php echo $lesson['id']; ?>');">
 												<?php endif; ?>
 											</td>
                                             <td style="text-align: left; border-bottom:1px solid #ccc;">

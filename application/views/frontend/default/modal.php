@@ -74,10 +74,16 @@ document.getElementById('delete_link').setAttribute('href' , delete_url);
 
 
 <script type="text/javascript">
-function confirm_read_modal(read_url)
+function confirm_read_modal(read_url,lessonnId='')
 {
 jQuery('#modal-5').modal('show', {backdrop: 'static'});
+jQuery('#checkid').val(lessonnId);
 document.getElementById('yes_link').setAttribute('href' , read_url);
+}
+function UncheckCourse(){
+    var lessonId = jQuery('#checkid').val();
+    $("#lesson-"+lessonId).prop("checked", false);
+
 }
 </script>
 
@@ -93,8 +99,9 @@ document.getElementById('yes_link').setAttribute('href' , read_url);
 
 
             <div class="modal-footer" style="margin:0px; border-top:0px; text-align:center;">
+                <input type ="hidden" name="checkid" id="checkid" value="" /> 
                 <a href="#" class="btn btn-danger" id="yes_link"><?php echo get_phrase('Yes');?></a>
-                <button type="button" class="btn btn-info" data-dismiss="modal"><?php echo get_phrase('cancel'); return exit;?></button>
+                <button type="button" class="btn btn-info" data-dismiss="modal" onclick="UncheckCourse()"><?php echo get_phrase('cancel'); return exit;?></button>
             </div>
         </div>
     </div>
