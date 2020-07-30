@@ -72,6 +72,7 @@
                                                 <td><?php echo date('D, d-M-Y', $enrol['start_date']); ?></td>
                                                 
                                                 <td><?php $endDate = strtotime('+'.$enrol['duration_period'].' days', $enrol['start_date']);
+                                                $endDate = $endDate - 1;
                                                 echo date('D, d-M-Y', $endDate); ?></td>
                                                 
                                                 <td>

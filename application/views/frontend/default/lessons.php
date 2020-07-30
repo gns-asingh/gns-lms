@@ -26,12 +26,14 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                     $section_counter++;
                     $lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
 					
-					$totalDuration = 0;
+                    $totalDuration = 0;
+                    $remainDuration = 0;
 					foreach ($lessons as $index => $lesson):
 						$temp = explode(':', $lesson['duration']);
 						$totalDuration += intval($temp[2]); // Add the seconds
 						$totalDuration += intval($temp[1]) * 60; // Add the minutes
-						$totalDuration += intval($temp[0]) * 60 * 60;							
+                        $totalDuration += intval($temp[0]) * 60 * 60;	
+                        $remainDuration = 	$totalDuration ;					
 					endforeach;
 					?>
                     <div class="card">
@@ -40,6 +42,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                             <div class="mb-0">
                                 <div class="lesson_accordian_header" type="button" data-toggle="collapse" data-target="<?php echo '#collapse-'.$section['id']; ?>" aria-expanded="true" aria-controls="<?php echo 'collapse-'.$section['id']; ?>">
                                     <h6 style="color: #fff; font-size: 15px;margin-bottom:0;">Section<?php echo $section_counter;?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo gmdate("H:i:s", $totalDuration); ?> Hours
+                                    <!-- Remaining hours <?php echo gmdate("H:i:s", $remainDuration) ; ?> Hours -->
 									
                                     <!-- <?php echo $section['title']; ?> -->
                                 </div>
@@ -79,7 +82,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                             <td style="text-align: right; padding:5px; border-bottom:1px solid #ccc;">
                                                 <span class="lesson_duration">
                                                     <?php if ($lesson['lesson_type'] == 'video' || $lesson['lesson_type'] == '' || $lesson['lesson_type'] == NULL): ?>
-                                                        <?php echo $lesson['duration']; ?>
+                                                        <!-- <?php echo $lesson['duration']; ?> -->
                                                     <?php elseif($lesson['lesson_type'] == 'quiz'): ?>
                                                         <i class="far fa-question-circle"></i>
                                                     <?php else:
