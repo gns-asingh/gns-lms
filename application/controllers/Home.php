@@ -134,6 +134,15 @@ class Home extends CI_Controller {
         $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
     }
 
+    public function my_dashboard() {
+        if ($this->session->userdata('user_login') != true) {
+            redirect(site_url('home'), 'refresh');
+        }
+        $page_data['page_name'] = "my_dashboard";
+        $page_data['page_title'] = get_phrase("my_dashboard");
+        $this->load->view('frontend/'.get_frontend_settings('theme').'/index', $page_data);
+    }
+
     public function my_messages($param1 = "", $param2 = "") {
         if ($this->session->userdata('user_login') != true) {
             redirect(site_url('home'), 'refresh');
