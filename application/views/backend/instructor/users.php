@@ -22,7 +22,7 @@
                         <div class="card-body">
                             <div class="table-responsive-sm mt-4 datatable_input">
                                 <table id="basic-datatable" class="table table-bg table-centered mb-0">
-                                    <thead class="table_thead">
+                                    <thead>
                                         <tr>
                                         <th>#</th>
                                         <th><?php echo get_phrase('photo'); ?></th>

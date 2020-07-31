@@ -266,7 +266,7 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
         
       </div>
     
-    <div class="col-lg-9">
+    <div class="col-lg-9 pl-0">
       <div class="individual-rating" style="padding: 10px 10px;"> 
         <ul>
           <?php for($i = 1; $i <= 5; $i++): ?>
@@ -297,32 +297,32 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
   <div class="reviews">
     <div class="reviews-title"><?php echo get_phrase('reviews'); ?></div>
     <div class="review_list_bg">
-    <ul class="review_list">
+    <div class="review_list">
       <?php
       $ratings = $this->crud_model->get_ratings('course', $course_id)->result_array();
       foreach($ratings as $rating):
         ?>
-        <li>
+        
           <div class="row">
-            <div class="col-lg-4">
-              <div class="reviewer-details clearfix">
-                <div class="reviewer-img float-left">
-                  <img src="<?php echo $this->user_model->get_user_image_url($rating['user_id']); ?>" alt="">
+            <div class="col-lg-3">
+              <div class="reviewer-details clearfix text-center">
+                <div class="reviewer-img">
+                  <img src="<?php echo $this->user_model->get_user_image_url($rating['user_id']); ?>" alt="" style="width:100px;height:100px;">
                 </div>
-                <div class="review-time">
-                  <div class="time">
-                    <?php echo date('D, d-M-Y', $rating['date_added']); ?>
-                  </div>
+                <div class="review-time mt-3">                  
                   <div class="reviewer-name">
                     <?php
                     $user_details = $this->user_model->get_user($rating['user_id'])->row_array();
                     echo $user_details['first_name'].' '.$user_details['last_name'];
                     ?>
                   </div>
+                  <div class="time">
+                    <?php echo date('D, d-M-Y', $rating['date_added']); ?>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-8">
+            <div class="col-lg-9">
               <div class="review-details">
                 <div class="rating">
                   <?php
@@ -334,15 +334,15 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                   <?php endif; ?>
                 <?php endfor; ?>
               </div>
-              <div class="review-text">
+              <div class="review-text mt-2">
                 <?php echo $rating['review']; ?>
               </div>
             </div>
           </div>
         </div>
-      </li>
+      
       <?php endforeach; ?>
-    </ul>
+      </div>
     </div>
 </div>
 

@@ -42,7 +42,7 @@
                                     <a href="<?php echo site_url('instructor/courses'); ?>" class="text-secondary">
                                         <div class="card shadow-none m-0 instructor_box_bg">
                                             <div class="text-center instructor_box1">
-                                                <div class="instructor_box_icon">
+                                                <div class="instructor_box_icon1">
                                                     <i class="dripicons-link-broken iconColor" style="font-size: 24px;"></i>
                                                 </div>
                                                 <div class="instructor_box_content"> 

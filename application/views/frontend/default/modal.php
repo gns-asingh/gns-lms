@@ -92,16 +92,18 @@ function UncheckCourse(){
     <div class="modal-dialog">
         <div class="modal-content" style="margin-top:100px;">
 
-            <div class="modal-header">
+            <div class="modal-header">                
+                <h5 class="modal-title" style="text-align:center;">Are you sure,you have completed this lesson ?</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" style="text-align:center;">Are you sure,you have completed this lesson ?</h4>
             </div>
 
 
             <div class="modal-footer" style="margin:0px; border-top:0px; text-align:center;">
                 <input type ="hidden" name="checkid" id="checkid" value="" /> 
-                <a href="#" class="btn btn-danger" id="yes_link"><?php echo get_phrase('Yes');?></a>
-                <button type="button" class="btn btn-info" data-dismiss="modal" onclick="UncheckCourse()"><?php echo get_phrase('cancel'); return exit;?></button>
+                <a href="#" class="btn btn-primary" id="yes_link"><?php echo get_phrase('Yes');?></a>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="UncheckCourse()"><?php echo get_phrase('cancel'); return exit;?></button>
+                
+                
             </div>
         </div>
     </div>
