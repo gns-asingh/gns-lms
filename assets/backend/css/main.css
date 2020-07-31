@@ -687,3 +687,51 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
   background:#1f1b24;
   border: 1px solid #181924;
 }
+.curiculam_bg{
+  background-color: #23242d;
+    border: 1px solid #181924;
+}
+.curiculam_title{
+  background-color: #20202a;
+  border-bottom: 1px solid #181924;
+  padding: 11px 15px;
+}
+.curiculam_lession{
+  color: #e1e1e1!important;
+    background-color: hsla(0,0%,100%,.15);
+    border-color: hsla(0,0%,100%,.2)!important;
+}
+.lesson_btn_set{
+  display: block!important;
+    position: relative;
+    top: -7px;
+}
+.setfontsize{
+  font-size:12px;
+}
+.clear{
+  clear:both;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

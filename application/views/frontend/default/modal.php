@@ -74,10 +74,16 @@ document.getElementById('delete_link').setAttribute('href' , delete_url);
 
 
 <script type="text/javascript">
-function confirm_read_modal(read_url)
+function confirm_read_modal(read_url,lessonnId='')
 {
 jQuery('#modal-5').modal('show', {backdrop: 'static'});
+jQuery('#checkid').val(lessonnId);
 document.getElementById('yes_link').setAttribute('href' , read_url);
+}
+function UncheckCourse(){
+    var lessonId = jQuery('#checkid').val();
+    jQuery("#lesson-"+lessonId).prop("checked", false);
+
 }
 </script>
 
@@ -86,15 +92,18 @@ document.getElementById('yes_link').setAttribute('href' , read_url);
     <div class="modal-dialog">
         <div class="modal-content" style="margin-top:100px;">
 
-            <div class="modal-header">
+            <div class="modal-header">                
+                <h5 class="modal-title" style="text-align:center;">Are you sure,you have completed this lesson ?</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" style="text-align:center;">Are you sure,you have completed this lesson ?</h4>
             </div>
 
 
             <div class="modal-footer" style="margin:0px; border-top:0px; text-align:center;">
-                <a href="#" class="btn btn-danger" id="yes_link"><?php echo get_phrase('Yes');?></a>
-                <button type="button" class="btn btn-info" data-dismiss="modal"><?php echo get_phrase('cancel'); return exit;?></button>
+                <input type ="hidden" name="checkid" id="checkid" value="" /> 
+                <a href="#" class="btn btn-primary" id="yes_link"><?php echo get_phrase('Yes');?></a>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="UncheckCourse()"><?php echo get_phrase('cancel'); return exit;?></button>
+                
+                
             </div>
         </div>
     </div>
