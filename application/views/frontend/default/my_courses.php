@@ -27,6 +27,7 @@ foreach ($my_courses as $my_course) {
             <div class="col">
                
                 <ul>
+                 <li><a href="<?php echo site_url('home/my_dashboard'); ?>"><?php echo get_phrase('dashboard'); ?></a></li>
                   <li class="active"><a href="<?php echo site_url('home/my_courses'); ?>"><?php echo get_phrase('all_courses'); ?></a></li>
                  <!-- <li><a href="<?php echo site_url('home/my_wishlist'); ?>"><?php echo get_phrase('wishlists'); ?></a></li> -->
                   <li><a href="<?php echo site_url('home/my_messages'); ?>"><?php echo get_phrase('my_messages'); ?></a></li>
