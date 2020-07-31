@@ -20,25 +20,27 @@
                         <div class="row">
                             <div class="col-xl-6">
                                 <form class="form-inline" action="<?php echo site_url('admin/enrol_history/filter_by_date_range') ?>" method="get">
-                                    <div class="col-xl-10">
-                                        <div class="form-group">
-                                            <div id="reportrange" class="form-control form_control_bg" data-toggle="date-picker-range" data-target-display="#selectedValue"  data-cancel-class="btn-light" style="width: 100%;">
-                                                <i class="mdi mdi-calendar"></i>&nbsp;
-                                                <span id="selectedValue"><?php echo date("F d, Y" , $timestamp_start) . " - " . date("F d, Y" , $timestamp_end);?></span> <i class="mdi mdi-menu-down"></i>
+                                    <div class="row">
+                                        <div class="col-xl-10">
+                                            <div class="form-group">
+                                                <div id="reportrange" class="form-control form_control_bg" data-toggle="date-picker-range" data-target-display="#selectedValue"  data-cancel-class="btn-light" style="width: 100%;">
+                                                    <i class="mdi mdi-calendar"></i>&nbsp;
+                                                    <span id="selectedValue"><?php echo date("F d, Y" , $timestamp_start) . " - " . date("F d, Y" , $timestamp_end);?></span> <i class="mdi mdi-menu-down"></i>
+                                                </div>
+                                                <input id="date_range" type="hidden" name="date_range" value="<?php echo date("d F, Y" , $timestamp_start) . " - " . date("d F, Y" , $timestamp_end);?>">
                                             </div>
-                                            <input id="date_range" type="hidden" name="date_range" value="<?php echo date("d F, Y" , $timestamp_start) . " - " . date("d F, Y" , $timestamp_end);?>">
                                         </div>
-                                    </div>
-                                    <div class="col-xl-2">
-                                        <button type="submit" class="btn btn-info box-shadow-none" id="submit-button" onclick="update_date_range();"> <?php echo get_phrase('filter');?></button>
+                                        <div class="col-xl-2">
+                                            <button type="submit" class="btn btn-info box-shadow-none" id="submit-button" onclick="update_date_range();"> <?php echo get_phrase('filter');?></button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="table-responsive-sm mt-4">
+                        <div class="table-responsive-sm mt-4 datatable_input">
                             <?php if (count($enrol_history->result_array()) > 0): ?>
-                                <table class="table table-striped table-bordered table-centered mb-0">
-                                    <thead class="table_thead">
+                                <table class="table table-bg table-centered mb-0">
+                                    <thead>
                                         <tr>
                                         <th><?php echo get_phrase('photo'); ?></th>
                                             <th><?php echo get_phrase('user_name'); ?></th>
