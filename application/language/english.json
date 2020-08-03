@@ -31,8 +31,10 @@
     "themes": "Themes",
     "mobile_app": "Mobile app",
     "admin_revenue_this_year": "Admin revenue this year",
-    "number_courses": "Number courses",
+    "number_courses": "Number of courses",
+    "number_complited_courses": "Number of complited courses",
     "number_of_lessons": "Number of lessons",
+    "number_of_complited_lessons": "Number of complited lessons",
     "number_of_enrolment": "Number of enrolment",
     "number_of_trainee": "Number of trainee",
     "course_overview": "Course overview",
@@ -290,5 +292,8 @@
     "data_added_successfully": "Data added successfully",
     "sub_categories": "Sub categories",
     "video_url_is_not_supported": "Video url is not supported",
-    "lesson_updated": "Lesson updated"
+    "lesson_updated": "Lesson updated",
+    "my_dashboard": "My dashboard",
+    "total_hours": "Total hours",
+    "remaining_hours": "Remaining hours"
 }
