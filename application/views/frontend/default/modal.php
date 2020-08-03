@@ -101,8 +101,7 @@ function UncheckCourse(){
             <div class="modal-footer" style="margin:0px; border-top:0px; text-align:center;">
                 <input type ="hidden" name="checkid" id="checkid" value="" /> 
                 <a href="#" class="btn btn-primary" id="yes_link"><?php echo get_phrase('Yes');?></a>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="UncheckCourse()"><?php echo get_phrase('cancel'); return exit;?></button>
-                
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="UncheckCourse()"><?php echo get_phrase('cancel'); return exit;?></button>                
                 
             </div>
         </div>

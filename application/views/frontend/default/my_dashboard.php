@@ -92,7 +92,7 @@ include 'dashboard-chart.php'; ?>
                             <div class="col-sm-6 col-xl-3">
                                 <div>
                                     <a href="<?php echo site_url('home/my_courses'); ?>" class="admin_text_white">
-                                        <div class="card admin_bg_primary shadow-none m-0">
+                                        <div class="card dashboard_bg_primary shadow-none m-0">
                                             <div class="card-body text-center">
                                                 <i class="dripicons-archive" style="font-size: 24px;"></i>
                                                 <h3><span><?php echo $number_of_courses; ?></span></h3>
@@ -104,9 +104,8 @@ include 'dashboard-chart.php'; ?>
                             </div>
 
                             <div class="col-sm-6 col-xl-3">
-                                <div>
-                                    
-                                        <div class="card admin_bg_info shadow-none m-0 border-left">
+                                <div class="admin_text_white">
+                                        <div class="card dashboard_bg_info shadow-none m-0">
                                             <div class="card-body text-center">
                                                 <i class="dripicons-camcorder" style="font-size: 24px;"></i>
                                                 <h3><span><?php echo $number_of_lessons; ?></span></h3>
@@ -149,7 +148,7 @@ include 'dashboard-chart.php'; ?>
         </div>
         <div class="row">
             <div class="col-xl-4">
-                <div class="admin_card_border">
+                <div class="dashboard_card_border mt-3">
                     <div>
                         
                         <div class="my-4 chartjs-chart" style="height: 202px;">
@@ -176,11 +175,6 @@ include 'dashboard-chart.php'; ?>
                                 </div>
                             </div>
                         </div>
-</div>
-                    
-   
-
-
 </div>
 </section>
 

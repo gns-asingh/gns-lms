@@ -41,8 +41,20 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 
                             <div class="mb-0">
                                 <div class="lesson_accordian_header" type="button" data-toggle="collapse" data-target="<?php echo '#collapse-'.$section['id']; ?>" aria-expanded="true" aria-controls="<?php echo 'collapse-'.$section['id']; ?>">
-                                    <h6 style="color: #fff; font-size: 15px;margin-bottom:0;">Section<?php echo $section_counter;?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo gmdate("H:i:s", $totalDuration); ?> Hours<br>
-                                    <?php 
+                                    <div style="display:flex;">
+                                        <div>
+                                        <h6 style="color: #fff; font-size: 15px;margin-bottom:0;margin-top: 14px;">Section<?php echo $section_counter;?>
+                                        </div>
+                                        <div style="display:flex;">
+                                            <div style="margin-left:22px;color: #d0d0d0;
+    font-size: 13px;">
+                                                <div>Total hours</div>
+                                                <?php echo gmdate("H:i:s", $totalDuration); ?> Hours
+                                            </div>
+                                            <div style="margin-left:38px;color: #d0d0d0;
+    font-size: 13px;">
+                                                <div>Remaining hours</div>
+                                                <?php 
                                         foreach ($lessons as $lesson): 	
                                            								
 									?>
@@ -53,11 +65,17 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 					                 	$completeLesDuration += intval($temp[1]) * 60; // Add the minutes
                                         $completeLesDuration += intval($temp[0]) * 60 * 60;       
                                          $remainDuration =   $remainDuration -  $completeLesDuration;  ?>  
-                                        Remaining hours <?php echo gmdate("H:i:s", $remainDuration) ; ?> Hours
+                                         <?php echo gmdate("H:i:s", $remainDuration) ; ?> Hours
                                                 <?php else: ?>
                                                <?php endif; ?>
                                                <?php endforeach; ?>
                                     <!-- <?php echo $section['title']; ?> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- <h6 style="color: #fff; font-size: 15px;margin-bottom:0;">Section<?php echo $section_counter;?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo gmdate("H:i:s", $totalDuration); ?> Hours<br> -->
+                                    
                                 </div>
                             </div>
                         </div>
