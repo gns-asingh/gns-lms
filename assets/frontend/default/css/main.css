@@ -2675,17 +2675,19 @@ section.category-course-list-area {
 }
 
 .filter-box .dropdown-menu {
-    box-shadow: 0 4px 16px rgba(20,23,28,.25);
+    /* box-shadow: 0 4px 16px rgba(20,23,28,.25); */
     border-color: #cacbcc;
     border-radius: 2px;
     max-height: 365px;
     overflow-y: auto;
     margin-top:0;
     width:100%;
+    background: #393a42;
+    border: 1px solid #212121;
 }
 
 .filter-box .dropdown-menu .dropdown-item {
-    color: #505763;
+    color: #d0d0d0;
     padding: 5px 12px;
     font-weight: 400;
     line-height: 1.43;
@@ -2693,8 +2695,8 @@ section.category-course-list-area {
 }
 .filter-box .dropdown-menu .dropdown-item:hover,
 .filter-box .dropdown-menu .dropdown-item:focus {
-    background-color: #f2f3f5;
-    color: inherit;
+    background-color: #23242d;
+    color: #fff;
 }
 .filter-box .reset-btn {
     background-color: transparent;
@@ -3877,7 +3879,7 @@ span.select2-selection.select2-selection--single[aria-expanded="true"] {
     right: 7px;
 }
 span.select2-dropdown,.daterangepicker.dropdown-menu {
-    border-color: #cacbcc;
+    border-color: hsla(0,0%,100%,.2)!important;
 }
 span.select2-search.select2-search--dropdown {
     padding: 13px 15px;
@@ -3907,7 +3909,7 @@ span.select2-results ul li.select2-results__option--highlighted,
     box-shadow: 0 0 0;
 }
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-    background-color: #007791;
+    background-color: #20202a;
     color: white;
 }
 
@@ -4769,6 +4771,7 @@ float: left;
 .lesson_header{
     background-color: #20202a;
     border-bottom: 1px solid #181924;
+    padding: 10px 10px;
 }
 .lesson_info{
     width: 100%; 
@@ -4814,6 +4817,14 @@ float: left;
     background: linear-gradient(45deg,#4799eb,#4280b4)!important;
     border: 1px solid #4280b4!important;
   }
+  .dashboard_bg_warning{
+    background: linear-gradient(45deg,#e1a82d,#dd9124)!important;
+    border:1px solid #dd9124!important;
+  }
+  .dashboard_bg_danger{
+    background: linear-gradient(45deg,#d16767,#c14f4f)!important;
+    border:1px solid #c14f4f!important;
+  }
   .admin_text_white{
       color:#fff;
   }
@@ -4843,4 +4854,7 @@ span.select2-selection.select2-selection--single[aria-expanded="true"]{
     color: #e1e1e1;
     background-color: hsla(0,0%,100%,.1);
     border-color: rgba(0,0,21,.3);
+}
+a.admin_text_white:hover {
+    color:#fff;
 }

@@ -15,7 +15,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 <section class="lession_bg">
 <div class="container">
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4 pr-0">
             <!-- <div class="text-center" style="margin-top: 10px;">
                 <h4><?php echo $course_details['title']; ?></h4>
             </div> -->
@@ -51,7 +51,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                 <div>Total hours</div>
                                                 <?php echo gmdate("H:i:s", $totalDuration); ?> Hours
                                             </div>
-                                            <div style="margin-left:38px;color: #d0d0d0;
+                                            <div style="margin-left:15px;color: #d0d0d0;
     font-size: 13px;">
                                                 <div>Remaining hours</div>
                                                 <?php 
