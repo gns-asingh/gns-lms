@@ -8,7 +8,7 @@
                     <a href="<?php echo site_url('home/lesson/'.slugify($course_details['title']).'/'.$my_course['id']); ?>">
                         <div class="course-image">
                             <img src="<?php echo $this->crud_model->get_course_thumbnail_url($my_course['id']); ?>" alt="" class="img-fluid">
-                            <span class="play-btn"></span>
+                            <!-- <span class="play-btn"></span> -->
                         </div>
                     </a>
                     <div class="course-details">
@@ -33,13 +33,12 @@
                             </p>
                         </div>
                     </div>
-                    <div class="row" style="padding: 5px;">
-                        <div class="col-md-6">
-                            <a href="<?php echo site_url('home/course/'.slugify($course_details['title']).'/'.$my_course['id']); ?>" class="btn"><?php echo get_phrase('course_detail'); ?></a>
+                    <div style="padding: 10px 1px 0 2px">
+                        <div>
+                            <a href="<?php echo site_url('home/course/'.slugify($course_details['title']).'/'.$my_course['id']); ?>" class="btn btn-info"><?php echo get_phrase('course_detail'); ?></a>
+                            <a href="<?php echo site_url('home/lesson/'.slugify($course_details['title']).'/'.$my_course['id']); ?>" class="btn btn-info"><?php echo get_phrase('start_lesson'); ?></a>
                         </div>
-                        <div class="col-md-6">
-                             <a href="<?php echo site_url('home/lesson/'.slugify($course_details['title']).'/'.$my_course['id']); ?>" class="btn"><?php echo get_phrase('start_lesson'); ?></a>
-                        </div>
+                        
                     </div>
                 </div>
         </div>
