@@ -118,7 +118,7 @@ include 'dashboard-chart.php'; ?>
                             <div class="col-sm-6 col-xl-3">
                                 <div>
                                     <a href="<?php echo site_url('home/my_courses'); ?>" class="admin_text_white">
-                                        <div class="card admin_bg_primary shadow-none m-0">
+                                        <div class="card dashboard_bg_warning shadow-none m-0">
                                             <div class="card-body text-center">
                                                 <i class="dripicons-network-3" style="font-size: 24px;"></i>
                                                 <h3><span><?php echo $completedCourseId; ?></span></h3>
@@ -131,8 +131,8 @@ include 'dashboard-chart.php'; ?>
                             <div class="col-sm-6 col-xl-3">
                                 <div>
                                     <a href="<?php echo site_url('home/my_courses'); ?>" class="admin_text_white">
-                                        <div class="card admin_bg_primary shadow-none m-0">
-                                            <div class="card-body text-center">
+                                        <div class="card dashboard_bg_danger shadow-none m-0">
+                                            <div class="card-body text-center" style="padding: 24px 14px;">
                                                 <i class="dripicons-blog" style="font-size: 24px;"></i>
                                                 <h3><span><?php echo $completeLessonDuration; ?></span></h3>
                                                 <p class="font-15 mb-0"><?php echo get_phrase('number_of_complited_lessons'); ?></p>
@@ -154,7 +154,7 @@ include 'dashboard-chart.php'; ?>
                         <div class="my-4 chartjs-chart" style="height: 202px;">
                             <canvas id="project-status-chart"></canvas>
                         </div>
-                        <div class="admin_card_footer">
+                        <div class="dashboard_card_footer">
                         <div class="row text-center mt-1 py-1">
                             <div class="col-6 setBorderRight">
                                 <div>
