@@ -1,5 +1,7 @@
 <?php
     $instructor_list = $this->user_model->get_instructor_list()->result_array();
+    	$admin_list  =  $this->user_model->get_admin()->result_array();
+
 ?>
 <section class="page-header-area my-course-area page_header">
     <div class="container">
@@ -96,17 +98,28 @@
                                 <span class="d-inline-block"><?php echo get_phrase('new_message'); ?></span>
                             </div>
                         </div>
-                        <form class="" action="<?php echo site_url('home/my_messages/send_new'); ?>" method="post">
-                            <div class="message-body">
+                        <form class="mt-2" action="<?php echo site_url('home/my_messages/send_new'); ?>" method="post" enctype="multipart/form-data">
+                            
                                 <div class="form-group">
-                                    <select class="form-control select2 select_box_bg" name = "receiver">
+                                <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <select class="form-control select2 select_box_bg" name = "receiver[]" id="receiver" multiple>
+                                    <optgroup label="<?php echo get_phrase('instructor'); ?>">
+
                                         <?php foreach ($instructor_list as $instructor):
                                             if ($instructor['id'] == $this->session->userdata('user_id'))
                                                 continue;
                                             ?>
                                             <option value="<?php echo $instructor['id']; ?>"><?php echo $instructor['first_name'].' '.$instructor['last_name']; ?></option>
                                         <?php endforeach; ?>
+                                        <optgroup label="<?php echo get_phrase('admin'); ?>">
+									<?php foreach($admin_list as $admin):?>
+										<option value="<?php echo $admin['id']; ?>">
+											- <?php echo $admin['first_name'].' '.$admin['last_name']; ?></option>
+									<?php endforeach; ?>
+                                    </optgroup>
                                     </select>
+                                </div>
                                 </div>
                                 <div class="form-group">
                                     <textarea name="message" class="form-control form_control_bg"></textarea>
@@ -139,4 +152,17 @@ function CancelNewMessage(e){
 
     $('#NewMessage').attr('onclick','NewMessage(event)');
 }
+function check_receiver() {
+		var check_receiver = $('#receiver').val();
+		if (check_receiver == '' || check_receiver == 0) {
+			toastr.error("Please select a receiver", "Error");
+            return false;
+		}
+			}
+			$(document).ready(function() {       
+	$('#receiver').multiselect({		
+		nonSelectedText: 'Select A User'				
+	});
+});
+
 </script>

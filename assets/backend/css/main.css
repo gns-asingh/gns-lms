@@ -653,7 +653,7 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 .instructor_message_box button.multiselect.dropdown-toggle.btn.btn-default{
   text-align:left;
     background-color: hsla(0,0%,100%,.075)!important;
-    border-color: #ddd!important;
+    border: 1px solid  hsla(0,0%,100%,.2)!important;
 }
 .instructor_message_box ul.multiselect-container.dropdown-menu.show{
   width:100%;
@@ -712,8 +712,31 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 .clear{
   clear:both;
 }
-
-
+.select2-results, 
+.select2-container--default .select2-results__option[aria-selected=true],
+.select2-container--default .select2-search--dropdown{
+  background:#343039;
+  color:#d0d0d0;
+}
+.select2-container--default .select2-search--dropdown .select2-search__field{
+  color: #e1e1e1!important;
+    background-color: hsla(0,0%,100%,.15);
+    border-color: hsla(0,0%,100%,.2)!important;
+}
+.select2-dropdown{
+  border:1px solid #292929;
+}
+input:-internal-autofill-selected{
+  color: #e1e1e1!important;
+    background-color: hsla(0,0%,100%,.15)!important;
+    border-color: hsla(0,0%,100%,.2)!important;
+}
+.instructor_message_box .multiselect-container>li{
+  background:#797979;
+}
+.instructor_message_box .multiselect-container>li>a{
+  color:#d0d0d0;
+}
 
 
 
