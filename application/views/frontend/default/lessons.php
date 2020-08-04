@@ -55,20 +55,24 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
     font-size: 13px;">
                                                 <div>Remaining hours</div>
                                                 <?php 
+                                                $completeLesDurationOfLess = 0;
                                         foreach ($lessons as $lesson): 	
-                                           								
+                                            $completeLesDuration  = 0;								
 									?>
 
                                     <?php if($lesson['read_status'] == 1):?>
                                         <?php   $temp = explode(':', $lesson['duration']);
 					                 	$completeLesDuration += intval($temp[2]); // Add the seconds
 					                 	$completeLesDuration += intval($temp[1]) * 60; // Add the minutes
-                                        $completeLesDuration += intval($temp[0]) * 60 * 60;       
-                                         $remainDuration =   $remainDuration -  $completeLesDuration;  ?>  
-                                         <?php echo gmdate("H:i:s", $remainDuration) ; ?> Hours
+                                        $completeLesDuration += intval($temp[0]) * 60 * 60;    
+                                        $completeLesDurationOfLess  = $completeLesDurationOfLess  +   $completeLesDuration
+                                         ?>
                                                 <?php else: ?>
                                                <?php endif; ?>
                                                <?php endforeach; ?>
+                                              <?php $remainDuration =   $remainDuration -  $completeLesDurationOfLess;  ?>  
+                                              <?php echo gmdate("H:i:s", $remainDuration) ; ?> Hours
+
                                     <!-- <?php echo $section['title']; ?> -->
                                             </div>
                                         </div>
