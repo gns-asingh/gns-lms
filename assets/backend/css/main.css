@@ -554,6 +554,7 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 .summernote .card-header.note-toolbar{
   background:#20202a;
   border-bottom: 1px solid hsla(0, 0%, 26%, 0.89);
+  position: relative!important;
 }
 .summernote .note-btn-group .btn-light{
   background-color: #393a42;
@@ -589,9 +590,12 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
   background-color: #181924;
 }
 .select_box_bg, span.select2-selection.select2-selection--single{
-    color: #e1e1e1;
-    background-color: hsla(0,0%,100%,.1);
-    border-color: rgba(0,0,21,.3);
+    color: #e1e1e1!important;
+    background-color: hsla(0,0%,100%,.1)!important;
+    border-color: rgba(0,0,21,.3)!important;
+}
+.select2-container .select2-selection--single .select2-selection__rendered{
+  color: #e1e1e1!important;
 }
 .add_btn_set{
   position: relative;
@@ -725,6 +729,7 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
 }
 .select2-dropdown{
   border:1px solid #292929;
+  box-shadow:inherit;
 }
 input:-internal-autofill-selected{
   color: #e1e1e1!important;
@@ -737,7 +742,16 @@ input:-internal-autofill-selected{
 .instructor_message_box .multiselect-container>li>a{
   color:#d0d0d0;
 }
-
+.admin_curiculam_box{
+  background-color: #23242d;
+    border: 1px solid #181924;
+}
+.admin_curiculam_title {
+  color: #fff;
+  padding: 10px 10px;
+  background-color: #20202a;
+  border-bottom: 1px solid #181924;
+}
 
 
 
