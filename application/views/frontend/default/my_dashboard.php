@@ -44,11 +44,11 @@ include 'dashboard-chart.php'; ?>
     <div class="container">
     <?php
     $number_of_courses = count($this->user_model->my_courses()->result_array());
-    $number_of_lessons = $this->crud_model->get_lessons()->num_rows();
     $lessons = $this->crud_model->get_lessons()->result_array();
     $completeLesDuration = 0;
     $course_id = 0;
     $completedCourseId=0;
+    $completeLessonDuration = 0;
      ?>
      <?php
  $totalDuration = 0;
@@ -63,24 +63,61 @@ include 'dashboard-chart.php'; ?>
 					?>
 
      <?php
-
+     foreach ($my_courses as $my_course):
+        $course_details = $this->crud_model->get_course_by_id($my_course['course_id'])->row_array();
+        
+    ?>
+    <?php
      foreach($lessons as $lesson):
      ?>
              <?php $course_id= $lesson['course_id'];
              ?>
 
      <?php
-      if($lesson['read_status'] == 1):?>
+      if($lesson['read_status'] == 1 && $course_id == $my_course['course_id']):?>
        <?php   $temp = explode(':', $lesson['duration']);
 					                 	$completeLesDuration += intval($temp[2]); // Add the seconds
 					                 	$completeLesDuration += intval($temp[1]) * 60; // Add the minutes
                                         $completeLesDuration += intval($temp[0]) * 60 * 60;       
-                                         $remainDuration =   $remainDuration -  $completeLesDuration;  ?> 
-       <?php $completeLessonDuration++;
+                                        $remainDuration =   $remainDuration -  $completeLesDuration;  ?> 
+       <?php 
+       $completeLessonDuration++;
        ?> 
  <?php endif; ?>
  <?php endforeach; ?>
+
+ <?php endforeach; ?>
  
+ <?php $totalEnrolCrsTime = 0;
+     $number_of_lessons = 0
+?>
+
+ <?php
+ $my_courses = $this->user_model->my_courses()->result_array();
+
+  foreach ($my_courses as $my_course) :
+        $course_details = $this->crud_model->get_course_by_id($my_course['course_id'])->row_array();
+        
+  ?>
+  <?php
+ foreach($lessons as $lesson):
+     ?>
+             <?php $course_id= $lesson['course_id'];
+             ?>
+             
+   <?php if($course_id == $my_course['course_id']):?>
+       <?php   $temp = explode(':', $lesson['duration']);
+					                 	$totalEnrolCrsTime += intval($temp[2]); // Add the seconds
+					                 	$totalEnrolCrsTime += intval($temp[1]) * 60; // Add the minutes
+                                        $totalEnrolCrsTime += intval($temp[0]) * 60 * 60;       
+                                        $number_of_lessons = $number_of_lessons + 1;   
+                                            ?> 
+       <?php 
+       ?> 
+       <?php endif; ?>
+       <?php endforeach; ?>
+     
+ <?php endforeach; ?>
 
 <div class="admin_main_content">
     <div class="">
@@ -121,8 +158,8 @@ include 'dashboard-chart.php'; ?>
                                         <div class="card dashboard_bg_warning shadow-none m-0">
                                             <div class="card-body text-center">
                                                 <i class="dripicons-network-3" style="font-size: 24px;"></i>
-                                                <h3><span><?php echo $completedCourseId; ?></span></h3>
-                                                <p class="font-15 mb-0"><?php echo get_phrase('number_complited_courses'); ?></p>
+                                                <h3><span><?php  echo gmdate("H:i:s", $totalEnrolCrsTime); ?></span></h3>
+                                                <p class="font-15 mb-0"><?php echo get_phrase('total_hours_of_enroll_courses'); ?></p>
                                             </div>
                                         </div>
                                     </a>
@@ -146,7 +183,7 @@ include 'dashboard-chart.php'; ?>
                 </div> <!-- end card-box-->
             </div> <!-- end col-->
         </div>
-        <div class="row">
+        <div class="row" hidden>
             <div class="col-xl-4">
                 <div class="dashboard_card_border mt-3">
                     <div>

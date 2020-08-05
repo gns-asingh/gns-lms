@@ -32,7 +32,7 @@
     "mobile_app": "Mobile app",
     "admin_revenue_this_year": "Admin revenue this year",
     "number_courses": "Number of courses",
-    "number_complited_courses": "Number of complited courses",
+    "total_hours_of_enroll_courses": "total hours of enroll courses",
     "number_of_lessons": "Number of lessons",
     "number_of_complited_lessons": "Number of complited lessons",
     "number_of_enrolment": "Number of enrolment",
@@ -335,5 +335,6 @@
     "update_product": "Update product",
     "file": "File",
     "system_settings_updated": "System settings updated",
-    "administrator": "Administrator"
+    "administrator": "Administrator",
+    "number_complited_courses": "Number complited courses"
 }

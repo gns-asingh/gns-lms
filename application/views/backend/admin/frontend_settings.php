@@ -63,7 +63,7 @@
                                 </div>                                
                             </div>
                             <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <button type="button" class="btn btn-primary btn-block box-shadow-none" onclick="checkRequiredFields()"><?php echo get_phrase('update_settings'); ?></button>
                                 </div>
                             </div>

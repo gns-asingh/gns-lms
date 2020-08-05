@@ -133,7 +133,7 @@ foreach ($my_courses as $my_course) {
                                         <a href="<?php echo site_url('home/course/'.slugify($course_details['title']).'/'.$my_course['course_id']); ?>"><h5 class="title"><?php echo ellipsis($course_details['title']); ?></h5></a>
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <a href="<?php echo site_url('home/instructor_page/'.$instructor_details['id']); ?>"><p class="instructors nameinstructor"><?php echo $instructor_details['first_name'].' '.$instructor_details['last_name']; ?></p></a>
+                                                <a href="<?php echo site_url('home/instructor_page/'.$instructor_details['id']); ?>"><p class="instructors nameinstructor" title="<?php echo $instructor_details['first_name'].' '.$instructor_details['last_name']; ?>"><?php echo $instructor_details['first_name'].' '.$instructor_details['last_name']; ?></p></a>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="rating your-rating-box" onclick="event.preventDefault();" data-toggle="modal" data-target="#EditRatingModal">

@@ -14,7 +14,7 @@
             $sections = $this->crud_model->get_section('course', $course_id)->result_array();
             foreach ($sections as $key => $section):?>
             <div class="col-xl-12">
-                <div class="card curiculam_bg text-seconday mb-5" id = "section-<?php echo $section['id']; ?>">
+                <div class="card curiculam_bg text-seconday mb-5 shadow-none" id = "section-<?php echo $section['id']; ?>">
                     <div>
                         <h5 class="card-title curiculam_title" class="mb-3" style="min-height: 40px;"><span class="font-weight-light"><?php echo get_phrase('section').' '.++$key; ?></span>: <?php echo $section['title']; ?>
 							&nbsp;&nbsp;&nbsp;&nbsp; 						
