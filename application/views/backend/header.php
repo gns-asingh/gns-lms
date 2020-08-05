@@ -36,14 +36,14 @@
             </div>
 
             <!-- Account -->
-            <a href="<?php echo site_url(strtolower($this->session->userdata('role')).'/manage_profile'); ?>" class="dropdown-item notify-item">
+            <a href="<?php echo site_url(strtolower($this->session->userdata('role')).'/manage_profile'); ?>" class="dropdown-item notify-item dropdown_bg">
                 <i class="mdi mdi-account-circle mr-1"></i>
                 <span><?php echo get_phrase('my_account'); ?></span>
             </a>
 
             <?php if (strtolower($this->session->userdata('role')) == 'admin'): ?>
                 <!-- settings-->
-                <a href="<?php echo site_url('admin/system_settings'); ?>" class="dropdown-item notify-item">
+                <a href="<?php echo site_url('admin/system_settings'); ?>" class="dropdown-item notify-item dropdown_bg">
                     <i class="mdi mdi-settings mr-1"></i>
                     <span><?php echo get_phrase('settings'); ?></span>
                 </a>
@@ -52,7 +52,7 @@
 
 
             <!-- Logout-->
-            <a href="<?php echo site_url('login/logout'); ?>" class="dropdown-item notify-item">
+            <a href="<?php echo site_url('login/logout'); ?>" class="dropdown-item notify-item dropdown_bg">
                 <i class="mdi mdi-logout mr-1"></i>
                 <span><?php echo get_phrase('logout'); ?></span>
             </a>
