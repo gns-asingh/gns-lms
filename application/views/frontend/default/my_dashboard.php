@@ -167,12 +167,12 @@ include 'dashboard-chart.php'; ?>
                             </div>
                             <div class="col-sm-6 col-xl-3">
                                 <div>
-                                    <a href="<?php echo site_url('home/my_courses'); ?>" class="admin_text_white">
+                                   <a href="<?php echo site_url('home/my_courses'); ?>" class="admin_text_white">
                                         <div class="card dashboard_bg_danger shadow-none m-0">
                                             <div class="card-body text-center" style="padding: 24px 14px;">
                                                 <i class="dripicons-blog" style="font-size: 24px;"></i>
                                                 <h3><span><?php echo $completeLessonDuration; ?></span></h3>
-                                                <p class="font-15 mb-0"><?php echo get_phrase('number_of_complited_lessons'); ?></p>
+                                                <p class="font-15 mb-0"><?php echo get_phrase('number_of_completed_lessons'); ?></p>
                                             </div>
                                         </div>
                                     </a>
