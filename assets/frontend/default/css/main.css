@@ -1658,7 +1658,7 @@ select + .select2-container{
 section.course-header-area {
     background-color: #29303b;
     color: #fff;
-    padding: 60px 0;
+    padding: 22px 0;
 }
 .course-header-area.duplicated {
     position: fixed;
@@ -1682,22 +1682,22 @@ section.course-header-area {
 }
 
 .course-header-wrap .title {
-    font-size: 36px;
-    line-height: 41px;
-    font-weight: 600;
+    font-size: 24px;
+    line-height: 20px;
+    font-weight: 100;
     margin-bottom: 10.5px;
 }
 
 .course-header-wrap .subtitle {
-    font-size: 21px;
-    line-height: 27px;
-    margin-bottom: 7px;
+    font-size: 17px;
+    line-height: 24px;
+    margin-bottom: 15px;
 }
 
 .course-header-wrap > div > span {
     margin-right: 12px;
     margin-bottom: 7px;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .course-header-wrap .rating p {
@@ -1738,7 +1738,7 @@ section.course-header-area {
     color: #d0d0d0;
     padding: 3px;
     position: relative;
-    margin-top: -250px;
+    margin-top: -146px;
     z-index: 10;
     border: 1px solid #121212;
 }
@@ -1796,7 +1796,7 @@ section.course-header-area {
     transform: scale(1.2);
 }
 .course-sidebar-text-box {
-    padding: 15px 30px;
+    padding: 6px 30px;
 }
 
 .course-sidebar-text-box .price .current-price {
@@ -3486,7 +3486,7 @@ section.user-dashboard-area {
     width: 100%;
 }
 section.user-dashboard-area {
-    padding: 40px 0;
+    padding: 20px 0;
     background:#0a0b18;
 }
 

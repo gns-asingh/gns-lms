@@ -46,7 +46,7 @@
                                                     <button type="button" class="btn btn-sm btn-outline-primary btn-rounded btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <i class="mdi mdi-dots-vertical"></i>
                                                     </button>
-                                                    <ul class="dropdown-menu">
+                                                    <ul class="dropdown-menu edit_menu_show">
                                                         <li><a class="dropdown-item" href="<?php echo site_url('admin/role_form/role_edit/'.$name['id']) ?>"><?php echo get_phrase('edit'); ?></a></li>
                                                         <li><a class="dropdown-item" href="#" onclick="confirm_modal('<?php echo site_url('admin/role_actions/delete/'.$name['id']); ?>');"><?php echo get_phrase('delete'); ?></a></li>
                                                     </ul>

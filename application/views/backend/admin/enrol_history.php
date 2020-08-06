@@ -58,7 +58,7 @@
                                             $course_data = $this->db->get_where('course', array('id' => $enrol['course_id']))->row_array();?>
                                             <tr class="gradeU">
                                                 <td>
-                                                    <img src="<?php echo $this->user_model->get_user_image_url($enrol['user_id']); ?>" alt="" height="50" width="50" class="img-fluid rounded-circle img-thumbnail">
+                                                    <img src="<?php echo $this->user_model->get_user_image_url($enrol['user_id']); ?>" alt="" style="height:42px; width:50px;" class="img-fluid rounded-circle">
                                                 </td>
                                                 <td>
                                                     <b><?php echo $user_data['first_name'].' '.$user_data['last_name']; ?></b><br>
