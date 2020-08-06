@@ -38,7 +38,9 @@
                                             <tr>
                                                 <td><?php echo $key+1; ?></td>
                                                 <td>
-                                                    <img src="<?php echo $this->user_model->get_user_image_url($user['id']);?>" alt="" height="50" width="50" class="img-fluid rounded-circle img-thumbnail">
+                                                    <div class="table_img_set">
+                                                        <img src="<?php echo $this->user_model->get_user_image_url($user['id']);?>" alt=""  class="img-fluid rounded-circle img-thumbnail">
+                                                    </div>
                                                 </td>
                                                 <td><?php echo $user['first_name'].' '.$user['last_name']; ?></td>
                                                 <td><?php echo $user['email']; ?></td>

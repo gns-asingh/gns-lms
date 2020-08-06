@@ -38,7 +38,7 @@
                                         <tr>
                                             <td><?php echo $key+1; ?></td>
                                             <td>
-                                                <img src="<?php echo $this->user_model->get_user_image_url($user['id']);?>" alt="" height="50" width="50" class="img-fluid rounded-circle img-thumbnail">
+                                                <img src="<?php echo $this->user_model->get_user_image_url($user['id']);?>" alt="" style="height:50px; width:50px;" class="img-fluid rounded-circle">
                                             </td>
                                             <td><?php echo $user['first_name'].' '.$user['last_name']; ?></td>
                                             <td><?php echo $user['email']; ?></td>
@@ -57,7 +57,7 @@
                                                     <button type="button" class="btn btn-sm btn-outline-primary btn-rounded btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <i class="mdi mdi-dots-vertical"></i>
                                                     </button>
-                                                    <ul class="dropdown-menu">
+                                                    <ul class="dropdown-menu edit_menu_show">
                                                         <li><a class="dropdown-item" href="<?php echo site_url('admin/user_form/edit_instructor_form/'.$user['id']) ?>"><?php echo get_phrase('edit'); ?></a></li>
                                                         <li><a class="dropdown-item" href="#" onclick="confirm_modal('<?php echo site_url('admin/instructors/delete/'.$user['id']); ?>');"><?php echo get_phrase('delete'); ?></a></li>
                                                     </ul>

@@ -449,5 +449,15 @@
     "a": "A",
     "b": "B",
     "c": "C",
-    "select_a_instructor": "Select a instructor"
+    "select_a_instructor": "Select a instructor",
+    "explore_the_variety_of_courses": "Explore the variety of courses",
+    "enrolled_trainees": "Enrolled trainees",
+    "trainees_currently_enrolled_for_various_courses": "Trainees currently enrolled for various courses",
+    "scheduled_courses": "Scheduled courses",
+    "attend_scheduled_courses_for_today": "Attend scheduled courses for today",
+    "my_dashboard": "My dashboard",
+    "total_hours": "Total hours",
+    "remaining_hours": "Remaining hours",
+    "total_hours_of_enroll_courses": "Total hours of enroll courses",
+    "number_of_completed_lessons": "Number of completed lessons"
 }

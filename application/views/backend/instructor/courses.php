@@ -155,7 +155,7 @@
                                                     <small class="text-muted"><?php echo get_phrase('instructor').': <b>'.$instructor_details['first_name'].' '.$instructor_details['last_name'].'</b>'; ?></small>
                                                 </td>
                                                 <td>
-                                                    <span class="badge badge-dark-lighten"><?php echo $category_details['name']; ?></span>
+                                                    <span class="badge badge-dark-lighten text-muted"><?php echo $category_details['name']; ?></span>
                                                 </td>
                                                 <td>
                                                     <small class="text-muted"><?php echo '<b>'.get_phrase('total_section').'</b>: '.$sections->num_rows(); ?></small><br>
@@ -177,7 +177,7 @@
                                                     <button type="button" class="btn btn-sm btn-outline-primary btn-rounded btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <i class="mdi mdi-dots-vertical"></i>
                                                     </button>
-                                                    <ul class="dropdown-menu">
+                                                    <ul class="dropdown-menu edit_menu_show">
                                                         <li><a class="dropdown-item" href="<?php echo site_url('home/course/'.slugify($course['title']).'/'.$course['id']); ?>" target="_blank"><?php echo get_phrase('view_course_on_frontend');?></a></li>
                                                         <li><a class="dropdown-item" href="<?php echo site_url('instructor/course_form/course_edit/'.$course['id']); ?>"><?php echo get_phrase('edit_this_course');?></a></li>
                                                         <li><a class="dropdown-item" href="<?php echo site_url('instructor/course_form/course_edit/'.$course['id']); ?>"><?php echo get_phrase('section_&_lesson');?></a></li>

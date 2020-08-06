@@ -14,6 +14,48 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 </section>
 <section class="lession_bg">
 <div class="container">
+    <div class="time_display_bg">
+    <div class="row">
+        <div class="col-sm-12">
+            <div>
+				<div class="row">
+                                        
+						<div class="col-sm-6">
+							<div>
+								<label>Total hours:</label>
+								<?php echo gmdate("H:i:s", $totalDuration); ?> Hours
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<label>Remaining hours:</label>
+							<?php 
+							$completeLesDurationOfLess = 0;
+								foreach ($lessons as $lesson): 	
+									$completeLesDuration  = 0;								
+							?>
+
+							<?php if($lesson['read_status'] == 1):?>
+								<?php   $temp = explode(':', $lesson['duration']);
+								$completeLesDuration += intval($temp[2]); // Add the seconds
+								$completeLesDuration += intval($temp[1]) * 60; // Add the minutes
+								$completeLesDuration += intval($temp[0]) * 60 * 60;    
+								$completeLesDurationOfLess  = $completeLesDurationOfLess  +   $completeLesDuration
+								 ?>
+										<?php else: ?>
+									   <?php endif; ?>
+									   <?php endforeach; ?>
+									  <?php $remainDuration =   $remainDuration -  $completeLesDurationOfLess;  ?>  
+									  <?php echo gmdate("H:i:s", $remainDuration) ; ?> Hours
+
+							<!-- <?php echo $section['title']; ?> -->
+						</div>
+				</div>
+            </div>
+        </div>
+    </div>
+                                </div>
+
+	
     <div class="row">
         <div class="col-lg-4 pr-0">
             <!-- <div class="text-center" style="margin-top: 10px;">
@@ -35,47 +77,19 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                         $totalDuration += intval($temp[0]) * 60 * 60;	
                         $remainDuration = 	$totalDuration ;					
 					endforeach;
-					?>
+                    ?>
+                    
                     <div class="card lesson_section">
                         <div class="card-header lesson_header" id="<?php echo 'heading-'.$section['id']; ?>">
 
                             <div class="mb-0">
+                                
                                 <div class="lesson_accordian_header" type="button" data-toggle="collapse" data-target="<?php echo '#collapse-'.$section['id']; ?>" aria-expanded="true" aria-controls="<?php echo 'collapse-'.$section['id']; ?>">
                                     <div style="display:flex;">
                                         <div>
-                                        <h6 style="color: #fff; font-size: 15px;margin-bottom:0;margin-top: 14px;">Section<?php echo $section_counter;?>
+                                        <h6 style="color: #fff; font-size: 15px;margin-bottom:0;">Section<?php echo $section_counter;?>
                                         </div>
-                                        <div style="display:flex;">
-                                            <div style="margin-left:22px;color: #d0d0d0;
-    font-size: 13px;">
-                                                <div>Total hours</div>
-                                                <?php echo gmdate("H:i:s", $totalDuration); ?> Hours
-                                            </div>
-                                            <div style="margin-left:15px;color: #d0d0d0;
-    font-size: 13px;">
-                                                <div>Remaining hours</div>
-                                                <?php 
-                                                $completeLesDurationOfLess = 0;
-                                        foreach ($lessons as $lesson): 	
-                                            $completeLesDuration  = 0;								
-									?>
-
-                                    <?php if($lesson['read_status'] == 1):?>
-                                        <?php   $temp = explode(':', $lesson['duration']);
-					                 	$completeLesDuration += intval($temp[2]); // Add the seconds
-					                 	$completeLesDuration += intval($temp[1]) * 60; // Add the minutes
-                                        $completeLesDuration += intval($temp[0]) * 60 * 60;    
-                                        $completeLesDurationOfLess  = $completeLesDurationOfLess  +   $completeLesDuration
-                                         ?>
-                                                <?php else: ?>
-                                               <?php endif; ?>
-                                               <?php endforeach; ?>
-                                              <?php $remainDuration =   $remainDuration -  $completeLesDurationOfLess;  ?>  
-                                              <?php echo gmdate("H:i:s", $remainDuration) ; ?> Hours
-
-                                    <!-- <?php echo $section['title']; ?> -->
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                     
                                     <!-- <h6 style="color: #fff; font-size: 15px;margin-bottom:0;">Section<?php echo $section_counter;?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo gmdate("H:i:s", $totalDuration); ?> Hours<br> -->
@@ -241,10 +255,9 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                     </div>
                 <?php endif; ?>
             </div>
-            </div>
-        </div>
     </div>
 </div>
+ 
 </section>
 <script>
 var checkboxes = document.getElementsByTagName('unchecked');

@@ -4,7 +4,7 @@
         <div class="admin_title_bg">
             <div class="card-body setPageTitle">
                 <h4 class="page-title"> 
-                    <i class="dripicons-network-3 title_icon"></i> 
+                    <i class="dripicons-user-group title_icon"></i> 
                     <span style="vertical-align:middle;position:relative;top:2px;"><?php echo get_phrase('enrol_a_trainee'); ?></span>
                 </h4>
             </div> <!-- end card body-->
