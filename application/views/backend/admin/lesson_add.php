@@ -7,7 +7,7 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
 
     <div class="form-group">
         <label><?php echo get_phrase('title'); ?></label>
-        <input type="text" name = "title" class="form-control" required>
+        <input type="text" name = "title" class="form-control form_control_bg" required>
     </div>
 
     <input type="hidden" name="course_id" value="<?php echo $param2; ?>">
@@ -50,33 +50,33 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
         <div class="" id = "youtube_vimeo" style="display: none;">
             <div class="form-group">
                 <label><?php echo get_phrase('video_url'); ?></label>
-                <input type="text" id = "video_url" name = "video_url" class="form-control" onblur="ajax_get_video_details(this.value)">
+                <input type="text" id = "video_url" name = "video_url" class="form-control form_control_bg" onblur="ajax_get_video_details(this.value)">
                 <label class="form-label" id = "perloader" style ="margin-top: 4px; display: none;"><i class="mdi mdi-spin mdi-loading">&nbsp;</i><?php echo get_phrase('analyzing_the_url'); ?></label>
                 <label class="form-label" id = "invalid_url" style ="margin-top: 4px; color: red; display: none;"><?php echo get_phrase('invalid_url').'. '.get_phrase('your_video_source_has_to_be_either_youtube_or_vimeo'); ?></label>
             </div>
 
             <div class="form-group">
                 <label><?php echo get_phrase('duration'); ?></label>
-                <input type="text" name = "duration" id = "duration" class="form-control">
+                <input type="text" name = "duration" id = "duration" class="form-control form_control_bg">
             </div>
         </div>
 
         <div class="" id = "html5" style="display: none;">
             <div class="form-group">
                 <label><?php echo get_phrase('video_url'); ?></label>
-                <input type="text" id = "html5_video_url" name = "html5_video_url" class="form-control">
+                <input type="text" id = "html5_video_url" name = "html5_video_url" class="form-control form_control_bg">
             </div>
 
             <div class="form-group">
                 <label><?php echo get_phrase('duration'); ?></label>
-                <input type="text" class="form-control" data-toggle='timepicker' data-minute-step="5" name="html5_duration" id = "html5_duration" data-show-meridian="false" value="00:00:00">
+                <input type="text" class="form-control form_control_bg" data-toggle='timepicker' data-minute-step="5" name="html5_duration" id = "html5_duration" data-show-meridian="false" value="00:00:00">
             </div>
 
             <div class="form-group">
                 <label><?php echo get_phrase('thumbnail'); ?> <small>(<?php echo get_phrase('the_image_size_should_be'); ?>: 979 x 551)</small> </label>
                 <div class="input-group">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="thumbnail" name="thumbnail" onchange="changeTitleOfImageUploader(this)">
+                        <input type="file" class="custom-file-input custom_file_bg" id="thumbnail" name="thumbnail" onchange="changeTitleOfImageUploader(this)">
                         <label class="custom-file-label" for="thumbnail"><?php echo get_phrase('thumbnail'); ?></label>
                     </div>
                 </div>
@@ -104,11 +104,11 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
 
     <div class="form-group">
         <label><?php echo get_phrase('summary'); ?></label>
-        <textarea name="summary" class="form-control"></textarea>
+        <textarea name="summary" class="form-control form_control_bg"></textarea>
         </div>
 
         <div class="text-center">
-            <button class = "btn btn-success" type="submit" name="button"><?php echo get_phrase('add_lesson'); ?></button>
+            <button class = "btn btn-primary shadow-none" type="submit" name="button"><?php echo get_phrase('add_lesson'); ?></button>
         </div>
     </form>
     <script type="text/javascript">

@@ -52,9 +52,13 @@ $user_details = $this->user_model->get_user($this->session->userdata('user_id'))
                             <a href="javascript::">
                                 <?php
                                 if (file_exists('uploads/user_image/'.$user_details['id'].'.jpg')): ?>
-                                <img src="<?php echo base_url().'uploads/user_image/'.$user_details['id'].'.jpg';?>" alt="" class="img-fluid">
+                                <div class="user_img_set">
+                                    <img src="<?php echo base_url().'uploads/user_image/'.$user_details['id'].'.jpg';?>" alt="" class="img-fluid">
+                                </div>
                             <?php else: ?>
-                                <img src="<?php echo base_url().'uploads/user_image/placeholder.png';?>" alt="" class="img-fluid">
+                                <div class="user_img_set">
+                                    <img src="<?php echo base_url().'uploads/user_image/placeholder.png';?>" alt="" class="img-fluid">
+                                </div>
                             <?php endif; ?>
                         </a>
                     </div>
