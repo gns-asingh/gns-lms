@@ -79,7 +79,7 @@ include 'dashboard-chart.php'; ?>
 					                 	$completeLesDuration += intval($temp[2]); // Add the seconds
 					                 	$completeLesDuration += intval($temp[1]) * 60; // Add the minutes
                                         $completeLesDuration += intval($temp[0]) * 60 * 60;       
-                                        $remainDuration =   $remainDuration -  $completeLesDuration;  ?> 
+                                        $remainDuration =   $totalDuration -  $completeLesDuration;  ?> 
        <?php 
        $completeLessonDuration++;
        ?> 
@@ -183,7 +183,7 @@ include 'dashboard-chart.php'; ?>
                 </div> <!-- end card-box-->
             </div> <!-- end col-->
         </div>
-        <div class="row" hidden>
+        <div class="row">
             <div class="col-xl-4">
                 <div class="dashboard_card_border mt-3">
                     <div>
@@ -351,11 +351,13 @@ function getCourseDetailsForRatingModal(course_id) {
             //$totalDuration =  gmdate("H:i:s", $totalDuration) ;
              t.push(this.respChart(o("#project-status-chart"), "Doughnut", {
                  labels: ["<?php echo get_phrase('Total Hours'); ?>", "<?php echo get_phrase('Remaining Hours'); ?>"],
+                 xValueType: "H:m:s"
+
                  datasets: [{
                      data: [<?php echo $totalDuration; ?>, <?php echo $remainDuration; ?>],
                      backgroundColor: ["#0acf97", "#FFC107"],
                      borderColor: "transparent",
-                     borderWidth: "2"
+                     borderWidth: "2",
                  }]
              }, {
                  maintainAspectRatio: !1,
