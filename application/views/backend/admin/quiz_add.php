@@ -4,7 +4,7 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
 <form action="<?php echo site_url('admin/quizes/'.$param2.'/add'); ?>" method="post">
     <div class="form-group">
         <label for="title"><?php echo get_phrase('quiz_title'); ?></label>
-        <input class="form-control" type="text" name="title" id="title" required>
+        <input class="form-control form_control_bg" type="text" name="title" id="title" required>
     </div>
     <div class="form-group">
         <label for="section_id"><?php echo get_phrase('section'); ?></label>
@@ -16,10 +16,10 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
     </div>
     <div class="form-group">
         <label><?php echo get_phrase('instruction'); ?></label>
-        <textarea name="summary" class="form-control"></textarea>
+        <textarea name="summary" class="form-control form_control_bg"></textarea>
     </div>
     <div class="text-center">
-        <button class = "btn btn-success" type="submit" name="button"><?php echo get_phrase('submit'); ?></button>
+        <button class = "btn btn-primary shadow-none" type="submit" name="button"><?php echo get_phrase('submit'); ?></button>
     </div>
 </form>
 <script type="text/javascript">

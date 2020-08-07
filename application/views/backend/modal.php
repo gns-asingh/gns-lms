@@ -40,12 +40,12 @@ function showLargeModal(url, header)
 <!-- (Large Modal)-->
 <div class="modal fade" id="large-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
+        <div class="modal-content border-radius-none">
+            <div class="modal-header modal_header_set border-radius-none">
                 <h4 class="modal-title" id="myLargeModalLabel">Large modal</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:#fff;">×</button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body modal_body_set">
                 ...
             </div>
         </div><!-- /.modal-content -->
@@ -55,18 +55,18 @@ function showLargeModal(url, header)
 <!-- Scrollable modal -->
 <div class="modal fade" id="scrollable-modal" tabindex="-1" role="dialog" aria-labelledby="scrollableModalTitle" aria-hidden="true">
 <div class="modal-dialog modal-dialog-scrollable" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
+    <div class="modal-content border-radius-none">
+        <div class="modal-header modal_header_set border-radius-none">
             <h5 class="modal-title" id="scrollableModalTitle">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:#fff;">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <div class="modal-body ml-2 mr-2">
+        <div class="modal-body modal_body_set">
 
         </div>
-        <div class="modal-footer">
-            <button class="btn btn-secondary" data-dismiss="modal"><?php echo get_phrase("close"); ?></button>
+        <div class="modal-footer modal_footer_set border-radius-none">
+            <button class="btn btn-secondary shadow-none" data-dismiss="modal"><?php echo get_phrase("close"); ?></button>
         </div>
     </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
