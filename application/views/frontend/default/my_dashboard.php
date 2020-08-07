@@ -53,13 +53,21 @@ include 'dashboard-chart.php'; ?>
      <?php
  $totalDuration = 0;
                     $remainDuration = 0;
-					foreach ($lessons as $index => $lesson):
+                    foreach ($lessons as $index => $lesson):
+                        $course_id= $lesson['course_id'];
+                        ?>
+                        <?php
+                        if($course_id == $my_course['course_id']):
+
 						$temp = explode(':', $lesson['duration']);
 						$totalDuration += intval($temp[2]); // Add the seconds
 						$totalDuration += intval($temp[1]) * 60; // Add the minutes
                         $totalDuration += intval($temp[0]) * 60 * 60;	
-                        $remainDuration = 	$totalDuration ;					
-					endforeach;
+                       // $remainDuration = 	$totalDuration ;
+                       ?>
+                       <?php					
+                    endif ?>
+                  <?php endforeach;
 					?>
 
      <?php
@@ -68,6 +76,7 @@ include 'dashboard-chart.php'; ?>
         
     ?>
     <?php
+    $remainDuration = 0;
      foreach($lessons as $lesson):
      ?>
              <?php $course_id= $lesson['course_id'];
@@ -167,12 +176,12 @@ include 'dashboard-chart.php'; ?>
                             </div>
                             <div class="col-sm-6 col-xl-3">
                                 <div>
-                                   <a href="<?php echo site_url('home/my_courses'); ?>" class="admin_text_white">
+                                    <a href="<?php echo site_url('home/my_courses'); ?>" class="admin_text_white">
                                         <div class="card dashboard_bg_danger shadow-none m-0">
                                             <div class="card-body text-center" style="padding: 24px 14px;">
                                                 <i class="dripicons-blog" style="font-size: 24px;"></i>
                                                 <h3><span><?php echo $completeLessonDuration; ?></span></h3>
-                                                <p class="font-15 mb-0"><?php echo get_phrase('number_of_completed_lessons'); ?></p>
+                                                <p class="font-15 mb-0"><?php echo get_phrase('number_of_complited_lessons'); ?></p>
                                             </div>
                                         </div>
                                     </a>
@@ -197,7 +206,7 @@ include 'dashboard-chart.php'; ?>
                                 <div>
                                     <i class="mdi mdi-trending-up text-success mt-3 h3"></i>
                                     <h3 class="font-weight-normal">
-                                        <span><?php echo gmdate("H:i:s", $totalDuration); ?></span>
+                                        <span><?php echo gmdate("H:i:s", $totalEnrolCrsTime); ?></span>
                                     </h3>
                                     <p class="text-muted mb-0"><?php echo get_phrase('Total Hours'); ?></p>
                                 </div>
@@ -347,12 +356,8 @@ function getCourseDetailsForRatingModal(course_id) {
              }))
          }
          if (0 < o("#project-status-chart").length) {
-          //  $remainDuration =  gmdate("H:i:s", $remainDuration) ;
-            //$totalDuration =  gmdate("H:i:s", $totalDuration) ;
              t.push(this.respChart(o("#project-status-chart"), "Doughnut", {
                  labels: ["<?php echo get_phrase('Total Hours'); ?>", "<?php echo get_phrase('Remaining Hours'); ?>"],
-                 xValueType: "H:m:s"
-
                  datasets: [{
                      data: [<?php echo $totalDuration; ?>, <?php echo $remainDuration; ?>],
                      backgroundColor: ["#0acf97", "#FFC107"],

@@ -336,5 +336,6 @@
     "file": "File",
     "system_settings_updated": "System settings updated",
     "administrator": "Administrator",
-    "number_complited_courses": "Number complited courses"
+    "number_complited_courses": "Number complited courses",
+    "number_of_completed_lessons": "Number of completed lessons"
 }

@@ -72,7 +72,9 @@
 
 <script type="text/javascript">
 $(function() {
-    $("#start_date").datepicker();
+    $("#start_date").datepicker().on('change', function(){
+        $('.datepicker').hide();
+    });
 });
 $(document).ready(function() {       
 	$('#user_id').multiselect({		
