@@ -4,18 +4,18 @@ $lessons = $this->crud_model->get_lessons('section', $section_details['id'])->re
 ?>
 <div class="row">
     <div class="col-12">
-        <div class="card">
+        <div>
             <div class="card-body">
                 <div class="row" id = "parent-div" data-plugin="dragula" data-containers='["lesson-list"]'>
                     <div class="col-md-12">
-                        <div class="bg-dragula p-2 p-lg-4">
+                        <div>
                             <h5 class="mt-0"><?php echo get_phrase('sort_lessons_of').': '.$section_details['title'].' '.get_phrase('section'); ?>
-                                <button type="button" class="btn btn-outline-primary btn-sm btn-rounded alignToTitle" id = "lesson-sort-btn" onclick="sort()" name="button"><?php echo get_phrase('update_sorting'); ?></button>
+                                <button type="button" class="btn btn-primary shadow-none btn-sm btn-rounded alignToTitle" id = "lesson-sort-btn" onclick="sort()" name="button"><?php echo get_phrase('update_sorting'); ?></button>
                             </h5>
                             <div id="lesson-list" class="py-2">
                                 <?php foreach ($lessons as $lesson): ?>
                                     <!-- item -->
-                                    <div class="card mb-0 mt-2 draggable-item" id = "<?php echo $lesson['id']; ?>">
+                                    <div class="card mb-0 mt-2 draggable-item shadow-none" style="background:#2d333e;" id = "<?php echo $lesson['id']; ?>">
                                         <div class="card-body">
                                             <div class="media">
                                                 <div class="media-body">

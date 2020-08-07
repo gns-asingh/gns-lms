@@ -2,17 +2,17 @@
     <input type="hidden" name="question_type" value="mcq">
     <div class="form-group">
         <label for="title"><?php echo get_phrase('question_title'); ?></label>
-        <input class="form-control" type="text" name="title" id="title" required>
+        <input class="form-control form_control_bg" type="text" name="title" id="title" required>
     </div>
     <div class="form-group" id='multiple_choice_question'>
         <label for="number_of_options"><?php echo get_phrase('number_of_options'); ?></label>
         <div class="input-group">
-            <input type="number" class="form-control" name="number_of_options" id="number_of_options" data-validate="required" data-message-required="Value Required" min="0">
-            <div class="input-group-append" style="padding: 0px"><button type="button" class="btn btn-secondary btn-sm pull-right" name="button" onclick="showOptions(jQuery('#number_of_options').val())" style="border-radius: 0px;"><i class="fa fa-check"></i></button></div>
+            <input type="number" class="form-control form_control_bg" name="number_of_options" id="number_of_options" data-validate="required" data-message-required="Value Required" min="0">
+            <div class="input-group-append" style="padding: 0px"><button type="button" class="btn btn-secondary shadow-none btn-sm pull-right" name="button" onclick="showOptions(jQuery('#number_of_options').val())" style="border-radius: 0px;background: #181924;border: none;"><i class="fa fa-check"></i></button></div>
         </div>
     </div>
     <div class="text-center">
-        <button class = "btn btn-success" id = "submitButton" type="button" name="button" data-dismiss="modal"><?php echo get_phrase('submit'); ?></button>
+        <button class = "btn btn-primary shadow-none" id = "submitButton" type="button" name="button" data-dismiss="modal"><?php echo get_phrase('submit'); ?></button>
     </div>
 </form>
 <script type="text/javascript">

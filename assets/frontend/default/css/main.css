@@ -4253,8 +4253,8 @@ div.tagsinput span.tag a {
     border: none;
 } */
 .bg-quiz-result-info {
-    background-color: #007791;
-    padding: 13px;
+    background-color: #20202a;
+    padding:0;
 }
 .login-form, .register-form, .forgot-password-form {
     /* background-color: #fff; */
@@ -4266,7 +4266,7 @@ div.tagsinput span.tag a {
 }
 
 .quiz-options label {
-  color: #3a3a3a;
+  color: #d0d0d0;
 }
 .bannerHeight{
     height:500px;
@@ -4922,5 +4922,38 @@ a.admin_text_white:hover {
   .user_img_set img{
     width:100%!important;
     height: 100%!important;
-
+}
+.question_title_set{
+    color: #fff;
+    padding: 10px 10px;
+    background-color: #20202a;
+    border-bottom: 1px solid #181924;
+}
+.question_bg_set{
+    background-color: #23242d;
+    border: 1px solid #181924;
+}
+.set_que_li{
+    background:transparent;
+    border:none;
+    padding:0;
+    color:#d0d0d0;
+}
+.quiz_result_header{
+    background-color: #20202a;
+    border-bottom: 1px solid #181924;
+    padding: 10px 10px;
+    color: #d0d0d0;
+}
+.quiz_result_info{
+    background-color: #23242d;
+    border: 1px solid #181924;    
+    box-shadow: none;
+    border-radius: inherit;
+}
+.set_start_btn{
+    color: #fff;
+    padding: 4px 6px;
+    font-size: 12px;
+    margin-left: 18px;
 }

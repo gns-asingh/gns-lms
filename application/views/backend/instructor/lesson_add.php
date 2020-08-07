@@ -7,7 +7,7 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
 
     <div class="form-group">
         <label><?php echo get_phrase('title'); ?></label>
-        <input type="text" name = "title" class="form-control" required>
+        <input type="text" name = "title" class="form-control form_control_bg" required>
     </div>
 
     <input type="hidden" name="course_id" value="<?php echo $param2; ?>">
@@ -57,19 +57,19 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
 
             <div class="form-group">
                 <label><?php echo get_phrase('duration'); ?></label>
-                <input type="text" name = "duration" id = "duration" class="form-control">
+                <input type="text" name = "duration" id = "duration" class="form-control form_control_bg">
             </div>
         </div>
 
         <div class="" id = "html5" style="display: none;">
             <div class="form-group">
                 <label><?php echo get_phrase('video_url'); ?></label>
-                <input type="text" id = "html5_video_url" name = "html5_video_url" class="form-control">
+                <input type="text" id = "html5_video_url" name = "html5_video_url" class="form-control form_control_bg">
             </div>
 
             <div class="form-group">
                 <label><?php echo get_phrase('duration'); ?></label>
-                <input type="text" class="form-control" data-toggle='timepicker' data-minute-step="5" name="html5_duration" id = "html5_duration" data-show-meridian="false" value="00:00:00">
+                <input type="text" class="form-control form_control_bg" data-toggle='timepicker' data-minute-step="5" name="html5_duration" id = "html5_duration" data-show-meridian="false" value="00:00:00">
             </div>
 
             <div class="form-group">
@@ -77,7 +77,7 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
                 <div class="input-group">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="thumbnail" name="thumbnail" onchange="changeTitleOfImageUploader(this)">
-                        <label class="custom-file-label" for="thumbnail"><?php echo get_phrase('thumbnail'); ?></label>
+                        <label class="custom-file-label custom_file_bg" for="thumbnail"><?php echo get_phrase('thumbnail'); ?></label>
                     </div>
                 </div>
             </div>
@@ -90,24 +90,24 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
             <div class="input-group">
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="attachment" name="attachment" onchange="changeTitleOfImageUploader(this)">
-                    <label class="custom-file-label" for="attachment"><?php echo get_phrase('attachment'); ?></label>
+                    <label class="custom-file-label custom_file_bg" for="attachment"><?php echo get_phrase('attachment'); ?></label>
                 </div>
             </div>
         </div>
 		
 		<div class="form-group">
 			<label><?php echo get_phrase('duration'); ?></label>
-			<input type="text" class="form-control" data-toggle='timepicker' data-minute-step="5" name="html5_duration" id = "html5_duration" data-show-meridian="false" value="00:00:00">
+			<input type="text" class="form-control form_control_bg" data-toggle='timepicker' data-minute-step="5" name="html5_duration" id = "html5_duration" data-show-meridian="false" value="00:00:00">
 		</div>		
     </div>
 
     <div class="form-group">
         <label><?php echo get_phrase('summary'); ?></label>
-        <textarea name="summary" class="form-control"></textarea>
+        <textarea name="summary" class="form-control form_control_bg"></textarea>
         </div>
 
         <div class="text-center">
-            <button class = "btn btn-success" type="submit" name="button"><?php echo get_phrase('add_lesson'); ?></button>
+            <button class = "btn btn-primary shadow-none" type="submit" name="button"><?php echo get_phrase('add_lesson'); ?></button>
         </div>
     </form>
     <script type="text/javascript">

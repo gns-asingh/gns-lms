@@ -193,12 +193,12 @@
                                         </div> <!-- end row -->
                                     </div>
 
-                                    <ul class="list-inline mb-0 wizard">
+                                    <ul class="list-inline mb-0 wizard text-center">
                                         <li class="previous list-inline-item">
-                                            <a href="javascript::" class="btn btn-info box-shadow-none">Previous</a>
+                                            <a href="javascript::" class="btn btn-info box-shadow-none"><i class="mdi mdi-arrow-left-bold"></i></a>
                                         </li>
-                                        <li class="next list-inline-item float-right">
-                                            <a href="javascript::" class="btn btn-info box-shadow-none">Next</a>
+                                        <li class="next list-inline-item">
+                                            <a href="javascript::" class="btn btn-info box-shadow-none"><i class="mdi mdi-arrow-right-bold"></i></a>
                                         </li>
                                     </ul>
 
