@@ -1,6 +1,27 @@
 <?php
 $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 ?>
+ <?php
+                $section_counter = 0;
+                $totalCourseDuration = 0;
+
+                foreach ($sections as $section):
+                    $section_counter++;
+
+                    $lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
+
+                    $totalDuration = 0;
+                    $remainDuration = 0;
+					foreach ($lessons as $index => $lesson):
+						$temp = explode(':', $lesson['duration']);
+						$totalDuration += intval($temp[2]); // Add the seconds
+						$totalDuration += intval($temp[1]) * 60; // Add the minutes
+                        $totalDuration += intval($temp[0]) * 60 * 60;	
+                        $remainDuration = 	$totalDuration ;
+                    endforeach;
+                    $totalCourseDuration = $totalCourseDuration + $totalDuration;
+                endforeach;
+                    ?>
 <section class="category-header-area page_header">
     <div class="container-lg">
         <div class="row">
@@ -23,13 +44,17 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 						<div class="col-sm-6">
 							<div>
 								<label>Total hours:</label>
-								<?php echo gmdate("H:i:s", $totalDuration); ?> Hours
+								<?php echo gmdate("H:i:s", $totalCourseDuration); ?> Hours
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<label>Remaining hours:</label>
 							<?php 
-							$completeLesDurationOfLess = 0;
+                            $completeLesDurationOfLess = 0;
+                            $totalRemainDuration = 0;
+                            foreach ($sections as $section):
+                            $lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
+
 								foreach ($lessons as $lesson): 	
 									$completeLesDuration  = 0;								
 							?>
@@ -43,9 +68,11 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 								 ?>
 										<?php else: ?>
 									   <?php endif; ?>
+                                       <?php endforeach; ?>
+                                       <?php $totalRemainDuration =   $totalCourseDuration -  $completeLesDurationOfLess;  ?>  
 									   <?php endforeach; ?>
-									  <?php $remainDuration =   $remainDuration -  $completeLesDurationOfLess;  ?>  
-									  <?php echo gmdate("H:i:s", $remainDuration) ; ?> Hours
+                                       <?php echo gmdate("H:i:s", $totalRemainDuration) ; ?> Hours
+
 
 							<!-- <?php echo $section['title']; ?> -->
 						</div>
@@ -64,8 +91,12 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
             <div class="accordion" id="accordionExample">
                 <?php
                 $section_counter = 0;
+                $totalCourseDuration = 0;
+
                 foreach ($sections as $section):
                     $section_counter++;
+                    $totalCourseDuration = $totalCourseDuration + $totalDuration;
+
                     $lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
 					
                     $totalDuration = 0;
@@ -75,7 +106,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 						$totalDuration += intval($temp[2]); // Add the seconds
 						$totalDuration += intval($temp[1]) * 60; // Add the minutes
                         $totalDuration += intval($temp[0]) * 60 * 60;	
-                        $remainDuration = 	$totalDuration ;					
+                        $remainDuration = 	$totalDuration ;	
 					endforeach;
                     ?>
                     
@@ -87,12 +118,12 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                 <div class="lesson_accordian_header" type="button" data-toggle="collapse" data-target="<?php echo '#collapse-'.$section['id']; ?>" aria-expanded="true" aria-controls="<?php echo 'collapse-'.$section['id']; ?>">
                                     <div style="display:flex;">
                                         <div>
-                                        <h6 style="color: #fff; font-size: 15px;margin-bottom:0;">Section<?php echo $section_counter;?>
+                                        <!-- <h6 style="color: #fff; font-size: 15px;margin-bottom:0;">Section<?php echo $section_counter;?> -->
                                         </div>
                                         
                                     </div>
                                     
-                                    <!-- <h6 style="color: #fff; font-size: 15px;margin-bottom:0;">Section<?php echo $section_counter;?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo gmdate("H:i:s", $totalDuration); ?> Hours<br> -->
+                                     <h6 style="color: #fff; font-size: 15px;margin-bottom:0;">Section<?php echo $section_counter;?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo gmdate("H:i:s", $totalDuration); ?> Hours<br> 
                                     
                                 </div>
                             </div>

@@ -77,6 +77,7 @@ include 'dashboard-chart.php'; ?>
     ?>
     <?php
     $remainDuration = 0;
+    $completeLesDuration= 0;
      foreach($lessons as $lesson):
      ?>
              <?php $course_id= $lesson['course_id'];
@@ -88,12 +89,13 @@ include 'dashboard-chart.php'; ?>
 					                 	$completeLesDuration += intval($temp[2]); // Add the seconds
 					                 	$completeLesDuration += intval($temp[1]) * 60; // Add the minutes
                                         $completeLesDuration += intval($temp[0]) * 60 * 60;       
-                                        $remainDuration =   $totalDuration -  $completeLesDuration;  ?> 
+                                      //  $remainDuration =   $totalDuration -  $completeLesDuration;  ?> 
        <?php 
        $completeLessonDuration++;
        ?> 
  <?php endif; ?>
- <?php endforeach; ?>
+ <?php endforeach; 
+ $remainDuration =   $totalDuration -  $completeLesDuration;  ?> 
 
  <?php endforeach; ?>
  

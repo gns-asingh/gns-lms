@@ -337,5 +337,7 @@
     "system_settings_updated": "System settings updated",
     "administrator": "Administrator",
     "number_complited_courses": "Number complited courses",
-    "number_of_completed_lessons": "Number of completed lessons"
+    "number_of_completed_lessons": "Number of completed lessons",
+    "student_has_already_been_enrolled_to_this_course": "Student has already been enrolled to this course",
+    "lesson_has_been_deleted_successfully": "Lesson has been deleted successfully"
 }
