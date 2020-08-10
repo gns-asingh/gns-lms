@@ -2,9 +2,9 @@
     <div class="form-group options">
         <label><?php echo get_phrase('option').' '.$i;?></label>
         <div class="input-group">
-            <input type="text" class="form-control" name = "options[]" id="option_<?php echo $i; ?>" placeholder="<?php echo get_phrase('option_').$i; ?>" required>
+            <input type="text" class="form-control form_control_bg" name = "options[]" id="option_<?php echo $i; ?>" placeholder="<?php echo get_phrase('option_').$i; ?>" required>
             <div class="input-group-append">
-                <span class="input-group-text">
+                <span class="input-group-text" style="background: #181924;border: none;">
                     <input type='checkbox' name = "correct_answers[]" value = <?php echo $i; ?>>
                 </span>
             </div>

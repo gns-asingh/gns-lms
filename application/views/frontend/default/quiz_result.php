@@ -17,9 +17,10 @@
 ?>
 <div class="row mb-4">
     <div class="col-lg-12">
-        <div class="card text-left card-with-no-color-no-border">
-            <div class="card-body">
-                <h6 class="card-title"><img src="<?php echo $each['submitted_answer_status'] == 1 ? base_url('assets/frontend/default/img/green-tick.png') : base_url('assets/frontend/default/img/red-cross.png'); ?>" alt="" height="15px;"> <?php echo $question_details['title']; ?></h6>
+        <div class="card text-left card-with-no-color-no-border quiz_result_info">
+            <div>
+                <h6 class="card-title quiz_result_header"><img src="<?php echo $each['submitted_answer_status'] == 1 ? base_url('assets/frontend/default/img/green-tick.png') : base_url('assets/frontend/default/img/red-cross.png'); ?>" alt="" height="15px;"> <?php echo $question_details['title']; ?></h6>
+                <div class="card-body">
                 <?php for ($i = 0; $i < count($correct_answers); $i++): ?>
                     <p class="card-text"> -
                         <?php echo $options[($correct_answers[$i] - 1)]; ?>
@@ -35,11 +36,12 @@
                     echo rtrim($submitted_answers_as_csv, ', ');
                     ?>
                     ]</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <?php endforeach; ?>
 <div class="text-center">
-    <a href="javascript::" name="button" class="btn btn-sign-up mt-2" style="color: #fff;" onclick="location.reload();"><?php echo get_phrase("take_again"); ?></a>
+    <a href="javascript::" name="button" class="btn btn-sign-up btn-primary shadow-none mt-2" style="color: #fff;" onclick="location.reload();"><?php echo get_phrase("take_again"); ?></a>
 </div>
