@@ -799,7 +799,17 @@ input:-internal-autofill-selected{
   color: #d0d0d0;
   border-top: 1px solid #121212;
 }
-
+.append_btn_set{
+  border-radius: 0px;
+  color: #e1e1e1!important;
+  background-color: #181924!important;
+  border:none!important;
+}
+.dropdown_bg:hover{
+  color: #d0d0d0;
+    text-decoration: none;
+    background-color: #0a0b18;
+}
 
 
 

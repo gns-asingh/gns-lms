@@ -18,7 +18,7 @@ $questions = $this->crud_model->get_quiz_questions($param2)->result_array();
                                 <div id="question-list" class="py-2">
                                     <?php foreach ($questions as $question): ?>
                                         <!-- Item -->
-                                        <div class="card mb-0 mt-2 draggable-item on-hover-action" style="background:#2d333e;" id = "<?php echo $question['id']; ?>">
+                                        <div class="card mb-0 mt-2 draggable-item on-hover-action shadow-none" style="background:#2d333e;" id = "<?php echo $question['id']; ?>">
                                             <div class="card-body">
                                                 <div class="media">
                                                     <div class="media-body">
@@ -75,7 +75,7 @@ function(a) {
 
 <script type="text/javascript">
 jQuery(document).ready(function() {
-    $('.widgets-of-quiz-question').hide();
+    $('.widgets-of-quiz-question').show();
 });
 
 $('.on-hover-action').mouseenter(function() {
@@ -84,7 +84,7 @@ $('.on-hover-action').mouseenter(function() {
 });
 $('.on-hover-action').mouseleave(function() {
     var id = this.id;
-    $('#widgets-of-'+id).hide();
+    $('#widgets-of-'+id).show();
 });
 
 function deleteQuizQuestionAndReloadModal(quizID, questionID) {
