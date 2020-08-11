@@ -80,7 +80,7 @@
         <div class="modal fade multi-step" id="EditRatingModal" tabindex="-1" role="dialog" aria-hidden="true" reset-on-close="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content edit-rating-modal">
-                    <div class="modal-header">
+                    <div class="modal-header modal_header_set">
                         <h5 class="modal-title step-1" data-step="1"><?php echo get_phrase('step').' 1'; ?></h5>
                         <h5 class="modal-title step-2" data-step="2"><?php echo get_phrase('step').' 2'; ?></h5>
                         <h5 class="m-progress-stats modal-title">
@@ -95,7 +95,7 @@
                         <div class="m-progress-bar">
                         </div>
                     </div>
-                    <div class="modal-body step step-1">
+                    <div class="modal-body step step-1 modal_body_set">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6">
@@ -138,9 +138,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="modal-course-preview-box">
-                                        <div class="card">
+                                        <div class="card" style="border:none;">
                                             <img class="card-img-top img-fluid" id = "course_thumbnail_1" alt="">
-                                            <div class="card-body">
+                                            <div class="card-body" style="background: #545457;">
                                                 <h5 class="card-title" class = "course_title_for_rating" id = "course_title_1"></h5>
                                                 <p class="card-text" id = "instructor_details">
 
@@ -153,20 +153,20 @@
                         </div>
 
                     </div>
-                    <div class="modal-body step step-2">
+                    <div class="modal-body step step-2 modal_body_set">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="modal-rating-comment-box">
                                         <h4 class="rating-title"><?php echo get_phrase('write_a_public_review'); ?></h4>
-                                        <textarea id = "review_of_a_course" name = "review_of_a_course" placeholder="<?php echo get_phrase('describe_your_experience_what_you_got_out_of_the_course_and_other_helpful_highlights').'. '.get_phrase('what_did_the_instructor_do_well_and_what_could_use_some_improvement') ?>?" maxlength="65000" class="form-control"></textarea>
+                                        <textarea id = "review_of_a_course" name = "review_of_a_course" placeholder="<?php echo get_phrase('describe_your_experience_what_you_got_out_of_the_course_and_other_helpful_highlights').'. '.get_phrase('what_did_the_instructor_do_well_and_what_could_use_some_improvement') ?>?" maxlength="65000" class="form-control form_control_bg"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="modal-course-preview-box">
-                                        <div class="card">
+                                        <div class="card" style="border:none;">
                                             <img class="card-img-top img-fluid" id = "course_thumbnail_2" alt="">
-                                            <div class="card-body">
+                                            <div class="card-body" style="background: #545457;">
                                                 <h5 class="card-title" class = "course_title_for_rating" id = "course_title_2"></h5>
                                                 <p class="card-text">
                                                     -
@@ -183,7 +183,7 @@
                         </div>
                     </div>
                     <input type="hidden" name="course_id" id = "course_id_for_rating" value="">
-                    <div class="modal-footer">
+                    <div class="modal-footer modal_footer_set">
                         <button type="button" class="btn btn-primary next step step-1" data-step="1" onclick="sendEvent(2)"><?php echo get_phrase('next'); ?></button>
                         <button type="button" class="btn btn-primary previous step step-2 mr-auto" data-step="2" onclick="sendEvent(1)"><?php echo get_phrase('previous'); ?></button>
                         <button type="button" class="btn btn-primary publish step step-2" onclick="publishRating($('#course_id_for_rating').val())" id = ""><?php echo get_phrase('publish'); ?></button>

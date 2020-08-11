@@ -3,12 +3,12 @@ $instructor_details = $this->user_model->get_all_user($instructor_id)->row_array
 $social_links  = json_decode($instructor_details['social_links'], true);
 $course_ids = $this->crud_model->get_instructor_wise_courses($instructor_id, 'simple_array');
 ?>
-<section class="instructor-header-area">
+<section class="instructor-header-area my-course-area page_header page-header-area">
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1 class="instructor-name"><?php echo $instructor_details['first_name'].' '.$instructor_details['last_name']; ?></h1>
-                <h2 class="instructor-title"><?php echo $instructor_details['title']; ?></h2>
+                <h1 class="page-title"><?php echo $instructor_details['first_name'].' '.$instructor_details['last_name']; ?></h1>
+                <h2 class="page-title"><?php echo $instructor_details['title']; ?></h2>
             </div>
         </div>
     </div>
@@ -42,7 +42,39 @@ $course_ids = $this->crud_model->get_instructor_wise_courses($instructor_id, 'si
                     </div>
 
                     <div class="instructor-stat-box">
-                        <ul>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="dashboard_bg_primary">
+                                    <div class="card-body admin_text_white text-center" style="font-size:20px">
+                                        <div class="small"><?php echo get_phrase('total_student'); ?></div>
+                                        <div class="num">
+                                            <?php
+                                            $this->db->select('user_id');
+                                            $this->db->distinct();
+                                            $this->db->where_in('course_id', $course_ids);
+                                            echo $this->db->get('enrol')->num_rows();?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="dashboard_bg_info">
+                                    <div class="card-body admin_text_white text-center" style="font-size:20px">
+                                        <div class="small"><?php echo get_phrase('courses'); ?></div>
+                                        <div class="num"><?php echo sizeof($course_ids); ?></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="dashboard_bg_warning">
+                                    <div class="card-body admin_text_white text-center" style="font-size:20px">
+                                        <div class="small"><?php echo get_phrase('reviews'); ?></div>
+                                        <div class="num"><?php echo $this->crud_model->get_instructor_wise_course_ratings($instructor_id, 'course')->num_rows(); ?></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <ul>
                             <li>
                                 <div class="small"><?php echo get_phrase('total_student'); ?></div>
                                 <div class="num">
@@ -61,7 +93,7 @@ $course_ids = $this->crud_model->get_instructor_wise_courses($instructor_id, 'si
                                 <div class="small"><?php echo get_phrase('reviews'); ?></div>
                                 <div class="num"><?php echo $this->crud_model->get_instructor_wise_course_ratings($instructor_id, 'course')->num_rows(); ?></div>
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
 
                 </div>

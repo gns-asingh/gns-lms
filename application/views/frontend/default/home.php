@@ -127,7 +127,7 @@
                         <div>
                             <i class="fa fa-book home_page_icon"></i>
                         </div>
-                        <h4>Learning Management System</h4>
+                        <h5>Learning Management System</h5>
                     </div>
 
                     <div class="home_page_info_matter overlay">
@@ -150,7 +150,7 @@
                         <div>
                             <i class="fa fa-desktop home_page_icon"></i>
                         </div>
-                       <h4>Daily Online Learning</h4>
+                       <h5>Daily Online Learning</h5>
                     </div>
                     <div class="home_page_info_matter overlay">
                         <p class="text">
@@ -168,7 +168,7 @@
                         <div>
                             <i class="fa fa-user-circle home_page_icon"></i>
                         </div>
-                        <h4>Administration is so easy.</h4>
+                        <h5>Administration is so easy.</h5>
                     </div>
                     <div class="home_page_info_matter overlay">
                         <p class="text">
@@ -188,7 +188,7 @@
                         <div>
                             <i class="fa fa-tasks home_page_icon"></i>
                         </div>
-                        <h4>Judge progress by referring reports</h4>
+                        <h5>Judge progress by referring reports</h5>
                     </div>
                     <div class="home_page_info_matter overlay">
                         <p class="text">
@@ -205,7 +205,7 @@
                         <div>
                             <i class="fa fa-clock home_page_icon"></i>
                         </div>
-                        <h4>Create &amp; schedule courses in a few clicks</h4>
+                        <h5>Create &amp; schedule courses in a few clicks</h5>
                     </div>
                     <div class="home_page_info_matter overlay">
                         <p class="text">
@@ -223,7 +223,7 @@
                         <div>
                             <i class="fa fa-thumbs-up home_page_icon"></i>
                         </div>                    
-                        <h4>Better choice is LMS platform</h4>
+                        <h5>Better choice is LMS platform</h5>
                     </div>
                     <div class="home_page_info_matter overlay">
                         <p class="text">
