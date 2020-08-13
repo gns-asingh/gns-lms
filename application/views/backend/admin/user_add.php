@@ -121,7 +121,7 @@
                                                 <div class="form-group row mb-3">
                                                     <label class="col-md-3 col-form-label" for="facebook_link"> <?php echo get_phrase('facebook'); ?></label>
                                                     <div class="col-md-9">
-                                                        <input type="password" id="password" name="password" class="form-control form_control_bg" required>
+                                                        <input type="text" id="facebook_link" name="facebook_link" class="form-control form_control_bg">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row mb-3">
@@ -130,8 +130,8 @@
                                                         <input type="text" id="twitter_link" name="twitter_link" class="form-control form_control_bg">
                                                     </div>
                                                 </div>
-                                                <div class="form-group row mb-3">
-                                                    <label class="col-md-3 col-form-label" for="linkedin_link"><?php echo get_phrase('linkedin'); ?></label>
+                                                <div class="form-group row m05b-3">
+                                                    <label class="col-md-3 clol-form-label" for="linkedin_link"><?php echo get_phrase('linkedin'); ?></label>
                                                     <div class="col-md-9">
                                                         <input type="text" id="linkedin_link" name="linkedin_link" class="form-control form_control_bg">
                                                     </div>
@@ -156,13 +156,13 @@
                                                         <small><?php echo get_phrase("required_for_instructor"); ?></small>
                                                     </div>
                                                 </div>
-                                                <div class="form-group row mb-3">
+                                               <!-- <div class="form-group row mb-3">
                                                     <label class="col-md-3 col-form-label" for="stripe_secret_key"><?php echo get_phrase('stripe_secret_key'); ?></label>
                                                     <div class="col-md-9">
                                                         <input type="text" id="stripe_secret_key" name="stripe_secret_key" class="form-control form_control_bg">
                                                         <small><?php echo get_phrase("required_for_instructor"); ?></small>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div> <!-- end col -->
                                         </div> <!-- end row -->
                                     </div>

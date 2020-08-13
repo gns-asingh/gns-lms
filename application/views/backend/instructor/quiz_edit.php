@@ -5,7 +5,7 @@ $sections = $this->crud_model->get_section('course', $param3)->result_array();
 <form action="<?php echo site_url('instructor/quizes/'.$param3.'/edit/'.$param2); ?>" method="post">
     <div class="form-group">
         <label for="title"><?php echo get_phrase('quiz_title'); ?></label>
-        <input class="form-control" type="text" name="title" id="title" value="<?php echo $quiz_details['title']; ?>" required>
+        <input class="form-control form_control_bg" type="text" name="title" id="title" value="<?php echo $quiz_details['title']; ?>" required>
     </div>
     <div class="form-group">
         <label for="section_id"><?php echo get_phrase('section'); ?></label>
@@ -17,10 +17,10 @@ $sections = $this->crud_model->get_section('course', $param3)->result_array();
     </div>
     <div class="form-group">
         <label><?php echo get_phrase('instruction'); ?></label>
-        <textarea name="summary" class="form-control"><?php echo $quiz_details['summary']; ?></textarea>
+        <textarea name="summary" class="form-control form_control_bg"><?php echo $quiz_details['summary']; ?></textarea>
     </div>
     <div class="text-center">
-        <button class = "btn btn-success" type="submit" name="button"><?php echo get_phrase('submit'); ?></button>
+        <button class = "btn btn-primary shadow-none" type="submit" name="button"><?php echo get_phrase('submit'); ?></button>
     </div>
 </form>
 <script type="text/javascript">

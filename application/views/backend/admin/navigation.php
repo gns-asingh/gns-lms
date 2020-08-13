@@ -141,9 +141,9 @@
 				<li class = "<?php if($page_name == 'manage_language') echo 'active'; ?>">
 					<a href="<?php echo site_url('admin/manage_language'); ?>"><?php echo get_phrase('language_settings'); ?></a>
 				</li> -->
-				<li class = "<?php if($page_name == 'smtp_settings') echo 'active'; ?>">
+				<!--<li class = "<?php if($page_name == 'smtp_settings') echo 'active'; ?>">
 					<a href="<?php echo site_url('admin/smtp_settings'); ?>"><?php echo get_phrase('smtp_settings'); ?></a>
-				</li>
+				</li> -->
 				 <!-- code added by DD for role -->
 				 <li class = "<?php if($page_name == 'role') echo 'active'; ?>">
 					<a href="<?php echo site_url('admin/role'); ?>"><?php echo get_phrase('roles'); ?></a>

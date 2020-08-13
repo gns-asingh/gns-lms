@@ -2849,6 +2849,7 @@ section.instructor-header-area .instructor-title {
 }
 section.instructor-details-area {
     padding: 30px 0;
+    background:#0a0b18;
 }
 
 .instructor-left-box .instructor-image img {
@@ -2873,6 +2874,7 @@ section.instructor-details-area {
 .biography-content-box {
     max-height: 400px;
     margin-bottom: 40px;
+    color:#d0d0d0;
 }
 
 .instructor-right-box .instructor-stat-box ul {
@@ -3102,8 +3104,8 @@ section.my-courses-area {
 }
 .edit-rating-modal .rating-title {
     font-weight: 300;
-    font-size: 24px;
-    color: #29303b;
+    font-size: 22px;
+    color: #d0d0d0;
 }
 .edit-rating-modal .modal-body {
     padding-top: 50px;
@@ -3115,7 +3117,7 @@ section.my-courses-area {
 .modal-course-preview-box .card-title {
     line-height: 24px;
     height: 48px;
-    color: #505763;
+    color: #fff;
     display: block!important;
     display: -webkit-box!important;
     -webkit-line-clamp: 2;
@@ -3136,7 +3138,7 @@ section.my-courses-area {
 .modal-course-preview-box .card-text {
     line-height: 24px;
     height: 48px;
-    color: #505763;
+    color: #fff;
     display: block!important;
     display: -webkit-box!important;
     -webkit-line-clamp: 2;
@@ -3154,7 +3156,7 @@ section.my-courses-area {
     white-space: normal;
 }
 .edit-rating-modal .modal-footer button {
-    padding: 16px 12px;
+    padding: 6px 16px;
     font-size: 15px;
     line-height: 1.35135;
     border-radius: 2px;
@@ -3167,9 +3169,10 @@ section.my-courses-area {
     border-color: #992337 !important;
 }
 .edit-rating-modal .modal-footer button.previous {
-    color: #007791;
-    background-color: #fff;
+    color: #fff;
+    background-color: #007791;
     border-color: #007791;
+
 }
 .edit-rating-modal .modal-footer button.previous:hover,.edit-rating-modal .modal-footer button.previous:focus {
     background-color: #e6f2f5 !important;
@@ -3187,7 +3190,7 @@ section.my-courses-area {
 }
 .your-rating > label:before {
     margin: 8px;
-    font-size: 40px;
+    font-size: 30px;
     font-family: "Font Awesome 5 Free";
     display: inline-block;
     content: "\f005";
@@ -4957,3 +4960,18 @@ a.admin_text_white:hover {
     font-size: 12px;
     margin-left: 18px;
 }
+.modal_header_set{
+    background: #20202a;
+    color: #d0d0d0;
+    border-bottom: 1px solid #121212;
+  }
+  .modal_body_set{
+    background: #414144;
+    color:#d0d0d0;
+    border: 1px solid #2b2b2b;
+  }
+  .modal_footer_set{
+    background: #20202a;
+    color: #d0d0d0;
+    border-top: 1px solid #121212;
+  }
