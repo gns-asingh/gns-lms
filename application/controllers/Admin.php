@@ -319,6 +319,16 @@ public function subcategory_form($param1 = "", $param2 = "") {
   * @author GNS
   */ 
   public function enrol_student($param1 = "") {
+  //   $user_id[] = $this->input->post('user_id');
+  //   foreach($user_id as $user){
+  //   $getUserEmailById[] = $this->crud_model->enrol_history_by_user_id($user);
+
+  //   $mail_subject = "Enrolled Courses ";
+  //   $mail_body = $this->input->post('course_id');
+  //   $mail_body = $this->input->post('course_id');
+  //   $this->email_model->send_smtp_mail($mail_subject,$mail_body,$to,"");
+  
+  // }
     if ($this->session->userdata('admin_login') != true) {
       redirect(site_url('login'), 'refresh');
     }

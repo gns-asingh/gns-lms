@@ -339,5 +339,8 @@
     "number_complited_courses": "Number complited courses",
     "number_of_completed_lessons": "Number of completed lessons",
     "student_has_already_been_enrolled_to_this_course": "Student has already been enrolled to this course",
-    "lesson_has_been_deleted_successfully": "Lesson has been deleted successfully"
+    "lesson_has_been_deleted_successfully": "Lesson has been deleted successfully",
+    "no_section_found": "No section found",
+    "invalid_login_credentials": "Invalid login credentials",
+    "course_is_complited" : "This course is complited"
 }
