@@ -16,22 +16,22 @@
     <input type="hidden" name="question_type" value="mcq">
     <div class="form-group">
         <label for="title"><?php echo get_phrase('question_title'); ?></label>
-        <input class="form-control" type="text" name="title" id="title" value="<?php echo $question_details['title']; ?>" required>
+        <input class="form-control form_control_bg" type="text" name="title" id="title" value="<?php echo $question_details['title']; ?>" required>
     </div>
     <div class="form-group" id='multiple_choice_question'>
         <label for="number_of_options"><?php echo get_phrase('number_of_options'); ?></label>
         <div class="input-group">
-            <input type="number" class="form-control" name="number_of_options" id="number_of_options" data-validate="required" data-message-required="Value Required" min="0" value="<?php echo $question_details['number_of_options']; ?>">
-            <div class="input-group-append" style="padding: 0px"><button type="button" class="btn btn-secondary btn-sm pull-right" name="button" onclick="showOptions(jQuery('#number_of_options').val())" style="border-radius: 0px;"><i class="fa fa-check"></i></button></div>
+            <input type="number" class="form-control form_control_bg" name="number_of_options" id="number_of_options" data-validate="required" data-message-required="Value Required" min="0" value="<?php echo $question_details['number_of_options']; ?>">
+            <div class="input-group-append" style="padding: 0px"><button type="button" class="btn btn-secondary btn-sm pull-right append_btn_set shadow-none" name="button" onclick="showOptions(jQuery('#number_of_options').val())" style="border-radius: 0px;"><i class="fa fa-check"></i></button></div>
         </div>
     </div>
     <?php for ($i = 0; $i < $question_details['number_of_options']; $i++):?>
         <div class="form-group options">
             <label><?php echo get_phrase('option').' '.($i+1);?></label>
             <div class="input-group">
-                <input type="text" class="form-control" name = "options[]" id="option_<?php echo $i; ?>" placeholder="<?php echo get_phrase('option_').$i; ?>" required value="<?php echo $options[$i]; ?>">
+                <input type="text" class="form-control form_control_bg" name = "options[]" id="option_<?php echo $i; ?>" placeholder="<?php echo get_phrase('option_').$i; ?>" required value="<?php echo $options[$i]; ?>">
                 <div class="input-group-append">
-                    <span class="input-group-text">
+                    <span class="input-group-text append_btn_set">
                         <input type='checkbox' name = "correct_answers[]" value = <?php echo ($i+1); ?> <?php if(in_array(($i+1), $correct_answers)) echo 'checked'; ?>>
                     </span>
                 </div>
@@ -39,7 +39,7 @@
         </div>
     <?php endfor;?>
     <div class="text-center">
-        <button class = "btn btn-success" id = "submitButton" type="button" name="button" data-dismiss="modal"><?php echo get_phrase('submit'); ?></button>
+        <button class = "btn btn-primary shadow-none" id = "submitButton" type="button" name="button" data-dismiss="modal"><?php echo get_phrase('submit'); ?></button>
     </div>
 </form>
 <script type="text/javascript">

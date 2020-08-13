@@ -371,7 +371,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                                 <div class="wrapper-image-preview" style="margin-left: -6px;">
                                                                     <div class="box" style="width: 250px;">
                                                                         <div class="js--image-preview" style="background-image: url(<?php echo $this->crud_model->get_course_thumbnail_url($course_details['id']);?>); background-color: #F5F5F5;"></div>
-                                                                        <div class="upload-options">
+                                                                        <div class="upload-options admin_card_footer">
                                                                             <label for="course_thumbnail" class="btn"> <i class="mdi mdi-camera"></i> <?php echo get_phrase('course_thumbnail'); ?> <br> <small>(600 X 600)</small> </label>
                                                                             <input id="course_thumbnail" style="visibility:hidden;" type="file" class="image-upload" name="course_thumbnail" accept="image/*">
                                                                         </div>

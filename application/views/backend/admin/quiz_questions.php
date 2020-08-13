@@ -75,7 +75,7 @@ function(a) {
 
 <script type="text/javascript">
 jQuery(document).ready(function() {
-    $('.widgets-of-quiz-question').hide();
+    $('.widgets-of-quiz-question').show();
 });
 
 $('.on-hover-action').mouseenter(function() {
@@ -84,7 +84,7 @@ $('.on-hover-action').mouseenter(function() {
 });
 $('.on-hover-action').mouseleave(function() {
     var id = this.id;
-    $('#widgets-of-'+id).hide();
+    $('#widgets-of-'+id).show();
 });
 
 function deleteQuizQuestionAndReloadModal(quizID, questionID) {
