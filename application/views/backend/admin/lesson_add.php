@@ -77,7 +77,7 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
                 <div class="input-group">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input custom_file_bg" id="thumbnail" name="thumbnail" onchange="changeTitleOfImageUploader(this)">
-                        <label class="custom-file-label" for="thumbnail"><?php echo get_phrase('thumbnail'); ?></label>
+                        <label class="custom-file-label custom_file_bg" for="thumbnail"><?php echo get_phrase('thumbnail'); ?></label>
                     </div>
                 </div>
             </div>
@@ -90,14 +90,14 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
             <div class="input-group">
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="attachment" name="attachment" onchange="changeTitleOfImageUploader(this)">
-                    <label class="custom-file-label" for="attachment"><?php echo get_phrase('attachment'); ?></label>
+                    <label class="custom-file-label custom_file_bg" for="attachment"><?php echo get_phrase('attachment'); ?></label>
                 </div>
             </div>
         </div>
 		
 		<div class="form-group">
 			<label><?php echo get_phrase('duration'); ?></label>
-			<input type="text" class="form-control" data-toggle='timepicker' data-minute-step="5" name="html5_duration" id = "html5_duration" data-show-meridian="false" value="00:00:00">
+			<input type="text" class="form-control form_control_bg" data-toggle='timepicker' data-minute-step="5" name="html5_duration" id = "html5_duration" data-show-meridian="false" value="00:00:00">
 		</div>
 	
     </div>

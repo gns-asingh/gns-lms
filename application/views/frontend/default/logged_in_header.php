@@ -27,16 +27,16 @@ $user_details = $this->user_model->get_user($this->session->userdata('user_id'))
                             </div>
                         </div> -->
                     </form> 
-                    <div class="progress blue">
-                <span class="progress-left">
-                    <span class="progress-bar"></span>
-                </span>
-                <span class="progress-right">
-                    <span class="progress-bar"></span>
-                </span>
-                <div class="progress-value">
-                    <span class="progressValue">50%</span></div>
-            </div>
+                    <div class="progress blue setProgressCircle">
+                        <span class="progress-left">
+                            <span class="progress-bar"></span>
+                        </span>
+                        <span class="progress-right">
+                            <span class="progress-bar"></span>
+                        </span>
+                        <div class="progress-value">
+                            <span class="progressValue">50%</span></div>
+                    </div>
                     <div class="progress" data-percentage="40" style="display:none;">
                             <span class="progress-left">
                                 <span class="progress-bar"></span>
@@ -52,8 +52,8 @@ $user_details = $this->user_model->get_user($this->session->userdata('user_id'))
                     </div>
 
                     <!-- <div class="progress--circle progress--50">
-  <div class="progress__number">50%</div>
-</div> -->
+                        <div class="progress__number">50%</div>
+                        </div> -->
                     
                     <div class="progressMainDiv" style="display:none;">
                         <div class="progress setProgressStatus">

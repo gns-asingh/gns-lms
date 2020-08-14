@@ -3542,6 +3542,8 @@ section.user-dashboard-area {
     padding: 6px 19px;
     background-color: #20202a;
     border-bottom: 1px solid #181924;
+    text-align:center;
+    border: 1px solid #121212;
 }
 
 .user-dashboard-content .content-title-box .title {
@@ -3680,24 +3682,24 @@ section.user-dashboard-area {
     transition: 0.3s;
     -webkit-transition: 0.3s;
     -ms-webkit-transition: 0.3s;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #121212;
     padding: 15px;
     border-radius: 3px;
 }
 .message-sender-list-box .message-sender-list li.active,
 .message-sender-list-box .message-sender-list li:hover {
-    border-color: #dedfe0;
-    background-color: #fff;
+    border-color: #121212;
+    background-color: transparent;
 }
 .message-sender-list-box .message-sender-list .sender-name {
     font-size: 15px;
     font-weight: 700;
-    color: #505763;
+    color: #d0d0d0;
     margin-left: 15px;
 }
 .message-sender-list-box .message-sender-list .message-time {
-    font-size: 13px;
-    color: #686f7a;
+    font-size: 12px;
+    color: #d0d0d0;
 }
 .message-sender-list-box .message-sender-list .message-sender-head {
     margin-bottom: 10px;
@@ -3732,15 +3734,16 @@ section.user-dashboard-area {
 .message-details-box .message-details .message-header {
     min-height: 65px;
     padding: 10px;
-    border-bottom: 1px solid #dedfe0;
+    background-color: #20202a;
+    border-bottom: 1px solid #181924;
 }
 .message-details-box .message-details .message-footer {
     padding: 10px;
-    border-top: 1px solid #dedfe0;
-    background: #fff;
+    border-top: 1px solid #181924;;
+    background: #23242d;
 }
 .message-details-box .message-details .message-content {
-    background: #fff;
+    background: #23242d;
     padding: 10px;
     overflow: auto;
     min-height: 200px;
@@ -3757,13 +3760,13 @@ section.user-dashboard-area {
 }
 .message-details-box .message-details .message-content .message-box .message {
     white-space: pre-wrap;
-    color: #505763;
+    color: #d0d0d0;
     font-size: 15px;
     overflow-x: auto;
 }
 .message-details-box .message-details .message-content .message-box .time {
-    color: #686f7a;
-    font-size: 13px;
+    color: #d0d0d0;
+    font-size: 12px;
     margin-bottom: 10px;
 }
 .message-details-box .message-details .message-content .me .message-box {
@@ -4329,18 +4332,18 @@ div.tagsinput span.tag a {
     background-color: #63b327;
 }
 .login_bg{
-    background: url(https://images.assetsdelivery.com/compings_v2/sergein/sergein1012/sergein101200034.jpg);
+    background: url('../../../../uploads/system/loginpage_bg.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
-    opacity: 0.4;
+    opacity: 0.9;
     width: 100%;
     position: absolute;
     top: 0;
 }
 .user_dash_bg{
-    width: 50%;
+    width: 75%;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -4478,12 +4481,12 @@ div.tagsinput span.tag a {
     background: -ms-linear-gradient(-45deg,#ec5252 0,#6e1a52 100%);
     background: -o-linear-gradient(-45deg,#ec5252 0,#6e1a52 100%);
     background: linear-gradient(-45deg,#ec5252,#6e1a52); */
-    /* color: #fff; */
+    color: #d0d0d0;
     padding: 10px 16px;
     height: 210px;
     text-align: center;
     background: transparent;
-    color: #9a3939;
+    /* color: #9a3939; */
     cursor:pointer;
 }
 .home_page_info_matter{
@@ -4681,7 +4684,11 @@ float: left;
 
   }
   .home_page_icon{
-    font-size: 50px; padding-top: 47px;margin-bottom:20px;color:#424242;
+    font-size: 50px;
+     padding-top: 47px;
+     margin-bottom:20px;
+     /* color:#424242; */
+     color:#d0d0d0;
   }
 .trainee_course_bg{
     background:#0a0b18;
@@ -5216,7 +5223,7 @@ a.admin_text_white:hover {
 
 
 
-  .progress{
+  .setProgressCircle{
     width: 85px;
     height: 56px;
     /* line-height: 150px; */
@@ -5225,7 +5232,7 @@ a.admin_text_white:hover {
     box-shadow: none;
     position: relative;
 }
-.progress:after{
+.setProgressCircle:after{
     content: "";
     width: 100%;
     height: 100%;
@@ -5235,7 +5242,7 @@ a.admin_text_white:hover {
     top: 0px;
     left: 0;
 }
-.progress > span{
+.setProgressCircle > span{
     width: 50%;
     height: 100%;
     overflow: hidden;
@@ -5243,10 +5250,10 @@ a.admin_text_white:hover {
     top: 0;
     z-index: 1;
 }
-.progress .progress-left{
+.setProgressCircle .progress-left{
     left: 0;
 }
-.progress .progress-bar{
+.setProgressCircle .progress-bar{
     width: 100%;
     height: 100%;
     background: none;
@@ -5255,7 +5262,7 @@ a.admin_text_white:hover {
     position: absolute;
     top: 0;
 }
-.progress .progress-left .progress-bar{
+.setProgressCircle .progress-left .progress-bar{
     left: 100%;
     border-top-right-radius: 80px;
     border-bottom-right-radius: 80px;
@@ -5263,10 +5270,10 @@ a.admin_text_white:hover {
     -webkit-transform-origin: center left;
     transform-origin: center left;
 }
-.progress .progress-right{
+.setProgressCircle .progress-right{
     right: 0;
 }
-.progress .progress-right .progress-bar{
+.setProgressCircle .progress-right .progress-bar{
     left: -100%;
     border-top-left-radius: 80px;
     border-bottom-left-radius: 80px;
@@ -5275,7 +5282,7 @@ a.admin_text_white:hover {
     transform-origin: center right;
     animation: loading-1 1.8s linear forwards;
 }
-.progress .progress-value{
+.setProgressCircle .progress-value{
     width: 90%;
     height: 90%;
     border-radius: 50%;
@@ -5288,7 +5295,7 @@ a.admin_text_white:hover {
     top: 0%;
     left: 5%;
 }
-.progress.blue .progress-bar{
+.setProgressCircle.blue .progress-bar{
     border-color: #01a707;
 }
 /* .progress.blue .progress-left .progress-bar{
@@ -5363,13 +5370,14 @@ a.admin_text_white:hover {
     }
 }
 @media only screen and (max-width: 990px){
-    .progress{ margin-bottom: 20px; }
-}
-
-  
-  
+    .setProgressCircle{ margin-bottom: 20px; }
+}  
   .progressValue{
     position: relative;
     top: -34px;
 
   }
+  .hideme
+{
+    opacity:0;
+}

@@ -118,10 +118,10 @@
     
 </section>
 
-<section style="margin-bottom:20px;background:#f1f1f1">
+<section style="margin-bottom:20px;background:#23242d">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-4 hideme">
                 <div class="home_page_info">
                     <div class="home_page_info_title">
                         <div>
@@ -144,7 +144,7 @@
 
 
 
-            <div class="col-sm-4">
+            <div class="col-sm-4 hideme">
                 <div class="home_page_info">
                     <div class="home_page_info_title">
                         <div>
@@ -162,7 +162,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 hideme">
                 <div class="home_page_info">
                     <div class="home_page_info_title">
                         <div>
@@ -182,7 +182,7 @@
                 </div>           
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-4 hideme">
                 <div class="home_page_info">
                     <div class="home_page_info_title">
                         <div>
@@ -199,7 +199,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 hideme">
                 <div class="home_page_info">
                     <div class="home_page_info_title">
                         <div>
@@ -217,7 +217,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 hideme">
                 <div class="home_page_info">
                     <div class="home_page_info_title">
                         <div>
@@ -518,4 +518,25 @@ function handleEnrolledButton() {
         }
     });
 }
+$(document).ready(function() {
+    
+    /* Every time the window is scrolled ... */
+    $(window).scroll( function(){
+    
+        /* Check the location of each desired element */
+        $('.hideme').each( function(i){
+            
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            
+            /* If the object is completely visible in the window, fade it it */
+            if( bottom_of_window > bottom_of_object ){                
+                $(this).animate({'opacity':'1'},1500);                    
+            }
+            
+        }); 
+    
+    });
+    
+});
 </script>
