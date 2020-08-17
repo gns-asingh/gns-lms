@@ -26,6 +26,7 @@ body.white-bg{
 body.gray-bg{
     /* background: #f7f8fa; */
     background:#fdfdfd;
+    padding-bottom:0;
 }
 body.modal-open {
     overflow: auto;
@@ -3104,7 +3105,7 @@ section.my-courses-area {
 }
 .edit-rating-modal .rating-title {
     font-weight: 300;
-    font-size: 22px;
+    font-size: 18px;
     color: #d0d0d0;
 }
 .edit-rating-modal .modal-body {
@@ -5225,9 +5226,9 @@ a.admin_text_white:hover {
 
   .setProgressCircle{
     width: 85px;
-    height: 56px;
+    height: 56px!important;
     /* line-height: 150px; */
-    background: none;
+    background: none!important;
     margin: 0 auto;
     box-shadow: none;
     position: relative;
@@ -5380,4 +5381,7 @@ a.admin_text_white:hover {
   .hideme
 {
     opacity:0;
+}
+.border-radius-none{
+    border-radius: inherit;
 }
