@@ -1,6 +1,43 @@
 <?php
 $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 $instructor_details = $this->user_model->get_all_user($course_details['user_id'])->row_array();
+$completeLesDurationOfLess = 0;
+$totalRemainDuration = 0;
+$totalCourseDuration = 0 ;
+$sections = array();
+$lessons = array();
+//  $totalCourseDuration = $this->crud_model->get_total_duration_of_lesson_by_course_id($course_details['id']);
+
+$sections = $this->crud_model->get_section('course', $course_id)->result_array();
+
+foreach ($sections as $section):
+$lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
+
+foreach ($lessons as $lesson): 	
+$completeLesDuration  = 0;		
+  
+$temp = explode(':', $lesson['duration']);
+$totalCourseDuration += intval($temp[2]); // Add the seconds
+$totalCourseDuration += intval($temp[1]) * 60; // Add the minutes
+$totalCourseDuration += intval($temp[0]) * 60 * 60;    
+//echo "<pre>"; print_r($totalCourseDuration);
+//exit; 
+if($lesson['read_status'] == 1):
+$temp = explode(':', $lesson['duration']);
+$completeLesDuration += intval($temp[2]); // Add the seconds
+$completeLesDuration += intval($temp[1]) * 60; // Add the minutes
+$completeLesDuration += intval($temp[0]) * 60 * 60;    
+$completeLesDurationOfLess  = $completeLesDurationOfLess  +   $completeLesDuration;
+
+gmdate("H:i:s", $completeLesDurationOfLess);
+//  echo "<pre>"; print_r($totalCourseDuration);
+//exit; 
+else: 
+endif; 
+endforeach; 
+$totalRemainDuration =   $totalCourseDuration -  $completeLesDurationOfLess;  
+endforeach; 
+
 ?>
 <section class="course-header-area">
   <div class="container">
@@ -81,9 +118,12 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                 <?php echo $this->crud_model->get_lessons('course', $course_details['id'])->num_rows().' '.get_phrase('lessons'); ?>
               </span>
               <span class="total-time">
-                <?php
+              Total Hours<?php
                 echo $this->crud_model->get_total_duration_of_lesson_by_course_id($course_details['id']);
-                ?>
+                ?><br>
+                Remaining Hours
+                	<?php echo  gmdate("H:i:s", $totalRemainDuration); ?> Hours
+
               </span>
             </div>
           </div>

@@ -298,4 +298,24 @@ for (var i=0; i<checkboxes.length; i++)  {
     checkboxes[i].checked = false;
   }
 }
+function ajax_get_video_details(video_url) {
+        $('#perloader').show();
+        if(checkURLValidity(video_url)){
+            $.ajax({
+                url: '<?php echo site_url('admin/ajax_get_video_details');?>',
+                type : 'POST',
+                data : {video_url : video_url},
+                success: function(response)
+                {
+                    jQuery('#duration').val(response);
+                    $('#perloader').hide();
+                    $('#invalid_url').hide();
+                }
+            });
+        }else {
+            $('#invalid_url').show();
+            $('#perloader').hide();
+            jQuery('#duration').val('');
+
+        }
 </script>

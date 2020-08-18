@@ -94,7 +94,7 @@
                             <!-- Course Status -->
                             <div class="col-xl-5">
                                 <div class="form-group">
-                                    <label for="status"><?php echo get_phrase('status'); ?></label>
+                                    <label for="selected_status"><?php echo get_phrase('status'); ?></label>
                                     <select class="form-control select2" data-toggle="select2" name="status" id = 'status'>
                                         <option value="all" <?php if($selected_status == 'all') echo 'selected'; ?>><?php echo get_phrase('all'); ?></option>
                                         <option value="active" <?php if($selected_status == 'active') echo 'selected'; ?>><?php echo get_phrase('active'); ?></option>
