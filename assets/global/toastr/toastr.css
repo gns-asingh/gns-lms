@@ -82,7 +82,7 @@ button.toast-close-button {
   left: 12px;
 }
 .toast-top-right {
-  top: 12px;
+  top: 20px;
   right: 12px;
 }
 .toast-bottom-right {
@@ -123,6 +123,7 @@ button.toast-close-button {
   opacity: 0.8;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   filter: alpha(opacity=80);
+  margin-top: 50px;
 }
 #toast-container > div.rtl {
   direction: rtl;

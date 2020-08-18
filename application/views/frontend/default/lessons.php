@@ -142,7 +142,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 									?>
 
                                         <tr class="lesson_info">
-											<td style="padding-left:10px;">
+											<td style="padding-left:7px;">
 												<?php if($lesson['read_status'] == 1):?>
                                                    
 													<input type="checkbox" name="lesson-<?php echo $lesson['id'];?>" checked="checked" onclick="return false" disabled >
@@ -152,12 +152,14 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 											</td>
                                             <td style="text-align: left;">
                                                 <a style="color:#d0d0d0" href="<?php echo site_url('home/lesson/'.slugify($course_details['title']).'/'.$course_id.'/'.$lesson['id']); ?>" id = "<?php echo $lesson['id']; ?>">
-                                                    <i class="fa fa-play" style="font-size: 12px;color: #909090;padding: 10px;"></i>
+                                                    <i class="fa fa-play" style="font-size: 12px;color: #909090;padding: 3px;"></i>
+                                                    <span class="font-size:14px;">
                                                     <?php if ($lesson['lesson_type'] != 'other'):?>
                                                         <?php echo $lesson['title']; ?>
                                                     <?php else: ?>
                                                         <?php echo $lesson['title']; ?> <i class="fa fa-paperclip"></i>
                                                     <?php endif; ?>
+                                                    </span>
                                                 </a>
 													<?php echo nbs(2);?><span style="font-size:12px; color: #909090;"><?php echo $lesson['duration']; ?></span>
                                             </td>

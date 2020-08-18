@@ -67,8 +67,11 @@
                                     <div class="form-group">
                                         <label for="Biography"><?php echo get_phrase('biography'); ?>:</label>
                                         <div class="biography">
-                                            <textarea class="form-control author-biography-editor form_control_bg" name = "biography" id="Biography"><?php echo $user_details['biography']; ?></textarea>
+                                            <textarea class="form-control form_control_bg" name = "biography" id="Biography"><?php echo $user_details['biography']; ?></textarea>
                                         </div>
+                                        <!-- <div class="biography">
+                                            <textarea class="form-control author-biography-editor form_control_bg" name = "biography" id="Biography"><?php echo $user_details['biography']; ?></textarea>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="link-group">

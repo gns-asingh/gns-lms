@@ -19,7 +19,7 @@
                     <span class="d-inline-block">
                         <img src="<?php echo $this->user_model->get_user_image_url($user_to_show_id);?>" alt="">
                     </span>
-                    <span class="d-inline-block">
+                    <span class="d-inline-block" style="color:#fff;">
                     <?php echo $user_to_show_details['first_name'].' '.$user_to_show_details['last_name']; ?>
                 </span>
                 </span>
@@ -29,14 +29,14 @@
             <?php foreach ($messages as $message): ?>
                 <?php if ($message['sender'] == $this->session->userdata('user_id')): ?>
                     <div class="message-box-wrap me">
-                        <div class="message-box">
+                        <div class="message-box form_control_bg">
                             <div class="time"><?php echo date('D, d-M-Y', $message['timestamp']); ?></div>
                             <div class="message"><?php echo $message['message']; ?></div>
                         </div>
                     </div>
                 <?php else: ?>
                     <div class="message-box-wrap">
-                        <div class="message-box">
+                        <div class="message-box form_control_bg">
                             <div class="time"><?php echo date('D, d-M-Y', $message['timestamp']); ?></div>
                             <div class="message"><?php echo $message['message']; ?></div>
                         </div>
@@ -46,8 +46,8 @@
         </div>
         <div class="message-footer">
             <form class="" action="<?php echo site_url('home/my_messages/send_reply/'.$message_thread_code); ?>" method="post">
-                <textarea class="form-control" name="message" placeholder="<?php echo get_phrase('type_your_message'); ?>..."></textarea>
-                <button class="btn send-btn" type="submit"><?php echo get_phrase('send'); ?></button>
+                <textarea class="form-control form_control_bg" name="message" placeholder="<?php echo get_phrase('type_your_message'); ?>..."></textarea>
+                <button class="btn btn-primary shadow-none mt-3" type="submit"><?php echo get_phrase('send'); ?></button>
             </form>
         </div>
     </div>

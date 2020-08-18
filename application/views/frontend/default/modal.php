@@ -90,15 +90,15 @@ function UncheckCourse(){
 <!-- (Normal Modal)-->
 <div class="modal fade" id="modal-5">
     <div class="modal-dialog">
-        <div class="modal-content" style="margin-top:100px;">
+        <div class="modal-content border-radius-none" style="margin-top:100px;">
 
-            <div class="modal-header">                
+            <div class="modal-header modal_body_set border-radius-none">                
                 <h5 class="modal-title" style="text-align:center;">Are you sure,you have completed this lesson ?</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:#fff;">&times;</button>
             </div>
 
 
-            <div class="modal-footer" style="margin:0px; border-top:0px; text-align:center;">
+            <div class="modal-footer border-radius-none modal_footer_set" style="margin:0px; border-top:0px; text-align:center;">
                 <input type ="hidden" name="checkid" id="checkid" value="" /> 
                 <a href="#" class="btn btn-primary" id="yes_link"><?php echo get_phrase('Yes');?></a>
                 <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="UncheckCourse()"><?php echo get_phrase('cancel'); return exit;?></button>                
