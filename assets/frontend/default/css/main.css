@@ -1371,7 +1371,7 @@ select + .select2-container{
 
 .course-box .course-image{
     position: relative;
-    border-bottom:1px solid #ddd;
+    /* border-bottom:1px solid #ddd; */
 }
 .course-box .course-image:before{
     position: absolute;
@@ -2451,9 +2451,8 @@ section.course-header-area {
 }
 
 .course-curriculum-box .course-curriculum-title .total-time {
-    width: 130px;
-    display: inline-block;
-    text-align: right;
+    display: inline;
+    font-size: 13px;
 }
 
 .course-curriculum-accordion .lecture-group-title .total-time {
@@ -5384,4 +5383,9 @@ a.admin_text_white:hover {
 }
 .border-radius-none{
     border-radius: inherit;
+}
+.setLectures{
+    padding-right: 15px;
+    padding-left: 20px;
+    font-size: 13px;
 }

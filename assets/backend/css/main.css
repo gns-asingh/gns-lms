@@ -619,7 +619,7 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
     border-color: #181924!important;
 }
 .message_box .btn-group {
-  width: 60%;
+  width: 100%;
 }
 .message_box button.multiselect.dropdown-toggle.btn.btn-default{
   text-align:left;

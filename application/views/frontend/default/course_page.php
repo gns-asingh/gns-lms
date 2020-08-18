@@ -112,20 +112,22 @@ endforeach;
         <br>
         <div class="course-curriculum-box">
           <div class="course-curriculum-title clearfix">
-            <div class="title float-left"><?php echo get_phrase('curriculum_for_this_course'); ?></div>
-            <div class="float-right">
-              <span class="total-lectures">
+            <div class="title float-left" style="width:31%;"><?php echo get_phrase('curriculum_for_this_course'); ?></div>
+            <div class="float-right" style="width:68%;">
+              <span class="total-lectures setLectures">
                 <?php echo $this->crud_model->get_lessons('course', $course_details['id'])->num_rows().' '.get_phrase('lessons'); ?>
               </span>
               <span class="total-time">
-              Total Hours<?php
+                <span style="padding-right:18px;"> Total Hours: <?php
                 echo $this->crud_model->get_total_duration_of_lesson_by_course_id($course_details['id']);
-                ?><br>
-                Remaining Hours
-                	<?php echo  gmdate("H:i:s", $totalRemainDuration); ?> Hours
+                ?></span>
+                <span>
+                Remaining Hours: 
+                	<?php echo  gmdate("H:i:s", $totalRemainDuration); ?> Hours</span>
 
               </span>
             </div>
+            <div style="clear:both"></div>
           </div>
           <div class="course-curriculum-accordion course_accordian">
             <?php

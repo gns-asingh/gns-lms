@@ -37,6 +37,7 @@ $user_details = $this->user_model->get_user($this->session->userdata('user_id'))
                         <div class="progress-value">
                             <span class="progressValue">50%</span></div>
                     </div>
+                    
                     <div class="progress" data-percentage="40" style="display:none;">
                             <span class="progress-left">
                                 <span class="progress-bar"></span>
