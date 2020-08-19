@@ -17,7 +17,7 @@
 						
 							<label><?php echo get_phrase('Recipient'); ?></label>
 							<!-- <i class="float-right mdi mdi-reply"></i> -->
-							<div class="instructor_message_box">
+							<div class="message_box">
 								<select class="form-control"  name="receiver[]" id="receiver" required multiple>
 									<!-- <option value=""><?php echo get_phrase('select_a_user');?></option> -->
 									<optgroup label="<?php echo get_phrase('trainees'); ?>">
