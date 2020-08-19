@@ -78,7 +78,7 @@
                                                 echo date('D, d-M-Y', $endDate); ?></td>
                                                 
                                                 <td>
-                                                    <button type="button" class="btn btn-outline-danger btn-icon btn-rounded btn-sm" onclick="confirm_modal('<?php echo site_url('admin/enrol_history_delete/'.$enrol['id']); ?>');"> <i class="dripicons-trash"></i> </button>
+                                                    <button type="button" class="btn btn-outline-danger btn-icon btn-rounded btn-sm" onclick="confirm_modal('<?php echo site_url('instructor/enrol_history_delete/'.$enrol['id']); ?>');"> <i class="dripicons-trash"></i> </button>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
