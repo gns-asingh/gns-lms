@@ -631,7 +631,7 @@ i.mdi.mdi-apple-keyboard-command.title_icon {
   width:100%;
   border:1px solid  #181924;
   height:auto;
-  max-height: 350px;
+  max-height: 200px;
   overflow-y: auto;
 }
 .message_box li.multiselect-item.multiselect-group {

@@ -2867,8 +2867,15 @@ section.instructor-details-area {
 
 .instructor-left-box .instructor-social ul li {
     display: inline-block;
-    padding: 0 6px;
-    font-size: 19px;
+    padding: 3px 0;
+    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+.instructor-left-box .instructor-social ul li a{
+    color:#d0d0d0;
 }
 
 .biography-content-box {
