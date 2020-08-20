@@ -379,5 +379,7 @@
     "stripe_public_key": "Stripe public key",
     "stripe_secret_key": "Stripe secret key",
     "user_added_successfully": "User added successfully",
-    "invalid_login_credentials": "Invalid login credentials"
+    "invalid_login_credentials": "Invalid login credentials",
+    "total_number_of_lessons": "Total number of lessons",
+    "total_completed_lessons": "Total completed lessons"
 }
