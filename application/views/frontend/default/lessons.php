@@ -1,13 +1,15 @@
 <?php
+$enroll_course_details = array();
 $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
+$enroll_course_details = $this->crud_model->get_enroll_details()->result_array();
+// echo "<pre>"; print_r($enroll_course_details);
+//              exit; 
 ?>
  <?php
                 $section_counter = 0;
                 $totalCourseDuration = 0;
-
                 foreach ($sections as $section):
                     $section_counter++;
-
                     $lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
 
                     $totalDuration = 0;
@@ -52,29 +54,30 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
 							<?php 
                             $completeLesDurationOfLess = 0;
                             $totalRemainDuration = 0;
+                            foreach($enroll_course_details as $enrollDetails):
+
                             foreach ($sections as $section):
-                            $lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
+                                $lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
 
-								foreach ($lessons as $lesson): 	
+                                foreach ($lessons as $lesson): 	
+                                    if($enrollDetails['lesson_id'] == $lesson['id']):
 									$completeLesDuration  = 0;								
-							?>
+							
 
-							<?php if($lesson['read_status'] == 1):?>
-								<?php   $temp = explode(':', $lesson['duration']);
+							 if($enrollDetails['read_status'] == 1):
+								   $temp = explode(':', $lesson['duration']);
 								$completeLesDuration += intval($temp[2]); // Add the seconds
 								$completeLesDuration += intval($temp[1]) * 60; // Add the minutes
 								$completeLesDuration += intval($temp[0]) * 60 * 60;    
-								$completeLesDurationOfLess  = $completeLesDurationOfLess  +   $completeLesDuration
-								 ?>
-										<?php else: ?>
-									   <?php endif; ?>
-                                       <?php endforeach; ?>
-                                       <?php $totalRemainDuration =   $totalCourseDuration -  $completeLesDurationOfLess;  ?>  
-									   <?php endforeach; ?>
-                                       <?php echo gmdate("H:i:s", $totalRemainDuration) ; ?> Hours
+								$completeLesDurationOfLess  = $completeLesDurationOfLess  +   $completeLesDuration;
+                                 endif;
+                                    endif;
+                                     endforeach; 
+                                       endforeach; 
+                              $totalRemainDuration =   $totalCourseDuration -  $completeLesDurationOfLess;  
 
-
-							<!-- <?php echo $section['title']; ?> -->
+                                         endforeach; 
+                                       echo gmdate("H:i:s", $totalRemainDuration) ; ?> Hours
 						</div>
 				</div>
             </div>
@@ -91,14 +94,13 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
             <div class="accordion" id="accordionExample">
                 <?php
                 $section_counter = 0;
-                $totalCourseDuration = 0;
-
+                
                 foreach ($sections as $section):
                     $section_counter++;
                     $totalCourseDuration = $totalCourseDuration + $totalDuration;
 
                     $lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
-					
+                    
                     $totalDuration = 0;
                     $remainDuration = 0;
 					foreach ($lessons as $index => $lesson):
@@ -133,23 +135,28 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                             <div class="card-body"  style="padding:0px;">
                                 <table style="width: 100%;">
                                     <?php 
+                                        foreach($enroll_course_details as $details):
+										foreach ($lessons as $lesson): 	 										
+										if($details['lesson_id'] == $lesson['id']):
+									?>
+
+                                        <tr class="">
+											<td style="padding-left:7px;">
+												<?php if($details['read_status'] == 1):?>
+                                                   
+													<input type="checkbox" name="lesson-<?php echo $details['lesson_id'];?>" checked="checked" onclick="return false" disabled >
+												<?php else: ?>
+									                <input type="checkbox" name="lesson-<?php echo $details['lesson_id'];?>" id="lesson-<?php echo $details['lesson_id'];?>"  onclick="confirm_read_modal('<?php echo site_url('home/read_lesson/'.slugify($course_details['title']).'/'.$course_id.'/'.$details['lesson_id']); ?>','<?php echo $details['lesson_id']; ?>');">
+												<?php endif; ?>
+											</td>
+                                            <?php 
                                         //$readStatus = '';
                                         
-										foreach ($lessons as $lesson): 										
+																			
 										/*if($lesson['read_status'] == 1):
 											$readStatus = 'disabled';
 										endif;*/
 									?>
-
-                                        <tr class="lesson_info">
-											<td style="padding-left:7px;">
-												<?php if($lesson['read_status'] == 1):?>
-                                                   
-													<input type="checkbox" name="lesson-<?php echo $lesson['id'];?>" checked="checked" onclick="return false" disabled >
-												<?php else: ?>
-									                <input type="checkbox" name="lesson-<?php echo $lesson['id'];?>" id="lesson-<?php echo $lesson['id'];?>"  onclick="confirm_read_modal('<?php echo site_url('home/read_lesson/'.slugify($course_details['title']).'/'.$course_id.'/'.$lesson['id']); ?>','<?php echo $lesson['id']; ?>');">
-												<?php endif; ?>
-											</td>
                                             <td style="text-align: left;">
                                                 <a style="color:#d0d0d0" href="<?php echo site_url('home/lesson/'.slugify($course_details['title']).'/'.$course_id.'/'.$lesson['id']); ?>" id = "<?php echo $lesson['id']; ?>">
                                                     <i class="fa fa-play" style="font-size: 12px;color: #909090;padding: 3px;"></i>
@@ -189,6 +196,9 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                 </span>
                                             </td>
                                         </tr>
+                                        <?php endif; ?>
+                                        <?php endforeach; ?>
+
                                     <?php endforeach; ?>
                                 </table>
                             </div>

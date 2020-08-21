@@ -339,6 +339,7 @@ public function subcategory_form($param1 = "", $param2 = "") {
     $page_data['page_name'] = 'enrol_student';
     $page_data['page_title'] = get_phrase('enrol_a_student');
     $this->load->view('backend/index', $page_data);
+    
   }
  /**
  * Admin Revenue Form to add and edit the data 

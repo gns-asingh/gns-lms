@@ -1286,11 +1286,20 @@ public function edit_sub_category($param1) {
 	public function read_lesson($lesson_id) {
 		//$previous_data = $this->db->get_where('lesson', array('id' => $lesson_id))->row_array();
 		
-		$data['read_status'] = true;
+		$data['read_status'] = 1;
 		$this->db->where('id', $lesson_id);
         $this->db->update('lesson', $data);
+        $this->db->where('lesson_id', $lesson_id);
+        $this->db->where('user_id', $this->session->userdata('user_id'));
+        $this->db->update('enrol_user_course_lessons', $data);
 	}
-	
+    
+    public function get_enroll_details(){
+/// return $this->db->get_where('enrol_user_course_lessons', array('user_id' => $user_id));
+        return $this->db->get_where('enrol_user_course_lessons', array('user_id' => $this->session->userdata('user_id')));
+
+
+    }
 /** 
  *  Service to edit lesson
  *  @param String  $lesson_id         contains lesson id 
@@ -1547,17 +1556,34 @@ public function edit_sub_category($param1) {
  *  @author GNS
  */
     public function enrol_a_student_manually() {
-        
+       $dataForEnrollLesson['read_status'] = 0;
+       $dataForEnrollLesson['course_id'] = $this->input->post('course_id');
+       $lessons = $this->crud_model->get_lessons()->result_array();
+
         $data['course_id'] = $this->input->post('course_id');
         $user_id   = $this->input->post('user_id');
+       // $course_details = $this->crud_model->get_course_by_id($my_course['course_id'])->row_array();
+       //echo "<pre>"; print_r($lessons);
+        //exit;
+   
         foreach ($user_id as $value) {
             $data['user_id']  = $value;
+            $dataForEnrollLesson['user_id']  = $value;
+
+            foreach ($lessons as $index => $lesson):
+                if($data['course_id']== $lesson['course_id']):
+                $dataForEnrollLesson['date_added'] = strtotime(date('D, d-M-Y'));
+                $dataForEnrollLesson['lesson_id'] = $lesson['id'];
+                $this->db->insert('enrol_user_course_lessons', $dataForEnrollLesson);
+                endif; 
+          endforeach;
+
         if ($this->db->get_where('enrol', $data)->num_rows() > 0) {
             $this->session->set_flashdata('error_message', get_phrase('student_has_already_been_enrolled_to_this_course'));
         }else {
             $data['date_added'] = strtotime(date('D, d-M-Y'));
 			$data['duration_period'] = $this->input->post('duration_period');
-			$data['start_date'] = strtotime($this->input->post('start_date'));
+            $data['start_date'] = strtotime($this->input->post('start_date'));
             $this->db->insert('enrol', $data);
             $this->session->set_flashdata('flash_message', get_phrase('student_has_been_enrolled_to_that_course'));
         }
