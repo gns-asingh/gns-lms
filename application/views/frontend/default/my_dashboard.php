@@ -1,6 +1,8 @@
 <?php
 
 $my_courses = $this->user_model->my_courses()->result_array();
+$enroll_course_details = $this->crud_model->get_enroll_details()->result_array();
+
 
 $categories = array();
 foreach ($my_courses as $my_course) {
@@ -8,6 +10,7 @@ foreach ($my_courses as $my_course) {
     if (!in_array($course_details['category_id'], $categories)) {
         array_push($categories, $course_details['category_id']);
     }
+    
 }
 include 'dashboard-chart.php'; ?>
 
@@ -75,33 +78,13 @@ include 'dashboard-chart.php'; ?>
         $course_details = $this->crud_model->get_course_by_id($my_course['course_id'])->row_array();
         
     ?>
-    <?php
-    $remainDuration = 0;
-    $completeLesDuration= 0;
-     foreach($lessons as $lesson):
-     ?>
-             <?php $course_id= $lesson['course_id'];
-             ?>
+    
 
-     <?php
-      if($lesson['read_status'] == 1 && $course_id == $my_course['course_id']):?>
-       <?php   $temp = explode(':', $lesson['duration']);
-					                 	$completeLesDuration += intval($temp[2]); // Add the seconds
-					                 	$completeLesDuration += intval($temp[1]) * 60; // Add the minutes
-                                        $completeLesDuration += intval($temp[0]) * 60 * 60;       
-                                      //  $remainDuration =   $totalDuration -  $completeLesDuration;  ?> 
-       <?php 
-       $completeLessonDuration++;
-       ?> 
- <?php endif; ?>
- <?php endforeach; 
- $remainDuration =   $totalDuration -  $completeLesDuration;  ?> 
 
- <?php endforeach; ?>
  
  <?php $totalEnrolCrsTime = 0;
      $number_of_lessons = 0
-?>
+  ?>
 
  <?php
  $my_courses = $this->user_model->my_courses()->result_array();
@@ -128,6 +111,31 @@ include 'dashboard-chart.php'; ?>
        <?php endif; ?>
        <?php endforeach; ?>
      
+ <?php endforeach; ?>
+ <?php
+    $remainDuration = 0;
+    $completeLesDuration= 0;
+    $completeLesDurationOfLess =0;
+    $completeLessonDuration =0;
+    foreach($enroll_course_details as $details):
+         
+     foreach($lessons as $lesson):
+     
+      if($details['read_status'] == 1 && $lesson['id'] == $details['lesson_id']):
+      $completeLessonDuration++;
+
+        $temp = explode(':', $lesson['duration']);
+					                 	$completeLesDuration += intval($temp[2]); // Add the seconds
+					                 	$completeLesDuration += intval($temp[1]) * 60; // Add the minutes
+                                        $completeLesDuration += intval($temp[0]) * 60 * 60;  
+                                        $completeLesDurationOfLess  = $totalEnrolCrsTime  -   $completeLesDuration;
+                                       ?>
+      
+ <?php endif; ?>
+ <?php endforeach; ?>
+ <?php $remainDuration =   $completeLesDurationOfLess ;  ?> 
+
+ <?php endforeach; ?>
  <?php endforeach; ?>
 
 <div class="admin_main_content">
