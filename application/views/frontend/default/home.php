@@ -12,7 +12,7 @@
                     <div class="banner1"></div>
                 </div>
             
-                <div class="carousel-caption carouselTitle">
+                <div class="carousel-caption carouselTitle item-1">
                     <div class="carouselInfo">
                         <h3><?php echo get_frontend_settings('banner_title'); ?></h3>
                         <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
@@ -23,7 +23,7 @@
                 <div class="bannerHeight">
                     <div class="banner2"></div>
                 </div>
-                <div class="carousel-caption carouselTitle">
+                <div class="carousel-caption carouselTitle item-1">
                     <div class="carouselInfo">
                             <h3><?php echo get_frontend_settings('banner_title'); ?></h3>
                             <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
@@ -34,7 +34,7 @@
                 <div class="bannerHeight">
                     <div class="banner3"></div>
                 </div>
-                <div class="carousel-caption carouselTitle">
+                <div class="carousel-caption carouselTitle item-1">
                     <div class="carouselInfo">
                             <h3><?php echo get_frontend_settings('banner_title'); ?></h3>
                             <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>
@@ -45,7 +45,7 @@
             <div class="bannerHeight">
                 <div class="banner4"></div>
             </div>
-            <div class="carousel-caption carouselTitle">
+            <div class="carousel-caption carouselTitle item-1">
                 <div class="carouselInfo">
                         <h3><?php echo get_frontend_settings('banner_title'); ?></h3>
                         <p><?php echo get_frontend_settings('banner_sub_title'); ?></p>

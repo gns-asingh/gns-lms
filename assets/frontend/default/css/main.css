@@ -3024,6 +3024,7 @@ section.page-header-area.my-course-area ul {
     padding: 0;
     list-style: none;
     margin-top: 20px;
+    font-size:.875rem;
 }
 section.page-header-area.my-course-area ul li {
     display: inline-block;
@@ -3549,8 +3550,7 @@ section.user-dashboard-area {
     padding: 6px 19px;
     background-color: #20202a;
     border-bottom: 1px solid #181924;
-    text-align:center;
-    border: 1px solid #121212;
+    text-align:center;;
 }
 
 .user-dashboard-content .content-title-box .title {
@@ -3567,9 +3567,10 @@ section.user-dashboard-area {
 }
 
 .user-dashboard-content .content-update-box {
-    border-top: 1px solid #121212;
+    /* border-top: 1px solid #121212;
     padding: 20px;
-    text-align: center;
+    text-align: center; */
+    padding:0px 0px 15px 20px;
 }
 
 .user-dashboard-content .content-update-box button {
@@ -3635,8 +3636,8 @@ section.user-dashboard-area {
     padding: 10px 0;
 }
 .user-dashboard-content .content-box .password-group{
-    padding-bottom: 30px;
-    border-top: 1px solid #dedfe0
+    padding-bottom: 0px;
+    border-top: 1px solid #212121;
 }
 
 
@@ -3709,7 +3710,7 @@ section.user-dashboard-area {
     color: #d0d0d0;
 }
 .message-sender-list-box .message-sender-list .message-sender-head {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 .message-sender-list-box .message-sender-list .message-sender-body {
     padding: 0 43px;
@@ -4323,7 +4324,9 @@ div.tagsinput span.tag a {
     transform: translate(0px, -50%);
     width: auto;
     bottom: auto;
-    right: auto;
+    right: auto;    
+	animation-duration: 0.8s;
+	animation-timing-function: ease-in;
 }
 .carouselInfo{
     background: rgba(0, 0, 0, 0.7215686274509804);
@@ -5395,4 +5398,12 @@ a.admin_text_white:hover {
     padding-right: 15px;
     padding-left: 20px;
     font-size: 13px;
+}
+@keyframes anim-1 {
+	0% { left: -100%; opacity: 0; }
+  100% { left: 10%; opacity: 1; }
+  /* 33.33%, 100% { left: 110%; opacity: 0; } */
+}
+.item-1{
+	animation-name: anim-1;
 }
