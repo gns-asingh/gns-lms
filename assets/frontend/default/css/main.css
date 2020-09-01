@@ -3571,6 +3571,7 @@ section.user-dashboard-area {
     padding: 20px;
     text-align: center; */
     padding:0px 0px 15px 20px;
+    text-align: center;
 }
 
 .user-dashboard-content .content-update-box button {
@@ -5387,7 +5388,7 @@ a.admin_text_white:hover {
     top: -34px;
 
   }
-  .hideme
+.hideme
 {
     opacity:0;
 }
